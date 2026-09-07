@@ -452,13 +452,40 @@ the time each one returns.
 
 ## 3.2 User Flow
 
-The flow, end to end:
+The prototype covers five flows. Every screen listed here exists in the Figma file and is wired, in both light and dark mode.
 
-Sample:
+### First run
 
-Install → Onboarding (3-question capacity calibration) → Permissions (notifications, optional health) → Import timetable (.ics) / add first tasks → My Backpack → [ Add New Task → Impact Preview → accept / decline / rebalance ] → Life Forecast → Smart Rebalance → Apply → Daily check-in → Recovery Island → Weekly review → Insights (debt + trend)
+`Splash → Welcome → Capacity Baseline → Connect Your Week → Calendar Review → Home (day one)`
 
-Unhappy paths covered in the diagram: no wearable connected; the student ignores the overload warning; no tasks entered yet; and the student overrides a warning and accepts anyway — SODA records the override and surfaces the outcome later rather than nagging.
+Onboarding asks for two things only: a rough sense of how much the student can take on, and permission to read their calendar. Both optional steps can be skipped — "Later" on the calendar step and "I'll check them later" on the review step both land on the same first-run Home, so a student who declines everything still reaches a working app. Day-one Home carries a Learning Card that opens a short check-in, because SODA has no history to work from yet.
+
+### Adding a commitment — the core loop
+
+`Home → Add → SODA reads it → Confirms understanding → Impact Preview → Smart Rebalance → Week Updated`
+
+The backpack button in the tab bar opens a single Add screen. The student can type in their own words, tap a worked example, or open "Type it in yourself" to expand a manual form in place — no screen asks them to choose a mode first.
+
+Typed input goes through two checks before anything is saved. SODA shows its working (found the date, estimated the effort from past tasks), then states what it understood and asks the student to confirm or correct it. Manual entry skips the confirmation step and goes straight to Impact Preview, because the student typed the details themselves.
+
+Impact Preview is the decision point. It shows the week's load before and after, names the day that breaks, and offers two routes: Smart Rebalance, which proposes specific changes, or Accept anyway, which requires the student to pass through a confirmation overlay. Either way the outcome is visible before the commitment is real.
+
+### Seeing the week ahead
+
+`Forecast → Day Plan → Smart Rebalance`
+
+The forecast is read-only until something looks wrong. Any day opens its plan, and an overloaded day routes into the same Smart Rebalance screen used by the add flow — one repair mechanism, not
+several. The same is true of "What Breaks" on Home.
+
+### Recovering owed rest
+
+`Recover → Recovery Island → pick a type → Timer → Complete → Daily Check-in`
+
+Recover shows accumulated recovery debt. Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching between them takes one tap instead of returning to the menu. Each option states the time it gives back. Physical and Mental options run a timer; Time options remove work instead of adding rest, and end in a "tasks batched" confirmation rather than a timer.
+
+### Degraded states
+
+Calendar sync failure, offline, and save failure are designed as banners on the working screen rather than separate error pages. The student keeps the last known data, keeps adding tasks, and SODA syncs when it can. Nothing is lost and nothing is blocked.
 
 
 ## 3.3 Core Screens and Mockups
