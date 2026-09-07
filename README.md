@@ -1,18 +1,22 @@
 <div align="center">
 
 # SODA
+
 **Student Overloaded by Deadlines and Activities**
 
 ### *Carry life, not overload.*
 
+</div>
+
 **A capacity model for students who cannot see how much they are already carrying.**
 
-**Video:** pending · **Slides:** pending · [**Figma design file**](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5) · [**How the numbers work**](#54-the-load-model-how-the-numbers-are-produced)
-
-**Team:** Samantha Chan Pei Yin · Lee Jia Yin · Yeap Boon Shen · Muhammad Ikhlas bin Mohd Faizal
-**Problem Statement:** Lifestyle Track · *Beating the Burnout* · Stress & Workload Manager
-
-</div>
+| | |
+|---|---|
+| **Team** | Samantha Chan Pei Yin · Lee Jia Yin · Yeap Boon Shen · Muhammad Ikhlas bin Mohd Faizal |
+| **Problem statement** | Lifestyle Track · *Beating the Burnout* · Stress & Workload Manager |
+| **Prototype** | [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5) |
+| **Video / slides** | Pending |
+| **How the numbers work** | [§5.4 The Load Model](#54-the-load-model-how-the-numbers-are-produced) |
 
 > [!NOTE]
 > **Prototype-round submission.** Screens demonstrate the proposed experience; backend logic, deployment and user outcomes are not yet verified. Video and slides links are pending; public Figma access must be checked before submission.
