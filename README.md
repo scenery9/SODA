@@ -186,38 +186,20 @@ we explain the specific combination in [the comparison table](#comparison-with-e
 
 ### Our Solution
 
-**SODA** models every commitment as a five-dimensional load (*mental, time, physical, social, errands*)
-against a ceiling calibrated to the individual student. Its proposed contribution is three connected decisions:
-
-| | The twist | What the student sees |
-|---|---|---|
-| **1** | **Simulates a commitment before it is accepted** | `Thursday 82% → 107%`, with the affected dimensions and the recovery it would cost, *before* the task is saved |
-| **2** | **Carries recovery debt across weeks** | `2h 35m of planned recovery not logged across 4 weeks`, the number that refuses to reset on Monday, because weeks reset and bodies do not |
-| **3** | **Helps you revise optimistic estimates** | *"Your assignments often run longer than planned"*, two taps after a task, fed back into the next forecast |
-
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/01-onboarding-home-light.png" alt="SODA: onboarding through to the capacity view" width="100%">
-</p>
-
-**One loop, end to end:**
-
-> See total load → **preview a new task** → identify what breaks → choose a fix → recover → improve the next estimate
-
-**Status.** High-fidelity prototype represented in the saved storyboards: **24 screens**, a documented deterministic load-model proposal
-([the load model](#system-architecture)), and an initial hosting budget of
-**USD 5–10/month, subject to measured usage** ([build plan & scope](#build-plan--scope)). Not built yet; this is the prototype round.
-
----
-
 SODA models every commitment as a **five-dimensional load** (mental, time, physical, social and
-errands) against a capacity ceiling calibrated to the individual student. It shows what they are
+errands) against a capacity ceiling calibrated to the individual student. It shows what the student is
 carrying now, forecasts which day of the week breaks, simulates a new commitment *before* it is
-accepted, offers concrete swaps when the week is over capacity, and tracks the recovery a student
-keeps postponing so that it stops disappearing every Monday.
+accepted, offers concrete swaps when the week is over capacity, and tracks the recovery they keep
+postponing so that it stops disappearing every Monday.
 
 The whole product is one loop:
 
-> **See total load → preview a new task → identify what breaks → choose a fix → recover → improve the next estimate**
+> See total load → **preview a new task** → identify what breaks → choose a fix → recover → improve the next estimate
+
+**Status.** 24 screens are designed and exported, the load model is specified as deterministic
+arithmetic ([the load model](#system-architecture)), and hosting is budgeted at
+**USD 5–10/month, subject to measured usage** ([build plan & scope](#build-plan--scope)).
+Not built yet; this is the prototype round.
 
 #### Feature set
 
@@ -235,8 +217,6 @@ The whole product is one loop:
 | F10 | **Insights** | Capacity trend, load by category, most overloaded day, and one honest positive highlight. |
 | F11 | **Natural-language capture** | "Finish FYP report tomorrow, around 4 hours" → structured task, shown for confirmation before anything is saved. |
 | F12 | **How SODA Calculates** | An in-app screen that explains the model, in plain language, to anyone who does not trust the number. |
-
----
 
 ---
 
@@ -472,8 +452,6 @@ Each row records the same chain: **feedback → decision → artifact**, so ever
 checked against something we actually changed.
 
 </details>
-
----
 
 ---
 
