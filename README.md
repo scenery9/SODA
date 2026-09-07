@@ -1,6 +1,6 @@
 <div align="center">
 
-# SODA
+# SODA by Team Soda
 
 **Student Overloaded by Deadlines and Activities**
 
@@ -13,82 +13,18 @@
 | | |
 |---|---|
 | **Team** | Samantha Chan Pei Yin · Lee Jia Yin · Yeap Boon Shen · Muhammad Ikhlas bin Mohd Faizal |
-| **Problem statement** | Lifestyle Track · *Beating the Burnout* · Stress & Workload Manager |
-| **Prototype** | [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5) |
-| **Video / slides** | Pending |
-| **How the numbers work** | [§5.4 The Load Model](#54-the-load-model-how-the-numbers-are-produced) |
+| **Problem Statement** | Lifestyle Track · *Beating the Burnout* · Stress & Workload Manager |
+| **Video Presentation** | Pending |
+| **Presentation Slides** | Pending |
 
 > [!NOTE]
-> **Prototype-round submission.** Screens demonstrate the proposed experience; backend logic, deployment and user outcomes are not yet verified. Video and slides links are pending; public Figma access must be checked before submission.
-
----
-
-## The 30-second version
-
-**Students don't collapse from one thing.** They collapse from an accumulation nobody is measuring:
-coursework, a shift job, a committee role, errands, and the quiet cost of never resting, all landing in
-the same week.
-
-**The gap is between organising commitments and judging their combined demand.** Task managers,
-calendar optimisers and self-care apps each help. SODA brings five kinds of demand, the next commitment
-and missed recovery into the same decision: **“Can I take this on, and what would need to change?”**
-
-**SODA** models every commitment as a five-dimensional load (*mental, time, physical, social, errands*)
-against a ceiling calibrated to the individual student. Its proposed contribution is three connected decisions:
-
-| | The twist | What the student sees |
-|---|---|---|
-| **1** | **Simulates a commitment before it is accepted** | `Thursday 82% → 107%`, with the affected dimensions and the recovery it would cost, *before* the task is saved |
-| **2** | **Carries recovery debt across weeks** | `2h 35m of planned recovery not logged across 4 weeks`, the number that refuses to reset on Monday, because weeks reset and bodies do not |
-| **3** | **Helps you revise optimistic estimates** | *"Your assignments often run longer than planned"*, two taps after a task, fed back into the next forecast |
-
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/01-onboarding-home-light.png" alt="SODA: onboarding through to the capacity view" width="100%">
-</p>
-
-**One loop, end to end:**
-
-> See total load → **preview a new task** → identify what breaks → choose a fix → recover → improve the next estimate
-
-**Status.** High-fidelity prototype represented in the saved storyboards: **24 screens**, a documented deterministic load-model proposal
-([§5.4](#54-the-load-model-how-the-numbers-are-produced)), and an initial hosting budget of
-**USD 5–10/month, subject to measured usage** ([§5.6](#56-team-time-and-cost)). Not built yet; this is the prototype round.
-
----
-
-## How to read this
-
-Supporting detail lives in collapsed **▸** blocks. Nothing is hidden, only folded, so the argument
-stays short and the evidence stays available.
-
-| If you have | Read |
-|---|---|
-| **60 seconds** | The box above, then the screens in [§3.3](#33-core-screens) |
-| **5 minutes** | + [§4 What Makes It Different](#4-what-makes-it-different) and [§5.2–5.3 architecture](#52-system-architecture--data-flow) |
-| **You are scoring ideation** | [§2.1 ideas considered](#21-ideas-we-considered), [§2.2 boards](#22-ideation-boards), [§2.3 six iterations](#23-iteration-and-idea-evolution), [§2.4 mentor feedback](#24-mentor-consultation) |
-| **You are scoring feasibility** | [§5.1 stack](#51-technology-stack), [§5.3 an error we found and fixed](#53-the-language-layer-what-we-corrected), [§5.5 scope](#55-scope-and-build-plan-moscow) |
-| **You want to check our maths** | [§5.4](#54-the-load-model-how-the-numbers-are-produced) · every figure in the app is arithmetic you can do on paper |
-| **You are going to build it** | [§7 Build Specification](#7-appendix-build-specification) · schema, API surface, repo layout |
-
-<details>
-<summary><strong>Full table of contents</strong></summary>
-
-1. [Project Overview](#1-project-overview)
-2. [Ideation & Process](#2-ideation--process)
-3. [Design & Prototype](#3-design--prototype)
-4. [What Makes It Different](#4-what-makes-it-different)
-5. [Technical Architecture & Feasibility](#5-technical-architecture--feasibility)
-6. [Impact](#6-impact)
-7. [Appendix: Build Specification](#7-appendix-build-specification)
-8. [References](#8-references)
-
-</details>
+> **Prototype-round submission.** The screens show the proposed experience. Backend logic, deployment and user outcomes are not built or verified yet.
 
 ---
 
 ## 1. Project Overview
 
-### 1.1 The Problem
+### The Problem
 
 University students rarely collapse from one thing. They collapse from an accumulation nobody is
 measuring: coursework, a shift job, a committee role, errands, and the quiet cost of never resting,
@@ -152,7 +88,8 @@ findings**: an *avoidance cycle* (guilt → avoidance → more unfinished work �
 **Design opportunity, stated plainly:** make total load visible early, support the decision *before*
 the commitment is made, and carry recovery needs across weeks.
 
-### 1.2 Stakeholders
+<details>
+<summary><strong>Stakeholders, target users, and the research behind them</strong></summary>
 
 **Primary users** are undergraduates balancing coursework with at least one substantial responsibility
 outside class: paid work, society leadership, structured sport, or caring duties. These students hold
@@ -199,7 +136,56 @@ opportunities for *adjustment* and *recovery* have to sit beside the task list, 
 
 </details>
 
-### 1.3 What already exists, and why it falls short
+| Segment | Main difficulty | SODA's response |
+|---|---|---|
+| **Working student** | Fixed shifts compete with coursework and rest | Life Forecast names the demanding day; Smart Rebalance works *around* immovable shifts |
+| **Over-committed student** | Requests accepted without seeing the effect on the week | Impact Preview makes the trade-off visible before confirmation |
+| **Final-year student** | Open-ended projects are hard to estimate | Reality Check collects estimation feedback; Recovery Debt keeps missed rest visible |
+| **Quiet grinder** | Work gets done; recovery is repeatedly postponed | My Backpack reveals accumulation; Recovery Debt and Recovery Island give rest a place in the plan |
+
+**Jobs to be done**
+
+| | Job | Feature |
+|---|---|---|
+| J1 | Understand the cost of another commitment before agreeing | Impact Preview |
+| J2 | Make future estimates reflect previous experience | Reality Check |
+| J3 | Identify which workload area needs attention | My Backpack |
+| J4 | Find commitments that can be moved, reduced or removed | Smart Rebalance |
+| J5 | Recognise recovery shortfalls across weeks | Recovery Debt |
+| J6 | Choose a relevant recovery activity | Recovery Island |
+
+Students with light, easily coordinated workloads will get less from SODA, and that is a correct
+targeting decision, not a gap. Students needing clinical or crisis support need services beyond this app.
+
+Student overload develops when coursework, employment, extracurriculars, personal responsibilities and
+insufficient recovery accumulate together. Academic stress involves multiple pressures rather than
+academic tasks alone (Iqra, 2024), and study-related factors are linked with both burnout and engagement
+(Olson et al., 2023).
+
+<details>
+<summary><strong>▸ The research framing, and the three considerations that shaped the approach</strong></summary>
+
+SODA deliberately targets an **earlier and more actionable question** than "is this student burning out":
+
+> **How can a student recognise their combined workload and adjust it while they still have options?**
+
+Three considerations shape the approach:
+
+- **Visibility.** Knowing your commitments individually does not reveal their combined demand. SODA puts
+  every recorded responsibility into one overview.
+- **Planning.** A meta-analysis of 31 studies covering 13,506 participants found a positive association
+  between time management and learning outcomes, particularly among undergraduates (Liu et al., 2026).
+  That supports investigating better planning decisions; it does **not** license us to claim SODA
+  improves grades.
+- **Recovery.** Effort–recovery theory explains how incomplete recovery leaves residual strain when the
+  next demand arrives (Meijman & Mulder, 1998). That informs Recovery Debt, without validating its
+  particular numbers.
+
+</details>
+
+</details>
+
+#### What already exists, and why it falls short
 
 | Existing solution | What it genuinely does well | Where it leaves the student |
 |---|---|---|
@@ -209,9 +195,32 @@ opportunities for *adjustment* and *recovery* have to sit beside the task list, 
 
 Our design focus is the **join between five-dimensional demand, a proposed commitment and a rolling
 recovery record**. We do not claim that previews, scheduling or self-care are absent from existing apps;
-we explain the specific combination in [§4.3](#43-differentiation-table).
+we explain the specific combination in [the comparison table](#comparison-with-existing-solutions).
 
-### 1.4 Our Solution
+### Our Solution
+
+**SODA** models every commitment as a five-dimensional load (*mental, time, physical, social, errands*)
+against a ceiling calibrated to the individual student. Its proposed contribution is three connected decisions:
+
+| | The twist | What the student sees |
+|---|---|---|
+| **1** | **Simulates a commitment before it is accepted** | `Thursday 82% → 107%`, with the affected dimensions and the recovery it would cost, *before* the task is saved |
+| **2** | **Carries recovery debt across weeks** | `2h 35m of planned recovery not logged across 4 weeks`, the number that refuses to reset on Monday, because weeks reset and bodies do not |
+| **3** | **Helps you revise optimistic estimates** | *"Your assignments often run longer than planned"*, two taps after a task, fed back into the next forecast |
+
+<p align="center">
+  <img src="design-previews/soda-storyboard-v1/01-onboarding-home-light.png" alt="SODA: onboarding through to the capacity view" width="100%">
+</p>
+
+**One loop, end to end:**
+
+> See total load → **preview a new task** → identify what breaks → choose a fix → recover → improve the next estimate
+
+**Status.** High-fidelity prototype represented in the saved storyboards: **24 screens**, a documented deterministic load-model proposal
+([the load model](#system-architecture)), and an initial hosting budget of
+**USD 5–10/month, subject to measured usage** ([build plan & scope](#build-plan--scope)). Not built yet; this is the prototype round.
+
+---
 
 SODA models every commitment as a **five-dimensional load** (mental, time, physical, social and
 errands) against a capacity ceiling calibrated to the individual student. It shows what they are
@@ -239,6 +248,8 @@ The whole product is one loop:
 | F10 | **Insights** | Capacity trend, load by category, most overloaded day, and one honest positive highlight. |
 | F11 | **Natural-language capture** | "Finish FYP report tomorrow, around 4 hours" → structured task, shown for confirmation before anything is saved. |
 | F12 | **How SODA Calculates** | An in-app screen that explains the model, in plain language, to anyone who does not trust the number. |
+
+---
 
 ---
 
@@ -277,7 +288,7 @@ which is why "How SODA Calculates" is a real screen and not a footnote.
 
 #### Board 1: Problem tree (Figure 1.1)
 
-Shown in [§1.1](#11-the-problem). It maps consequences → core problem → six root causes, and names the
+Shown in [The Problem](#the-problem). It maps consequences → core problem → six root causes, and names the
 two reinforcing cycles we treat as hypotheses rather than findings.
 
 #### Board 2: Ideation mindmaps (Figures 1.2a–1.2c)
@@ -393,7 +404,7 @@ considered, and the user flow shows *how* the chosen idea became a product.
 
 > Problem Tree → Ideation Mindmap → Core User Flow
 
-### 2.3 Iteration and Idea Evolution
+#### Board 4: How the idea evolved
 
 SODA went through six documented versions. Each was triggered by a specific concern, and each one
 dropped something.
@@ -441,13 +452,12 @@ recovery advice a tired person can actually act on.
 
 </details>
 
-
-### 2.4 Mentor Consultation
+### 2.3 Mentor Consultation
 
 | Date | Consultation | Response and evidence |
 |---|---|---|
-| 7 Sep 2026 | **Khor Jia Quan** · simplify capture; give the companion a functional role | **Adopted in full.** The mode chooser was removed: Add is now one screen, chat-first, with manual entry expanding in place. Companion states now carry load severity. Details below and §3.2–3.3. |
-| 7 Sep 2026 | **Judging panel** (team handoff) · split the mindmap; add technology marks; improve text alternatives | Three separate boards in §2.2, revised architecture in §5.2 and accessibility specification in §3.5. |
+| 7 Sep 2026 | **Khor Jia Quan** · simplify capture; give the companion a functional role | **Adopted in full.** The mode chooser was removed: Add is now one screen, chat-first, with manual entry expanding in place. Companion states now carry load severity. Details below, and in the user-flow and key-screen sections. |
+| 7 Sep 2026 | **Judging panel** (team handoff) · split the mindmap; add technology marks; improve text alternatives | Three separate boards in Ideation Boards, a revised architecture figure, and a fuller accessibility specification. |
 
 <details>
 <summary><strong>▸ Specific feedback, the partial disagreement, and how to verify each response</strong></summary>
@@ -459,12 +469,12 @@ hand-typed commitments still needed a shared entry point. Testing the click path
 actual objection changed our mind: any chooser shown *before* the student has typed anything is a
 decision tax levied on someone who only wanted to log a task. **Add is now a single screen**: the chat
 field is present immediately, and a *"Type it in yourself"* control expands the manual form **in place**,
-so neither group is asked to pick a mode first and neither is forced through a conversation (§3.2).
+so neither group is asked to pick a mode first and neither is forced through a conversation (see the user-flow fold).
 Verify against Screens 07–10 in the public prototype.
 
 **Companion.** The mentor asked for fuller use of the backpack. The documented response assigns it calm,
 strained and resting states across the overview, overload preview and Recovery Island. It reinforces
-the visible severity label rather than replacing it; see the exported storyboards in §3.3.
+the visible severity label rather than replacing it; see the exported storyboards under Key screens.
 
 **Readable evidence.** Panel feedback in the supplied team record requested separate ideation boards,
 recognisable backend technology logos and stronger alternate-text explanations. The revised README
@@ -478,6 +488,8 @@ checked against something we actually changed.
 
 ---
 
+---
+
 ## 3. Design & Prototype
 
 **UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5)
@@ -486,66 +498,7 @@ SODA is used by people who are already depleted. That single fact drives every d
 section: the interface has to be readable in ten seconds, honest about what it does not know, and
 incapable of making a tired student feel worse for opening it.
 
-### 3.1 Design Principles
-
-SODA is built around one uncomfortable moment: the second before a student says "yes" to something they do not have room for. Every screen in the prototype is shaped by five rules.
-
-**1. Show the cost before the commitment.**
-Most planners tell you what you agreed to after you agreed. SODA shows the damage first. Adding a task opens an Impact Preview that puts the week's load before and after side by side: 82% becomes
-107%, and the day that breaks is named. The primary action is not "Save", it is "Fix my week".
-
-**2. Plan, never diagnose.**
-SODA reports capacity, not health. Copy throughout the app repeats the boundary in plain words: "This is for planning. It is not a health score." Body signals are compared to the student's own
-normal, never to a population baseline, and the app states that it works with no wearable connected at all.
-
-**3. Nothing is saved until the student approves it.**
-When a task is typed in conversationally, SODA shows what it understood and asks "Did I get that right?" before anything is written. The same line, "Nothing is saved until you approve", sits under the input field. The system proposes; the student decides.
-
-**4. One way in, not a menu.**
-Adding something is a single screen. The chat input is there immediately, with a "Type it in yourself" option that expands the manual form in place. Students who prefer forms are never forced through a conversation, and neither group has to pick a mode before they start.
-
-**5. Give the time back, don't just warn.**
-Flagging an overloaded week is not help. Every warning is paired with an action: Smart Rebalance proposes specific changes, and Recovery Island turns owed rest into short, concrete options with
-the time each one returns.
-
-### 3.2 User Flow
-
-The prototype covers five flows. Every screen listed here exists in the Figma file and is wired, in both light and dark mode.
-
-#### First run
-
-`Splash → Welcome → Capacity Baseline → Connect Your Week → Calendar Review → Home (day one)`
-
-Onboarding asks for two things only: a rough sense of how much the student can take on, and permission to read their calendar. Both optional steps can be skipped: "Later" on the calendar step and "I'll check them later" on the review step both land on the same first-run Home, so a student who declines everything still reaches a working app. Day-one Home carries a Learning Card that opens a short check-in, because SODA has no history to work from yet.
-
-#### Adding a commitment: the core loop
-
-`Home → Add → SODA reads it → Confirms understanding → Impact Preview → Smart Rebalance → Week Updated`
-
-The backpack button in the tab bar opens a single Add screen. The student can type in their own words, tap a worked example, or open "Type it in yourself" to expand a manual form in place; no screen asks them to choose a mode first.
-
-Typed input goes through two checks before anything is saved. SODA shows its working (found the date, estimated the effort from past tasks), then states what it understood and asks the student to confirm or correct it. Manual entry skips the confirmation step and goes straight to Impact Preview, because the student typed the details themselves.
-
-Impact Preview is the decision point. It shows the week's load before and after, names the day that breaks, and offers two routes: Smart Rebalance, which proposes specific changes, or Accept anyway, which requires the student to pass through a confirmation overlay. Either way the outcome is visible before the commitment is real.
-
-#### Seeing the week ahead
-
-`Forecast → Day Plan → Smart Rebalance`
-
-The forecast is read-only until something looks wrong. Any day opens its plan, and an overloaded day routes into the same Smart Rebalance screen used by the add flow: one repair mechanism, not
-several. The same is true of "What Breaks" on Home.
-
-#### Recovering owed rest
-
-`Recover → Recovery Island → pick a type → Timer → Complete → Daily Check-in`
-
-Recover shows accumulated recovery debt. Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching between them takes one tap instead of returning to the menu. Each option states the time it gives back. Physical and Mental options run a timer; Time options remove work instead of adding rest, and end in a "tasks batched" confirmation rather than a timer.
-
-#### Degraded states
-
-Calendar sync failure, offline, and save failure are designed as banners on the working screen rather than separate error pages. The student keeps the last known data, keeps adding tasks, and SODA syncs when it can. Nothing is lost and nothing is blocked.
-
-### 3.3 Core Screens
+### Key screens
 
 > [!IMPORTANT]
 > **Storyboard consistency note.** The saved screens contain separate illustrative states: Impact
@@ -613,8 +566,70 @@ its determinism, the narrow role of AI, and the privacy position, all in plain l
 
 </details>
 
+### Design principles
 
-### 3.4 Usability and UX Decisions
+SODA is built around one uncomfortable moment: the second before a student says "yes" to something they do not have room for. Every screen in the prototype is shaped by five rules.
+
+**1. Show the cost before the commitment.**
+Most planners tell you what you agreed to after you agreed. SODA shows the damage first. Adding a task opens an Impact Preview that puts the week's load before and after side by side: 82% becomes
+107%, and the day that breaks is named. The primary action is not "Save", it is "Fix my week".
+
+**2. Plan, never diagnose.**
+SODA reports capacity, not health. Copy throughout the app repeats the boundary in plain words: "This is for planning. It is not a health score." Body signals are compared to the student's own
+normal, never to a population baseline, and the app states that it works with no wearable connected at all.
+
+**3. Nothing is saved until the student approves it.**
+When a task is typed in conversationally, SODA shows what it understood and asks "Did I get that right?" before anything is written. The same line, "Nothing is saved until you approve", sits under the input field. The system proposes; the student decides.
+
+**4. One way in, not a menu.**
+Adding something is a single screen. The chat input is there immediately, with a "Type it in yourself" option that expands the manual form in place. Students who prefer forms are never forced through a conversation, and neither group has to pick a mode before they start.
+
+**5. Give the time back, don't just warn.**
+Flagging an overloaded week is not help. Every warning is paired with an action: Smart Rebalance proposes specific changes, and Recovery Island turns owed rest into short, concrete options with
+the time each one returns.
+
+<details>
+<summary><strong>User flow, end to end</strong></summary>
+
+The prototype covers five flows. Every screen listed here exists in the Figma file and is wired, in both light and dark mode.
+
+#### First run
+
+`Splash → Welcome → Capacity Baseline → Connect Your Week → Calendar Review → Home (day one)`
+
+Onboarding asks for two things only: a rough sense of how much the student can take on, and permission to read their calendar. Both optional steps can be skipped: "Later" on the calendar step and "I'll check them later" on the review step both land on the same first-run Home, so a student who declines everything still reaches a working app. Day-one Home carries a Learning Card that opens a short check-in, because SODA has no history to work from yet.
+
+#### Adding a commitment: the core loop
+
+`Home → Add → SODA reads it → Confirms understanding → Impact Preview → Smart Rebalance → Week Updated`
+
+The backpack button in the tab bar opens a single Add screen. The student can type in their own words, tap a worked example, or open "Type it in yourself" to expand a manual form in place; no screen asks them to choose a mode first.
+
+Typed input goes through two checks before anything is saved. SODA shows its working (found the date, estimated the effort from past tasks), then states what it understood and asks the student to confirm or correct it. Manual entry skips the confirmation step and goes straight to Impact Preview, because the student typed the details themselves.
+
+Impact Preview is the decision point. It shows the week's load before and after, names the day that breaks, and offers two routes: Smart Rebalance, which proposes specific changes, or Accept anyway, which requires the student to pass through a confirmation overlay. Either way the outcome is visible before the commitment is real.
+
+#### Seeing the week ahead
+
+`Forecast → Day Plan → Smart Rebalance`
+
+The forecast is read-only until something looks wrong. Any day opens its plan, and an overloaded day routes into the same Smart Rebalance screen used by the add flow: one repair mechanism, not
+several. The same is true of "What Breaks" on Home.
+
+#### Recovering owed rest
+
+`Recover → Recovery Island → pick a type → Timer → Complete → Daily Check-in`
+
+Recover shows accumulated recovery debt. Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching between them takes one tap instead of returning to the menu. Each option states the time it gives back. Physical and Mental options run a timer; Time options remove work instead of adding rest, and end in a "tasks batched" confirmation rather than a timer.
+
+#### Degraded states
+
+Calendar sync failure, offline, and save failure are designed as banners on the working screen rather than separate error pages. The student keeps the last known data, keeps adding tasks, and SODA syncs when it can. Nothing is lost and nothing is blocked.
+
+</details>
+
+<details>
+<summary><strong>Six friction points we designed around</strong></summary>
 
 Six friction points we designed around. Each was a real change, and each cost us something.
 
@@ -627,7 +642,10 @@ Six friction points we designed around. Each was a real change, and each cost us
 | 5 | Warning-only → **warning plus the swaps** | An overload warning with no action is just anxiety. Every red state routes to concrete moves with savings attached. | Screen density on the preview. |
 | 6 | Confident percentage → **percentage plus coverage** | We first displayed the headline figure alone. It looked more authoritative and was less honest. | Visual cleanliness, for a number a student can trust. |
 
-### 3.5 Accessibility
+</details>
+
+<details>
+<summary><strong>Accessibility: what is designed, what is still unverified</strong></summary>
 
 Accessibility is not a compliance annex here; it is load-bearing. Our users are, by definition, tired,
 and fatigue degrades exactly the capacities (sustained attention, colour discrimination under low
@@ -702,7 +720,7 @@ is the recommended fallback where the actual values matter more than the shape
 | Requirement | Status | Detail |
 |---|---|---|
 | Colour-blind safe | **Implemented in design** | Severity carries label + numeral + fill treatment + icon; never hue alone. Deuteranopia/protanopia simulation must be documented before calling the palette verified. |
-| Screen-reader chart alternatives | **Implemented in design** | Text alternatives above; Flutter `Semantics` widgets specified per chart in [§7.4](#74-accessibility-implementation-notes). |
+| Screen-reader chart alternatives | **Implemented in design** | Text alternatives above; Flutter `Semantics` widgets specified per chart in the implementation notes in the accessibility fold. |
 | Text contrast | **Verification pending** | Target 4.5:1 for normal text and 3:1 for large text. Retain measured colour-pair evidence; re-check small Day Detail figures. |
 | Non-text contrast (1.4.11) | **Verification pending** | Target 3:1 for essential chart boundaries and controls. Measure final foreground/background pairs. |
 | Dynamic type | **Specified; build verification pending** | Test 200% text scaling, reflow and clipped labels on real devices. |
@@ -719,9 +737,34 @@ is the recommended fallback where the actual values matter more than the shape
 
 ---
 
-## 4. What Makes It Different
+#### Implementation notes
 
-### 4.1 Originality
+<details>
+<summary><strong>▸ Open Flutter Semantics implementation notes</strong></summary>
+
+```dart
+// Every chart is wrapped so a screen reader receives the summary given above,
+// and the raw chart is hidden from the accessibility tree rather than announced as "image".
+Semantics(
+  label: buildAccessibleLoadSummary(weekSnapshot), // uses the chart's exact data + model version
+  child: ExcludeSemantics(child: BackpackBubbleChart(...)))
+```
+
+- Severity is produced by a single `SeverityBand` enum that returns **colour + label + icon together**,
+  so callers can consistently provide all three cues.
+- `MediaQuery.of(context).disableAnimations` gates the mascot idle loop and the timer breathing ring.
+- Target Android controls at ≥ 48×48 logical pixels; no fixed-height text containers, so dynamic type reflows.
+- Charts expose a visible, keyboard-focusable "View as table" button for exact values.
+- **Phase 6 must include a real TalkBack pass.** Until it runs, [the accessibility fold](#3-design--prototype) says
+  "implemented in design", not "verified".
+
+</details>
+
+</details>
+
+---
+
+## 4. What Makes It Different
 
 **SODA makes the next “yes” a capacity decision: preview five kinds of demand, protect recovery, and learn from what actually happened.**
 
@@ -741,7 +784,7 @@ This is consistent with Study Demands–Resources theory, which explains student
 interaction of demands, resources and proactive adjustment (Bakker & Mostert, 2024). We did not invent
 the framework; we designed an interface informed by it.
 
-### 4.2 Novel Features and Twists
+### Novel features
 
 #### 4.2.1 Five-dimensional capacity view
 
@@ -850,8 +893,7 @@ every core function works without one.
 
 </details>
 
-
-### 4.3 Differentiation Table
+### Comparison with existing solutions
 
 **Comparison basis:** selected official product descriptions reviewed on 7 September 2026, not an
 exhaustive market survey or hands-on benchmark. SODA's column describes a **proposed prototype**.
@@ -869,7 +911,8 @@ is this connected, student-focused workflow, not the invention of scheduling, pr
 
 > Comparative testing is required before claiming greater accuracy, usability or effectiveness.
 
-### 4.4 Defensible Product Identity
+<details>
+<summary><strong>How the features share state</strong></summary>
 
 The features are not a list; they share state.
 
@@ -895,9 +938,137 @@ reverse anything the app changed; keep the core usable without a wearable.
 
 ---
 
+</details>
+
+### What changes for the student
+
+1. **More informed commitment decisions**, accept, defer, decline or modify with the trade-off visible.
+2. **Lower workload concentration**, flexible tasks redistributed without assuming everything can go.
+3. **More realistic planning**, repeated feedback nudges optimistic estimates toward reality.
+4. **More deliberate recovery**, rest becomes visible, planned and matched to what is depleted.
+
+The behavioural shift we are aiming for, in one line:
+
+> from **"How do I manage everything I already accepted?"**
+> to **"Should I accept this, and what would need to change?"**
+
+Longer-term improvements in wellbeing or academic functioning remain **hypotheses**.
+
+<details>
+<summary><strong>The mechanism behind each claim, and an illustrative before/after week</strong></summary>
+
+Our case for effectiveness is **theory-informed and testable**, not demonstrated. The prototype shows the
+intended interaction; sustained behavioural effects require evaluation.
+
+**Illustrative persona: Aina, a working undergraduate (fictional, not a research participant).**
+Aina has a fixed Thursday shift and an assignment due Friday. A club asks her to take on more work.
+SODA previews the extra demand before she agrees: **82% → 107%** in the intended demo fixture.
+She reviews feasible changes, keeps her shift and deadline fixed, and approves a plan targeting **89%**.
+If there is no feasible adjustment, SODA says so; accepting, deferring or declining stays her decision.
+The benefit being tested is a clearer trade-off and a usable plan-not a claim that her burnout risk fell.
+
+<details>
+<summary><strong>▸ Research-to-intervention mapping, a before/after week, and the limits of the claim</strong></summary>
+
+| Problem | Research basis | SODA intervention |
+|---|---|---|
+| Combined load is hard to recognise | Self-regulation depends on detecting a gap between current and reference state (Carver & Scheier, 1982) | My Backpack makes concentration of load visible, creating the reference point |
+| Future cost is less salient than present benefit | Decisions underweight delayed consequences (Thaler & Sunstein, 2008) | Impact Preview drags the delayed cost into the present moment |
+| Task estimates are optimistic | People underestimate completion times despite past overruns (Buehler et al., 1994) | Reality Check collects feedback intended to correct future estimates |
+| Recovery stays an unprotected intention | Specifying when and where an action happens supports follow-through (Gollwitzer, 1999) | Smart Rebalance places explicit recovery blocks in the plan |
+| Missed recovery persists | Incomplete recovery leaves residual load reactions (Meijman & Mulder, 1998) | Recovery Debt carries shortfalls across weeks instead of resetting |
+| Recovery needs differ | Recovery research distinguishes detachment, relaxation, mastery and control (Sonnentag & Fritz, 2007) | Recovery Island offers varied, axis-matched actions |
+
+> These theories support the **design rationale**. They do not validate SODA's five dimensions, its
+> weights, its recovery percentages, or the effectiveness of any specific recommendation.
+
+**Illustrative before-and-after** *(intended behaviour, not observed outcomes; assumes commitments are
+recorded and some adjustment is feasible)*
+
+| Day | Without SODA | With SODA |
+|---|---|---|
+| Mon | A club responsibility is accepted without reviewing the week | Impact Preview shows its projected effect before confirmation |
+| Tue | Presentation prep is estimated from intuition | Completion feedback informs a suggestion to reconsider the estimate |
+| Wed | Several deadlines start competing for the same hours | Smart Rebalance identifies which tasks can actually move |
+| Thu | Work stays concentrated on one demanding day | Approved changes redistribute demand; Thursday’s illustrative load estimate drops from 107% to 89% |
+| Fri | Rest is displaced by unfinished work | Protected recovery survives in the revised plan |
+| Sat | Free time, no recovery plan | Recovery Island offers a concrete, matched activity |
+
+**Limits of the claim.** The model depends on recorded information, missing commitments produce false
+confidence. Capacity and Recovery Debt are personal estimates, not universal thresholds. Reality Check
+currently demonstrates broad duration-and-effort feedback and must not be described as a validated
+learning multiplier.
+
+</details>
+
+</details>
+
+<details>
+<summary><strong>How we would know if we are wrong: eight falsifiable predictions</strong></summary>
+
+Success is measured by changes in decisions and behaviour, not app opens. These are proposed for a future
+evaluation; **none of them are current results.**
+
+| # | Prediction | Success indicator | Finding that would challenge it |
+|---|---|---|---|
+| P1 | Lower workload peaks | Lower peak daily load; fewer days above the limit | Peaks unchanged despite feasible adjustments |
+| P2 | Better commitment decisions | Some previewed tasks are modified, deferred or declined | Previews rarely change decisions where alternatives exist |
+| P3 | Better estimates | Fewer repeated "longer than expected" responses within a category | Feedback produces no change in estimates or overruns |
+| P4 | More completed recovery | Protected blocks completed more often than unscheduled intentions | Scheduling produces no follow-through improvement |
+| P5 | Reduced recovery accumulation | Debt stabilises or falls when recovery opportunities exist | Shortfalls keep growing despite usable recommendations |
+| P6 | Reduced exhaustion | A controlled study shows greater improvement on a validated exhaustion measure | An adequately powered study finds no meaningful difference |
+| P7 | Better data coverage | More commitments captured; fewer major late additions | Important tasks stay missing and repeatedly alter forecasts |
+| P8 | Retention under load | Target users keep using it during demanding periods | Students abandon it exactly when workload rises |
+
+**Guard against fooling ourselves:** a lower workload percentage could come from *missing tasks* or a
+*changed ceiling* rather than a better schedule. Any model-based improvement must be cross-checked against
+recorded behaviour, and Recovery Debt must be read alongside actual recorded recovery.
+
+**Proposed first evaluation:** recruit 6–8 consenting students who combine coursework with paid work,
+leadership or caring. Use the same synthetic week in a calendar-only task and a SODA task, alternate
+the order, and ask participants to identify the overloaded day, explain the estimate, and choose a
+feasible adjustment. Record completion, misunderstandings, time and reasons for rejecting suggestions.
+Provisional usability gates: at least 6 of 8 complete the main loop without help, at least 6 of 8 explain
+that the percentage is an estimate, and zero accepted moves violate a fixed event, deadline or protected
+block. Any constraint breach blocks release. This small study tests comprehension and usability, not
+clinical effectiveness; longer-term claims need a separate evaluation with appropriate oversight.
+
+</details>
+
+<details>
+<summary><strong>Reach and scalability</strong></summary>
+
+<details>
+<summary><strong>▸ Four-stage scaling plan and the conditions gating each stage</strong></summary>
+
+Digital delivery reaches students without needing a coach per student, but availability is not adoption.
+Our rollout therefore tests reach, uptake and continued use before expansion. These are proposed
+operational gates, not evidence that SODA is an effective mental health intervention.
+
+| Stage | Goal | Conditions before progressing |
+|---|---|---|
+| **1 · Initial campus** | Recruit via societies, orientation and student-support channels | Confirm students understand the estimates, maintain task records, and find the recommendations usable |
+| **2 · Other universities** | Reuse the core app with local calendar integration, terminology and support contacts | Verify usefulness across different assessment patterns |
+| **3 · Similar populations** | Postgraduate researchers, trainees, early-career workers | **Revalidate** the assumptions and load categories rather than relabelling the student model |
+| **4 · Optional institutional insights** | Surface recurring aggregate workload peaks (e.g. overlapping assessment weeks) | Consent, aggregation safeguards, governance and re-identification protection established first |
+
+Individual workload and check-in records stay under student control. Institutional analytics are a future
+possibility, **not a current prototype capability**.
+
+> Scaling strategy: **validate → expand → adapt.** Establish usefulness for the intended students first,
+> then test whether that usefulness survives a broader deployment.
+
+---
+
+</details>
+
+</details>
+
+---
+
 ## 5. Technical Architecture & Feasibility
 
-### 5.1 Technology Stack
+### Tech stack
 
 Selected for development speed, team familiarity, cost, cross-platform reach and ease of deployment.
 The core demo uses modest hosted resources; quotas, access and usage must be checked before judging.
@@ -906,7 +1077,7 @@ The core demo uses modest hosted resources; quotas, access and usage must be che
 |---|---|---|
 | **Frontend** · **Flutter** (Dart) | One codebase ships an Android APK *and* a Flutter-web build, which is exactly what the submission needs: an installable app for a judge's device and a public link for everyone else. Strong fit for the custom charts (bubble, bar, line) that carry SODA's core value. | Platform behaviour diverges on calendar permissions and notifications; both targets need separate testing. Flutter web has a heavier first paint than a native web app. |
 | **State management** · **Riverpod** | Compile-safe dependency injection and testable providers; keeps the load-model state out of widgets. | Learning curve for members newer to Dart. |
-| **Charts** · **fl_chart** | Covers the bar, line and pie/donut charts natively, and, critically, lets us wrap each chart in a `Semantics` node so we can attach the text alternatives in [§3.5](#35-accessibility). | The Backpack bubble-in-backpack visual is custom-painted, not an fl_chart primitive. |
+| **Charts** · **fl_chart** | Covers the bar, line and pie/donut charts natively, and, critically, lets us wrap each chart in a `Semantics` node so we can attach the text alternatives in [the accessibility fold](#3-design--prototype). | The Backpack bubble-in-backpack visual is custom-painted, not an fl_chart primitive. |
 | **Backend API** · **FastAPI** (Python) | Lightweight, fast to write, automatic OpenAPI docs (useful when a teammate is building the Flutter client against it), and native to the Python load engine. | Needs its own hosting and strict request validation. Any feature requiring the server is network-dependent. |
 | **Load engine** · **Plain Python** (no ML framework) | The five-dimension score, capacity, Impact Preview, Smart Rebalance and Recovery Debt are all **deterministic arithmetic**. That makes them explainable to a judge, unit-testable and reproducible: same inputs, same output, every time. | The outputs are *planning estimates*, not measurements. The model must never present itself as a prediction of stress or burnout. |
 | **Database** · **Supabase (PostgreSQL)** | Managed Postgres with a free tier that comfortably fits a prototype, plus Row Level Security enforced at the database rather than in app code. | Free plan includes **500 MB database per project** and inactivity pausing; check [current quotas](https://supabase.com/pricing) before deployment. RLS policies must be correct or users can read each other's rows. |
@@ -914,12 +1085,12 @@ The core demo uses modest hosted resources; quotas, access and usage must be che
 | **Calendar** · **Google Calendar API (read-only)** | Kills the biggest source of manual entry. Read-only scope (`calendar.events.readonly`) is a deliberate risk reduction: SODA can never modify a student's real calendar. | Requires Google OAuth consent. Imported events rarely contain enough information to infer all five dimensions, so the Calendar Review screen exists to let the student confirm. |
 | **Offline** · **Drift** (SQLite) | Local read cache and a write queue so the app stays usable on campus Wi-Fi that drops. | Sync conflicts if local and cloud diverge; we deliberately limit offline scope to essential data. |
 | **Web hosting** · **Firebase Hosting** | Free tier is **10 GB storage and 10 GB/month transfer** (Firebase, 2026), far beyond demo needs, and gives a public HTTPS link a judge can open with no install. | Web build will not match Android exactly for permissions and local notifications. |
-| **Backend hosting** · **Railway** | Deploys FastAPI from a repo without server administration. | **Hobby is USD 5/month which includes USD 5 of usage credit**, then meters at **~USD 20/vCPU/month and ~USD 10/GB RAM/month** (Railway, n.d.). This pricing shape is precisely why we changed our AI plan; see [§5.3](#53-the-language-layer-what-we-corrected). |
+| **Backend hosting** · **Railway** | Deploys FastAPI from a repo without server administration. | **Hobby is USD 5/month which includes USD 5 of usage credit**, then meters at **~USD 20/vCPU/month and ~USD 10/GB RAM/month** (Railway, n.d.). This pricing shape is precisely why we changed our AI plan; see [the language-layer correction](#system-architecture). |
 | **Language layer** *(optional)* · **Google Gemini API, synthetic demo only** · **Ollama + Qwen3-4B** (local dev) | Used **only** to turn one sentence into structured task fields. Free-tier access and limits depend on model and project. Use only preset synthetic task examples; real student entry uses manual/rule-based parsing. | Latency and occasional mis-parses. Mitigated by a deterministic fallback parser and by always showing extracted fields for confirmation. **No core feature depends on it.** |
 
 Calendar scopes: [Google Calendar authorization documentation](https://developers.google.com/workspace/calendar/api/auth).
 
-### 5.2 System Architecture & Data Flow
+### System architecture
 
 <p align="center">
   <img src="assets/figure-5-2-system-architecture-data-flow-v3.png" alt="Figure 5.2: SODA system architecture and data flow" width="880">
@@ -974,8 +1145,8 @@ commitment and walk away without creating a commitment. Infrastructure request l
 
 </details>
 
-
-### 5.3 The Language Layer: What We Corrected
+<details>
+<summary><strong>The language layer: an error we found and corrected</strong></summary>
 
 > **This subsection documents a real error we found and fixed during review. It is here on purpose.**
 
@@ -1025,7 +1196,10 @@ not a measurement of runtime memory.
 copy. Losing the language adapter removes a convenience, not the calculation. Losing network access is
 different: the Python engine is on the server, so offline screens show dated cached estimates and drafts.
 
-### 5.4 The Load Model: How the Numbers Are Produced
+</details>
+
+<details>
+<summary><strong>The load model: how every number in the app is produced</strong></summary>
 
 **This is a proposed deterministic planning model, not a validated measure of human capacity.**
 Weights, ceilings and the 90% warning boundary are adjustable design assumptions. The saved screen
@@ -1052,7 +1226,7 @@ load vector for task i:  L_i = d_i × e_i × w[c_i]        (units: load-hours pe
 load vector for a day:   L_day = Σ L_i  over tasks on that day
 ```
 
-This is the mechanism behind the claim in [§4.2.1](#421-five-dimensional-capacity-view): a 3-hour
+This is the mechanism behind the five-dimensional capacity claim: a 3-hour
 assignment (`3 × 1.4 × Academic`) and a 3-hour social event (`3 × 1.0 × Social`) consume the same three
 hours and produce completely different vectors.
 
@@ -1166,7 +1340,9 @@ apply to the original base estimate once; do not compound the multiplier on ever
 
 </details>
 
-### 5.5 Scope and Build Plan (MoSCoW)
+</details>
+
+### Build plan & scope
 
 | Priority | Features |
 |---|---|
@@ -1207,12 +1383,10 @@ Reserve **120 additional team hours**: backend 36, frontend 36, UX/accessibility
 below; named technical owners and availability must be confirmed before build kickoff. If capacity is
 lower, remove calendar integration and enhanced offline sync before weakening the core decision loop.
 
-### 5.6 Team, Time and Cost
-
 | Member | Main responsibility | Key deliverables | Est. hours |
 |---|---|---|---|
 | **Muhammad Ikhlas** | Ideation & creativity | Research, alternative concepts, idea evolution, mentor feedback | 22 |
-| **Lee Jia Yin** | UI/UX & Figma lead | Design system, core screens, interactive prototype, design principles and user flow (§3.1–3.2) | 30 |
+| **Lee Jia Yin** | UI/UX & Figma lead | Design system, core screens, interactive prototype, design principles and user flow | 30 |
 | **Yeap Boon Shen** | Feasibility, diagrams & Figma | Technology plan, system architecture, the ideation boards and technical figures, Figma screen build alongside Jia Yin | 26 |
 | **Samantha Chan** | Impact, presentation & integration | Impact section, final report, slides, demo flow, Figma support | 28 |
 | | | **Total** | **106 h** (~26.5 h each) |
@@ -1236,7 +1410,8 @@ USD 7/month before egress. These are budgeting scenarios, **not measured applica
 Set usage alerts and check the deployed bill against [Railway’s rates](https://docs.railway.com/pricing).
 The Figma-only prototype round does not itself require these deployments.
 
-### 5.7 Deployment and Demonstration Readiness
+<details>
+<summary><strong>Deployment and demonstration readiness</strong></summary>
 
 **Planned build-phase deployment** (not yet deployed). Four delivery components:
 
@@ -1271,15 +1446,17 @@ Debt and Reality Check show clearly labelled synthetic accumulated state instead
 
 </details>
 
+</details>
 
-### 5.8 Risks, Limitations and Mitigation
+<details>
+<summary><strong>Risks, limitations and mitigation</strong></summary>
 
 <details>
 <summary><strong>▸ Nine risks with mitigations, and six limitations we state plainly</strong></summary>
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
-| Scope too large for the time available | High | High | Protect the Must-haves; follow the pre-agreed cut order in [§5.5](#55-scope-and-build-plan-moscow) |
+| Scope too large for the time available | High | High | Protect the Must-haves; follow the pre-agreed cut order in [build plan & scope](#build-plan--scope) |
 | Backend unavailable during the demo | Medium | High | Test before judging; cached sample data; backup video |
 | Supabase free project paused at judging time | Medium | High | Open and warm the project the morning of judging |
 | Demo account has too little history | Medium | Medium | Seed several weeks of tasks and recovery |
@@ -1307,7 +1484,10 @@ Debt and Reality Check show clearly labelled synthetic accumulated state instead
 
 </details>
 
-### 5.9 Data Privacy and Safeguarding
+</details>
+
+<details>
+<summary><strong>Data privacy and safeguarding</strong></summary>
 
 <details>
 <summary><strong>▸ What we collect, what we refuse to collect, RLS, and the safeguarding position</strong></summary>
@@ -1333,7 +1513,7 @@ records · medical diagnoses · any information belonging to friends or family.
 **Practices:** explain what is collected and why · ask consent for anything optional · use data only for
 stated SODA functions · let users access, correct, export and delete their data · retain only as long as
 needed · never sell student data · never share wellbeing information with lecturers, employers, friends or
-family · keep real student input out of the external language adapter ([§5.3](#53-the-language-layer-what-we-corrected)).
+family · keep real student input out of the external language adapter ([the language-layer correction](#system-architecture)).
 
 These are guided by Malaysia's seven Personal Data Protection Principles, general, notice and choice,
 disclosure, security, retention, data integrity, and access (Personal Data Protection Commissioner
@@ -1349,393 +1529,14 @@ require explicit opt-in, defined escalation rules, and review by qualified stude
 
 </details>
 
-## 6. Impact
-
-### 6.1 Understanding the Problem Context
-
-Student overload develops when coursework, employment, extracurriculars, personal responsibilities and
-insufficient recovery accumulate together. Academic stress involves multiple pressures rather than
-academic tasks alone (Iqra, 2024), and study-related factors are linked with both burnout and engagement
-(Olson et al., 2023).
-
-<details>
-<summary><strong>▸ The research framing, and the three considerations that shaped the approach</strong></summary>
-
-SODA deliberately targets an **earlier and more actionable question** than "is this student burning out":
-
-> **How can a student recognise their combined workload and adjust it while they still have options?**
-
-Three considerations shape the approach:
-
-- **Visibility.** Knowing your commitments individually does not reveal their combined demand. SODA puts
-  every recorded responsibility into one overview.
-- **Planning.** A meta-analysis of 31 studies covering 13,506 participants found a positive association
-  between time management and learning outcomes, particularly among undergraduates (Liu et al., 2026).
-  That supports investigating better planning decisions; it does **not** license us to claim SODA
-  improves grades.
-- **Recovery.** Effort–recovery theory explains how incomplete recovery leaves residual strain when the
-  next demand arrives (Meijman & Mulder, 1998). That informs Recovery Debt, without validating its
-  particular numbers.
-
 </details>
 
-### 6.2 Target Users and Alignment
-
-| Segment | Main difficulty | SODA's response |
-|---|---|---|
-| **Working student** | Fixed shifts compete with coursework and rest | Life Forecast names the demanding day; Smart Rebalance works *around* immovable shifts |
-| **Over-committed student** | Requests accepted without seeing the effect on the week | Impact Preview makes the trade-off visible before confirmation |
-| **Final-year student** | Open-ended projects are hard to estimate | Reality Check collects estimation feedback; Recovery Debt keeps missed rest visible |
-| **Quiet grinder** | Work gets done; recovery is repeatedly postponed | My Backpack reveals accumulation; Recovery Debt and Recovery Island give rest a place in the plan |
-
-**Jobs to be done**
-
-| | Job | Feature |
-|---|---|---|
-| J1 | Understand the cost of another commitment before agreeing | Impact Preview |
-| J2 | Make future estimates reflect previous experience | Reality Check |
-| J3 | Identify which workload area needs attention | My Backpack |
-| J4 | Find commitments that can be moved, reduced or removed | Smart Rebalance |
-| J5 | Recognise recovery shortfalls across weeks | Recovery Debt |
-| J6 | Choose a relevant recovery activity | Recovery Island |
-
-Students with light, easily coordinated workloads will get less from SODA, and that is a correct
-targeting decision, not a gap. Students needing clinical or crisis support need services beyond this app.
-
-### 6.3 Effectiveness: Mechanism, Not Marketing
-
-Our case for effectiveness is **theory-informed and testable**, not demonstrated. The prototype shows the
-intended interaction; sustained behavioural effects require evaluation.
-
-**Illustrative persona: Aina, a working undergraduate (fictional, not a research participant).**
-Aina has a fixed Thursday shift and an assignment due Friday. A club asks her to take on more work.
-SODA previews the extra demand before she agrees: **82% → 107%** in the intended demo fixture.
-She reviews feasible changes, keeps her shift and deadline fixed, and approves a plan targeting **89%**.
-If there is no feasible adjustment, SODA says so; accepting, deferring or declining stays her decision.
-The benefit being tested is a clearer trade-off and a usable plan-not a claim that her burnout risk fell.
-
-<details>
-<summary><strong>▸ Research-to-intervention mapping, a before/after week, and the limits of the claim</strong></summary>
-
-| Problem | Research basis | SODA intervention |
-|---|---|---|
-| Combined load is hard to recognise | Self-regulation depends on detecting a gap between current and reference state (Carver & Scheier, 1982) | My Backpack makes concentration of load visible, creating the reference point |
-| Future cost is less salient than present benefit | Decisions underweight delayed consequences (Thaler & Sunstein, 2008) | Impact Preview drags the delayed cost into the present moment |
-| Task estimates are optimistic | People underestimate completion times despite past overruns (Buehler et al., 1994) | Reality Check collects feedback intended to correct future estimates |
-| Recovery stays an unprotected intention | Specifying when and where an action happens supports follow-through (Gollwitzer, 1999) | Smart Rebalance places explicit recovery blocks in the plan |
-| Missed recovery persists | Incomplete recovery leaves residual load reactions (Meijman & Mulder, 1998) | Recovery Debt carries shortfalls across weeks instead of resetting |
-| Recovery needs differ | Recovery research distinguishes detachment, relaxation, mastery and control (Sonnentag & Fritz, 2007) | Recovery Island offers varied, axis-matched actions |
-
-> These theories support the **design rationale**. They do not validate SODA's five dimensions, its
-> weights, its recovery percentages, or the effectiveness of any specific recommendation.
-
-**Illustrative before-and-after** *(intended behaviour, not observed outcomes; assumes commitments are
-recorded and some adjustment is feasible)*
-
-| Day | Without SODA | With SODA |
-|---|---|---|
-| Mon | A club responsibility is accepted without reviewing the week | Impact Preview shows its projected effect before confirmation |
-| Tue | Presentation prep is estimated from intuition | Completion feedback informs a suggestion to reconsider the estimate |
-| Wed | Several deadlines start competing for the same hours | Smart Rebalance identifies which tasks can actually move |
-| Thu | Work stays concentrated on one demanding day | Approved changes redistribute demand; Thursday’s illustrative load estimate drops from 107% to 89% |
-| Fri | Rest is displaced by unfinished work | Protected recovery survives in the revised plan |
-| Sat | Free time, no recovery plan | Recovery Island offers a concrete, matched activity |
-
-**Limits of the claim.** The model depends on recorded information, missing commitments produce false
-confidence. Capacity and Recovery Debt are personal estimates, not universal thresholds. Reality Check
-currently demonstrates broad duration-and-effort feedback and must not be described as a validated
-learning multiplier.
-
-</details>
-
-### 6.4 Expected Outcomes
-
-1. **More informed commitment decisions**, accept, defer, decline or modify with the trade-off visible.
-2. **Lower workload concentration**, flexible tasks redistributed without assuming everything can go.
-3. **More realistic planning**, repeated feedback nudges optimistic estimates toward reality.
-4. **More deliberate recovery**, rest becomes visible, planned and matched to what is depleted.
-
-The behavioural shift we are aiming for, in one line:
-
-> from **"How do I manage everything I already accepted?"**
-> to **"Should I accept this, and what would need to change?"**
-
-Longer-term improvements in wellbeing or academic functioning remain **hypotheses**.
-
-### 6.5 Measuring Success: Falsifiable Predictions
-
-Success is measured by changes in decisions and behaviour, not app opens. These are proposed for a future
-evaluation; **none of them are current results.**
-
-| # | Prediction | Success indicator | Finding that would challenge it |
-|---|---|---|---|
-| P1 | Lower workload peaks | Lower peak daily load; fewer days above the limit | Peaks unchanged despite feasible adjustments |
-| P2 | Better commitment decisions | Some previewed tasks are modified, deferred or declined | Previews rarely change decisions where alternatives exist |
-| P3 | Better estimates | Fewer repeated "longer than expected" responses within a category | Feedback produces no change in estimates or overruns |
-| P4 | More completed recovery | Protected blocks completed more often than unscheduled intentions | Scheduling produces no follow-through improvement |
-| P5 | Reduced recovery accumulation | Debt stabilises or falls when recovery opportunities exist | Shortfalls keep growing despite usable recommendations |
-| P6 | Reduced exhaustion | A controlled study shows greater improvement on a validated exhaustion measure | An adequately powered study finds no meaningful difference |
-| P7 | Better data coverage | More commitments captured; fewer major late additions | Important tasks stay missing and repeatedly alter forecasts |
-| P8 | Retention under load | Target users keep using it during demanding periods | Students abandon it exactly when workload rises |
-
-**Guard against fooling ourselves:** a lower workload percentage could come from *missing tasks* or a
-*changed ceiling* rather than a better schedule. Any model-based improvement must be cross-checked against
-recorded behaviour, and Recovery Debt must be read alongside actual recorded recovery.
-
-**Proposed first evaluation:** recruit 6–8 consenting students who combine coursework with paid work,
-leadership or caring. Use the same synthetic week in a calendar-only task and a SODA task, alternate
-the order, and ask participants to identify the overloaded day, explain the estimate, and choose a
-feasible adjustment. Record completion, misunderstandings, time and reasons for rejecting suggestions.
-Provisional usability gates: at least 6 of 8 complete the main loop without help, at least 6 of 8 explain
-that the percentage is an estimate, and zero accepted moves violate a fixed event, deadline or protected
-block. Any constraint breach blocks release. This small study tests comprehension and usability, not
-clinical effectiveness; longer-term claims need a separate evaluation with appropriate oversight.
-
-### 6.6 Reach and Scalability
-
-<details>
-<summary><strong>▸ Four-stage scaling plan and the conditions gating each stage</strong></summary>
-
-Digital delivery reaches students without needing a coach per student, but availability is not adoption.
-Our rollout therefore tests reach, uptake and continued use before expansion. These are proposed
-operational gates, not evidence that SODA is an effective mental health intervention.
-
-| Stage | Goal | Conditions before progressing |
-|---|---|---|
-| **1 · Initial campus** | Recruit via societies, orientation and student-support channels | Confirm students understand the estimates, maintain task records, and find the recommendations usable |
-| **2 · Other universities** | Reuse the core app with local calendar integration, terminology and support contacts | Verify usefulness across different assessment patterns |
-| **3 · Similar populations** | Postgraduate researchers, trainees, early-career workers | **Revalidate** the assumptions and load categories rather than relabelling the student model |
-| **4 · Optional institutional insights** | Surface recurring aggregate workload peaks (e.g. overlapping assessment weeks) | Consent, aggregation safeguards, governance and re-identification protection established first |
-
-Individual workload and check-in records stay under student control. Institutional analytics are a future
-possibility, **not a current prototype capability**.
-
-> Scaling strategy: **validate → expand → adapt.** Establish usefulness for the intended students first,
-> then test whether that usefulness survives a broader deployment.
+> Full build specification (repository layout, SQL schema, API surface, demo seed data): [`docs/BUILD.md`](docs/BUILD.md).
 
 ---
 
-</details>
-
-## 7. Appendix: Build Specification
-
-> [!NOTE]
-> This appendix lets an engineer pick up the build phase without re-reading the whole document: it is
-> the contract between the design above and the code below. The repository layout, SQL and APIs are
-> **proposed**. They do not indicate that an application or deployed service already exists.
-
-### 7.1 Repository Structure
-
 <details>
-<summary><strong>▸ Open repo layout</strong></summary>
-
-```
-soda/
-├── README.md                    ← this file
-├── assets/                      ← figures referenced above
-│   └── ideation/
-├── design-previews/             ← storyboard exports
-├── app/                         ← Flutter (Android + web)
-│   ├── lib/
-│   │   ├── main.dart
-│   │   ├── core/                ← theme, tokens, severity bands, a11y helpers
-│   │   ├── data/                ← Drift local DB, Supabase client, repositories
-│   │   ├── models/              ← Task, LoadVector, Capacity, RecoveryEntry
-│   │   ├── features/
-│   │   │   ├── onboarding/      ← 3-question calibration
-│   │   │   ├── backpack/        ← My Backpack (home)
-│   │   │   ├── capture/         ← add sheet, Tell SODA, manual entry
-│   │   │   ├── impact/          ← Impact Preview + Protection Mode
-│   │   │   ├── rebalance/       ← Smart Rebalance
-│   │   │   ├── forecast/        ← Life Forecast + Day Detail
-│   │   │   ├── recovery/        ← Recovery Island, timer, Recovery Debt
-│   │   │   ├── checkin/         ← daily check-in
-│   │   │   └── insights/        ← trends, weekly review, How SODA Calculates
-│   │   └── widgets/             ← charts (each wrapped in Semantics)
-│   └── pubspec.yaml
-└── api/                         ← FastAPI
-    ├── main.py
-    ├── routers/                 ← tasks, calendar, load, recovery, checkin, parse
-    ├── engine/                  ← ★ deterministic load model, no network calls in here
-    │   ├── vectors.py           ← category weights, effort multipliers
-    │   ├── capacity.py          ← calibration → ceiling
-    │   ├── load.py              ← day/week aggregation, severity bands
-    │   ├── impact.py            ← simulation (pure function, no writes)
-    │   ├── rebalance.py         ← constrained greedy move search
-    │   └── recovery.py          ← recovery debt ledger
-    ├── language/                ← OPTIONAL: gemini.py, ollama.py, fallback_parser.py
-    └── tests/                   ← ★ engine/ must be 100% covered; it is pure arithmetic
-```
-
-**The single most important structural rule:** `api/engine/` makes **no network calls and imports
-nothing from `api/language/`**. That separation is what makes the "deterministic core" claim in
-[§5.3](#53-the-language-layer-what-we-corrected) true rather than aspirational, and it is enforceable
-by a lint rule.
-
-</details>
-
-### 7.2 Data Model (Supabase / PostgreSQL)
-
-<details>
-<summary><strong>▸ Open full SQL schema with RLS policy</strong></summary>
-
-```sql
--- every user-owned table follows the same RLS pattern
-
-create table profiles (
-  id            uuid primary key references auth.users(id) on delete cascade,
-  display_name  text,
-  baseline      text    check (baseline in ('light','moderate','heavy')),
-  focus_hours   numeric not null default 5 check (focus_hours > 0),     -- Q2: daily focus budget H
-  recovery_mins integer not null default 45 check (recovery_mins between 0 and 1440),    -- Q3: daily recovery target R
-  created_at    timestamptz default now()
-);
-
-create table commitments (
-  id            uuid primary key default gen_random_uuid(),
-  user_id       uuid not null references auth.users(id) on delete cascade,
-  title         text not null,
-  starts_at     timestamptz not null,
-  duration_min  integer not null check (duration_min > 0),
-  effort        text    check (effort in ('low','medium','high')) default 'medium',
-  category      text    check (category in ('academic','work','social','errands','other')),
-  is_fixed      boolean not null default false, -- classes, shifts: never movable
-  deadline_at   timestamptz,                    -- rebalance may not cross this
-  source        text    check (source in ('manual','chat','calendar')) default 'manual',
-  status        text    check (status in ('planned','done','auto_done','dropped')) default 'planned',
-  created_at    timestamptz default now()
-);
-
-create table daily_checkins (
-  id         uuid primary key default gen_random_uuid(),
-  user_id    uuid not null references auth.users(id) on delete cascade,
-  on_date    date not null,
-  energy     smallint, mood smallint, mental smallint,
-  physical   smallint, social smallint,          -- each 1..5
-  unique (user_id, on_date)
-);
-
-create table recovery_entries (
-  id           uuid primary key default gen_random_uuid(),
-  user_id      uuid not null references auth.users(id) on delete cascade,
-  on_date      date not null,
-  axis         text check (axis in ('mental','physical','time','social')),
-  minutes      integer not null check (minutes > 0),
-  was_protected boolean default false,
-  completed    boolean default false
-);
-
-create table estimate_feedback (             -- Reality Check
-  id            uuid primary key default gen_random_uuid(),
-  user_id       uuid not null references auth.users(id) on delete cascade,
-  commitment_id uuid references commitments(id) on delete cascade,
-  category      text not null,
-  duration_fb   text check (duration_fb in ('less','about','a_little_more','much_more')),
-  effort_fb     text check (effort_fb  in ('lighter','expected','heavier')),
-  created_at    timestamptz default now()
-);
-
--- Profiles use id, unlike the other tables' user_id.
-alter table profiles enable row level security;
-create policy own_profile on profiles for all
-  using (auth.uid() = id) with check (auth.uid() = id);
-
-do $$
-declare t text;
-begin
-  foreach t in array array['commitments','daily_checkins','recovery_entries','estimate_feedback'] loop
-    execute format('alter table %I enable row level security', t);
-    execute format('create policy own_rows on %I for all using (auth.uid() = user_id) with check (auth.uid() = user_id)', t);
-  end loop;
-end $$;
-
--- Cross-user references must be impossible, even if a task UUID is known.
-alter table commitments add constraint commitments_id_owner unique (id, user_id);
-alter table estimate_feedback add constraint feedback_owned_commitment
-  foreign key (commitment_id, user_id) references commitments(id, user_id) on delete cascade;
-```
-
-**Schema status:** the SQL above is a starting schema, not the complete migration. The build must add
-profile timezone; model version; task `updated_at`/revision; immutable recovery-target history;
-recovery start/end intervals for deduplication; unique calendar event identity; and rebalance audit
-records with before/after versions for atomic apply/undo. Normal user requests must carry the user's
-JWT through the Supabase client so RLS applies; using a service-role key for every request would bypass it.
-
-> Ship nothing until a **second test account** has been used to confirm it cannot read the first
-> account's rows. RLS that is enabled but wrongly scoped looks identical to RLS that works.
-
-</details>
-
-### 7.3 API Surface (FastAPI)
-
-<details>
-<summary><strong>▸ Open the API surface (14 endpoints)</strong></summary>
-
-| Method | Route | Purpose | Writes? |
-|---|---|---|---|
-| `POST` | `/auth/session` | Exchange Supabase session |: |
-| `GET` | `/week?start=YYYY-MM-DD` | Week commitments + per-day load + capacity + coverage | No |
-| `POST` | `/commitments` | Create a commitment | Yes |
-| `PATCH` | `/commitments/{id}` | Edit / reschedule / complete | Yes |
-| `POST` | **`/impact-preview`** | Simulate adding a candidate task, returns before/after vectors, deltas, breaking day, recovery impact, suggested moves | **No** |
-| `POST` | `/rebalance` | Generate constrained move set for a day | No |
-| `POST` | `/rebalance/apply` | Apply an approved move set (returns an `undo_token`) | Yes |
-| `POST` | `/rebalance/undo` | Revert an applied move set | Yes |
-| `POST` | `/checkin` | Submit daily check-in | Yes |
-| `GET` | `/recovery/debt` | Rolling 4-week ledger | No |
-| `POST` | `/recovery/log` | Record a completed recovery session | Yes |
-| `POST` | `/feedback` | Reality Check response | Yes |
-| `POST` | `/calendar/import` | Read-only Google Calendar pull → staged for confirmation | Staged |
-| `POST` | **`/parse`** | Real text → server rule parser. Optional AI route accepts only an allowlisted synthetic `example_id`; timeout falls back to rules. | No |
-
-`/impact-preview` and `/parse` are both **non-writing** by design: a student can explore a decision and
-change their mind without creating a commitment, and a parse failure can never corrupt data.
-
-</details>
-
-### 7.4 Accessibility Implementation Notes
-
-<details>
-<summary><strong>▸ Open Flutter Semantics implementation notes</strong></summary>
-
-```dart
-// Every chart is wrapped so a screen reader receives the summary from §3.5,
-// and the raw chart is hidden from the accessibility tree rather than announced as "image".
-Semantics(
-  label: buildAccessibleLoadSummary(weekSnapshot), // uses the chart's exact data + model version
-  child: ExcludeSemantics(child: BackpackBubbleChart(...)))
-```
-
-- Severity is produced by a single `SeverityBand` enum that returns **colour + label + icon together**,
-  so callers can consistently provide all three cues.
-- `MediaQuery.of(context).disableAnimations` gates the mascot idle loop and the timer breathing ring.
-- Target Android controls at ≥ 48×48 logical pixels; no fixed-height text containers, so dynamic type reflows.
-- Charts expose a visible, keyboard-focusable "View as table" button for exact values.
-- **Phase 6 must include a real TalkBack pass.** Until it runs, [§3.5](#35-accessibility) says
-  "implemented in design", not "verified".
-
-</details>
-
-### 7.5 Demo Seed Data
-
-<details>
-<summary><strong>▸ Open demo seed-data requirements</strong></summary>
-
-The demo account needs enough history for Recovery Debt and Reality Check to be non-empty:
-
-- **4 weeks** of past commitments across all five categories, with realistic clustering (assignments
-  bunching near deadlines, shifts on fixed weekdays)
-- Recovery entries producing a **total debt of ~2h 35m**, distributed 0h20 / 0h45 / 0h55 / 0h35 across
-  the four weeks, to match the Recovery Debt screen
-- **12 calendar events, 9 imported**, so the coverage line reads *"Based on 9 of your 12 calendar events"*
-  and the honesty principle is visible rather than merely claimed
-- Use separate named fixtures: `decision-loop` targets 82% → 107% → 89%; `worked-model` reproduces §5.4’s 94% example. Do not splice them into one continuous demo.
-- At least 5 completed tasks in the Academic category with "took longer" feedback, so Reality Check has a
-  live directional suggestion to show
-
-</details>
-
-## 8. References
+<summary><strong>References</strong></summary>
 
 Research supports the design rationale, not the particular SODA weights or clinical effectiveness.
 Provider documentation and competitor descriptions were checked for this review; access, terms and
@@ -1858,5 +1659,7 @@ W3C. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2.* https://www.w3.o
 Built for CodeNection 2026 · Lifestyle Track: Beating the Burnout
 
 </div>
+
+</details>
 
 </details>
