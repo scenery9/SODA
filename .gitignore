@@ -1,0 +1,5 @@
+# Source documents and reference material, not part of the submission
+*.docx
+*.pdf
+ChatGPT Image *.png
+tmp/
