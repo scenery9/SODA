@@ -4,7 +4,7 @@ Complete Markdown conversion of `SODA CodeNection (revised).docx`.
 
 # SODA (Student Overloaded by Deadlines and Activities) by Soda
 
-Team: SAMANTHA CHAN PEI YIN, LEE JIA YIN, YEAP BOON SHEN, IKHLAS FULL NAME
+Team: SAMANTHA CHAN PEI YIN, LEE JIA YIN, YEAP BOON SHEN, MUHAMMAD IKHLAS BIN MOHD FAIZAL 
 
 Problem Statement: [Stress & Workload Manager]
 
