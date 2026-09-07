@@ -53,7 +53,7 @@ Hence, SODA’s focus is defined as a workload visibility and decision-making pr
 
 ![Embedded image 1](docs/images/image1.png)
 
-*Figure 1.1: The problem tree explaining main causes of student overload.*
+<div align="center">Figure 1.1: The problem tree explaining main causes of student overload.</div>
 
 Figure 1.1 groups the contributing factors into six areas:
 
@@ -94,7 +94,7 @@ We identified four workload patterns: working students, over-committed students,
 | Quiet grinders | Most tasks get completed, but rest is repeatedly postponed. | “How much recovery have I been putting off?” | Recovery Debt and Recovery Island |
 
 
-*Table 1.1: Primary users.*
+<div align="center">Table 1.1: Primary users.</div>
 
 Research supports considering how academic workload interacts with other parts of student life. In a qualitative study of 209 university students, academic workload was the most frequently identified influence on daily wellbeing and was connected to academic stress, social isolation, and study–life balance (O’Keeffe et al., 2025). This informed SODA’s decision to include academic and non-academic demands in the same overview.
 
@@ -116,7 +116,7 @@ Although the student is the direct user, workload difficulties can affect people
 | Universities | Student engagement and continuation | Potential partners for future evaluation. |
 
 
-*Table 1.2: Other stakeholders.*
+<div align="center">Table 1.2: Other stakeholders.</div>
 
 Research on an ACT-based university course found changes in time and effort management alongside changes in study-burnout risk (Räihä et al., 2024). This supports investigating planning behaviours, although it does not establish the effectiveness of SODA or Reality Check.
 
@@ -174,7 +174,7 @@ We compared them against five criteria: fit to the challenge, relevance to the r
 | Echo — Brief check-ins retained; journaling approach dropped | Proposed an AI journaling coach using written reflections and prompts. It could support self-awareness but did not directly show which commitments could change. The team also anticipated that repeated writing could burden already-overloaded students. Brief check-ins were retained as a simpler way to collect personal feedback. |
 
 
-*Table 1.3: Initial idea concepts*
+<div align="center">Table 1.3: Initial idea concepts</div> 
 
 Why Backpack Was Selected
 
@@ -212,7 +212,7 @@ SODA developed through six stages. Each stage addressed a specific concern about
 | v0.6 | Developed recovery choices for different workload areas, alongside recovery tracking and a timer. | Give students concrete actions beyond a general reminder to rest. | One-size-fits-all recovery nudges. |
 
 
-*Table 1.4: Iteration versions.*
+<div align="center">Table 1.4: Iteration versions.</div> 
 
 
 ### Simplifying Task Entry
@@ -258,7 +258,7 @@ Together, these iterations show how SODA became more focused: simpler input, a m
 |  |  |  |  |
 
 
-*Table 1.5: Mentor feedback.*
+<div align="center">Table 1.5: Mentor feedback.</div> 
 
 
 # Section 2 – Creativity and Novelty
@@ -334,6 +334,8 @@ This balance influences recovery suggestions rather than directly lowering the s
 | Time | Group small tasks, protect a buffer, or remove a task. |
 | Social | The proposed direction includes reconnecting with someone when appropriate; an active social-recovery flow is not established in the app documentation reviewed. |
 
+<div align="center">Table 2.1: Areas covered by Recovery Debt and Recovery Island.</div>
+
 The distinction is the connection between the identified pressure, a practical response, and the recovery record. Recovery Debt remains a planning estimate, not a physiological measurement.
 
 
@@ -347,6 +349,8 @@ Reality Check collects feedback when a completed task differs from the student�
 | Duration | Less time, about right, a little more, or much more |
 | Effort | Lighter, as expected, or heavier |
 
+<div align="center">Table 2.2: Feedback area focus by Reality Check.</div>
+
 Students can submit their responses or skip the feedback. A confirmation screen shows what was recorded. The proposed learning rule uses repeated, confirmed responses within the same task category to inform future suggestions. Skipped responses and automatically completed tasks would be excluded. For example:
 
 “Your recent assignments often took longer and required more effort than planned. Would you like to allow more time?”
@@ -357,7 +361,7 @@ Because the feedback uses broad categories, it supports directional suggestions 
 
 The intended cycle is:
 
-Estimate → complete → give feedback → review the next estimate
+<div align="center">Estimate → complete → give feedback → review the next estimate</div>
 
 The prototype demonstrates the feedback interaction. Its effect on future recommendations requires implementation and testing.
 
@@ -380,6 +384,8 @@ SODA shares features with productivity, scheduling, and wellbeing applications. 
 | Reclaim | Automatically schedules tasks, meetings, habits and breaks while allowing users to preview schedule changes (Reclaim.ai, n.d.). | SODA explains pressure through student-specific mental, time, physical, social and errand-related load, while also carrying recovery needs across weeks. |
 | Finch | Supports self-care through mood checks, journaling, goals, exercises and a virtual companion (Finch Care, 2026). | SODA connects recovery suggestions directly to the demands recorded in the student’s schedule. |
 
+<div align="center">Table 2.3: Differentiation table for existing solutions in market.</div>
+
 SODA’s claim is not that scheduling, break protection, or previews are new. Its proposed contribution is the connected process:
 
 See total load → preview a new task → identify what breaks → choose a fix → recover → improve the next estimate
@@ -398,6 +404,8 @@ SODA’s product identity comes from connecting its features through shared task
 | Approved schedule adjustments | Smart Rebalance and the updated weekly plan |
 | Recorded recovery activities | Recovery Debt and Recovery Island |
 | Confirmed completion feedback | Reality Check, future task suggestions, and Personal Insights |
+
+<div align="center">Table 2.4: Information or action connected to features.</div>
 
 For example, adding a commitment changes the projected workload. Approving an adjustment changes the plan. Recording recovery updates the recovery balance. Completion feedback is intended to inform later estimates.
 
@@ -548,6 +556,8 @@ Research involving working students found that different work–study arrangemen
 | Final-year student | Open-ended projects are difficult to estimate. | Reality Check collects estimation feedback; Recovery Debt keeps missed recovery visible. |
 | Quiet grinder | Work continues to get completed while recovery is repeatedly postponed. | My Backpack reveals accumulated demands; Recovery Debt and Recovery Island support recovery planning. |
 
+<div align="center">Table 4.1: Target user segment.</div>
+
 These groups share six practical needs:
 
 
@@ -559,6 +569,8 @@ These groups share six practical needs:
 | J4: Find commitments that can be moved, reduced, or removed. | Smart Rebalance |
 | J5: Recognise recovery shortfalls across weeks. | Recovery Debt |
 | J6: Choose a relevant recovery activity. | Recovery Island |
+
+<div align="center">Table 4.2: Practical needs of target user segment.</div>
 
 Students with light, easily coordinated workloads may gain less additional value. Students needing clinical or crisis support require appropriate professional services beyond SODA’s planning role.
 
@@ -580,6 +592,8 @@ SODA’s current case for effectiveness is theory-informed and testable, rather 
 | Missed recovery persists across periods. | Incomplete recovery can leave residual load reactions (Meijman & Mulder, 1998). | Recovery Debt keeps estimated shortfalls visible across weeks. |
 | Recovery needs differ. | Recovery research distinguishes detachment, relaxation, mastery, and control (Sonnentag & Fritz, 2007). | Recovery Island offers varied activities rather than one generic reminder. |
 
+<div align="center">Table 4.3: Problem identified in user, research basis, and SODA intervention and expected changes.</div>
+
 These theories support the design rationale. They do not validate SODA’s five dimensions, weights, recovery percentages, or the effectiveness of any specific recommendation.
 
 
@@ -597,6 +611,7 @@ The following scenario describes intended behaviour, not observed user outcomes.
 | Friday | Rest is displaced by unfinished work. | Protected recovery remains visible in the revised plan. |
 | Saturday | The student has free time but no clear recovery plan. | Recovery Island offers a concrete activity to consider. |
 
+<div align="center">Table 4.4: Sample intended behaviour for day to day activities. </div>
 
 ### 4.3.3 Why the Features Work Together
 
@@ -658,6 +673,8 @@ The following predictions make SODA's mechanism testable. A prediction is consid
 | P7 — Better data coverage | More relevant commitments are captured, with fewer major late additions. | Important tasks remain missing and repeatedly alter forecasts. |
 | P8 — Retention during high load | Target users continue using the app during demanding periods. | Students abandon it when workload rises. |
 
+<div align="center">Table 4.5: Predictions. </div>
+
 Model-based improvements must be checked against behaviour. A lower workload percentage could result from missing tasks or a changed limit rather than a better schedule. Recovery Debt should likewise be interpreted alongside recorded recovery and user feedback.
 
 
@@ -672,6 +689,8 @@ Digital delivery allows SODA to reach students without requiring an individual c
 | 2 — Other universities | Reuse the core application with local calendar integration, terminology, and support information. | Verify usefulness across different assessment patterns and student circumstances. |
 | 3 — Similar populations | Explore postgraduate researchers, trainees, and early-career workers. | Revalidate assumptions and workload categories rather than simply relabelling the student model. |
 | 4 — Optional institutional insights | Identify recurring aggregate workload peaks, such as overlapping assessments. | Establish consent, aggregation safeguards, governance, and protection against re-identification. |
+
+<div align="center">Table 4.6: Four stages of application scalability.</div>
 
 Individual workload and check-in records should remain under student control. Institutional analytics are a future possibility, not a current prototype capability.
 
