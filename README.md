@@ -429,23 +429,25 @@ SODA is used by people who are already depleted. That single fact drives every d
 
 ## 3.1 Design principles (add screen here)
 
-SODA is used by people who are already depleted, and that single fact drove every decision in this section. The interface has to be readable in ten seconds, honest about what it does not know, and incapable of making a tired student feel worse for opening it. Four principles follow from that, and each one forced a design decision we can be held to.
+SODA is built around one uncomfortable moment: the second before a student says "yes" to something they do not have room for. Every screen in the prototype is shaped by five rules.
 
-Under ten seconds a day. Capture speed is not a convenience feature in this product; it is the accuracy of the product. Every figure SODA displays is computed from what the student has entered, so if entry is slow the model starves and the capacity reading becomes confidently wrong. Our own logging exercise timed full five-field entry at 40 to 55 seconds per task, which is unusable at the eight or so commitments a student adds in a week. This principle produced one-tap category defaults that pre-fill the five-dimension vector and collapse it out of the way, calendar import so that fixed commitments never need typing at all, a daily check-in reduced to three tappable moods, and a single optional question on task completion rather than a timer. What we traded was per-task precision. We accepted that trade because a slightly coarse model that is actually populated beats a precise one that is empty.
+**1. Show the cost before the commitment.**
+Most planners tell you what you agreed to after you agreed. SODA shows the damage first. Adding a task opens an Impact Preview that puts the week's load before and after side by side — 82% becomes
+112%, and the day that breaks is named. The primary action is not "Save", it is "Fix my week".
 
-Never a number without an action. An overload warning with nothing attached to it is not information, it is anxiety delivered on schedule — and delivered to someone who is already too depleted to work out what to do about it. So every load figure in SODA sits beside something the student can act on. The red card on the home screen routes straight to the fix rather than simply reporting that Thursday is bad. Life Forecast names the breaking day and carries a button that opens the rebalance for exactly that day. Impact Preview does not return a verdict; it returns four specific swaps with the percentage each one saves, so the student is choosing between options rather than absorbing a judgement. The clearest expression of this principle is the one place we withhold a swap: when a suggested move would consume the student's only protected rest, Smart Rebalance shows it as a held line item and says why, rather than quietly leaving it out of the list.
+**2. Plan, never diagnose.**
+SODA reports capacity, not health. Copy throughout the app repeats the boundary in plain words: "This is for planning. It is not a health score." Body signals are compared to the student's own
+normal, never to a population baseline, and the app states that it works with no wearable connected at all.
 
-No guilt mechanics. There are no streaks, no points, no penalty for absence, and nothing in the product that gets worse when the student stops using it. This is our rejection of Concept A (§1.4) turned into a rule, and it is not a stylistic preference — a streak mechanic rewards never stopping, and never stopping is precisely the behaviour that produces burnout. A student who breaks a forty-day streak because they finally rested would be punished by the app for recovering. The consequences run through the whole interface. When a student overrides an overload warning and accepts a 112% day anyway, SODA responds that this is okay and offers to watch their recovery afterwards, rather than lecturing them or refusing. When a task is completed, the acknowledgement is titled Noted, quietly and contains no celebration, because a completed task is not an achievement to be rewarded, it is data. And a student returning after two weeks away is shown a welcome, because there is no chain to have broken.
+**3. Nothing is saved until the student approves it.**
+When a task is typed in conversationally, SODA shows what it understood and asks "Did I get that right?" before anything is written. The same line — "Nothing is saved until you approve" — sits under the input field. The system proposes; the student decides.
 
-Show the gaps, never paper over them. A capacity figure computed over half a student's commitments is worse than no figure at all, because it grants false permission to accept more. So wherever SODA's knowledge is incomplete, the interface says so beside the number rather than behind it. The headline capacity figure on the home screen is printed with the line Based on 9 of your 12 calendar events, which is less visually clean than the figure alone and considerably more trustworthy. Tasks marked complete without answering the follow-up question are badged Auto-done and explicitly excluded from the estimate history, rather than being silently averaged in as though they had been about right. Seeded values are labelled as seeded until real samples replace them. And the estimate correction states a direction — this type of task usually takes you longer than you plan — rather than the precise multiplier the underlying four self-reported buckets cannot honestly support. In each case we traded a more authoritative-looking screen for a number the student can actually rely on, which is the same reasoning that governs our claims in Section 3: a bounded claim is worth more than a broad one.
+**4. One way in, not a menu.**
+Adding something is a single screen. The chat input is there immediately, with a "Type it in yourself" option that expands the manual form in place. Students who prefer forms are never forced through a conversation, and neither group has to pick a mode before they start.
 
-// original
-
-Under ten seconds a day. If capture costs more than that, the model starves and every figure it produces is wrong. Category defaults, calendar import and a three-chip check-in exist to hold this line.
-
-Never a number without an action. Every load figure sits next to something the student can do about it. An overload warning with no suggested move is only anxiety, so every red state routes to a concrete list of swaps with their savings attached.
-
-No guilt mechanics. No streaks, no penalties, no punishment for absence. This is the rejection of Concept A (Section 2.2) made a rule: rewarding unbroken consistency rewards the behaviour that causes burnout.
+**5. Give the time back, don't just warn.**
+Flagging an overloaded week is not help. Every warning is paired with an action: Smart Rebalance proposes specific changes, and Recovery Island turns owed rest into short, concrete options with
+the time each one returns.
 
 
 ## 3.2 User Flow
