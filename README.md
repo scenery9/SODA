@@ -1,11 +1,11 @@
 # SODA (Student Overloaded by Deadlines and Activities) by Team Soda
 
-A capacity model for students who cannot see how much they are already carrying.
-
-**Team:** Samantha Chan Pei Yin, Lee Jia Yin, Yeap Boon Shen, Muhammad Ikhlas bin Mohd Faizal<br>
-**Problem Statement:** Stress & Workload Manager<br>
-**Video Presentation:** *pending*<br>
-**Presentation Slides:** *pending*
+<table>
+<tr><td><b>Team</b></td><td>Samantha Chan Pei Yin, Lee Jia Yin, Yeap Boon Shen, Muhammad Ikhlas bin Mohd Faizal</td></tr>
+<tr><td><b>Problem Statement</b></td><td>Stress &amp; Workload Manager</td></tr>
+<tr><td><b>Video Presentation</b></td><td><i>pending</i></td></tr>
+<tr><td><b>Presentation Slides</b></td><td><i>pending</i></td></tr>
+</table>
 
 ---
 
