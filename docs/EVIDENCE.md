@@ -4,7 +4,7 @@ Supporting detail for [the submission](../README.md). The README presents the ma
 
 ## Target users and stakeholder context
 
-The four workload situations—working, over-committed, final-year and quiet-grinder students—can overlap. The common need is to make decisions among both fixed and flexible commitments. Teammates, lecturers, employers and family may benefit from earlier communication, but do not receive a student's personal records by default. Campus services provide support beyond SODA's planning role.
+The four workload situations (working, over-committed, final-year and quiet-grinder students) can overlap. The common need is to make decisions among both fixed and flexible commitments. Teammates, lecturers, employers and family may benefit from earlier communication, but do not receive a student's personal records by default. Campus services provide support beyond SODA's planning role.
 
 The 209-response Australian study is by **Gilmore, Glozier and Ashton-James (2025)**. Pandemic-era burnout findings (Abraham et al., 2024) establish a research concern, not a current Malaysian prevalence estimate. Associations between time management and learning outcomes (Liu et al., 2026) support investigating planning; they do not show that SODA improves grades.
 

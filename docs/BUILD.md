@@ -2,6 +2,18 @@
 
 > Supporting detail for section 5 of the [README](../README.md). Everything here is **proposed**; no application or deployed service exists yet.
 
+## Product hierarchy and minimum experience
+
+The three main experiences are **My Backpack**, **Impact Preview** and **Recovery Island**. Module boundaries do not imply equal product prominence.
+
+| Main experience | Required supporting behaviour |
+|---|---|
+| My Backpack | Authenticated manual entry, deterministic calculation, recorded-data coverage and readable explanations. |
+| Impact Preview | Unsaved simulation, response choice, constrained Smart Rebalance, explicit approval and safe undo. |
+| Recovery Island | A small set of preference-sensitive recovery choices, protected time, completion logging and the rolling Recovery Debt ledger. |
+
+Daily Check-in, Reality Check Lite, richer forecasts, guided timers and Insights extend the experience after the required path works. The minimum Recovery Island cannot be deferred while its underlying ledger alone is presented as the recovery experience.
+
 ## Repository structure
 
 ```

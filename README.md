@@ -15,19 +15,19 @@
 
 ### The Problem
 
-An assignment, a paid shift and a club request can each look manageable. The difficulty is seeing what happens when they all land in the same week—and deciding what can change before recovery becomes the leftover.
+An assignment, a paid shift and a club request can each look manageable. When they all land in the same week, students need to see the combined demand and decide what can change before recovery becomes the leftover.
 
 **SODA addresses a workload visibility and decision-making gap.** Students may know their individual commitments while struggling to judge their combined demand. The challenge therefore calls for more than tracking: students need help recognising pressure, finding feasible adjustments and making space for recovery.
 
-Research informs this direction. A study analysing **209 open-text responses** found academic workload was the most frequently mentioned influence on students' daily wellbeing, with links to stress and study–life balance ([Gilmore et al., 2025](https://doi.org/10.1080/07294360.2024.2442636)). Research on working students also highlights differences in work–study conflict, supporting a design that distinguishes fixed responsibilities from flexible tasks ([Creed et al., 2023](https://doi.org/10.3389/fpsyg.2023.1116031)). These findings support the problem framing; they do not validate SODA's calculations.
+Research informs this direction. A study analysing **209 open-text responses** found academic workload was the most frequently mentioned influence on students' daily wellbeing, with links to stress and balance between study and life ([Gilmore et al., 2025](https://doi.org/10.1080/07294360.2024.2442636)). Research on working students also highlights differences in conflict between work and study, supporting a design that distinguishes fixed responsibilities from flexible tasks ([Creed et al., 2023](https://doi.org/10.3389/fpsyg.2023.1116031)). These findings support the problem framing; they do not validate SODA's calculations.
 
 > **Our design question:** How might we help students see their combined workload and adjust it while they still have options?
 
 <p align="center">
-  <img src="assets/ideation/figure-1-1-problem-tree.png" alt="Figure 1.1: Six contributing causes—fragmented commitments, unrecorded life demands, optimistic estimates, accepting without preview, leftover recovery time and hidden recovery shortfalls—converge on difficulty judging total demand." width="880">
+  <img src="assets/ideation/figure-1-1-problem-tree.png" alt="Figure 1.1: Six contributing causes converge on difficulty judging total demand: fragmented commitments, unrecorded life demands, optimistic estimates, accepting without preview, leftover recovery time and hidden recovery shortfalls." width="880">
 </p>
 
-*Figure 1.1 — The problem tree connects six contributing causes to the shared visibility problem and its possible consequences. It is a design hypothesis about accumulation, not a diagnostic model.*
+*Figure 1.1: The problem tree connects six contributing causes to the shared visibility problem and its possible consequences. It is a design hypothesis about accumulation, not a diagnostic model.*
 
 ### Who we are designing for
 
@@ -60,15 +60,18 @@ SODA is a proposed student workload planner that combines recorded commitments a
 
 **Current status:** a Figma prototype and supporting specifications, with exported screens in Section 3. The application and hosted services are proposed for the building phase; effectiveness has not yet been evaluated. SODA provides planning estimates, not diagnoses or burnout-risk measurements.
 
-| Feature | Role in the student journey |
-|---|---|
-| **My Backpack + Life Forecast** | Show the five-axis breakdown and the most demanding days, with recorded-data coverage. |
-| **Impact Preview** | Compare the current plan with an unsaved candidate task. |
-| **Protection Mode + Smart Rebalance** | Let the student choose how to respond, review feasible changes and undo approved adjustments safely. |
-| **Recovery Island + Recovery Debt** | Suggest relevant recovery choices and show planned-versus-logged recovery across 28 days. |
-| **Daily Check-in + Reality Check** | Collect optional reflection and completion feedback; suggest estimate changes for approval. |
-| **Insights + How SODA Calculates** | Explain trends, assumptions and the basis of each estimate. |
-| **Task capture** | Manual entry first; calendar review and optional language assistance extend it within the build scope. |
+### Three core experiences
+
+SODA centres on three experiences: **understand what I am carrying, decide what I can take on, and make room to recover.** Supporting functions make these experiences usable without becoming separate product promises.
+
+| Student question | Main feature | Supporting functions |
+|---|---|---|
+| **“Why does my week feel so heavy?”** | **My Backpack:** see combined demand and identify the main source of pressure. | Task entry and calendar review supply commitments; Life Forecast adds the weekly outlook. |
+| **“Can I realistically say yes?”** | **Impact Preview:** see the cost of a new commitment and choose what can change. | Protection Mode sets the response; Smart Rebalance offers feasible adjustments and safe undo. |
+| **“What can I do to recover now?”** | **Recovery Island:** choose a suitable recovery action and give it a place in the plan. | Protected time, recovery logging and a timer support action; Recovery Debt keeps planned-versus-logged recovery visible. |
+
+**Support across the journey:** Daily Check-in provides optional reflection and preference context. Reality Check helps students reconsider future estimates; Insights and How SODA Calculates explain patterns and assumptions. These improve the three experiences rather than adding more main features.
+
 
 ---
 
@@ -91,7 +94,7 @@ We compared four approaches against **challenge fit, user need, originality, fea
 
 The problem tree above explains **why** overload can accumulate. The three boards below show **who needs help, what we considered, and how principles shaped the selected features**. They separate the original dense mindmap in response to mentor feedback.
 
-#### Figure 1.2a — Users and needs
+#### Figure 1.2a: Users and needs
 
 <p align="center">
   <img src="assets/ideation/figure-1-2a-users-needs.png" alt="Figure 1.2a: Working, over-committed, final-year and quiet-grinder situations share five load dimensions and needs to see demand, preview commitments, adjust plans, log recovery and revise estimates." width="880">
@@ -99,7 +102,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 
 *Different student situations converge on shared planning needs. This led to one personal model with editable inputs, rather than separate modes for each type of student.*
 
-#### Figure 1.2b — Concepts and selection
+#### Figure 1.2b: Concepts and selection
 
 <p align="center">
   <img src="assets/ideation/figure-1-2b-concepts-explored.png" alt="Figure 1.2b: Streak contributes a companion without penalties; Sync remains a future group-visibility option; Echo contributes short check-ins; Backpack becomes the capacity and preview core." width="880">
@@ -107,15 +110,15 @@ The problem tree above explains **why** overload can accumulate. The three board
 
 *The arrows trace what survived each concept and the trade-off behind it. Choosing Backpack preserved useful ideas while keeping the first build focused on the individual student.*
 
-#### Figure 1.2c — Principles that shaped the features
+#### Figure 1.2c: Principles that shaped the features
 
 <p align="center">
   <img src="assets/ideation/figure-1-2c-features-principles.png" alt="Figure 1.2c: Five complete principle-to-decision-to-feature paths connect low input effort to derived load, no guilt mechanics to recovery logging, correctable assumptions to feedback, deterministic calculations to previews, and approval plus text alternatives to accessible adjustments." width="880">
 </p>
 
-*Each connected row shows a principle changing a concrete design decision. These are examples of how the principles apply; privacy, accessibility and student control extend across the whole product.*
+*Each connected row shows a principle changing a concrete design decision. The board includes both main and supporting functions; it is not a list of five main features. Privacy, accessibility and student control apply throughout.*
 
-#### Figure 1.3 — From the chosen idea to a usable flow
+#### Figure 1.3: From the chosen idea to a usable flow
 
 <p align="center">
   <img src="assets/ideation/figure-1-3-core-user-flow-final.png" alt="Figure 1.3: Capture, calculate, preview, choose, confirm, recover and reflect. Only approved changes are saved; confirmed estimate corrections feed future calculations. An infeasible adjustment leaves the student in control." width="880">
@@ -431,17 +434,27 @@ Semantics(
 
 **SODA makes the next “yes” a capacity decision.** Its distinctive combination is an editable five-axis estimate, a preview before commitment, feasible adjustments and a recovery record that spans weeks.
 
-### Novel features and their practical twists
+### Three experiences, one decision journey
 
-**1. Same hours, different demand.** A three-hour assignment and a three-hour social event occupy the same clock time but receive different proposed demand vectors. My Backpack preserves that breakdown so the student can see which area drives the estimate. The weights are explicit assumptions, not measurements of mental or physical capacity.
+#### My Backpack: “Now I understand what is making the week heavy.”
 
-**2. Preview before saving, then choose a response.** Impact Preview shows how an unsaved task changes the existing plan. Protection Mode keeps the response with the student: protect recovery, receive a warning, or accept the commitment as-is. Nothing moves merely because a threshold was crossed.
+The student starts with an overview of combined demand, then sees which of the five dimensions needs attention. A three-hour assignment and a three-hour social event occupy the same time but receive different proposed demand vectors. The value is understanding the pressure behind the task list, not simply counting more tasks.
 
-**3. A feasible adjustment, not just an overload warning.** Smart Rebalance considers flexible work while holding fixed shifts, deadlines and protected recovery. Each selected move is recomputed against the whole week, including its destination. If nothing fits, SODA explains why; it does not manufacture a reassuring plan. Approved changes can be undone when later edits do not conflict.
+Task entry makes the overview possible, and Life Forecast extends it across the week. The assumptions and recorded-data coverage remain visible so the student can correct an incomplete picture.
 
-**4. Recovery remains visible across calendar boundaries.** Recovery Debt shows the gap between planned and logged recovery over the last 28 completed days. Recovery Island connects that record to concrete, preference-sensitive choices. Extra rest does not erase an earlier daily shortfall, and missing logs do not establish missing rest; the record is a prompt for reflection rather than a penalty.
+#### Impact Preview: “I can decide before I commit.”
 
-**5. The student can correct the next estimate.** Reality Check asks whether a completed task took longer or felt heavier. Repeated confirmed responses can trigger a suggested adjustment, which the student approves or dismisses. Skipped and automatically completed tasks are excluded. This applies the planning-fallacy rationale without presenting broad self-reports as precise measured learning ([Buehler et al., 1994](https://doi.org/10.1037/0022-3514.67.3.366)).
+**This is SODA's central demonstration moment.** The student previews an unsaved task against the current plan, sees the trade-off, and chooses whether to accept, adjust, defer or decline.
+
+Protection Mode and Smart Rebalance support that same decision. They preserve fixed shifts, deadlines and protected recovery while offering feasible changes to flexible work. Each selected change is checked against the whole week, including its destination. If nothing fits, the app explains why. Nothing moves without approval, and approved changes can be undone when later edits do not conflict.
+
+#### Recovery Island: “I have a manageable next step for recovery.”
+
+The student chooses a recovery action suited to their preferences and current context, protects time for it, and records what they completed. The experience turns a general reminder into a concrete action.
+
+Recovery Debt supports this experience by showing planned-versus-logged recovery across 28 completed days. It keeps postponed recovery visible across calendar boundaries without becoming a separate score to chase. Missing logs do not prove missing rest, extra rest does not erase an earlier daily shortfall, and the ledger does not lower the student's capacity baseline.
+
+**What helps the next visit:** optional Reality Check feedback can prompt an approved estimate adjustment when tasks repeatedly take longer than expected. This follows the planning-fallacy rationale ([Buehler et al., 1994](https://doi.org/10.1037/0022-3514.67.3.366)); it does not establish accurate automated learning. Check-ins, explanations and Insights support understanding and continuity across all three main experiences.
 
 ### Comparison with existing solutions
 
@@ -505,7 +518,7 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
   <img src="assets/figure-5-2-system-architecture-data-flow-v3.png" alt="Figure 5.2: Flutter collects task and check-in inputs. FastAPI validates requests and mediates a Python engine and Supabase storage. Language assistance is optional; client-side cache and notifications support the interface." width="880">
 </p>
 
-*Figure 5.2 — Logical components and data hand-offs. FastAPI mediates database access; the engine itself has no network calls. The dashed outlines group components rather than indicating optional connections.*
+*Figure 5.2: Logical components and data hand-offs. FastAPI mediates database access; the engine itself has no network calls. The dashed outlines group components rather than indicating optional connections.*
 
 **A preview request, end to end:** the app sends a confirmed candidate and user token to FastAPI; the API reads the authorised schedule and capacity; Python simulates the before/after result; the app displays it without saving a task. A separate approval saves the candidate and selected adjustments atomically against the schedule revision. If the schedule changed, the student receives a fresh preview instead of overwriting newer edits.
 
@@ -533,22 +546,24 @@ These are proposed planning rules. Recovery Debt does not lower the capacity bas
 
 ### Build plan & scope
 
-**The three-week goal is one complete, trustworthy decision loop:** enter a task, understand demand, preview a candidate, approve feasible adjustments, then log recovery.
+**The three-week goal is a complete path through the three main experiences:** My Backpack → Impact Preview with feasible adjustments → Recovery Island with a completed recovery record.
+
+Product hierarchy and build priority are different. Task entry, Smart Rebalance and recovery logging are supporting functions, but the core experience cannot work without them. The first release includes a small, usable Recovery Island; more activity choices can follow.
 
 | Priority | Building-phase scope |
 |---|---|
-| **Must** | Authenticated manual entry; five-axis model and My Backpack; Impact Preview; Protection Mode; constrained Smart Rebalance with safe undo; recovery logging and Debt; basic check-in; text alternatives; synthetic demo data. |
-| **Should** | Calendar review; richer Life Forecast; Reality Check Lite; Recovery Island choices; offline drafts and local notifications. |
+| **Must** | Authenticated manual entry; five-axis model and My Backpack; Impact Preview; Protection Mode; constrained Smart Rebalance with safe undo; a basic Recovery Island with recovery choice, protected time, completion logging and Debt; text alternatives; synthetic demo data. |
+| **Should** | Calendar review; richer Life Forecast; Daily Check-in; Reality Check Lite; expanded Recovery Island choices and guided timer; offline drafts and local notifications. |
 | **Could** | Optional language demonstration, expanded Insights and additional recovery content. |
 | **Outside this build** | Friend circle, university dashboard, wearable companion and clinical assessment. |
 
 | Week | Responsible roles | Evidence of completion |
 |---|---|---|
-| **1 — Establish the core** | Backend + frontend leads | Sign in → save manual task → reproduce the load view; two-account isolation check passes. |
-| **2 — Complete the decision loop** | Backend + frontend leads | Preview → approve selected changes → persist → undo safely; recovery ledger works on fixtures. |
-| **3 — Integrate and rehearse** | Integration/QA + UX leads | Resolve core defects; keyboard/TalkBack review; web deployment and planned Android APK; rehearse without AI and on another network. |
+| **1: Establish the core** | Backend + frontend leads | Sign in → save manual task → reproduce the load view; two-account isolation check passes. |
+| **2: Complete the decision loop** | Backend + frontend leads | Preview → approve selected changes → persist → undo safely; basic Recovery Island choice → protected time → completed log → updated ledger works on fixtures. |
+| **3: Integrate and rehearse** | Integration/QA + UX leads | Resolve core defects; keyboard/TalkBack review; web deployment and planned Android APK; rehearse without AI and on another network. |
 
-**Cut order:** optional language → extra Insights/content → Reality Check Lite → calendar import and enhanced offline sync. Preserve calculation, feasible adjustments and recovery logging. A schedule with no feasible improvement must be handled honestly rather than treated as a failed demo.
+**Cut order:** optional language → extra Insights/content → Reality Check Lite → calendar import and enhanced offline sync. Preserve all three main experiences, including their required task entry, feasible adjustments and recovery logging. A schedule with no feasible improvement must be handled honestly rather than treated as a failed demo.
 
 ### Team, time and cost
 
@@ -589,15 +604,15 @@ Collect only task, account, check-in and recovery data needed for the workflow. 
 
 The essential case is above. These documents retain the material needed to examine the proposal more closely:
 
-- [Research, evaluation and references](docs/EVIDENCE.md) — research-to-design mapping, proposed measures, stakeholder context and source list.
-- [Calculation and architecture specification](docs/MODEL.md) — formulas, worked example, recovery rules, constrained adjustments and language modes.
-- [Build specification](docs/BUILD.md) — proposed repository layout, starter SQL/RLS, API contracts, fixtures and integration checks.
+- [Research, evaluation and references](docs/EVIDENCE.md): research-to-design mapping, proposed measures, stakeholder context and source list.
+- [Calculation and architecture specification](docs/MODEL.md): formulas, worked example, recovery rules, constrained adjustments and language modes.
+- [Build specification](docs/BUILD.md): proposed repository layout, starter SQL/RLS, API contracts, fixtures and integration checks.
 
 ---
 
 <div align="center">
 
-**SODA — Carry life, not overload.**
+**SODA: Carry life, not overload.**
 
 Built for CodeNection 2026 · Lifestyle Track: Beating the Burnout
 
