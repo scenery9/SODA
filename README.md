@@ -87,14 +87,14 @@ stays short and the evidence stays available.
 ### 1.1 The Problem
 
 University students rarely collapse from one thing. They collapse from an accumulation nobody is
-measuring, coursework, a shift job, a committee role, errands, and the quiet cost of never resting,
+measuring: coursework, a shift job, a committee role, errands, and the quiet cost of never resting,
 all landing in the same week.
 
 The challenge brief frames burnout as exactly this: an accumulation problem. Research agrees.
 Academic stress is a *combination* of pressures rather than coursework alone (Iqra, 2024), and student
 workload needs to be examined for both its **amount and its distribution**, not task by task (Thornby
-et al. 2023). A [systematic review of pandemic-era studies](https://www.nature.com/articles/s41598-024-52923-6)
-reports burnout symptoms with variation across contexts (Abraham et al. 2024). That is enough to establish that the
+et al., 2023). A [systematic review of pandemic-era studies](https://www.nature.com/articles/s41598-024-52923-6)
+reports burnout symptoms with variation across contexts (Abraham et al., 2024). That is enough to establish that the
 problem warrants attention, though pandemic-era findings are not a current Malaysian prevalence estimate.
 
 The question we kept returning to was narrower and more useful than "why do students burn out":
@@ -106,7 +106,7 @@ The question we kept returning to was narrower and more useful than "why do stud
 
 That question separates the *demands* a student faces from the *outcomes* they may eventually
 experience. Study overload and burnout are related but distinct: a busy schedule alone does not
-establish that someone is burning out (Carmona-Halty et al. 2024). We are not trying to detect
+establish that someone is burning out (Carmona-Halty et al., 2024). We are not trying to detect
 burnout. We are trying to make the accumulation visible while the student still has choices.
 
 Our exploration found a specific gap: **students know their individual commitments but cannot see
@@ -131,7 +131,7 @@ the roots are the six causes we designed against.*
 | R1 | **Fragmented commitments** | Tasks live across the LMS, a calendar, three group chats, a work roster and memory. |
 | R2 | **Invisible non-academic load** | Errands, emotional labour and group coordination are real work and are almost never recorded. |
 | R3 | **Decision-time blindness** | The cost of saying yes is unclear at the exact moment a new commitment appears. |
-| R4 | **Planning fallacy** | Students systematically underestimate how long tasks will take (Buehler et al. 1994). |
+| R4 | **Planning fallacy** | Students systematically underestimate how long tasks will take (Buehler et al., 1994). |
 | R5 | **Rest is residual** | Recovery is treated as leftover time, so it is the first thing removed under pressure. |
 | R6 | **No recovery carry-over** | A new weekly view can hide recovery that was repeatedly postponed in previous weeks. |
 
@@ -151,10 +151,10 @@ the commitment is made, and carry recovery needs across weeks.
 ### 1.2 Stakeholders
 
 **Primary users** are undergraduates balancing coursework with at least one substantial responsibility
-outside class, paid work, society leadership, structured sport, or caring duties. These students hold
+outside class: paid work, society leadership, structured sport, or caring duties. These students hold
 a mix of *fixed* and *flexible* commitments, so "just do less" is not available to them. Research on
 working students confirms that different work–study arrangements carry different conflict and
-study-burnout levels, which is why SODA never assumes every commitment can be moved (Creed et al. 2023).
+study-burnout levels, which is why SODA never assumes every commitment can be moved (Creed et al., 2023).
 
 <details>
 <summary><strong>▸ Four user patterns, the wider stakeholder map, and the research behind them</strong></summary>
@@ -171,7 +171,7 @@ can be several at once.
 
 In a qualitative study of 209 university students, academic workload was the **most frequently
 identified influence on daily wellbeing**, connected to academic stress, social isolation and
-study–life balance (O'Keeffe et al. 2025). That is the evidence behind our decision to put academic
+study–life balance (O'Keeffe et al., 2025). That is the evidence behind our decision to put academic
 and non-academic demands in the *same* overview rather than in separate tabs.
 
 The Study Demands–Resources framework explains student wellbeing through the interaction between
@@ -410,7 +410,7 @@ Four of those changes are worth explaining properly, because each cost us someth
 
 **Simplifying task entry (v0.3).** The original concept asked students to score five workload dimensions
 on every task. In our own logging exercise, full five-field entry took **40–55 seconds per task**,
-unusable under an illustrative eight-new-commitments-per-week workload. The revised *Add New Task* screen asks only for
+unusable at the eight or so commitments a student adds in a week. The revised *Add New Task* screen asks only for
 title, date, duration, effort and category, and the five-dimension vector is *derived* from category and
 effort, pre-filled and collapsed. **Traded:** per-task precision. **Gained:** a model that is actually
 populated. A slightly coarse model with real data beats a precise one that is empty.
@@ -467,9 +467,8 @@ recognisable backend technology logos and stronger alternate-text explanations. 
 now includes Figures 1.2a–c and architecture v3, with text descriptions beside the figures. Chart
 alternatives are specified, but screen-reader and final contrast verification remain build tasks.
 
-This records **feedback → decision → artifact**. The rubric rewards meaningful integration; it does
-not require a second mentor or agreement with every suggestion. Keep the original consultation notes
-available for verification, and add further sessions only if they actually happened.
+Each row records the same chain: **feedback → decision → artifact**, so every response above can be
+checked against something we actually changed.
 
 </details>
 
@@ -477,7 +476,7 @@ available for verification, and add further sessions only if they actually happe
 
 ## 3. Design & Prototype
 
-**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5), public access still needs an incognito check.
+**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5)
 
 SODA is used by people who are already depleted. That single fact drives every decision in this
 section: the interface has to be readable in ten seconds, honest about what it does not know, and
@@ -735,8 +734,8 @@ four different apps**:
 4. Review what actually happened and carry recovery needs across weeks.
 
 This is consistent with Study Demands–Resources theory, which explains student wellbeing through the
-interaction of demands, resources and proactive adjustment (Bakker & Mostert, 2024), we did not invent
-the framework, we designed an interface informed by it.
+interaction of demands, resources and proactive adjustment (Bakker & Mostert, 2024). We did not invent
+the framework; we designed an interface informed by it.
 
 ### 4.2 Novel Features and Twists
 
@@ -800,7 +799,7 @@ product, because it makes missed planned recovery visible beyond a calendar boun
 Effort–recovery theory describes exactly this: incomplete recovery leaves residual strain when the next
 demand begins (Meijman & Mulder, 1998).
 
-Design safeguard: recovery debt influences *suggestions*, it does **not** silently lower the student's
+Design safeguard: recovery debt influences *suggestions*; it does **not** silently lower the student's
 capacity ceiling. Debt is a signal to act on, never a punishment applied to the model.
 
 #### 4.2.6 Recovery Island: Recovery Matched to the Depleted Axis
@@ -832,7 +831,7 @@ self-reported buckets cannot support that. Auto-completed tasks and skipped resp
 rather than averaged in.
 
 This targets the planning fallacy directly: people underestimate completion time by focusing on the plan
-in front of them and underusing their own past experience (Buehler et al. 1994).
+in front of them and underusing their own past experience (Buehler et al., 1994).
 
 > **Cycle:** Estimate → complete → give feedback → review the next estimate.
 > **Honest limit:** the prototype demonstrates the feedback *interaction*. Whether it measurably improves
@@ -858,7 +857,7 @@ exhaustive market survey or hands-on benchmark. SODA's column describes a **prop
 | Organise tasks alongside events | [Todoist](https://www.todoist.com/help/todoist/integrations/use-the-calendar-integration-rCqwLCt3G) connects tasks and calendars. | Interpret recorded tasks through mental, time, physical, social and errands demand. |
 | Reorganise an overloaded schedule | [Reclaim](https://reclaim.ai/) supports adaptive scheduling, workload visibility and preview/approval. | Compare five-axis demand against an editable personal baseline; show how the candidate changes that estimate. |
 | Sustain self-care | [Finch](https://finchcare.com/) combines self-care activities with a companion. | Connect recovery choices to the planning workflow and record missed planned recovery across weeks. |
-| Improve the next estimate | This review does not establish that completion feedback is absent elsewhere. | Close SODA's own loop: confirmed feedback → suggested estimate adjustment → next Impact Preview. |
+| Improve the next estimate | Task managers record completion, but not whether the estimate was right. | Close SODA's own loop: confirmed feedback → suggested estimate adjustment → next Impact Preview. |
 
 **Why this matters for our target student:** the decision stays in one place. A fixed paid shift remains
 fixed, a flexible assignment can move, and recovery remains an explicit constraint. The novelty claim
@@ -888,9 +887,9 @@ reverse anything the app changed; keep the core usable without a wearable.
 > These choices produce a recognisable design direction. They do not yet constitute a proven technical
 > moat, and we are not going to pretend otherwise.
 
----
-
 </details>
+
+---
 
 ## 5. Technical Architecture & Feasibility
 
@@ -1209,9 +1208,9 @@ lower, remove calendar integration and enhanced offline sync before weakening th
 | Member | Main responsibility | Key deliverables | Est. hours |
 |---|---|---|---|
 | **Muhammad Ikhlas** | Ideation & creativity | Research, alternative concepts, idea evolution, mentor feedback | 22 |
-| **Jiayin** | UI/UX & Figma | Design system, core screens, interactive prototype | 30 |
-| **Boonshen** | Feasibility & diagrams | Technology plan, architecture, mindmaps, technical diagrams | 26 |
-| **Samantha** | Impact, presentation & integration | Impact section, final report, slides, demo flow, Figma support | 28 |
+| **Lee Jia Yin** | UI/UX & Figma lead | Design system, core screens, interactive prototype, design principles and user flow (§3.1–3.2) | 30 |
+| **Yeap Boon Shen** | Feasibility, diagrams & Figma | Technology plan, system architecture, the ideation boards and technical figures, Figma screen build alongside Jia Yin | 26 |
+| **Samantha Chan** | Impact, presentation & integration | Impact section, final report, slides, demo flow, Figma support | 28 |
 | | | **Total** | **106 h** (~26.5 h each) |
 
 **Prototype cost**
@@ -1353,7 +1352,7 @@ require explicit opt-in, defined escalation rules, and review by qualified stude
 Student overload develops when coursework, employment, extracurriculars, personal responsibilities and
 insufficient recovery accumulate together. Academic stress involves multiple pressures rather than
 academic tasks alone (Iqra, 2024), and study-related factors are linked with both burnout and engagement
-(Olson et al. 2023).
+(Olson et al., 2023).
 
 <details>
 <summary><strong>▸ The research framing, and the three considerations that shaped the approach</strong></summary>
@@ -1367,8 +1366,8 @@ Three considerations shape the approach:
 - **Visibility.** Knowing your commitments individually does not reveal their combined demand. SODA puts
   every recorded responsibility into one overview.
 - **Planning.** A meta-analysis of 31 studies covering 13,506 participants found a positive association
-  between time management and learning outcomes, particularly among undergraduates (Liu et al. 2026).
-  That supports investigating better planning decisions, it does **not** license us to claim SODA
+  between time management and learning outcomes, particularly among undergraduates (Liu et al., 2026).
+  That supports investigating better planning decisions; it does **not** license us to claim SODA
   improves grades.
 - **Recovery.** Effort–recovery theory explains how incomplete recovery leaves residual strain when the
   next demand arrives (Meijman & Mulder, 1998). That informs Recovery Debt, without validating its
@@ -1418,7 +1417,7 @@ The benefit being tested is a clearer trade-off and a usable plan-not a claim th
 |---|---|---|
 | Combined load is hard to recognise | Self-regulation depends on detecting a gap between current and reference state (Carver & Scheier, 1982) | My Backpack makes concentration of load visible, creating the reference point |
 | Future cost is less salient than present benefit | Decisions underweight delayed consequences (Thaler & Sunstein, 2008) | Impact Preview drags the delayed cost into the present moment |
-| Task estimates are optimistic | People underestimate completion times despite past overruns (Buehler et al. 1994) | Reality Check collects feedback intended to correct future estimates |
+| Task estimates are optimistic | People underestimate completion times despite past overruns (Buehler et al., 1994) | Reality Check collects feedback intended to correct future estimates |
 | Recovery stays an unprotected intention | Specifying when and where an action happens supports follow-through (Gollwitzer, 1999) | Smart Rebalance places explicit recovery blocks in the plan |
 | Missed recovery persists | Incomplete recovery leaves residual load reactions (Meijman & Mulder, 1998) | Recovery Debt carries shortfalls across weeks instead of resetting |
 | Recovery needs differ | Recovery research distinguishes detachment, relaxation, mastery and control (Sonnentag & Fritz, 2007) | Recovery Island offers varied, axis-matched actions |
@@ -1517,11 +1516,9 @@ possibility, **not a current prototype capability**.
 ## 7. Appendix: Build Specification
 
 > [!NOTE]
-> This appendix is a build contract in progress. The repository layout, SQL and APIs below are proposed;
-> they do not indicate that an application or deployed service already exists.
-
-> This appendix exists so that an engineer (or a coding agent) can pick up the build phase without
-> re-reading the whole document. It is the contract between the design above and the code below.
+> This appendix lets an engineer pick up the build phase without re-reading the whole document: it is
+> the contract between the design above and the code below. The repository layout, SQL and APIs are
+> **proposed**. They do not indicate that an application or deployed service already exists.
 
 ### 7.1 Repository Structure
 
