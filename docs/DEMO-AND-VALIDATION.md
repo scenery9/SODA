@@ -33,18 +33,33 @@ Team preparation material supporting [the submission](../README.md). The schedul
 
 For the prototype round, demonstrate the designed states and label them as illustrative. For the build, use versioned inputs and executed checks. The existing 82% → 107% → 89% storyboard target is a separate, unverified numerical fixture; do not attach those scores to this schedule. The model appendix's worked arithmetic is independent too.
 
-## Proposed implementation allocation
+## Implementation responsibilities
 
-This is a coordination proposal based on documented contributions, **not an agreed assignment or evidence of technical proficiency**. Confirm skills, availability and ownership before kickoff.
+The following building-phase allocation defines each member's ownership. Deliverables are planned work, not claims that implementation or testing has already been completed.
 
-| Proposed accountable member | Workstream | Proposed collaborator | Confirmation needed |
-|---|---|---|---|
-| Yeap Boon Shen | Python model, API and data integration | Muhammad Ikhlas bin Mohd Faizal on constraints and fixture cases | Backend availability and implementation experience |
-| Lee Jia Yin | Flutter core journey and design translation | Yeap Boon Shen on API integration | Flutter availability and implementation experience |
-| Muhammad Ikhlas bin Mohd Faizal | Scenario coverage, acceptance checks and requirements traceability | Samantha Chan Pei Yin on participant tasks | Testing capacity and access to target participants |
-| Samantha Chan Pei Yin | Integration coordination, evaluation records and presentation | Lee Jia Yin on walkthrough continuity | Recording, editing and integration availability |
+| Team Member | Primary Responsibility | Key Deliverables |
+|---|---|---|
+| **Samantha Chan Pei Yin** | **Recovery Island Development & Submission Integration** | Develop the recovery activity selection, protected-time and completion-recording interfaces; integrate Recovery Debt data with the backend; coordinate the final README, slides and demonstration using contributions from all members. |
+| **Lee Jia Yin** | **Frontend Development & UI/UX** | Build shared Flutter components and navigation, task-entry screens, My Backpack and Impact Preview interfaces; maintain consistency with the Figma design and implement accessible interaction states. |
+| **Yeap Boon Shen** | **Backend Development & Calculation Engine** | Implement the five-dimensional load model, database and APIs, Impact Preview calculations, Smart Rebalance constraints, recovery data services, and safe save/undo behaviour. |
+| **Muhammad Ikhlas bin Mohd Faizal** | **Testing & Quality Assurance** | Prepare test plans and synthetic data; perform functional, integration and regression testing; verify calculation outputs, scheduling constraints and account isolation; track defects, retest fixes and validate the complete demonstration flow. |
 
-The 120-hour estimate is a shared workstream budget, not four independently assigned workloads. Confirm who covers backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12 hours. If skills or time are insufficient, reduce optional scope before promising delivery. Confirmed changes belong in the README's build plan.
+### Collaboration and hand-offs
+
+- **Samantha and Jia Yin:** agree on shared components, navigation and frontend conventions before building their separate screens. Samantha owns recovery interfaces; Jia Yin owns My Backpack, task entry and Impact Preview interfaces.
+- **Boon Shen and both frontend developers:** agree on API request/response fields and error states before integration. Boon Shen owns server-side recovery calculations and persistence; Samantha owns how students interact with those services.
+- **Ikhlas and all developers:** define acceptance cases early. Developers supply module checks and resolve defects in their own code; Ikhlas performs independent verification, integration checks and regression testing.
+- **All members:** supply accurate content for their own workstream, review the demonstration and participate in rehearsal. Samantha coordinates document and presentation assembly rather than writing every member's contribution alone.
+
+### Testing and QA across three weeks
+
+| Week | Ikhlas's QA deliverables | Developer collaboration |
+|---|---|---|
+| **1: Establish coverage** | Test plan, synthetic input data, task-entry checks, expected calculation outputs and two-account isolation cases. | Agree on acceptance criteria; provide reproducible module checks and error states. |
+| **2: Verify the decision loop** | Integration tests for preview, fixed commitments, deadlines, protected recovery, infeasible adjustments, save/undo and recovery logging. | Fix assigned defects and provide steps for verification. |
+| **3: Validate readiness** | Regression results, cross-device checks, accessibility review, defect retests and an end-to-end demonstration checklist. | Resolve release-blocking defects and rehearse the final flow together. |
+
+The **120-hour workstream estimate** remains backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. It does not imply equal hours per person or that Ikhlas owns every developer check. Review availability and technical support needs at kickoff; reduce optional integrations before weakening the three core experiences.
 
 ## Draft video script: target 4 minutes 30 seconds
 

@@ -568,11 +568,11 @@ Product hierarchy and build priority are different. Task entry, Smart Rebalance 
 | **Could** | Optional language demonstration, expanded Insights and additional recovery content. |
 | **Outside this build** | Friend circle, university dashboard, wearable companion and clinical assessment. |
 
-| Week | Responsible roles | Evidence of completion |
+| Week | Responsibility and collaboration | Evidence of completion |
 |---|---|---|
-| **1: Establish the core** | Backend + frontend leads | Sign in → save manual task → reproduce the load view; two-account isolation check passes. |
-| **2: Complete the decision loop** | Backend + frontend leads | Preview → approve selected changes → persist → undo safely; basic Recovery Island choice → protected time → completed log → updated ledger works on fixtures. |
-| **3: Integrate and rehearse** | Integration/QA + UX leads | Resolve core defects; keyboard/TalkBack review; web deployment and planned Android APK; rehearse without AI and on another network. |
+| **1: Establish the core** | Boon Shen: backend; Jia Yin and Samantha: frontend; Ikhlas: QA | Sign in → save manual task → reproduce the load view; two-account isolation check passes. |
+| **2: Complete the decision loop** | Boon Shen: backend; Jia Yin and Samantha: frontend; Ikhlas: QA | Preview → approve selected changes → persist → undo safely; basic Recovery Island choice → protected time → completed log → updated ledger works on fixtures. |
+| **3: Integrate and rehearse** | Ikhlas: QA coordination; all developers: fixes; Samantha: submission assembly | Resolve core defects; keyboard/TalkBack review; web deployment and planned Android APK; rehearse without AI and on another network. |
 
 **Cut order:** optional language → extra Insights/content → Reality Check Lite → calendar import and enhanced offline sync. Preserve all three main experiences, including their required task entry, feasible adjustments and recovery logging. A schedule with no feasible improvement must be handled honestly rather than treated as a failed demo.
 
@@ -588,14 +588,18 @@ These are build acceptance criteria, not completed tests. Prototype screens illu
 
 ### Team, time and cost
 
-| Member | Current contribution |
-|---|---|
-| **Muhammad Ikhlas bin Mohd Faizal** | Research, alternative concepts, idea evolution and mentor feedback. |
-| **Lee Jia Yin** | UI/UX, design system and interactive Figma prototype. |
-| **Yeap Boon Shen** | Feasibility, architecture, ideation diagrams and Figma support. |
-| **Samantha Chan Pei Yin** | Impact, presentation and submission integration. |
+The building-phase responsibilities give each member a defined implementation or verification workstream.
 
-The building-phase estimate is **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. This is a proposed allocation, not recorded work. Named implementation owners and their availability must be confirmed at kickoff; scope is reduced if the available hours are lower. A [proposed named allocation](docs/DEMO-AND-VALIDATION.md#proposed-implementation-allocation) links these workstreams to current contributions, subject to team confirmation of skills and availability.
+| Team Member | Primary Responsibility | Key Deliverables |
+|---|---|---|
+| **Samantha Chan Pei Yin** | **Recovery Island Development & Submission Integration** | Develop the recovery activity selection, protected-time and completion-recording interfaces; integrate Recovery Debt data with the backend; coordinate the final README, slides and demonstration using contributions from all members. |
+| **Lee Jia Yin** | **Frontend Development & UI/UX** | Build shared Flutter components and navigation, task-entry screens, My Backpack and Impact Preview interfaces; maintain consistency with the Figma design and implement accessible interaction states. |
+| **Yeap Boon Shen** | **Backend Development & Calculation Engine** | Implement the five-dimensional load model, database and APIs, Impact Preview calculations, Smart Rebalance constraints, recovery data services, and safe save/undo behaviour. |
+| **Muhammad Ikhlas bin Mohd Faizal** | **Testing & Quality Assurance** | Prepare test plans and synthetic data; perform functional, integration and regression testing; verify calculation outputs, scheduling constraints and account isolation; track defects, retest fixes and validate the complete demonstration flow. |
+
+**Shared responsibility:** each developer checks and fixes their own module. Ikhlas coordinates independent QA throughout all three weeks, rather than receiving the entire testing workload at the end. Every member supplies and verifies their own technical or design content for the submission; Samantha coordinates the final assembly.
+
+The building-phase estimate remains **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. These are planning estimates, not recorded hours or equal allocations per member. Frontend work is shared between Samantha and Jia Yin; actual capacity is reviewed at kickoff, and optional scope is reduced if necessary. The [team responsibility and QA plan](docs/DEMO-AND-VALIDATION.md#implementation-responsibilities) sets out collaboration and weekly testing deliverables.
 
 | Resource | Demo budget and constraint |
 |---|---|
@@ -625,7 +629,7 @@ Collect only task, account, check-in and recovery data needed for the workflow. 
 
 The essential case is above. These documents retain the material needed to examine the proposal more closely:
 
-- [Demonstration and validation pack](docs/DEMO-AND-VALIDATION.md): the shared case, proposed allocation, 4:30 speaking script and unfilled participant observation sheet.
+- [Demonstration and validation pack](docs/DEMO-AND-VALIDATION.md): the shared case, team responsibilities, 4:30 speaking script and unfilled participant observation sheet.
 - [Research, evaluation and references](docs/EVIDENCE.md): research-to-design mapping, proposed measures, stakeholder context and source list.
 - [Calculation and architecture specification](docs/MODEL.md): formulas, worked example, recovery rules, constrained adjustments and language modes.
 - [Build specification](docs/BUILD.md): proposed repository layout, starter SQL/RLS, API contracts, fixtures and integration checks.
