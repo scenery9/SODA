@@ -16,11 +16,7 @@ Our case for effectiveness is **theory-informed and testable**, not demonstrated
 intended interaction; sustained behavioural effects require evaluation.
 
 **Illustrative persona: Aina, a working undergraduate (fictional, not a research participant).**
-Aina has a fixed Thursday shift and an assignment due Friday. A club asks her to take on more work.
-SODA previews the extra demand before she agrees: **82% → 107%** in the intended demo fixture.
-She reviews feasible changes, keeps her shift and deadline fixed, and approves a plan targeting **89%**.
-If there is no feasible adjustment, SODA says so; accepting, deferring or declining stays her decision.
-The benefit being tested is a clearer trade-off and a usable plan; changes in burnout have not been measured.
+Use the [shared schedule and decision](DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences): move flexible laundry, preserve two hours of drafting, and retain the fixed class, shift and recovery interval. No load percentage has been calculated for this partial schedule. The benefit being tested is a clearer trade-off and a usable plan; changes in burnout have not been measured.
 
 | Problem | Research basis | SODA intervention |
 |---|---|---|
@@ -34,17 +30,7 @@ The benefit being tested is a clearer trade-off and a usable plan; changes in bu
 > These theories support the **design rationale**. They do not validate SODA's five dimensions, its
 > weights, its recovery percentages, or the effectiveness of any specific recommendation.
 
-**Illustrative before-and-after** *(intended behaviour, not observed outcomes; assumes commitments are
-recorded and some adjustment is feasible)*
-
-| Day | Without SODA | With SODA |
-|---|---|---|
-| Mon | A club responsibility is accepted without reviewing the week | Impact Preview shows its projected effect before confirmation |
-| Tue | Presentation prep is estimated from intuition | Completion feedback informs a suggestion to reconsider the estimate |
-| Wed | Several deadlines start competing for the same hours | Smart Rebalance identifies which tasks can actually move |
-| Thu | Work stays concentrated on one demanding day | Approved changes redistribute demand; Thursday’s illustrative load estimate drops from 107% to 89% |
-| Fri | Rest is displaced by unfinished work | Protected recovery survives in the revised plan |
-| Sat | Free time, no recovery plan | Recovery Island offers a concrete, matched activity |
+The README's before/after decision table uses this same case. The demonstration pack includes a no-feasible-adjustment variant so evaluation does not assume that every student can move their responsibilities.
 
 **Limits of the claim.** The model depends on recorded information, missing commitments produce false
 confidence. Capacity and Recovery Debt are personal estimates, not universal thresholds. Reality Check

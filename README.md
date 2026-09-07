@@ -137,7 +137,12 @@ The problem tree above explains **why** overload can accumulate. The three board
 | **Make recovery actionable** | Generic “take a break” reminders | Added choices, protected time, a reset timer and recovery history. | Requires preferences and logging; a suggestion cannot prove recovery occurred. |
 | **Improve the explanation** | One dense ideation board | Split users, concepts and principles into connected diagrams. | More focused figures, each with a short explanation instead of repeated prose. |
 
-For example, simplifying capture reduces logging effort but also removes mandatory detailed ratings. We resolve that tension by exposing the derived assumptions for correction, not by claiming the defaults measure a student's state precisely. The original draft's informal timing estimates are not treated as a validated usability result.
+**Two changes made concrete**
+
+| Iteration | Earlier proposal → revised design | Why the change matters | Evidence and limit |
+|---|---|---|---|
+| **Task capture** | Rate five dimensions for every task → enter duration, effort and category, then inspect derived defaults. | Removes repeated abstract ratings while preserving correction. The trade-off is coarser defaults, not proven measurement accuracy. | [Figure 1.2c](#figure-12c-principles-that-shaped-the-features) and the [specified inputs](docs/MODEL.md#step-1-a-task-becomes-a-five-dimensional-vector). The earlier state is documented concept history, not a recovered old screenshot; informal timing claims are not a user benchmark. |
+| **Recovery** | General reminder to rest → choose an action, protect time and record completion in Recovery Island. | Gives the student a next step and a visible record. It requires preferences and logging rather than assuming a reminder caused recovery. | [Core flow](#figure-13-from-the-chosen-idea-to-a-usable-flow) and [completion criteria](#minimum-completion-standard). The flow specifies intended behaviour; actual follow-through remains untested. |
 
 ### 2.3 Mentor Consultation
 
@@ -458,21 +463,27 @@ Recovery Debt supports this experience by showing planned-versus-logged recovery
 
 ### Comparison with existing solutions
 
-The products in Section 1 already support valuable task, scheduling and self-care behaviours. **SODA's proposed advantage for its target student is a continuous decision process:** the shift stays fixed, flexible work can change, and recovery remains part of the plan. Whether students find that combination more useful requires comparative testing; we make no “first ever” or proven-superiority claim.
+The comparison below uses one synthetic decision rather than comparing feature counts. These are capability-level examples, not a hands-on benchmark or a claim that any named competitor lacks all of SODA's functions.
+
+| Approach | What it helps Aina understand | SODA's proposed addition |
+|---|---|---|
+| Task-list view | What must be completed and by when. | Explain recorded demand across five dimensions against an editable personal baseline. |
+| Calendar / adaptive scheduling | Where events overlap and which flexible work could move. | Connect that scheduling decision to the demand estimate and explicitly protected recovery. |
+| Self-care view | Which recovery or reflection activity she might choose. | Keep the chosen action in the same journey as the commitment decision and recovery history. |
 
 ### What changes for the student
 
-**Aina is a fictional working undergraduate.** She has a fixed Thursday shift, an assignment due Friday and a new club request. The question is not simply whether there is a blank space in her calendar; it is what accepting the request would require her to change.
+**Aina is a fictional working undergraduate.** On Thursday she has class from 09:00–11:00, laundry from 12:00–13:00, two hours of assignment drafting from 13:00–15:00, a fixed shift from 16:00–20:00 and protected recovery from 20:30–21:00. Her assignment is due Friday at noon. A club asks her to help on Thursday from 13:00–14:00.
 
-| Moment | Without the proposed workflow | With SODA |
+| Experience | What Aina sees or does | Concrete outcome in this synthetic case |
 |---|---|---|
-| A new request arrives | Aina agrees before reviewing the combined demand. | She previews its effect before saving it. |
-| Thursday becomes too demanding | She has to work out what can move and may use her rest time. | She reviews flexible options while the shift, deadline and protected recovery remain constraints. |
-| No adjustment fits | A reassuring score could obscure an impossible week. | SODA explains the constraint; she can defer, decline or knowingly accept. |
-| The week ends | Postponed recovery disappears from the weekly view. | Planned-versus-logged recovery remains visible within the rolling window. |
-| Another assignment appears | She repeats an optimistic estimate. | Confirmed feedback prompts her to reconsider the next estimate. |
+| **My Backpack** | Reviews the combined demand and the commitments behind it. | Recognises that the new request competes with existing assignment work. |
+| **Impact Preview** | Reviews moving laundry to an available Saturday slot and splitting drafting into 12:00–13:00 and 14:00–15:00. | Can accept with explicit changes: two drafting hours remain, the deadline is met, and class and shift do not move. |
+| **Recovery Island** | Chooses a quiet reset for the protected interval and records completion when it happens. | Keeps 30 minutes available for recovery; the ledger distinguishes a plan from a completed action. |
 
-The storyboard's **82% → 107% → 89%** sequence is an illustrative design target, not a measured outcome. Under the specified bands, 89% is **Heavy**, below the 90% overload threshold. The build must reproduce any displayed sequence from a consistent set of input tasks before demonstrating it as a calculation.
+The trade-off is explicit: **laundry moves to Saturday; it does not disappear from the week.** If laundry cannot move or the assignment cannot be split, that option is rejected. Aina can defer, decline or knowingly accept the conflict rather than receive an impossible “fixed” schedule.
+
+This example establishes an intended decision path, not observed benefits or a complete numerical fixture. The [demonstration pack](docs/DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences) records its constraints and failure variant. Do not attach the storyboard's unverified **82% → 107% → 89%** values to this schedule. Any future displayed scores must come from the same complete, versioned inputs; 89% is **Heavy** under the specified bands.
 
 **Why the mechanism is plausible:** Study Demands–Resources theory links demands, resources and proactive adjustment ([Bakker & Mostert, 2024](https://doi.org/10.1007/s10648-024-09940-8)). SODA brings those decisions together rather than leaving recovery separate from planning. The theory informs the design; it does not validate our weights, thresholds or effects on wellbeing.
 
@@ -565,6 +576,16 @@ Product hierarchy and build priority are different. Task entry, Smart Rebalance 
 
 **Cut order:** optional language → extra Insights/content → Reality Check Lite → calendar import and enhanced offline sync. Preserve all three main experiences, including their required task entry, feasible adjustments and recovery logging. A schedule with no feasible improvement must be handled honestly rather than treated as a failed demo.
 
+### Minimum completion standard
+
+| Main experience | Must be demonstrable | Failure state that must also work |
+|---|---|---|
+| **My Backpack** | A confirmed task appears in the breakdown; editing its inputs updates the estimate; coverage and assumptions are readable. | Missing data and dated offline results are visibly labelled. |
+| **Impact Preview** | Preview saves nothing; approval applies the candidate and selected feasible changes together; safe undo is available. | No-feasible-plan, stale approval and conflicting undo are explained without overwriting newer work. |
+| **Recovery Island** | Select an action, protect its time, record completion once and see the recovery history update. | Cancellation does not count as recovery; overlapping or retried logs do not inflate it. |
+
+These are build acceptance criteria, not completed tests. Prototype screens illustrate the states; executed fixtures and integration checks must establish the behaviour during the build.
+
 ### Team, time and cost
 
 | Member | Current contribution |
@@ -574,7 +595,7 @@ Product hierarchy and build priority are different. Task entry, Smart Rebalance 
 | **Yeap Boon Shen** | Feasibility, architecture, ideation diagrams and Figma support. |
 | **Samantha Chan Pei Yin** | Impact, presentation and submission integration. |
 
-The building-phase estimate is **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. This is a proposed allocation, not recorded work. Named implementation owners and their availability must be confirmed at kickoff; scope is reduced if the available hours are lower.
+The building-phase estimate is **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. This is a proposed allocation, not recorded work. Named implementation owners and their availability must be confirmed at kickoff; scope is reduced if the available hours are lower. A [proposed named allocation](docs/DEMO-AND-VALIDATION.md#proposed-implementation-allocation) links these workstreams to current contributions, subject to team confirmation of skills and availability.
 
 | Resource | Demo budget and constraint |
 |---|---|
@@ -604,6 +625,7 @@ Collect only task, account, check-in and recovery data needed for the workflow. 
 
 The essential case is above. These documents retain the material needed to examine the proposal more closely:
 
+- [Demonstration and validation pack](docs/DEMO-AND-VALIDATION.md): the shared case, proposed allocation, 4:30 speaking script and unfilled participant observation sheet.
 - [Research, evaluation and references](docs/EVIDENCE.md): research-to-design mapping, proposed measures, stakeholder context and source list.
 - [Calculation and architecture specification](docs/MODEL.md): formulas, worked example, recovery rules, constrained adjustments and language modes.
 - [Build specification](docs/BUILD.md): proposed repository layout, starter SQL/RLS, API contracts, fixtures and integration checks.
