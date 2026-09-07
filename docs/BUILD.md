@@ -4,9 +4,6 @@
 
 ## Repository structure
 
-<details>
-<summary><strong>▸ Open repo layout</strong></summary>
-
 ```
 soda/
 ├── README.md                    ← submission overview
@@ -50,12 +47,7 @@ nothing from `api/language/`**. That separation is what makes the "deterministic
 [the architecture](../README.md#system-architecture) true rather than aspirational, and it is enforceable
 by a lint rule.
 
-</details>
-
 ## Data model
-
-<details>
-<summary><strong>▸ Open starter SQL schema with RLS policies</strong></summary>
 
 ```sql
 -- every user-owned table follows the same RLS pattern
@@ -142,12 +134,7 @@ JWT through the Supabase client so RLS applies; using a service-role key for eve
 > Ship nothing until a **second test account** has been used to confirm it cannot read the first
 > account's rows. RLS that is enabled but wrongly scoped looks identical to RLS that works.
 
-</details>
-
 ## API surface
-
-<details>
-<summary><strong>▸ Open the API surface (14 endpoints)</strong></summary>
 
 | Method | Route | Purpose | Writes? |
 |---|---|---|---|
@@ -169,12 +156,7 @@ JWT through the Supabase client so RLS applies; using a service-role key for eve
 `/impact-preview` and `/parse` are both **non-writing** by design: a student can explore a decision and
 change their mind without creating a commitment, and a parse failure can never corrupt data.
 
-</details>
-
 ## Demo seed data
-
-<details>
-<summary><strong>▸ Open demo seed-data requirements</strong></summary>
 
 The demo account needs enough history for Recovery Debt and Reality Check to be non-empty:
 
@@ -184,11 +166,9 @@ The demo account needs enough history for Recovery Debt and Reality Check to be 
   the four weeks, to match the Recovery Debt screen
 - **12 calendar events, 9 imported**, within the selected calendars and date range, so the coverage line reads *"9 of 12 events imported in this calendar window"*
   and the honesty principle is visible rather than merely claimed
-- Use separate named fixtures: `decision-loop` targets 82% → 107% → 89% (Heavy, below the overload threshold); `worked-model` reproduces the [load model](../README.md#step-3-utilisation-and-the-day-figure) example (93.576% → 101.616%). Do not splice them into one continuous demo.
+- Use separate named fixtures: `decision-loop` targets 82% → 107% → 89% (Heavy, below the overload threshold); `worked-model` reproduces the [load model](MODEL.md#step-3-utilisation-and-the-day-figure) example (93.576% → 101.616%). Do not splice them into one continuous demo.
 - At least 5 completed tasks in the Academic category with "took longer" feedback, so Reality Check has a
   live directional suggestion to show
-
-</details>
 
 ## Integration contracts and acceptance
 

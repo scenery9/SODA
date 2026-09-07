@@ -1,0 +1,222 @@
+# SODA calculation and architecture specification
+
+Supporting detail for [Section 5 of the submission](../README.md#5-technical-architecture--feasibility). All rules are proposed; fixture calculations are arithmetic checks, not validated human-capacity measurements.
+
+<p align="center">
+  <img src="../assets/figure-5-2-system-architecture-data-flow-v3.png" alt="Figure 5.2: SODA system architecture and data flow" width="880">
+</p>
+
+*Figure 5.2: Proposed system components and data flow. Arrows show logical hand-offs; dashed outlines group components.*
+
+**Reading the diagram:** FastAPI mediates app, engine and database access; the engine does not connect directly to Supabase. “ONE sentence” means a preset synthetic example for the optional Gemini demo, not unrestricted student text. Offline support covers cached reads and queued drafts; fresh calculations require the server.
+
+## Architecture text description and the Impact Preview request path
+
+**Text description of Figure 5.2.**
+The Flutter Android/web client collects manual tasks, check-ins and recovery logs, and reviews calendar
+imports. Firebase Hosting serves the web build; Railway hosts FastAPI. FastAPI validates the user JWT
+and request data, reads/writes the user's Supabase rows, and passes confirmed inputs to the pure Python
+load engine. Database access belongs in the service layer, outside the engine.
+
+Google Calendar is an external read-only event source. Supabase provides Auth and PostgreSQL with RLS.
+The rule parser handles real text; a separate Gemini adapter accepts only allowlisted synthetic demo
+examples. Ollama `qwen3:4b` is a local development experiment and is not deployed. All language output
+must be reviewed before becoming confirmed task fields.
+
+Drift/SQLite belongs to the client: it stores dated cached views and queued drafts. It does not run the
+Python engine. Fresh previews and rebalances require the server, even when the optional AI adapter is
+disabled. Optional local notifications belong to the Android client; web notification behaviour needs
+separate implementation and testing.
+
+**Request path for the highest-value interaction (Impact Preview):**
+
+```mermaid
+sequenceDiagram
+    actor Student
+    participant App as Flutter
+    participant API as FastAPI
+    participant DB as Supabase / RLS
+    participant Engine as Pure Python engine
+    Student->>App: Review candidate task
+    App->>API: POST /impact-preview + user JWT
+    API->>DB: Read authorised week and capacity
+    DB-->>API: Rows + schedule revision
+    API->>Engine: simulate(confirmed inputs, candidate)
+    Engine-->>API: Before / after, axis warnings, feasible moves
+    API-->>App: Preview + revision (no task write)
+    Student->>App: Approve selected changes
+    App->>API: Apply approved plan + expected revision
+    API->>DB: Atomic write if revision still matches
+    DB-->>API: Updated plan + audit record
+    API-->>App: Updated state + safe undo token
+```
+
+**The preview request writes no task or schedule data.** The later, separately approved apply request persists the plan. A student can preview a
+commitment and walk away without creating a commitment. Infrastructure request logs must omit task bodies; read-only API semantics alone do not guarantee zero logging.
+
+## Language modes, privacy boundary and fallback
+
+The optional language layer assists task entry. It is separate from the deterministic engine and is not required to complete the core workflow.
+
+**Four modes, one deterministic core:**
+
+| Mode | Proposed behaviour | Release boundary |
+|---|---|---|
+| Real student entry | Structured form; backend rule parser when online | Default. No external model receives student text. |
+| Optional hosted AI demonstration | Gemini parses a **server-allowlisted synthetic example**, then the user reviews fields | Demo-only, subject to current model access, rate limits and provider terms. Free-form input never reaches this adapter. |
+| Local development experiment | Ollama `qwen3:4b` with synthetic fixtures | Developer-machine experiment; not a hosted production dependency. Benchmark before making hardware claims. |
+| Offline entry | Save a structured draft locally | No fresh server calculation; recalculate on reconnect before applying changes. |
+
+The [Gemini unpaid-service terms](https://ai.google.dev/gemini-api/terms) permit use of submitted content
+to improve services and prohibit sensitive or personal submissions. Therefore the demo adapter accepts
+only an example ID, resolves its synthetic sentence on the server, and receives no account context,
+calendar, check-ins or load scores. Provider usage also requires eligibility checks. A future real-data
+cloud mode needs a separately reviewed data policy and must not silently reuse this demo configuration.
+
+Select and pin an available structured-output model through `GEMINI_MODEL` during build integration;
+record its exact ID, test date and project quota. This is an **open integration check**, not a claim
+that an unspecified Flash model has a universal free allowance. See the official
+[model catalogue](https://ai.google.dev/gemini-api/docs/models) and
+[project-dependent rate limits](https://ai.google.dev/gemini-api/docs/rate-limits).
+The local candidate is [Ollama `qwen3:4b`](https://ollama.com/library/qwen3:4b); model download size is
+not a measurement of runtime memory.
+
+**The load engine never calls a model.** Recovery suggestions use deterministic rules and prewritten
+copy. Losing the language adapter removes a convenience, not the calculation. Losing network access is
+different: the Python engine is on the server, so offline screens show dated cached estimates and drafts.
+
+## Load model: reproducible planning estimates
+
+**This is a proposed deterministic planning model, not a validated measure of human capacity.**
+Weights, ceilings and the 90% warning boundary are adjustable design assumptions. The saved screen
+numbers are illustrative; the worked example below is computed from the actual specification.
+
+### Step 1, a task becomes a five-dimensional vector
+
+Each task carries duration `d` (hours), effort `e`, and category `c`.
+
+```
+effort multiplier: Low = 0.6   Medium = 1.0   High = 1.4
+
+category weight vectors w[c] = (mental, time, physical, social, errands)
+  Academic   (0.55, 0.30, 0.05, 0.05, 0.05)
+  Work       (0.25, 0.35, 0.25, 0.10, 0.05)
+  Social     (0.10, 0.25, 0.10, 0.50, 0.05)
+  Errands    (0.10, 0.30, 0.25, 0.05, 0.30)
+  Other      (0.20, 0.20, 0.20, 0.20, 0.20)
+
+load vector for task i:  L_i = d_i × e_i × w[c_i]        (units: load-hours per dimension)
+load vector for a day:   L_day = Σ L_i  over tasks on that day
+```
+
+This is the mechanism behind the five-dimensional capacity claim: a 3-hour
+assignment (`3 × 1.4 × Academic`) and a 3-hour social event (`3 × 1.0 × Social`) consume the same three
+hours and produce completely different vectors.
+
+### Step 2, capacity comes from onboarding, per student
+
+The three calibration questions on Screen 03 set the ceiling:
+
+| Question | Sets |
+|---|---|
+| "What does a normal week look like for you?" (Light / Moderate / Heavy) | Baseline scaling factor `β` ∈ {1.15, 1.00, 0.85} |
+| "How many focused hours can you realistically handle per day?" (2–4 / 4–6 / 6–8 / 8+) | Daily focus budget `H` |
+| "What time is protected for recovery each day?" (0–30 / 30–60 / 60–90 / 90+ min) | Daily recovery target `R` |
+
+```
+daily capacity ceiling  C = β × H × κ
+  where κ = (0.40, 0.40, 0.25, 0.25, 0.20) defines relative axis ceilings, not time shares
+```
+
+The focus-hour ranges initialise `H` to 3 / 5 / 7 / 8 hours respectively; the last choice prompts
+an editable value. Recovery ranges initialise `R` to 15 / 45 / 75 / 90 minutes, also editable.
+These defaults are proposed, not empirically calibrated. `H` must be positive; protect `R` as actual
+calendar intervals separately. Each task contributes once, split across dates in the user's stored
+IANA timezone when it crosses midnight. Dropped tasks are excluded. Check-ins inform reflection and
+preferences in v1; they do not silently change `C`.
+
+### Step 3, utilisation, and the day figure
+
+```
+per-dimension utilisation: U_dim = L_dim / C_dim          (display 100 × U_dim as a percentage; do not clamp above 100)
+
+day load % = 100 × ( 0.6 × max(U) + 0.4 × Σ λ_dim · U_dim )
+  where λ = (0.30, 0.30, 0.15, 0.15, 0.10)
+```
+
+The `max` term increases the influence of the busiest dimension, but **does not guarantee** that a
+saturated axis pushes the combined figure over 90%. Display a separate axis warning whenever any
+dimension reaches 100%; do not hide it behind the blended score. “Time” here is weighted demand,
+not clock hours: an independent interval check detects overlaps and protects actual recovery blocks.
+
+**Worked example, independent of the storyboard.** Let `β = 1`, `H = 5`, hence
+`C = (2, 2, 1.25, 1.25, 1)`. A 3-hour high-effort academic task contributes
+`(2.31, 1.26, 0.21, 0.21, 0.21)`. Its utilisation vector is
+`(1.155, 0.63, 0.168, 0.168, 0.21)` and the day result is **93.576% → 94%**.
+Adding one hour of medium-effort errands gives **101.616% → 102%** and a mental-axis warning at 120.5%.
+Same confirmed tasks, capacity, timezone and model version must reproduce the same result.
+
+**Week headline:** use the maximum daily score in the displayed week and label it **“Peak day this
+week”**. Never label this a weekly average. A separate weekly average, if shown, needs its own label.
+Classify on the unrounded score: Light `[0,50)`, Manageable `[50,70)`, Heavy `[70,90)`, Overload `[90,∞)`.
+Near a threshold show one decimal or `<90%` to avoid an apparent 90% Heavy label.
+
+### Step 4, severity bands
+
+| Band | Range | UI treatment |
+|---|---|---|
+| Light | 0–49% | Green, short bar, no icon |
+| Manageable | 50–69% | Amber, medium bar |
+| Heavy | 70–89% | Orange, tall bar, cloud icon |
+| **Overload** | **90%+** | Red, full bar, storm icon, warning glyph, strained mascot |
+
+### Step 5: Recovery Debt
+
+```
+for each of the last 28 completed local dates, with recorded target R_day:
+    A_day = union-duration of completed recovery intervals (count overlaps once)
+    S_day = max(0, R_day − A_day)
+D = sum(S_day) over dates since onboarding within that 28-day window
+Today stays provisional until the day ends; do not charge future recovery as missed.
+```
+
+`D` is displayed as a duration ("2h 35m across the last 4 weeks") and never as a score, a percentage or
+a risk level. **`D` influences which recovery actions get suggested and how prominently; it never
+reduces `C`.** Debt is a signal to review planned versus logged recovery, not a penalty. Missing logs are not proof of missing rest; display history coverage. Extra rest cannot erase previous daily shortfalls, and entries age out after 28 days, so a falling ledger is not itself proof of recovery.
+
+### Step 6: Smart Rebalance (greedy, constrained, reversible)
+
+```
+candidate moves for an overloaded day:
+    move task to another day  |  shorten task  |  drop task  |  split task
+
+hard constraints (never violated):
+    ✗ fixed commitments (classes, shifts, exams) cannot be moved, shortened, split or dropped
+    ✗ every resulting task segment must finish by its deadline
+    ✗ protected recovery cannot be consumed
+      → shown as a HELD line item with the reason, never silently skipped
+
+score(move) = Δ(day load %) / disruption_cost(move)
+    disruption_cost: shorten = 1, move within week = 2, split = 3, drop = 5
+
+→ recompute the whole week after every accepted candidate, including the destination day
+→ reject new overlaps, new overload on the destination, and any hard-constraint violation
+→ require explicit permission for shortening/dropping; do not assume less work is feasible
+→ return top N moves, individually approvable; deterministic tie-break by task ID
+→ if no feasible move exists, explain the constraint and offer defer/decline/accept-as-is
+→ apply atomically against a schedule version; undo only if affected versions still match
+```
+
+### Step 7: Reality Check correction
+
+```
+per (student × category), keep the last 5 confirmed responses
+if ≥ 3 of 5 are "a little more" or "much more":
+    suggest duration multiplier ×1.25 for that category   → student approves or dismisses
+if ≥ 3 of 5 are "less time":
+    suggest ×0.85
+
+excluded from the sample: skipped responses, auto-completed tasks
+never applied silently; disclose the proposed change in hours and the multiplier in calculation details
+apply to the original base estimate once; do not compound the multiplier on every check-in
+```
