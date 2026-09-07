@@ -1,24 +1,11 @@
-<div align="center">
+# SODA (Student Overloaded by Deadlines and Activities) by Team Soda
 
-# SODA by Team Soda
+A capacity model for students who cannot see how much they are already carrying.
 
-**Student Overloaded by Deadlines and Activities**
-
-### *Carry life, not overload.*
-
-</div>
-
-**A capacity model for students who cannot see how much they are already carrying.**
-
-| | |
-|---|---|
-| **Team** | Samantha Chan Pei Yin · Lee Jia Yin · Yeap Boon Shen · Muhammad Ikhlas bin Mohd Faizal |
-| **Problem Statement** | Lifestyle Track · *Beating the Burnout* · Stress & Workload Manager |
-| **Video Presentation** | Pending |
-| **Presentation Slides** | Pending |
-
-> [!NOTE]
-> **Prototype-round submission.** The screens show the proposed experience. Backend logic, deployment and user outcomes are not built or verified yet.
+**Team:** Samantha Chan Pei Yin, Lee Jia Yin, Yeap Boon Shen, Muhammad Ikhlas bin Mohd Faizal<br>
+**Problem Statement:** Stress & Workload Manager<br>
+**Video Presentation:** *pending*<br>
+**Presentation Slides:** *pending*
 
 ---
 
