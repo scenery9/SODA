@@ -9,7 +9,7 @@
 
 ```
 soda/
-├── README.md                    ← this file
+├── README.md                    ← submission overview
 ├── assets/                      ← figures referenced above
 │   └── ideation/
 ├── design-previews/             ← storyboard exports
@@ -42,12 +42,12 @@ soda/
     │   ├── rebalance.py         ← constrained greedy move search
     │   └── recovery.py          ← recovery debt ledger
     ├── language/                ← OPTIONAL: gemini.py, ollama.py, fallback_parser.py
-    └── tests/                   ← ★ engine/ must be 100% covered; it is pure arithmetic
+    └── tests/                   ← arithmetic fixtures, boundary and invariant checks
 ```
 
 **The single most important structural rule:** `api/engine/` makes **no network calls and imports
 nothing from `api/language/`**. That separation is what makes the "deterministic core" claim in
-[§5.3](#53-the-language-layer-what-we-corrected) true rather than aspirational, and it is enforceable
+[the architecture](../README.md#system-architecture) true rather than aspirational, and it is enforceable
 by a lint rule.
 
 </details>
@@ -55,7 +55,7 @@ by a lint rule.
 ## Data model
 
 <details>
-<summary><strong>▸ Open full SQL schema with RLS policy</strong></summary>
+<summary><strong>▸ Open starter SQL schema with RLS policies</strong></summary>
 
 ```sql
 -- every user-owned table follows the same RLS pattern
@@ -151,13 +151,13 @@ JWT through the Supabase client so RLS applies; using a service-role key for eve
 
 | Method | Route | Purpose | Writes? |
 |---|---|---|---|
-| `POST` | `/auth/session` | Exchange Supabase session |: |
+| `POST` | `/auth/session` | Validate the Supabase session; no custom password handling | No application-data write |
 | `GET` | `/week?start=YYYY-MM-DD` | Week commitments + per-day load + capacity + coverage | No |
 | `POST` | `/commitments` | Create a commitment | Yes |
 | `PATCH` | `/commitments/{id}` | Edit / reschedule / complete | Yes |
 | `POST` | **`/impact-preview`** | Simulate adding a candidate task, returns before/after vectors, deltas, breaking day, recovery impact, suggested moves | **No** |
 | `POST` | `/rebalance` | Generate constrained move set for a day | No |
-| `POST` | `/rebalance/apply` | Apply an approved move set (returns an `undo_token`) | Yes |
+| `POST` | `/rebalance/apply` | Atomically save the approved candidate and selected moves against the expected revision (returns an `undo_token`) | Yes |
 | `POST` | `/rebalance/undo` | Revert an applied move set | Yes |
 | `POST` | `/checkin` | Submit daily check-in | Yes |
 | `GET` | `/recovery/debt` | Rolling 4-week ledger | No |
@@ -182,10 +182,23 @@ The demo account needs enough history for Recovery Debt and Reality Check to be 
   bunching near deadlines, shifts on fixed weekdays)
 - Recovery entries producing a **total debt of ~2h 35m**, distributed 0h20 / 0h45 / 0h55 / 0h35 across
   the four weeks, to match the Recovery Debt screen
-- **12 calendar events, 9 imported**, so the coverage line reads *"Based on 9 of your 12 calendar events"*
+- **12 calendar events, 9 imported**, within the selected calendars and date range, so the coverage line reads *"9 of 12 events imported in this calendar window"*
   and the honesty principle is visible rather than merely claimed
-- Use separate named fixtures: `decision-loop` targets 82% → 107% → 89%; `worked-model` reproduces §5.4’s 94% example. Do not splice them into one continuous demo.
+- Use separate named fixtures: `decision-loop` targets 82% → 107% → 89% (Heavy, below the overload threshold); `worked-model` reproduces the [load model](../README.md#step-3-utilisation-and-the-day-figure) example (93.576% → 101.616%). Do not splice them into one continuous demo.
 - At least 5 completed tasks in the Academic category with "took longer" feedback, so Reality Check has a
   live directional suggestion to show
 
 </details>
+
+## Integration contracts and acceptance
+
+- **Candidate approval:** `/impact-preview` returns a schedule revision and an unsaved candidate. `/rebalance/apply` accepts that candidate plus explicitly selected moves in one transaction; `/commitments` handles acceptance without adjustments. Both reject stale revisions and use an idempotency key to prevent duplicate tasks after retries.
+- **Authentication:** validate issuer, audience, signature and expiry of the user JWT. Pass the user token to database calls so RLS remains effective. Keep service-role credentials out of normal user request paths.
+- **Calendar import:** stage read-only events before confirmation. Deduplicate by user, calendar and event/recurrence identity; re-import must not duplicate load. Never write to Google Calendar.
+- **Model identity:** persist capacity inputs, timezone and model version with fixture outputs. Use precise scores for classification; format only for display.
+- **Recovery records:** add interval start/end, target history and timezone before implementing the ledger. The starter `minutes` field alone cannot deduplicate overlaps or reconstruct historical targets.
+- **Feedback:** add one response per owned commitment, validate completion status, and reject empty or duplicate responses. Use five distinct confirmed tasks for the directional suggestion.
+- **Server validation:** require valid effort/category values, bounded check-in answers (1–5), positive durations, and a deadline compatible with all resulting segments. Do not rely on form validation alone.
+- **Offline:** queue structured drafts with unique operation IDs. On reconnect, validate and recalculate against current server state; require renewed approval if the plan changed.
+
+The `decision-loop` numbers are design targets until a complete fixture reproduces them. Store the input tasks, fixed intervals, capacity, approved moves and expected outputs together; do not hard-code scores to imitate a screenshot. Validate the arithmetic example, threshold edges, cross-midnight tasks, recovery overlap, no-feasible-plan handling, stale apply/undo and two-user isolation before demonstration. Record executed results separately from these planned checks.

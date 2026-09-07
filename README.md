@@ -737,8 +737,7 @@ The practical question is:
 
 > ### "Can I realistically take on one more task?"
 
-Its originality is not in any single feature; it is in **connecting four actions that are normally in
-four different apps**:
+Its originality is not in any single feature; it is in **connecting four actions in one student planning workflow**:
 
 1. See combined academic **and** non-academic demand in one figure.
 2. Preview a new commitment *before* accepting it.
@@ -751,7 +750,7 @@ the framework; we designed an interface informed by it.
 
 ### Novel features
 
-#### 4.2.1 Five-dimensional capacity view
+#### Five-dimensional capacity view
 
 My Backpack combines every recorded commitment into one overview while preserving a breakdown across
 five areas. The consequence is that **two tasks of equal duration can carry unequal demand**: a
@@ -761,12 +760,12 @@ different things. A time-only view does not express that distinction; SODA makes
 The overview answers three questions in one glance: *How full is my week? Which area is heaviest? Which
 day needs attention?*
 
-#### 4.2.2 Impact Preview: The Intervention at the Moment of Decision
+#### Impact Preview: The Intervention at the Moment of Decision
 
-This is the feature the challenge brief is really asking for, and it is where SODA is most clearly
-different. Before a task is saved, SODA shows:
+Before a task is saved, SODA shows its effect on the student’s existing plan:
 
 ```
+Illustrative scenario (not a measured result)
 Thursday load estimate     82% → 107%
 Change                     +25 percentage points
 Affected dimensions        Show all five recomputed values
@@ -782,14 +781,14 @@ mechanism: people underweight delayed consequences relative to immediate benefit
 <details>
 <summary><strong>▸ The remaining six feature decisions in detail (Protection Mode, Smart Rebalance, Recovery Debt, Recovery Island, Reality Check, bounded automation)</strong></summary>
 
-#### 4.2.3 Protection Mode: Consent Before Intervention
+#### Protection Mode: Consent Before Intervention
 
 An overload state does not trigger automatic action. It triggers a question: **Protect Recovery**
 (reschedule to keep rest intact), **Warn Only** (alerts, no changes), or **Accept Without Protection**
 (add as-is). This is a small screen with a large principle behind it: an app that silently rearranges an
 overloaded person's week is doing something to them, not for them.
 
-#### 4.2.4 Smart Rebalance: The Fix, Not Just the Diagnosis
+#### Smart Rebalance: The Fix, Not Just the Diagnosis
 
 ```
 Illustrative target state: 107% → 89%
@@ -803,18 +802,17 @@ Each move is individually approvable; savings are recalculated after each select
 **Undo everything**. Fixed commitments (shifts, classes, deadlines) are never proposed for moving, and
 protected recovery is shown as *held* with a stated reason rather than quietly consumed.
 
-#### 4.2.5 Recovery Debt: The Number That Refuses to Reset
+#### Recovery Debt: The Number That Refuses to Reset
 
 Recovery Debt tracks the gap between the student’s planned recovery target and logged completed recovery over a **rolling
-four-week window**, and the balance carries forward. This is the most conceptually novel thing in the
-product, because it makes missed planned recovery visible beyond a calendar boundary: **weeks reset, recovery plans can remain unfinished.**
+four-week window**, and the balance carries forward. This makes missed planned recovery visible beyond a calendar boundary: **weeks reset, recovery plans can remain unfinished.**
 Effort–recovery theory describes exactly this: incomplete recovery leaves residual strain when the next
 demand begins (Meijman & Mulder, 1998).
 
 Design safeguard: recovery debt influences *suggestions*; it does **not** silently lower the student's
 capacity ceiling. Debt is a signal to act on, never a punishment applied to the model.
 
-#### 4.2.6 Recovery Island: Recovery Matched to the Depleted Axis
+#### Recovery Island: Recovery Matched to the Depleted Axis
 
 | Depleted axis | Example actions |
 |---|---|
@@ -827,7 +825,7 @@ The twist is the join: identified pressure → matched response → recorded in 
 explicit preference or check-in; high social demand may instead call for quiet time. The mapping is a
 user-adjustable design heuristic, not a clinical recommendation.
 
-#### 4.2.7 Reality Check: Closing the Loop on the Planning Fallacy
+#### Reality Check: Closing the Loop on the Planning Fallacy
 
 Two questions after a completed task, both skippable:
 
@@ -849,7 +847,7 @@ in front of them and underusing their own past experience (Buehler et al., 1994)
 > **Honest limit:** the prototype demonstrates the feedback *interaction*. Whether it measurably improves
 > future estimates requires implementation and evaluation.
 
-#### 4.2.8 Transparent, bounded automation
+#### Transparent, bounded automation
 
 Students can describe a task in ordinary language and then **review the extracted fields before anything
 is saved**. Automation assists *entry*; it never performs the *calculation*. The load engine is
@@ -868,7 +866,7 @@ exhaustive market survey or hands-on benchmark. SODA's column describes a **prop
 | Organise tasks alongside events | [Todoist](https://www.todoist.com/help/todoist/integrations/use-the-calendar-integration-rCqwLCt3G) connects tasks and calendars. | Interpret recorded tasks through mental, time, physical, social and errands demand. |
 | Reorganise an overloaded schedule | [Reclaim](https://reclaim.ai/) supports adaptive scheduling, workload visibility and preview/approval. | Compare five-axis demand against an editable personal baseline; show how the candidate changes that estimate. |
 | Sustain self-care | [Finch](https://finchcare.com/) combines self-care activities with a companion. | Connect recovery choices to the planning workflow and record missed planned recovery across weeks. |
-| Improve the next estimate | Task managers record completion, but not whether the estimate was right. | Close SODA's own loop: confirmed feedback → suggested estimate adjustment → next Impact Preview. |
+| Improve the next estimate | Completion tracking alone does not explain whether a task estimate was realistic; feedback features vary by product. | Close SODA's own loop: confirmed feedback → suggested estimate adjustment → next Impact Preview. |
 
 **Why this matters for our target student:** the decision stays in one place. A fixed paid shift remains
 fixed, a flexible assignment can move, and recovery remains an explicit constraint. The novelty claim
@@ -880,9 +878,6 @@ is this connected, student-focused workflow, not the invention of scheduling, pr
 <summary><strong>How the features share state</strong></summary>
 
 The features are not a list; they share state.
-
-<details>
-<summary><strong>▸ How the features share state, and the four principles that keep them coherent</strong></summary>
 
 | Shared information | Features it connects |
 |---|---|
@@ -896,10 +891,7 @@ changes the debt. Completion feedback changes the next estimate. Four principles
 for enough data before showing patterns; explain the basis of every result; let students review and
 reverse anything the app changed; keep the core usable without a wearable.
 
-> These choices produce a recognisable design direction. They do not yet constitute a proven technical
-> moat, and we are not going to pretend otherwise.
-
-</details>
+These shared records keep the forecast, approved plan and recovery ledger consistent after each action.
 
 ---
 
@@ -930,10 +922,7 @@ Aina has a fixed Thursday shift and an assignment due Friday. A club asks her to
 SODA previews the extra demand before she agrees: **82% → 107%** in the intended demo fixture.
 She reviews feasible changes, keeps her shift and deadline fixed, and approves a plan targeting **89%**.
 If there is no feasible adjustment, SODA says so; accepting, deferring or declining stays her decision.
-The benefit being tested is a clearer trade-off and a usable plan-not a claim that her burnout risk fell.
-
-<details>
-<summary><strong>▸ Research-to-intervention mapping, a before/after week, and the limits of the claim</strong></summary>
+The benefit being tested is a clearer trade-off and a usable plan; changes in burnout have not been measured.
 
 | Problem | Research basis | SODA intervention |
 |---|---|---|
@@ -966,8 +955,6 @@ learning multiplier.
 
 </details>
 
-</details>
-
 <details>
 <summary><strong>How we would know if we are wrong: eight falsifiable predictions</strong></summary>
 
@@ -989,9 +976,8 @@ evaluation; **none of them are current results.**
 *changed ceiling* rather than a better schedule. Any model-based improvement must be cross-checked against
 recorded behaviour, and Recovery Debt must be read alongside actual recorded recovery.
 
-**Proposed first evaluation:** recruit 6–8 consenting students who combine coursework with paid work,
-leadership or caring. Use the same synthetic week in a calendar-only task and a SODA task, alternate
-the order, and ask participants to identify the overloaded day, explain the estimate, and choose a
+**Proposed first evaluation:** recruit 8 consenting students who combine coursework with paid work,
+leadership or caring. Use two matched synthetic weeks with equivalent constraints in a calendar-only task and a SODA task; counterbalance both the interface order and the week assignment to reduce practice effects, and ask participants to identify the overloaded day, explain the estimate, and choose a
 feasible adjustment. Record completion, misunderstandings, time and reasons for rejecting suggestions.
 Provisional usability gates: at least 6 of 8 complete the main loop without help, at least 6 of 8 explain
 that the percentage is an estimate, and zero accepted moves violate a fixed event, deadline or protected
@@ -1002,9 +988,6 @@ clinical effectiveness; longer-term claims need a separate evaluation with appro
 
 <details>
 <summary><strong>Reach and scalability</strong></summary>
-
-<details>
-<summary><strong>▸ Four-stage scaling plan and the conditions gating each stage</strong></summary>
 
 Digital delivery reaches students without needing a coach per student, but availability is not adoption.
 Our rollout therefore tests reach, uptake and continued use before expansion. These are proposed
@@ -1027,8 +1010,6 @@ possibility, **not a current prototype capability**.
 
 </details>
 
-</details>
-
 ---
 
 ## 5. Technical Architecture & Feasibility
@@ -1040,7 +1021,7 @@ The core demo uses modest hosted resources; quotas, access and usage must be che
 
 | Layer and technology | Selection rationale | Constraints and checks |
 |---|---|---|
-| **Frontend** · **Flutter** (Dart) | One codebase ships an Android APK *and* a Flutter-web build, which is exactly what the submission needs: an installable app for a judge's device and a public link for everyone else. Strong fit for the custom charts (bubble, bar, line) that carry SODA's core value. | Platform behaviour diverges on calendar permissions and notifications; both targets need separate testing. Flutter web has a heavier first paint than a native web app. |
+| **Frontend** · **Flutter** (Dart) | One codebase targets an Android APK and a Flutter-web build for the proposed building phase, giving judges both an installable app and a public link. Strong fit for the custom charts (bubble, bar, line) that carry SODA's core value. | Platform behaviour diverges on calendar permissions and notifications; both targets need separate testing. Flutter web has a heavier first paint than a native web app. |
 | **State management** · **Riverpod** | Compile-safe dependency injection and testable providers; keeps the load-model state out of widgets. | Learning curve for members newer to Dart. |
 | **Charts** · **fl_chart** | Covers the bar, line and pie/donut charts natively, and, critically, lets us wrap each chart in a `Semantics` node so we can attach the text alternatives in [the accessibility fold](#3-design--prototype). | The Backpack bubble-in-backpack visual is custom-painted, not an fl_chart primitive. |
 | **Backend API** · **FastAPI** (Python) | Lightweight, fast to write, automatic OpenAPI docs (useful when a teammate is building the Flutter client against it), and native to the Python load engine. | Needs its own hosting and strict request validation. Any feature requiring the server is network-dependent. |
@@ -1049,8 +1030,8 @@ The core demo uses modest hosted resources; quotas, access and usage must be che
 | **Auth** · **Supabase Auth** | Removes an entire build task and integrates directly with RLS via `auth.uid()`. | Requires internet; session and token handling must be secure. |
 | **Calendar** · **Google Calendar API (read-only)** | Kills the biggest source of manual entry. Read-only scope (`calendar.events.readonly`) is a deliberate risk reduction: SODA can never modify a student's real calendar. | Requires Google OAuth consent. Imported events rarely contain enough information to infer all five dimensions, so the Calendar Review screen exists to let the student confirm. |
 | **Offline** · **Drift** (SQLite) | Local read cache and a write queue so the app stays usable on campus Wi-Fi that drops. | Sync conflicts if local and cloud diverge; we deliberately limit offline scope to essential data. |
-| **Web hosting** · **Firebase Hosting** | Free tier is **10 GB storage and 10 GB/month transfer** (Firebase, 2026), far beyond demo needs, and gives a public HTTPS link a judge can open with no install. | Web build will not match Android exactly for permissions and local notifications. |
-| **Backend hosting** · **Railway** | Deploys FastAPI from a repo without server administration. | **Hobby is USD 5/month which includes USD 5 of usage credit**, then meters at **~USD 20/vCPU/month and ~USD 10/GB RAM/month** (Railway, n.d.). This pricing shape is precisely why we changed our AI plan; see [the language-layer correction](#system-architecture). |
+| **Web hosting** · **Firebase Hosting** | Free tier is **10 GB storage and 10 GB/month transfer** (Firebase, 2026), a starting allowance to verify against the deployed demo, and gives a public HTTPS link a judge can open with no install. | Web build will not match Android exactly for permissions and local notifications. |
+| **Backend hosting** · **Railway** | Deploys FastAPI from a repo without server administration. | **Hobby is USD 5/month which includes USD 5 of usage credit**, then meters at **~USD 20/vCPU/month and ~USD 10/GB RAM/month** (Railway, n.d.). The hosted backend excludes local-model inference; see [the architecture and language modes](#system-architecture). |
 | **Language layer** *(optional)* · **Google Gemini API, synthetic demo only** · **Ollama + Qwen3-4B** (local dev) | Used **only** to turn one sentence into structured task fields. Free-tier access and limits depend on model and project. Use only preset synthetic task examples; real student entry uses manual/rule-based parsing. | Latency and occasional mis-parses. Mitigated by a deterministic fallback parser and by always showing extracted fields for confirmation. **No core feature depends on it.** |
 
 Calendar scopes: [Google Calendar authorization documentation](https://developers.google.com/workspace/calendar/api/auth).
@@ -1061,10 +1042,12 @@ Calendar scopes: [Google Calendar authorization documentation](https://developer
   <img src="assets/figure-5-2-system-architecture-data-flow-v3.png" alt="Figure 5.2: SODA system architecture and data flow" width="880">
 </p>
 
-*Figure 5.2: Proposed deployment, trust boundaries and data flow. Dashed edges are optional. The server engine requires a network connection; cached reads and queued drafts work offline.*
+*Figure 5.2: Proposed system components and data flow. Arrows show logical hand-offs; dashed outlines group components.*
+
+**Reading the diagram:** FastAPI mediates app, engine and database access; the engine does not connect directly to Supabase. “ONE sentence” means a preset synthetic example for the optional Gemini demo, not unrestricted student text. Offline support covers cached reads and queued drafts; fresh calculations require the server.
 
 <details>
-<summary><strong>▸ Full text description of the architecture (also the figure's alt text) + the Impact Preview request path</strong></summary>
+<summary><strong>Architecture text description and the Impact Preview request path</strong></summary>
 
 **Text description of Figure 5.2.**
 The Flutter Android/web client collects manual tasks, check-ins and recovery logs, and reviews calendar
@@ -1105,36 +1088,17 @@ sequenceDiagram
     API-->>App: Updated state + safe undo token
 ```
 
-Note the last line: **Impact Preview is a pure simulation and writes nothing.** A student can preview a
+**The preview request writes no task or schedule data.** The later, separately approved apply request persists the plan. A student can preview a
 commitment and walk away without creating a commitment. Infrastructure request logs must omit task bodies; read-only API semantics alone do not guarantee zero logging.
 
 </details>
 
 <details>
-<summary><strong>The language layer: an error we found and corrected</strong></summary>
+<summary><strong>Language modes, privacy boundary and fallback</strong></summary>
 
-> **This subsection documents a real error we found and fixed during review. It is here on purpose.**
+The optional language layer assists task entry. It is separate from the deterministic engine and is not required to complete the core workflow.
 
-An earlier version of our architecture diagram labelled the language layer **"Ollama + Qwen"**, a
-self-hosted model, while our stack table said "LLM API / AI service", our cost table said "optional
-*cloud* language model", and our privacy section promised not to send sensitive information to an
-external language-model API. Those four statements cannot all be true at once.
-
-<details>
-<summary><strong>▸ The four checks that turned a labelling inconsistency into a costed problem</strong></summary>
-
-Checking the assumptions exposed four separate issues:
-
-| Check | Finding and correction |
-|---|---|
-| Hosting budget | Railway bills memory and CPU usage. At USD 10/GB-month, even an illustrative 4 GB continuously used would cost USD 40/month for memory alone. We have not benchmarked a hosted model, so no fixed RAM or tokens-per-second claim is made. |
-| Model identity | “Ollama + Qwen” is not a reproducible specification. The optional local experiment uses the explicit tag `qwen3:4b`; record the pulled digest and context settings when tested. |
-| Latency | Neither local inference speed nor a cloud API SLA has been measured. Use a short timeout, schema validation and manual/rule-based fallback. |
-| Privacy | One sentence can contain a name, health detail or private appointment. A small payload is not proof that no personal information leaves. |
-
-</details>
-
-**Corrected modes, one deterministic core:**
+**Four modes, one deterministic core:**
 
 | Mode | Proposed behaviour | Release boundary |
 |---|---|---|
@@ -1164,14 +1128,11 @@ different: the Python engine is on the server, so offline screens show dated cac
 </details>
 
 <details>
-<summary><strong>The load model: how every number in the app is produced</strong></summary>
+<summary><strong>Load model: reproducible planning estimates</strong></summary>
 
 **This is a proposed deterministic planning model, not a validated measure of human capacity.**
 Weights, ceilings and the 90% warning boundary are adjustable design assumptions. The saved screen
 numbers are illustrative; the worked example below is computed from the actual specification.
-
-<details>
-<summary><strong>▸ Open the full arithmetic, vectors, capacity calibration, severity bands, recovery debt, rebalance constraints</strong></summary>
 
 #### Step 1, a task becomes a five-dimensional vector
 
@@ -1273,8 +1234,8 @@ candidate moves for an overloaded day:
     move task to another day  |  shorten task  |  drop task  |  split task
 
 hard constraints (never violated):
-    ✗ fixed commitments (classes, shifts, exams) cannot be moved
-    ✗ deadlines cannot be crossed
+    ✗ fixed commitments (classes, shifts, exams) cannot be moved, shortened, split or dropped
+    ✗ every resulting task segment must finish by its deadline
     ✗ protected recovery cannot be consumed
       → shown as a HELD line item with the reason, never silently skipped
 
@@ -1305,8 +1266,6 @@ apply to the original base estimate once; do not compound the multiplier on ever
 
 </details>
 
-</details>
-
 ### Build plan & scope
 
 | Priority | Features |
@@ -1325,7 +1284,7 @@ preview a commitment → rebalance the week → support recovery.
 |---|---|---|
 | 1 · Research & ideation | Problem, users, alternatives | Problem tree, mindmaps, selected concept |
 | 2 · Product design | Load model + user journey | User flow, low-fidelity wireframes |
-| 3 · Visual design | Design system + main screens | High-fidelity Figma prototype (**done**) |
+| 3 · Visual design | Design system + main screens | High-fidelity Figma prototype available; final screen review remains with the design team |
 | 4 · Core implementation | Flutter ↔ FastAPI ↔ Supabase | Working task-to-dashboard flow |
 | 5 · Feature completion | Impact Preview, Smart Rebalance, Recovery Debt | Complete intervention loop |
 | 6 · Testing & deployment | Main flow, accessibility pass, demo prep | Public web link, Android APK, backup recording |
@@ -1342,6 +1301,18 @@ Impact Preview, Smart Rebalance and Recovery Debt are never cut.
 | 1 | Backend lead + frontend lead | Authenticated manual entry → stored task → reproducible load view; two-account isolation check passes. |
 | 2 | Backend lead + frontend lead | Read-only preview → approved rebalance → persisted result → safe undo; recovery logging and debt work on synthetic fixtures. |
 | 3 | Integration/QA + UX lead | Calendar import if ready; deploy web + APK; keyboard/TalkBack checks; rehearse without AI and on another network. |
+
+**Acceptance evidence required before calling the build complete**
+
+| Check | Evidence to capture |
+|---|---|
+| Arithmetic and labels | Versioned fixtures reproduce the worked 93.576% and 101.616% results; warning bands, individual-axis alerts and displayed rounding agree. |
+| Feasible decisions | Fixed tasks, deadlines and protected blocks survive every proposed change; destination days are checked; an impossible plan returns an explanation. |
+| Safe persistence | Preview creates no commitment; approved apply is atomic; a stale plan cannot overwrite newer edits; undo preserves intervening changes. |
+| Recovery and privacy | Overlapping recovery is counted once, missing logs are labelled, and a second account cannot read or modify another student's records. |
+| Accessible, resilient demo | Main loop works without AI; keyboard and TalkBack expose chart values and actions; offline views show their last update and cannot apply stale previews. |
+
+These are planned release gates, not completed tests. The design team owns Section 3 screenshots; before the build demo, reconcile their labels and numbers with the versioned fixtures without treating illustrative screens as measured outputs.
 
 Reserve **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing
 18, contingency 12. These are planned build hours, separate from the prototype-documentation estimate
@@ -1397,10 +1368,7 @@ Debt and Reality Check show clearly labelled synthetic accumulated state instead
 5. Choose Protection Mode, then apply Smart Rebalance (`107% → 89%`)
 6. Review Recovery Debt and confirm the change persisted
 
-<details>
-<summary><strong>▸ Pre-judging readiness checklist</strong></summary>
-
-**Pre-judging checklist**
+**Build-phase demonstration checklist**
 
 - [ ] Public web link and APK verified on a **different device and network**
 - [ ] Demo account contains complete seeded data
@@ -1411,13 +1379,8 @@ Debt and Reality Check show clearly labelled synthetic accumulated state instead
 
 </details>
 
-</details>
-
 <details>
 <summary><strong>Risks, limitations and mitigation</strong></summary>
-
-<details>
-<summary><strong>▸ Nine risks with mitigations, and six limitations we state plainly</strong></summary>
 
 | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|
@@ -1436,8 +1399,8 @@ Debt and Reality Check show clearly labelled synthetic accumulated state instead
 - SODA depends on what the student records. Missing tasks produce an incomplete, and therefore falsely
   reassuring, capacity figure. This is why the coverage line exists. Calendar coverage counts only events in the selected calendars/date range; it cannot reveal tasks the student has never recorded.
 - The five load scores are **personal** estimates. A mental load of 8 does not mean the same thing for two
-  different students. SODA compares a student against their own history, never against a clinical threshold.
-- Recovery Debt is an estimate. It helps a student notice a pattern of insufficient rest; it cannot prove
+  different students. SODA compares recorded demand against an editable personal baseline, never against a clinical threshold.
+- Recovery Debt is an estimate. It helps a student notice gaps between planned and logged recovery; it cannot prove
   that anyone is burning out.
 - Several supporting theories (effort–recovery, implementation intentions, the planning fallacy) originate
   outside student populations, so their application here requires testing.
@@ -1449,13 +1412,8 @@ Debt and Reality Check show clearly labelled synthetic accumulated state instead
 
 </details>
 
-</details>
-
 <details>
 <summary><strong>Data privacy and safeguarding</strong></summary>
-
-<details>
-<summary><strong>▸ What we collect, what we refuse to collect, RLS, and the safeguarding position</strong></summary>
 
 SODA handles schedules, workload estimates and wellbeing check-ins. These records may reveal sensitive personal information, so the system collects only what its functions require.
 
@@ -1470,7 +1428,7 @@ records · medical diagnoses · any information belonging to friends or family.
 
 - Every user signs in before touching personal data.
 - **Row Level Security enabled on every user-owned table**, with policies asserting `auth.uid() = user_id`
-  (Supabase, n.d.-d).
+  (`auth.uid() = id` for profiles; Supabase, n.d.-d).
 - Publishable keys are used in the Flutter client **only because** RLS is correctly configured. Secret and
   service-role keys stay on the backend, they bypass RLS (Supabase, n.d.-a).
 - RLS policies are tested with a second account before the demo, not assumed.
@@ -1478,7 +1436,7 @@ records · medical diagnoses · any information belonging to friends or family.
 **Practices:** explain what is collected and why · ask consent for anything optional · use data only for
 stated SODA functions · let users access, correct, export and delete their data · retain only as long as
 needed · never sell student data · never share wellbeing information with lecturers, employers, friends or
-family · keep real student input out of the external language adapter ([the language-layer correction](#system-architecture)).
+family · keep real student input out of the external language adapter ([the architecture and language modes](#system-architecture)).
 
 These are guided by Malaysia's seven Personal Data Protection Principles, general, notice and choice,
 disclosure, security, retention, data integrity, and access (Personal Data Protection Commissioner
@@ -1494,8 +1452,6 @@ require explicit opt-in, defined escalation rules, and review by qualified stude
 
 </details>
 
-</details>
-
 > Full build specification (repository layout, SQL schema, API surface, demo seed data): [`docs/BUILD.md`](docs/BUILD.md).
 
 ---
@@ -1505,11 +1461,7 @@ require explicit opt-in, defined escalation rules, and review by qualified stude
 
 Research supports the design rationale, not the particular SODA weights or clinical effectiveness.
 Provider documentation and competitor descriptions were checked for this review; access, terms and
-pricing must be rechecked at build integration. The incomplete Taylor et al. entry from the earlier
-draft has been removed rather than presented as a verified source.
-
-<details>
-<summary><strong>▸ Open research and technology references</strong></summary>
+pricing must be rechecked at build integration.
 
 Abraham, A. Chaabna, K. Sheikh, J. I. Mamtani, R. Jithesh, A. Khawaja, S. & Cheema, S. (2024).
 Burnout increased among university students during the COVID-19 pandemic: A systematic review and
@@ -1563,9 +1515,11 @@ Meijman, T. F. & Mulder, G. (1998). Psychological aspects of workload. In P. J. 
 C. J. de Wolff (Eds.), *Handbook of work and organizational psychology* (2nd ed. Vol. 2, pp. 5–33).
 Psychology Press.
 
-O'Keeffe, P. et al. (2025). Australian university student perspectives on the factors influencing
-student wellbeing: A content and relational analysis. *Higher Education Research & Development, 44*(4).
+Gilmore, A. H., Glozier, N., & Ashton-James, C. E. (2025). Australian university student perspectives on the factors influencing
+student wellbeing: A content and relational analysis. *Higher Education Research & Development, 44*(4), 914–931.
 https://doi.org/10.1080/07294360.2024.2442636
+
+*Citation clarification: the 209-response study cited as “O'Keeffe et al., 2025” in Section 1 is this Gilmore et al. article; the publisher lists the authors above.*
 
 Ollama. (n.d.). *Qwen3.* Retrieved September 7, 2026, from https://ollama.com/library/qwen3
 
@@ -1617,6 +1571,8 @@ W3C. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2.* https://www.w3.o
 
 ---
 
+</details>
+
 <div align="center">
 
 **SODA**: *Carry life, not overload.*
@@ -1624,7 +1580,3 @@ W3C. (2023). *Web Content Accessibility Guidelines (WCAG) 2.2.* https://www.w3.o
 Built for CodeNection 2026 · Lifestyle Track: Beating the Burnout
 
 </div>
-
-</details>
-
-</details>
