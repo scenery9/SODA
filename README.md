@@ -17,17 +17,17 @@ Presentation Slides: [Public Link]
 
 Keep this first, but write it last. Include:
 
-Problem
+- Problem
 
-Target users
+- Target users
 
-Solution
+- Solution
 
-Originality
+- Originality
 
-Current build status
+- Current build status
 
-Expected impact
+- Expected impact
 
 University students rarely collapse from one thing. They collapse from an accumulation nobody is measuring — coursework, a shift job, a committee role, errands, and the quiet cost of never resting, all landing in the same week. Every tool a student already owns measures one slice of that: tasks, or hours, or mood. None of them measures capacity, and none intervenes at the moment the damage is done — the moment of saying yes to one more thing.
 
@@ -51,23 +51,23 @@ Our exploration identified a gap between knowing individual commitments and unde
 
 Hence, SODA’s focus is defined as a workload visibility and decision-making problem. Time management, motivation, and mood awareness may help, but students also need to understand how accepting, postponing, or removing a commitment changes the rest of their week.
 
-![Embedded image 1](image1.png)
+![Embedded image 1](docs/images/image1.png)
 
 *Figure 1.1: The problem tree explaining main causes of student overload.*
 
 Figure 1.1 groups the contributing factors into six areas:
 
-Fragmented commitments: tasks are spread across different systems.
+- Fragmented commitments: tasks are spread across different systems.
 
-Unrecorded responsibilities: errands and other non-academic demands are easily overlooked.
+- Unrecorded responsibilities: errands and other non-academic demands are easily overlooked.
 
-Underestimated duration: tasks take longer than the schedule allows.
+- Underestimated duration: tasks take longer than the schedule allows.
 
-Unclear commitment costs: students accept new tasks without seeing their combined impact.
+- Unclear commitment costs: students accept new tasks without seeing their combined impact.
 
-Postponed recovery: rest is reduced when other demands appear more urgent.
+- Postponed recovery: rest is reduced when other demands appear more urgent.
 
-Accumulated recovery needs: missed rest carries into the following weeks.
+- Accumulated recovery needs: missed rest carries into the following weeks.
 
 Together, these factors can make it difficult to recognise an overloaded week while there is still time to adjust it. This matters because perceived heavy workload is associated with students’ learning behaviour and wellbeing (Thornby et al., 2023).
 
@@ -129,7 +129,7 @@ Together, these requirements keep SODA focused on one purpose: help students und
 
 After understanding the root causes, we explored the problem from different directions. We considered the target users, their different types of load, their main needs, possible product concepts and important design principles.
 
-![Embedded image 2](image2.png)
+![Embedded image 2](docs/images/image2.png)
 The mindmap begins with one question: “How might we help students see and rebalance their total load before burnout?”
 
 We identified four main user groups: working students, over-committed students, final-year students and quiet grinders. Although their situations are different, they all experience a combination of mental, time, physical, social and errand load.
@@ -145,7 +145,7 @@ These ideas were combined into SODA’s main features: My Backpack, Impact Previ
 
 After selecting the Backpack concept, we converted it into a complete user journey. The purpose was to make sure that SODA would not only display information but would also help students make a decision and take action.
 
-![Embedded image 3](image3.png)
+![Embedded image 3](docs/images/image3.png)
 The user journey begins when the student enters a task, imports a calendar event or completes a daily check-in. SODA then calculates the student’s five-dimensional load, personal capacity and recovery balance.
 
 The student can understand the result through My Backpack and Life Forecast. When a new commitment appears, Impact Preview shows what may happen before the task is added. If the commitment fits within the student’s capacity, it can be accepted. If it creates overload, the student can decline it or use Smart Rebalance to move, reduce or remove a lower-priority task.
@@ -186,13 +186,13 @@ How the Ideas Became SODA
 
 The final concept combined Backpack’s workload model with selected elements from the alternatives:
 
-Backpack provided the core workload overview and decision support.
+- Backpack provided the core workload overview and decision support.
 
-Streak contributed the visual companion, without streaks or penalties for absence.
+- Streak contributed the visual companion, without streaks or penalties for absence.
 
-Echo informed brief check-ins that support reflection without requiring continuous journaling.
+- Echo informed brief check-ins that support reflection without requiring continuous journaling.
 
-Sync remained a future direction for collaborative workload visibility.
+- Sync remained a future direction for collaborative workload visibility.
 
 This exploration shaped both what SODA includes and what it leaves out. The resulting concept focuses on a practical sequence: understand the workload → preview a commitment → choose adjustments → make room for recovery.
 
@@ -274,13 +274,13 @@ It considers workload across five areas—mental, time, physical, social, and er
 
 Its originality lies in connecting four actions:
 
-See combined academic and non-academic demands.
+- See combined academic and non-academic demands.
 
-Preview a new commitment before accepting it.
+- Preview a new commitment before accepting it.
 
-Choose practical, reversible adjustments.
+- Choose practical, reversible adjustments.
 
-Review completed tasks and track recovery needs across weeks.
+- Review completed tasks and track recovery needs across weeks.
 
 This approach is consistent with Study Demands–Resources theory, which explains student wellbeing through the interaction between demands, available resources, and proactive adjustments (Bakker & Mostert, 2024).
 
@@ -298,11 +298,11 @@ This allows tasks of equal duration to have different estimated demands. A three
 
 The overview answers three questions:
 
-How full is my week?
+- How full is my week?
 
-Which workload area is heaviest?
+- Which workload area is heaviest?
 
-Which day needs attention?
+- Which day needs attention?
 
 The intended benefit is to make the combined demands easier to understand than viewing each task separately.
 
@@ -403,13 +403,13 @@ For example, adding a commitment changes the projected workload. Approving an ad
 
 Four principles keep this experience consistent:
 
-Wait for sufficient information before displaying personal patterns.
+- Wait for sufficient information before displaying personal patterns.
 
-Explain the basis of results.
+- Explain the basis of results.
 
-Let students review and reverse schedule changes.
+- Let students review and reverse schedule changes.
 
-Keep the main experience usable without a wearable.
+- Keep the main experience usable without a wearable.
 
 Together, these choices create a coherent product that combines planning, decisions, and recovery. They establish a recognisable design direction, but not yet a proven technical barrier or competitive advantage.
 
@@ -462,48 +462,48 @@ Document from the mockup: full palette with hex values and the meaning of each (
 
 Six friction points we designed around. Each was a real change, and each cost us something.
 
-Five-field entry → one-tap category defaults. Timed at 40–55 seconds per task in our own logging exercise (§2.5 v0.3), which is unusable at eight tasks a week; now about 8 seconds. The vector still exists — pre-filled and collapsed. Traded: per-task precision, in exchange for the model actually being populated.
+- Five-field entry → one-tap category defaults. Timed at 40–55 seconds per task in our own logging exercise (§2.5 v0.3), which is unusable at eight tasks a week; now about 8 seconds. The vector still exists — pre-filled and collapsed. Traded: per-task precision, in exchange for the model actually being populated.
 
-Activity view alone → dual view toggle. The category breakdown showed where hours go, which quietly contradicted our "capacity, not time" claim. By activity ⇄ By what it costs you makes the model visible without losing the view students find readable. Traded: one extra control on the home screen.
+- Activity view alone → dual view toggle. The category breakdown showed where hours go, which quietly contradicted our "capacity, not time" claim. By activity ⇄ By what it costs you makes the model visible without losing the view students find readable. Traded: one extra control on the home screen.
 
-Effort as a single chip → chip that pre-fills a vector. Kept the one-tap speed, restored the five dimensions underneath.
+- Effort as a single chip → chip that pre-fills a vector. Kept the one-tap speed, restored the five dimensions underneath.
 
-Generic nudges → axis-matched recovery. "Take a break" replaced by recovery matched to the depleted dimension — including social contact when social is under-loaded, which no generic wellbeing nudge would ever produce (§2.5 v0.6).
+- Generic nudges → axis-matched recovery. "Take a break" replaced by recovery matched to the depleted dimension — including social contact when social is under-loaded, which no generic wellbeing nudge would ever produce (§2.5 v0.6).
 
-Warning-only → warning plus the swaps. An overload warning with no action is just anxiety. Every red state routes to concrete moves with their savings attached.
+- Warning-only → warning plus the swaps. An overload warning with no action is just anxiety. Every red state routes to concrete moves with their savings attached.
 
-Confident percentage → percentage plus coverage. We first displayed the headline figure alone, which looked more authoritative and was less honest. Traded: visual cleanliness, in exchange for a number a student can trust. This is the same reasoning that governs Section 7: a bounded claim is worth more than a broad one.
+- Confident percentage → percentage plus coverage. We first displayed the headline figure alone, which looked more authoritative and was less honest. Traded: visual cleanliness, in exchange for a number a student can trust. This is the same reasoning that governs Section 7: a bounded claim is worth more than a broad one.
 
 //original
 
 Five friction points we designed around:
 
-Five-field entry → one-tap category defaults. Timed at 40–55 seconds per task in our own logging exercise (§1.5); now about 8 seconds. The vector still exists — it is pre-filled and collapsed.
+- Five-field entry → one-tap category defaults. Timed at 40–55 seconds per task in our own logging exercise (§1.5); now about 8 seconds. The vector still exists — it is pre-filled and collapsed.
 
-Activity view alone → dual view toggle. The category breakdown showed where hours go, contradicting our "capacity, not time" claim. By activity ⇄ By what it costs you makes the model visible without losing the readable activity view.
+- Activity view alone → dual view toggle. The category breakdown showed where hours go, contradicting our "capacity, not time" claim. By activity ⇄ By what it costs you makes the model visible without losing the readable activity view.
 
-Effort as a single chip → chip that pre-fills a vector. Kept the one-tap speed, restored the five-dimension model underneath.
+- Effort as a single chip → chip that pre-fills a vector. Kept the one-tap speed, restored the five-dimension model underneath.
 
-Generic nudges → axis-matched recovery. "Take a break" replaced by recovery matched to the depleted dimension — including "text someone" when social is under-loaded, which no generic wellbeing nudge would ever produce.
+- Generic nudges → axis-matched recovery. "Take a break" replaced by recovery matched to the depleted dimension — including "text someone" when social is under-loaded, which no generic wellbeing nudge would ever produce.
 
-Warning-only → warning plus the swaps. An overload warning with no suggested action is just anxiety. Every red state on every screen routes to a concrete list of moves with their savings attached.
+- Warning-only → warning plus the swaps. An overload warning with no suggested action is just anxiety. Every red state on every screen routes to a concrete list of moves with their savings attached.
 
 
 ## 3.5 Accessibility
 
 Implemented versus designed-only:
 
-Colour-blind safe: severity carries label + numeral + fill treatment, never hue alone
+- Colour-blind safe: severity carries label + numeral + fill treatment, never hue alone
 
-Screen reader: the Backpack radar/bubble chart has a text alternative summarising each dimension and the headline figure — a chart is otherwise invisible to a screen reader
+- Screen reader: the Backpack radar/bubble chart has a text alternative summarising each dimension and the headline figure — a chart is otherwise invisible to a screen reader
 
-Contrast: WCAG AA verified for body and label text; re-check the small percentage figures in Today's Schedule
+- Contrast: WCAG AA verified for body and label text; re-check the small percentage figures in Today's Schedule
 
-Dynamic type, minimum 44×44pt targets, prefers-reduced-motion respected
+- Dynamic type, minimum 44×44pt targets, prefers-reduced-motion respected
 
-Light theme designed (one sample frame; full implementation on roadmap)
+- Light theme designed (one sample frame; full implementation on roadmap)
 
-No time-limited interactions and no flashing — this app is used by people who are exhausted
+- No time-limited interactions and no flashing — this app is used by people who are exhausted
 
 
 # Section 4 — Impact
@@ -521,11 +521,11 @@ How can students recognise their combined workload and adjust it before their op
 
 Three considerations shape this approach:
 
-Visibility: knowing individual commitments does not necessarily reveal their combined demands. SODA brings recorded responsibilities into one workload overview.
+- Visibility: knowing individual commitments does not necessarily reveal their combined demands. SODA brings recorded responsibilities into one workload overview.
 
-Planning: a meta-analysis of 31 studies involving 13,506 participants found a positive association between time management and learning outcomes, particularly among undergraduates (Liu et al., 2026). This supports investigating better planning decisions, not assuming that SODA itself improves academic performance.
+- Planning: a meta-analysis of 31 studies involving 13,506 participants found a positive association between time management and learning outcomes, particularly among undergraduates (Liu et al., 2026). This supports investigating better planning decisions, not assuming that SODA itself improves academic performance.
 
-Recovery: effort–recovery theory explains how incomplete recovery can leave residual strain when further demands begin (Meijman & Mulder, 1998). This informs SODA’s recovery tracking, without validating its numerical recovery estimates.
+- Recovery: effort–recovery theory explains how incomplete recovery can leave residual strain when further demands begin (Meijman & Mulder, 1998). This informs SODA’s recovery tracking, without validating its numerical recovery estimates.
 
 The intended intervention is therefore:
 
@@ -618,13 +618,13 @@ Students may also have limited freedom to act because of income, deadlines, or r
 
 SODA aims to produce four immediate changes:
 
-More informed commitment decisions. Students can consider accepting, deferring, declining, or modifying a task with clearer trade-offs.
+- More informed commitment decisions. Students can consider accepting, deferring, declining, or modifying a task with clearer trade-offs.
 
-Lower workload concentration. Flexible tasks can be redistributed without assuming that all responsibilities should be removed.
+- Lower workload concentration. Flexible tasks can be redistributed without assuming that all responsibilities should be removed.
 
-More realistic planning. Repeated completion feedback may help students reconsider optimistic estimates. Research supports the relevance of time management to learning outcomes, but SODA’s effect requires separate testing (Liu et al., 2026).
+- More realistic planning. Repeated completion feedback may help students reconsider optimistic estimates. Research supports the relevance of time management to learning outcomes, but SODA’s effect requires separate testing (Liu et al., 2026).
 
-More deliberate recovery. Recovery time becomes visible, planned, and connected to practical activities.
+- More deliberate recovery. Recovery time becomes visible, planned, and connected to practical activities.
 
 If these changes occur, students could identify deadline conflicts earlier, plan around paid shifts, make more selective extracurricular commitments, and maintain recovery more consistently. Longer-term improvements in wellbeing or academic functioning remain hypotheses.
 
@@ -699,7 +699,7 @@ SODA uses a lightweight and practical technology stack that can support the core
 | Backend Hosting | Railway | Railway allows the FastAPI backend to be deployed quickly without managing a full server environment. It is suitable for a small prototype and REST API service. | Free or low-cost plans may have usage, sleep or resource limitations. The team will therefore keep backend services lightweight. |
 | AI Support | LLM API / AI Service | AI may be used only for optional features such as converting natural-language task descriptions into structured task information or drafting simple suggestions. Core workload calculations do not depend on AI. | AI responses may be inconsistent, introduce latency and require external API access. Therefore, AI is treated as an enhancement rather than a dependency for the core SODA experience. |
 
-![Embedded image 4](image4.png)
+![Embedded image 4](docs/images/image4.png)
 
 ## 5.2 System Architecture & Implementation Flow
 
@@ -791,43 +791,43 @@ The optional language model is not required for the core demonstration. If the t
 
 SODA will not rely only on a developer’s laptop. The planned deployment has three main parts:
 
-The Flutter web application is hosted on Firebase Hosting.
+- The Flutter web application is hosted on Firebase Hosting.
 
-The FastAPI backend is hosted on Railway.
+- The FastAPI backend is hosted on Railway.
 
-User accounts and data are stored in Supabase.
+- User accounts and data are stored in Supabase.
 
-The Android version is exported as an APK for installation on a judge’s device.
+- The Android version is exported as an APK for installation on a judge’s device.
 
 The demonstration will use a prepared account with sample tasks and several weeks of recovery history. This allows judges to see Recovery Debt and Reality Check without waiting for new data to build up.
 
 Demonstration Flow
 
-Open the web application or Android app.
+- Open the web application or Android app.
 
-Sign in to the prepared demo account.
+- Sign in to the prepared demo account.
 
-View the current five-dimensional workload and capacity.
+- View the current five-dimensional workload and capacity.
 
-Add a new commitment and preview its impact.
+- Add a new commitment and preview its impact.
 
-Use Smart Rebalance to reduce the overload.
+- Use Smart Rebalance to reduce the overload.
 
-Review Recovery Debt and confirm that the updated data has been saved.
+- Review Recovery Debt and confirm that the updated data has been saved.
 
 Demo Readiness Checklist
 
 Before judging, the team will verify that:
 
-The public web link and Android APK work on another device.
+- The public web link and Android APK work on another device.
 
-The demo account contains complete sample data.
+- The demo account contains complete sample data.
 
-The FastAPI service and Supabase database are reachable.
+- The FastAPI service and Supabase database are reachable.
 
-The main user flow works without the optional language model.
+- The main user flow works without the optional language model.
 
-A backup video and prototype QR code are ready.
+- A backup video and prototype QR code are ready.
 
 Free Supabase projects may pause after a period of low activity (Supabase, n.d.-c). The team will therefore open and test the project before judging day. The live demonstration will also be tested using a different device and internet connection.
 
@@ -864,19 +864,19 @@ Data Collected
 
 SODA may store:
 
-User account identifier and email address
+- User account identifier and email address
 
-Tasks, commitments and deadlines
+- Tasks, commitments and deadlines
 
-Task categories and estimated duration
+- Task categories and estimated duration
 
-Five-dimensional load scores
+- Five-dimensional load scores
 
-Daily check-in answers
+- Daily check-in answers
 
-Recovery history
+- Recovery history
 
-Actual-versus-estimated task feedback
+- Actual-versus-estimated task feedback
 
 Information imported from Google Calendar should be limited to the fields required to create a commitment, such as the event title, date, start time and end time.
 
@@ -884,17 +884,17 @@ Data Not Required
 
 The prototype does not need to collect:
 
-Contact lists
+- Contact lists
 
-Private messages
+- Private messages
 
-Exact location
+- Exact location
 
-Raw wearable records
+- Raw wearable records
 
-Medical diagnoses
+- Medical diagnoses
 
-Information belonging to friends or family members
+- Information belonging to friends or family members
 
 Protection Measures
 
@@ -904,23 +904,23 @@ Publishable keys may be used in the Flutter client only when Row Level Security 
 
 SODA will follow these privacy practices:
 
-Explain what information is collected and why.
+- Explain what information is collected and why.
 
-Ask for consent before collecting optional information.
+- Ask for consent before collecting optional information.
 
-Use personal data only for the stated SODA functions.
+- Use personal data only for the stated SODA functions.
 
-Allow users to access, correct, export and delete their information.
+- Allow users to access, correct, export and delete their information.
 
-Keep personal data only for as long as it is required.
+- Keep personal data only for as long as it is required.
 
-Do not sell student data.
+- Do not sell student data.
 
-Do not share wellbeing information with lecturers, employers, friends or family members.
+- Do not share wellbeing information with lecturers, employers, friends or family members.
 
-Do not send sensitive information to an external language-model API.
+- Do not send sensitive information to an external language-model API.
 
-Test database access policies before the demonstration.
+- Test database access policies before the demonstration.
 
 These practices are guided by Malaysia’s seven Personal Data Protection Principles: general, notice and choice, disclosure, security, retention, data integrity and access (Personal Data Protection Commissioner Malaysia, n.d.).
 
@@ -1004,4 +1004,3 @@ Thornby, K., Brazeau, G. A., & Chen, A. M. (2023). Reducing student workload thr
 Todoist. (2026, September 4). Use the Calendar integration. https://www.todoist.com/help/todoist/integrations/use-the-calendar-integration-rCqwLCt3G
 
 [TO COMPLETE: the Malaysian or Southeast Asian prevalence source cited in §1.4, with its DOI.]
-
