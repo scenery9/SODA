@@ -162,278 +162,143 @@ The intent of the capture feedback is fewer unnecessary decisions. Keeping manua
 
 
 ## 3. Design & Prototype
+**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5?node-id=189-1183)
 
-**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5)
+SODA is used by people who are already depleted. That single fact drives every decision in this section: the interface has to be readable in ten seconds, honest about what it does not know, and incapable of making a tired student feel worse for opening it.
 
-SODA is used by people who are already depleted. That single fact drives every decision in this
-section: the interface has to be readable in ten seconds, honest about what it does not know, and
-incapable of making a tired student feel worse for opening it.
+64 screens in light mode, mirrored in dark mode. Every screen described below exists in the Figma prototype and is wired.
 
-### Key screens
+**Storyboard 1 — Onboarding to the first capacity reading**
 
-> [!IMPORTANT]
-> **Storyboard consistency note.** The saved screens contain separate illustrative states: Impact
-> Preview 82% → 107%, Rebalance 112% → 89%, and Forecast 94%. They are not a continuous computed run.
-> The intended demo story below uses **82% → 107% → 89%**; the designer must update those screens to
-> one fixture before recording. Earlier move labels also totalled 19, although 112 − 89 = 23.
-> All headline, per-axis and screen-reader values must be generated from the same fixture in the build.
+Splash → Welcome → Capacity Baseline (three calibration questions: what a normal week feels like, focused hours per day, protected recovery per day)
+→ Connect Your Week (Google Calendar read-only, notifications, optional health) → Calendar Review (imported commitments grouped by category, confirmed before anything is calculated) → Home.
 
+Both optional steps can be skipped. A student who declines the calendar and the review still lands on a working first-run Home.
 
-24 screens across five storyboards. Every screen below exists in the Figma prototype.
+Home shows this week's capacity at 82% (Heavy), the five parts of the student's load — Mental 91%, Time 87%, Physical 62%, Social 43%, Errands 58% — a week bar chart, and a banner naming the day that breaks:
+*Wednesday goes over your limit.*
 
-**Storyboard 1: Onboarding to first capacity reading (Screens 01–06)**
+[image — H1 Home, node 189:1183]
 
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/01-onboarding-home-light.png" alt="Onboarding and My Backpack" width="100%">
-</p>
+**Storyboard 2 — Capture to decision**
 
-*Splash → Welcome → **Capacity Baseline** (three calibration questions: what a normal week feels like,
-focused hours per day, protected recovery per day) → Connect Your Week (Google Calendar read-only,
-notifications, optional health) → Calendar Review (imported commitments grouped by category, confirmed
-before anything is calculated) → **My Backpack** (82% capacity, the five-dimension bubble chart inside
-the backpack, overload risk banner naming Thursday, and the week bar chart).*
+Add → SODA reads it → Confirms understanding → Impact Preview → Smart Rebalance → Changes applied → Week Updated.
 
-**Storyboard 2: Capture to decision (Screens 07–12)**
+Adding is a single screen. The chat field is there immediately, with a "Type it in yourself" button that expands the manual form in place. No screen asks the student to pick a mode first.
 
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/02-add-task-impact-light.png" alt="Add task, Impact Preview, Protection Mode and Smart Rebalance" width="100%">
-</p>
+[image — A★ Add screen, node 451:1504]
 
-*Add sheet → **Tell SODA** (natural-language capture, parsed fields shown for confirmation with a
-thumbs up/down) → Manual entry (reached via "Edit details") → **Impact Preview** (`82% → 107%`, per-dimension
-deltas, recovery window shrinking by 1h 45m) → **Protection Mode** (Protect Recovery / Warn Only / Accept
-Without Protection) → **Smart Rebalance** (saved screen: `112% → 89%`; intended fixture: `107% → 89%`, three named moves and a protected-recovery line; the old −19% total is inconsistent and must be replaced).*
+Typed input passes two checks before anything is saved. SODA shows its working (heard the task, found the date, estimated the effort from past
+tasks), then states what it understood — *Friday 15 Nov, 19:00, 3h 30m (suggested), Extra High* — and asks "Did I get that right?"
 
-<details>
-<summary><strong>▸ Storyboards 3–5: week, day detail, check-in, recovery, insights, trust screens and dark mode (Screens 13–24)</strong></summary>
+Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`, Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
+primary action is not "Save", it is "Fix my week"; the alternative is "Accept anyway", which passes through its own confirmation.
 
-**Storyboard 3: Week, day, check-in and recovery (Screens 13–18)**
+[image — A4 Impact Preview, node 189:1780]
 
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/03-schedule-recovery.png" alt="Week updated, Life Forecast, Day Detail, Check-in, Recovery Island and Timer" width="100%">
-</p>
+Smart Rebalance proposes three named moves and lets the student choose which to take. Two selected moves total −23%, taking Friday from 112% to 89%, with a protected-recovery line stating that 1h 50m of rest is
+kept. Applying leads to Changes applied, then Week Updated.
 
-*Week Updated (89%, Heavy but below the warning threshold) → **Life Forecast** (7-day curve with Thursday at 94% flagged OVERLOAD) →
-Day Detail (timeline with per-item load share and energy remaining) → **Daily Check-in** (five sliders) →
-**Recovery Island** (matched to the most depleted dimension) → **Recovery Timer** (20-minute reset, dark,
-no screens).*
+[image — A5 Smart Rebalance, node 189:1871]
 
-**Storyboard 4: Insight, honesty and trust (Screens 19–24)**
+**Storyboard 3 — Week, day, check-in and recovery**
 
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/04-insights-trust-light.png" alt="Recovery complete, Insights, Recovery Debt, Weekly Review, Settings and How SODA Calculates" width="100%">
-</p>
+Week Updated (Friday 89%, Heavy but under the limit; Wednesday is still shown at 104%, because fixing Friday did not fix Wednesday) → Life Forecast (seven days, Wednesday flagged at 104% OVERLOAD, Thursday 78%
+Heavy with a storm warning) → Day Detail (timeline with each item's load share and the energy remaining) → Daily Check-in (five sliders: energy, mood, mental, physical, social battery) → Recovery Island → Recovery Timer.
 
-*Recovery Complete → **Insights** (capacity trend, load by category, most overloaded day, positive
-highlight) → **Recovery Debt** (2h 35m across four weeks, with the explicit disclaimer that it is a
-planning signal and not a medical score) → Weekly Review → Settings → **How SODA Calculates** (the model,
-its determinism, the narrow role of AI, and the privacy position, all in plain language).*
+[image — H3 Week Updated, node 189:1581]
+[image — F1 Life Forecast, node 189:2461]
 
-**Storyboard 5: Dark mode**
+Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching takes one tap
+instead of returning to the menu. Physical and Mental options run a timer; Time options remove work instead of adding rest and end in a "tasks batched" confirmation.
 
-<p align="center">
-  <img src="design-previews/soda-storyboard-v1/05-dark-mode-showcase.png" alt="Dark mode showcase" width="100%">
-</p>
+**Storyboard 4 — Insight, honesty and trust**
 
-</details>
+Recovery Complete → Insights (capacity trend, three pattern cards colour- matched to the same Time / Physical / Mental scheme used in Recovery) → Recovery Debt (2h 35m across four weeks, stated as rest owed, with the explicit line that it is a planning signal and not a medical score) → Settings → How SODA Calculates.
+
+How SODA Calculates is written for a sceptical reader. It gives the formula (`day load = Σ hours × effort × part`, `capacity % = day load ÷ limit × 100`), the effort weights (Low ×0.5 to Extra high ×2.0), the part weights (Mental ×1.3 down to Errands ×0.7), the student's limit (14.5 load-hours a day, moving at most ±0.5 a week), and a worked example for Wednesday: 15.13 ÷ 14.5 = 104%.
+
+[image — I5 How SODA Calculates, node 202:1622]
+
+**Storyboard 5 — Degraded states and dark mode**
+
+Calendar sync failure, offline and save failure are designed as banners on the working screen, not as separate error pages. The student keeps the last known data, keeps adding tasks, and SODA syncs when it can. Every screen has a dark-mode twin.
 
 ### Design principles
 
-SODA is built around one uncomfortable moment: the second before a student says "yes" to something they do not have room for. Every screen in the prototype is shaped by five rules.
+SODA is built around one uncomfortable moment: the second before a student says "yes" to something they do not have room for. Seven rules shape every screen.
 
-**1. Show the cost before the commitment.**
-Most planners tell you what you agreed to after you agreed. SODA shows the damage first. Adding a task opens an Impact Preview that puts the week's load before and after side by side: 82% becomes
-107%, and the day that breaks is named. The primary action is not "Save", it is "Fix my week".
+**1. Show the cost before the commitment.** Most planners tell you what you agreed to after you agreed. SODA shows the damage first: 82% becomes 112%, and the day that breaks is named. The primary action is "Fix my week".
 
-**2. Plan, never diagnose.**
-SODA reports capacity, not health. Copy throughout the app repeats the boundary in plain words: "This is for planning. It is not a health score." Body signals are compared to the student's own
-normal, never to a population baseline, and the app states that it works with no wearable connected at all.
+**2. Plan, never diagnose.** SODA reports capacity, not health. The boundary is repeated in plain words: "This is for planning. It is not a health score." Body signals are compared to the student's own normal,
+never to a population baseline, and the app works with no wearable at all.
 
-**3. Nothing is saved until the student approves it.**
-When a task is typed in conversationally, SODA shows what it understood and asks "Did I get that right?" before anything is written. The same line, "Nothing is saved until you approve", sits under the input field. The system proposes; the student decides.
+**3. Nothing is saved until the student approves it.** SODA shows what it understood and asks before writing anything. When it overrides a number — estimating 3h 30m where the student typed 3 hours — the change is visible, explained, and reversible with one tap.
 
-**4. One way in, not a menu.**
-Adding something is a single screen. The chat input is there immediately, with a "Type it in yourself" option that expands the manual form in place. Students who prefer forms are never forced through a conversation, and neither group has to pick a mode before they start.
+**4. One way in, not a menu.** Adding something is a single screen. Chat and the manual form live together; neither group has to pick a mode first.
 
-**5. Give the time back, don't just warn.**
-Flagging an overloaded week is not help. Every warning is paired with an action: Smart Rebalance proposes specific changes, and Recovery Island turns owed rest into short, concrete options with
-the time each one returns.
+**5. Give the time back, don't just warn.** Every warning is paired with an action. Smart Rebalance proposes specific changes; Recovery Island turns owed rest into short options that each state the time they return.
 
-<details>
-<summary><strong>User flow, end to end</strong></summary>
+**6. SODA does not move what is not the student's to move.** Every commitment is tagged Fixed or Flexible. Coursework and club time can be moved. A paid shift cannot: SODA will draft the message to the manager,
+but the swap shows as "waiting for your manager" and is never counted in the improvement total until it is approved.
 
-The prototype covers five flows. Every screen listed here exists in the Figma file and is wired, in both light and dark mode.
+[image — A5w Smart Rebalance · Wednesday, node 541:1504]
 
-#### First run
+**7. Fixed rules do the maths. AI only handles the words.** Capacity, warnings and rebalance suggestions all come from a deterministic rules engine — the same numbers always give the same answer. AI is used only to read what the student types in their own words and to write SODA's notes back to them. It never decides.
+
+### User flow, end to end
+
+**First run**
 
 `Splash → Welcome → Capacity Baseline → Connect Your Week → Calendar Review → Home (day one)`
 
-Onboarding asks for two things only: a rough sense of how much the student can take on, and permission to read their calendar. Both optional steps can be skipped: "Later" on the calendar step and "I'll check them later" on the review step both land on the same first-run Home, so a student who declines everything still reaches a working app. Day-one Home carries a Learning Card that opens a short check-in, because SODA has no history to work from yet.
+**Adding a commitment — the core loop**
 
-#### Adding a commitment: the core loop
+`Home → Add → SODA reads it → Confirms → Impact Preview → Smart Rebalance → Changes applied → Week Updated → Home (after the fix)`
 
-`Home → Add → SODA reads it → Confirms understanding → Impact Preview → Smart Rebalance → Week Updated`
+Manual entry skips the confirmation step, because the student typed the details themselves. If they keep their own estimate instead of SODA's, the Impact Preview reflects their number (108%, not 112%) rather than silently using SODA's.
 
-The backpack button in the tab bar opens a single Add screen. The student can type in their own words, tap a worked example, or open "Type it in yourself" to expand a manual form in place; no screen asks them to choose a mode first.
+**Fixing a day that is already overloaded**
 
-Typed input goes through two checks before anything is saved. SODA shows its working (found the date, estimated the effort from past tasks), then states what it understood and asks the student to confirm or correct it. Manual entry skips the confirmation step and goes straight to Impact Preview, because the student typed the details themselves.
+`Forecast / Home → Day Plan → Smart Rebalance (Wednesday) → Changes applied → Week Updated → Home (after the fix)`
 
-Impact Preview is the decision point. It shows the week's load before and after, names the day that breaks, and offers two routes: Smart Rebalance, which proposes specific changes, or Accept anyway, which requires the student to pass through a confirmation overlay. Either way the outcome is visible before the commitment is real.
+Wednesday runs at 104%. Two flexible moves — assignment work to Thursday, club meeting to Sunday — bring it to 80%. The part-time shift is fixed and is left alone; asking to swap it is offered as a separate request that stays pending.
 
-#### Seeing the week ahead
-
-`Forecast → Day Plan → Smart Rebalance`
-
-The forecast is read-only until something looks wrong. Any day opens its plan, and an overloaded day routes into the same Smart Rebalance screen used by the add flow: one repair mechanism, not
-several. The same is true of "What Breaks" on Home.
-
-#### Recovering owed rest
+**Recovering owed rest**
 
 `Recover → Recovery Island → pick a type → Timer → Complete → Daily Check-in`
 
-Recover shows accumulated recovery debt. Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching between them takes one tap instead of returning to the menu. Each option states the time it gives back. Physical and Mental options run a timer; Time options remove work instead of adding rest, and end in a "tasks batched" confirmation rather than a timer.
+**Degraded states**
 
-#### Degraded states
+Not a flow. Each is a state that appears on top of a screen the student is already using — sync failure and offline on Home, save failure on Add. Nothing is lost and nothing is blocked.
 
-Calendar sync failure, offline, and save failure are designed as banners on the working screen rather than separate error pages. The student keeps the last known data, keeps adding tasks, and SODA syncs when it can. Nothing is lost and nothing is blocked.
+### Six friction points we designed around
 
-</details>
+1. **Being asked to choose a mode before you start.** The old Add flow made
+   students pick "chat" or "manual" before typing anything. That screen was
+   removed; both live on one screen.
+2. **Being told you are overloaded, with nothing to do about it.** Every
+   over-limit state routes into a concrete set of changes with named tasks
+   and stated percentages.
+3. **Silent edits by the system.** When SODA changes a number, the screen
+   says so, gives the reason from the student's own history, and offers
+   Undo.
+4. **Losing work when something fails.** Failures are banners, not dead
+   ends. The draft survives, the last known week stays on screen.
+5. **Rest feeling like one more task.** Recovery options are two to twenty
+   minutes and each states what it gives back, so resting is a decision
+   with a visible payoff rather than an open-ended obligation.
+6. **Reading when you are too tired to read.** Any dense screen can be
+   summarised in four sentences, either read aloud or read on screen with
+   sound off.
 
-<details>
-<summary><strong>Six friction points we designed around</strong></summary>
+### Accessibility: what is designed, what is still unverified
 
-Six friction points we designed around. Each was a real change, and each cost us something.
+**Designed.** A full dark mode for every screen. A read-aloud summary that also works silently as text, so it serves students in a library and
+students who cannot hear it equally. Plain language throughout, with numbers always paired with a word ("89%", "Heavy") so meaning never rests
+on colour alone. Category colour is consistent across Insights and Recovery, but always carries a text label beside it.
 
-| # | Change | Why | Traded |
-|---|---|---|---|
-| 1 | Five-field entry → **one-tap category defaults** | The team’s own logging exercise reported 40–55s for full entry and ~8s for the revised path; this is not a user benchmark. The vector still exists, pre-filled and collapsed. | Per-task precision, for a populated model. |
-| 2 | Activity view only → **dual view toggle** | The category breakdown showed *where hours go*, quietly contradicting our "capacity, not time" claim. *By activity ⇄ By what it costs you* makes the model visible without losing the readable view. | One extra control on the home screen. |
-| 3 | Effort as a single chip → **chip that pre-fills a vector** | Kept one-tap speed, restored the five dimensions underneath. | Nothing; this one was free. |
-| 4 | Generic nudges → **axis-matched recovery** | "Take a break" replaced by recovery matched to the depleted dimension, with social suggestions guided by an explicit preference/check-in, not inferred from low recorded social demand. | A larger recovery content set to author. |
-| 5 | Warning-only → **warning plus the swaps** | An overload warning with no action is just anxiety. Every red state routes to concrete moves with savings attached. | Screen density on the preview. |
-| 6 | Confident percentage → **percentage plus coverage** | We first displayed the headline figure alone. It looked more authoritative and was less honest. | Visual cleanliness, for a number a student can trust. |
-
-</details>
-
-<details>
-<summary><strong>Accessibility: what is designed, what is still unverified</strong></summary>
-
-Accessibility is not a compliance annex here; it is load-bearing. Our users are, by definition, tired,
-and fatigue degrades exactly the capacities (sustained attention, colour discrimination under low
-contrast, working memory) that a careless interface assumes are intact. Designing for permanent
-impairment produces an interface that also works for someone reading it at 1 a.m. after a shift.
-
-<details>
-<summary><strong>▸ Why colour-blind and screen-reader design specifically matters for these users (with the exact announcements)</strong></summary>
-
-#### Why colour-blind design matters for *this* product specifically
-
-Roughly **8% of men and 0.5% of women** have a colour vision deficiency, overwhelmingly red–green
-([insightsoftware](https://insightsoftware.com/blog/visualizing-for-the-color-blind/);
-[Rigor Data Solutions](https://www.rigordatasolutions.com/post/visualizing-data-inclusively-addressing-color-blindness-in-data-visualizations)).
-In a mixed cohort of engineering and computing undergraduates (a substantial slice of our target
-users) that is not an edge case; it is one or two students in a tutorial group.
-
-The specific hazard in SODA is that **our entire severity system is natively red–green**: Light /
-Manageable / Heavy / Overload maps to green → amber → orange → red. For a student with deuteranopia or
-protanopia, the Life Forecast curve and the weekly bar chart would collapse into a set of
-indistinguishable muddy bars, and the single most important message in the product, *Thursday is the
-day that breaks*, would be silently lost. The failure would be invisible to us and invisible to them:
-they would simply see a chart and take no action.
-
-Our rule, therefore, is **colour is never the only carrier of meaning**. Every severity state is
-encoded three times over:
-
-| Severity | Colour | Text label | Numeral | Non-colour cue |
-|---|---|---|---|---|
-| Light | Green | "Light" | 0–49% | Short bar, no icon, flat mascot posture |
-| Manageable | Amber | "Manageable" | 50–69% | Medium bar |
-| Heavy | Orange | "Heavy" | 70–89% | Tall bar + weather icon (cloud) |
-| Overload | Red | "OVERLOAD" | 90%+ | Full bar + storm icon + warning glyph + strained mascot |
-
-This is why Life Forecast shows `Thu · 94% · OVERLOAD · ⛈ Storm Warning` rather than a red row: the
-word, the number, the icon and the mascot each independently carry the message, so removing colour
-entirely removes nothing. This satisfies WCAG **1.4.1 Use of Colour** and, for the chart strokes and
-bar fills themselves, **1.4.11 Non-text Contrast**, colour is the most commonly cited accessibility
-failure in data visualisation, and the fix is not avoiding colour but never *relying* on it
-([DubBot](https://dubbot.com/dubblog/2024/charts-graphs.html);
-[216digital](https://216digital.com/creating-accessible-data-for-charts-and-graphs/)).
-
-#### Why screen-reader support matters for *this* product specifically
-
-SODA's core value is delivered through three charts: the Backpack bubble chart, the weekly bar chart
-and the Life Forecast curve. **To a screen reader, an unlabelled chart is nothing at all.** A blind or
-low-vision student using TalkBack or VoiceOver would hear "image" and receive zero information from the
-single screen the whole product is built around. Under WCAG, charts count as complex images: the text
-alternative must convey the same information and function as the visual, which for data means naming
-the chart type, summarising the trend, and exposing the underlying values
-([Penn State](https://accessibility.psu.edu/images/charts/); [W3C WCAG 2.2](https://www.w3.org/TR/WCAG22/)).
-
-Each chart has a proposed text alternative. The samples below illustrate wording; the build must generate labels from the same data as the chart:
-
-| Element | What a screen reader announces |
-|---|---|
-| Backpack bubble chart | *"Peak day this week: Thursday, 94%, overload. Five dimensions: mental 115.5%, time 63%, physical 16.8%, social 16.8%, errands 21%. Mental exceeds its axis ceiling. Based on 9 of your 12 calendar events."* |
-| Weekly bar chart | *"Week load by day. Monday 46% light. Tuesday 61% manageable. Wednesday 78% heavy. Thursday 94% overload, highest day. Friday 65%. Saturday 48%. Sunday 35%."* |
-| Life Forecast curve | *"7-day overload forecast, line chart. Rises from 46% Monday to a peak of 94% on Thursday, then falls to 35% Sunday. Thursday exceeds your limit."* |
-| Load-by-category donut | *"Recorded load by task category: academic 31%, work 23%, social 17%, errands 13%, other 16%. Illustrative shares; not capacity utilisation."* |
-| Recovery Debt bars | *"Recovery debt by week. Most recent completed seven-day block 20 minutes. Previous blocks 45, 55 and 35 minutes. Total 2 hours 35 minutes."* |
-
-Each chart should expose a **visible, keyboard-focusable data table button** (not a long-press-only route), which
-is the recommended fallback where the actual values matter more than the shape
-([Tableau best practice](https://help.tableau.com/current/pro/desktop/en-us/accessibility_best_practice.htm)).
-
-</details>
-
-
-#### Full accessibility position
-
-| Requirement | Status | Detail |
-|---|---|---|
-| Colour-blind safe | **Implemented in design** | Severity carries label + numeral + fill treatment + icon; never hue alone. Deuteranopia/protanopia simulation must be documented before calling the palette verified. |
-| Screen-reader chart alternatives | **Implemented in design** | Text alternatives above; Flutter `Semantics` widgets specified per chart in the implementation notes in the accessibility fold. |
-| Text contrast | **Verification pending** | Target 4.5:1 for normal text and 3:1 for large text. Retain measured colour-pair evidence; re-check small Day Detail figures. |
-| Non-text contrast (1.4.11) | **Verification pending** | Target 3:1 for essential chart boundaries and controls. Measure final foreground/background pairs. |
-| Dynamic type | **Specified; build verification pending** | Test 200% text scaling, reflow and clipped labels on real devices. |
-| Touch targets | **Implemented in design** | Target ≥48×48 logical pixels for Android controls; verify web target sizes and spacing separately. |
-| Reduced motion | **Implemented in design** | `prefers-reduced-motion` respected; the mascot's idle animation and the recovery timer's breathing ring both degrade to static states. |
-| No time limits, no flashing | **Implemented in design** | Nothing in SODA expires or flashes. This app is used by people who are exhausted. |
-| Light theme | **Partial** | Designed and shown in the storyboards; full token coverage on the roadmap. |
-| Screen-reader testing on device | **Planned, not done** | TalkBack pass scheduled in Phase 6. We are not claiming a verified screen-reader experience until it has been run. |
-
-> **Honest limits.** Everything marked *Implemented in design* exists in the Figma prototype and in the
-> component specification, not yet in shipped Flutter code. We have not run a TalkBack audit or tested
-> with a colour-blind or screen-reader user. The partial-implementation allowance in the challenge
-> stipulations is the reason we can say that plainly instead of overclaiming.
-
----
-
-#### Implementation notes
-
-<details>
-<summary><strong>▸ Open Flutter Semantics implementation notes</strong></summary>
-
-```dart
-// Every chart is wrapped so a screen reader receives the summary given above,
-// and the raw chart is hidden from the accessibility tree rather than announced as "image".
-Semantics(
-  label: buildAccessibleLoadSummary(weekSnapshot), // uses the chart's exact data + model version
-  child: ExcludeSemantics(child: BackpackBubbleChart(...)))
-```
-
-- Severity is produced by a single `SeverityBand` enum that returns **colour + label + icon together**,
-  so callers can consistently provide all three cues.
-- `MediaQuery.of(context).disableAnimations` gates the mascot idle loop and the timer breathing ring.
-- Target Android controls at ≥ 48×48 logical pixels; no fixed-height text containers, so dynamic type reflows.
-- Charts expose a visible, keyboard-focusable "View as table" button for exact values.
-- **Phase 6 must include a real TalkBack pass.** Until it runs, [the accessibility fold](#3-design--prototype) says
-  "implemented in design", not "verified".
-
-</details>
-
-</details>
-
----
+**Not yet verified.** Contrast ratios have not been measured against WCAG AA. Screen-reader labels and reading order have not been authored; the prototype has not been tested with VoiceOver or TalkBack. Tap-target sizes have not been audited. Dynamic type and reduced-motion settings are not handled. We are stating this rather than claiming the app is accessible, because the read-aloud feature is a fatigue feature, not a substitute for assistive-technology support.
 
 ## 4. What Makes It Different
 
