@@ -172,13 +172,14 @@ tired student feel worse for opening it.
 
 ### Key screens
 
-77 screens in light mode, each mirrored in dark mode — 154 in total. Every
-screen described below exists in the Figma file and is wired into the
-prototype.
+77 screens in light mode, each mirrored in dark mode, 154 in total. Every
+screen described below exists in the Figma file, and the demo route through
+them is wired end to end. Some supporting screens are reachable only from the
+file itself rather than from the main demo entry point.
 
 ---
 
-**Storyboard 1 — Onboarding to the first capacity reading**
+**Storyboard 1: Onboarding to the first capacity reading**
 
 Splash → Welcome → Capacity Baseline (three calibration questions: what a
 normal week feels like, focused hours per day, protected recovery per day)
@@ -192,8 +193,8 @@ it has no limit for them yet and shows only their calendar until two
 check-ins are done.
 
 Home then shows Friday's estimated load at 82% (Heavy), the five parts of
-the student's load — Mental 91%, Time 87%, Physical 62%, Social 43%,
-Errands 58% — a week bar chart, and a banner naming the day that breaks:
+the student's load (Mental 91%, Time 87%, Physical 62%, Social 43%,
+Errands 58%), a week bar chart, and a banner naming the day that breaks:
 *Wednesday goes over your limit.*
 
 | Capacity Baseline | Calendar Review | Home · day one | Home |
@@ -202,7 +203,7 @@ Errands 58% — a week bar chart, and a banner naming the day that breaks:
 
 ---
 
-**Storyboard 2 — Capture to decision**
+**Storyboard 2: Capture to decision**
 
 Add → SODA reads it → Confirms understanding → Impact Preview →
 Smart Rebalance → Changes applied → Week Updated → Home.
@@ -212,15 +213,15 @@ Adding is a single screen. The chat field is there immediately, with a
 screen asks the student to pick a mode first.
 
 Typed input passes two checks before anything is saved. SODA shows its
-working — heard the task, found the date, estimated the effort from past
-tasks — then states what it understood (*Friday 15 Nov, 19:00, 3h 30m
+working (heard the task, found the date, estimated the effort from past
+tasks), then states what it understood (*Friday 15 Nov, 19:00, 3h 30m
 suggested, Extra High*) and asks "Did I get that right?"
 
 Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`,
 Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
 primary action is not "Save", it is "Fix my week". The alternative,
 "Accept anyway", passes through its own confirmation and leads to a Home
-that still shows Friday at 112% — the app does not pretend the problem
+that still shows Friday at 112%. The app does not pretend the problem
 went away.
 
 Smart Rebalance proposes three named moves and lets the student choose.
@@ -235,14 +236,14 @@ screens.
 
 ---
 
-**Storyboard 3 — Fixing a day that is already overloaded**
+**Storyboard 3: Fixing a day that is already overloaded**
 
 Wednesday runs at 104% before anything is added. Forecast, the Home
 banner, What Breaks and Task Detail all route into the same Wednesday
 rebalance screen, so the day the student was told about is the day they
 land on.
 
-Two flexible moves — assignment work to Thursday, club meeting to Sunday —
+Two flexible moves, assignment work to Thursday, club meeting to Sunday,
 bring Wednesday to 80%. The part-time shift is tagged Fixed and is left
 alone. Asking to swap it is offered as a separate request that shows as
 "waiting for your manager" and is never counted in the improvement total.
@@ -257,7 +258,7 @@ rather than the old numbers.
 
 ---
 
-**Storyboard 4 — Check-in and recovery**
+**Storyboard 4: Check-in and recovery**
 
 Daily Check-in (five sliders: energy, mood, mental, physical, social
 battery) → Recover → Recovery Island → pick a type → Timer → Complete.
@@ -280,7 +281,7 @@ crediting rest that was not taken.
 
 ---
 
-**Storyboard 5 — Insight, honesty and trust**
+**Storyboard 5: Insight, honesty and trust**
 
 Insights → Body Signals → Settings → How SODA Calculates.
 
@@ -289,7 +290,7 @@ review. The pattern cards use the same Time / Physical / Mental colours as
 Recovery Island, so a student who sees a pink "Your mind fills up first"
 card and then opens the pink Mental tab is following one colour through the
 app. Body Signals has a version for students with no wearable, and Insights
-has a version for students without enough data yet — neither is an empty
+has a version for students without enough data yet, and neither is an empty
 screen with nothing in it.
 
 How SODA Calculates is written for a sceptical reader. It gives the formula
@@ -315,8 +316,8 @@ it can. Nothing is lost and nothing is blocked.
 **Dark mode**
 
 Every one of the 77 screens has a dark twin, not a filter. Accent colours
-are re-picked for dark backgrounds — the mint green used on buttons is
-lighter, and text on those buttons is dark rather than white — so contrast
+are re-picked for dark backgrounds (the mint green used on buttons is
+lighter, and text on those buttons is dark rather than white), so contrast
 holds in both modes.
 
 | Home (dark) | Impact Preview (dark) | Recovery Island (dark) | Insights (dark) |
@@ -341,8 +342,8 @@ health score." Body signals are compared to the student's own normal, never
 to a population baseline, and the app works with no wearable at all.
 
 **3. Nothing is saved until the student approves it.** SODA shows what it
-understood and asks before writing anything. When it overrides a number —
-estimating 3h 30m where the student typed 3 hours — the change is visible,
+understood and asks before writing anything. When it overrides a number,
+estimating 3h 30m where the student typed 3 hours, the change is visible,
 explained from the student's own history, and reversible with one tap. If
 they keep their own estimate, the Impact Preview uses their number (108%),
 not SODA's.
@@ -362,7 +363,7 @@ improvement total until it is approved.
 
 **7. Fixed rules do the maths. AI only handles the words.** Capacity,
 warnings and rebalance suggestions all come from a deterministic rules
-engine — the same numbers always give the same answer. AI is used only to
+engine: the same numbers always give the same answer. AI is used only to
 read what the student types in their own words and to write SODA's notes
 back to them. It never decides.
 
@@ -375,7 +376,7 @@ back to them. It never decides.
 `Splash → Welcome → Capacity Baseline → Connect Your Week →
 Calendar Review → Home (day one)`
 
-**Adding a commitment — the core loop**
+**Adding a commitment: the core loop**
 
 `Home → Add → SODA reads it → Confirms → Impact Preview →
 Smart Rebalance → Changes applied → Week Updated → Home (after the fix)`
@@ -439,13 +440,6 @@ not handled. We state this rather than claim the app is accessible, because
 the read-aloud feature is a fatigue feature, not a substitute for
 assistive-technology support.
 
-### Accessibility: what is designed, what is still unverified
-
-**Designed.** A full dark mode for every screen. A read-aloud summary that also works silently as text, so it serves students in a library and
-students who cannot hear it equally. Plain language throughout, with numbers always paired with a word ("89%", "Heavy") so meaning never rests
-on colour alone. Category colour is consistent across Insights and Recovery, but always carries a text label beside it.
-
-**Not yet verified.** Contrast ratios have not been measured against WCAG AA. Screen-reader labels and reading order have not been authored; the prototype has not been tested with VoiceOver or TalkBack. Tap-target sizes have not been audited. Dynamic type and reduced-motion settings are not handled. We are stating this rather than claiming the app is accessible, because the read-aloud feature is a fatigue feature, not a substitute for assistive-technology support.
 
 ## 4. What Makes It Different
 
