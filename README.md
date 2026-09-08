@@ -162,136 +162,248 @@ The intent of the capture feedback is fewer unnecessary decisions. Keeping manua
 
 
 ## 3. Design & Prototype
-**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5?node-id=189-1183)
 
-SODA is used by people who are already depleted. That single fact drives every decision in this section: the interface has to be readable in ten seconds, honest about what it does not know, and incapable of making a tired student feel worse for opening it.
+**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/Untitled?node-id=189-1183)
 
-64 screens in light mode, mirrored in dark mode. Every screen described below exists in the Figma prototype and is wired.
+SODA is used by people who are already depleted. That single fact drives
+every decision in this section: the interface has to be readable in ten
+seconds, honest about what it does not know, and incapable of making a
+tired student feel worse for opening it.
+
+### Key screens
+
+77 screens in light mode, each mirrored in dark mode — 154 in total. Every
+screen described below exists in the Figma file and is wired into the
+prototype.
+
+---
 
 **Storyboard 1 — Onboarding to the first capacity reading**
 
-Splash → Welcome → Capacity Baseline (three calibration questions: what a normal week feels like, focused hours per day, protected recovery per day)
-→ Connect Your Week (Google Calendar read-only, notifications, optional health) → Calendar Review (imported commitments grouped by category, confirmed before anything is calculated) → Home.
+Splash → Welcome → Capacity Baseline (three calibration questions: what a
+normal week feels like, focused hours per day, protected recovery per day)
+→ Connect Your Week (Google Calendar read-only, notifications, optional
+health) → Calendar Review (imported commitments grouped by category,
+confirmed before anything is calculated) → Home.
 
-Both optional steps can be skipped. A student who declines the calendar and the review still lands on a working first-run Home.
+Both optional steps can be skipped. A student who declines the calendar and
+the review still lands on a working first-run Home, where SODA states that
+it has no limit for them yet and shows only their calendar until two
+check-ins are done.
 
-Home shows this week's capacity at 82% (Heavy), the five parts of the student's load — Mental 91%, Time 87%, Physical 62%, Social 43%, Errands 58% — a week bar chart, and a banner naming the day that breaks:
+Home then shows Friday's estimated load at 82% (Heavy), the five parts of
+the student's load — Mental 91%, Time 87%, Physical 62%, Social 43%,
+Errands 58% — a week bar chart, and a banner naming the day that breaks:
 *Wednesday goes over your limit.*
 
-<img width="393" height="852" alt="H1 — Home" src="https://github.com/user-attachments/assets/13a005c1-062a-4cdf-b489-d163cde9056d" />
+| Capacity Baseline | Calendar Review | Home · day one | Home |
+|---|---|---|---|
+| <img src="images/o3-capacity-baseline.png" width="180"> | <img src="images/o5-calendar-review.png" width="180"> | <img src="images/h0-home-day-one.png" width="180"> | <img src="images/h1-home.png" width="180"> |
 
-[image — H1 Home]
+---
 
 **Storyboard 2 — Capture to decision**
 
-Add → SODA reads it → Confirms understanding → Impact Preview → Smart Rebalance → Changes applied → Week Updated.
+Add → SODA reads it → Confirms understanding → Impact Preview →
+Smart Rebalance → Changes applied → Week Updated → Home.
 
-Adding is a single screen. The chat field is there immediately, with a "Type it in yourself" button that expands the manual form in place. No screen asks the student to pick a mode first.
+Adding is a single screen. The chat field is there immediately, with a
+"Type it in yourself" button that expands the manual form in place. No
+screen asks the student to pick a mode first.
 
-<img width="393" height="852" alt="A★ — Add (merged_ chat + manual)" src="https://github.com/user-attachments/assets/3583bc14-1478-4588-a7a5-d3b9ded0f64d" />
+Typed input passes two checks before anything is saved. SODA shows its
+working — heard the task, found the date, estimated the effort from past
+tasks — then states what it understood (*Friday 15 Nov, 19:00, 3h 30m
+suggested, Extra High*) and asks "Did I get that right?"
 
-[image — A★ Add screen]
+Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`,
+Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
+primary action is not "Save", it is "Fix my week". The alternative,
+"Accept anyway", passes through its own confirmation and leads to a Home
+that still shows Friday at 112% — the app does not pretend the problem
+went away.
 
-Typed input passes two checks before anything is saved. SODA shows its working (heard the task, found the date, estimated the effort from past
-tasks), then states what it understood — *Friday 15 Nov, 19:00, 3h 30m (suggested), Extra High* — and asks "Did I get that right?"
+Smart Rebalance proposes three named moves and lets the student choose.
+Two selected moves total −23%, taking Friday from 112% to 89%, with a line
+confirming that 1h 50m of rest is kept. A third move can be added for
+−26% and 86%; both outcomes have their own confirmation and Week Updated
+screens.
 
-Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`, Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
-primary action is not "Save", it is "Fix my week"; the alternative is "Accept anyway", which passes through its own confirmation.
+| Add | Impact Preview | Smart Rebalance | Week Updated |
+|---|---|---|---|
+| <img src="images/a-add.png" width="180"> | <img src="images/a4-impact-preview.png" width="180"> | <img src="images/a5-rebalance.png" width="180"> | <img src="images/h3-week-updated.png" width="180"> |
 
-<img width="393" height="852" alt="A4 — Impact Preview" src="https://github.com/user-attachments/assets/4c4a4516-b04f-4031-976f-077addb48aae" />
+---
 
-[image — A4 Impact Preview]
+**Storyboard 3 — Fixing a day that is already overloaded**
 
-Smart Rebalance proposes three named moves and lets the student choose which to take. Two selected moves total −23%, taking Friday from 112% to 89%, with a protected-recovery line stating that 1h 50m of rest is
-kept. Applying leads to Changes applied, then Week Updated.
+Wednesday runs at 104% before anything is added. Forecast, the Home
+banner, What Breaks and Task Detail all route into the same Wednesday
+rebalance screen, so the day the student was told about is the day they
+land on.
 
-<img width="393" height="852" alt="A5 — Smart Rebalance" src="https://github.com/user-attachments/assets/773c69fe-3b31-4581-bcb1-d0ba9d508672" />
+Two flexible moves — assignment work to Thursday, club meeting to Sunday —
+bring Wednesday to 80%. The part-time shift is tagged Fixed and is left
+alone. Asking to swap it is offered as a separate request that shows as
+"waiting for your manager" and is never counted in the improvement total.
 
-[image — A5 Smart Rebalance]
+Applying the changes updates Week Updated, Home, the day detail and the
+forecast together, so tapping back into any of them shows the fixed week
+rather than the old numbers.
 
-**Storyboard 3 — Week, day, check-in and recovery**
+| Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
+|---|---|---|---|
+| <img src="images/f1-forecast.png" width="180"> | <img src="images/f2-day-plan.png" width="180"> | <img src="images/a5w-rebalance-wednesday.png" width="180"> | <img src="images/h3w-week-updated-wednesday.png" width="180"> |
 
-Week Updated (Friday 89%, Heavy but under the limit; Wednesday is still shown at 104%, because fixing Friday did not fix Wednesday) → Life Forecast (seven days, Wednesday flagged at 104% OVERLOAD, Thursday 78%
-Heavy with a storm warning) → Day Detail (timeline with each item's load share and the energy remaining) → Daily Check-in (five sliders: energy, mood, mental, physical, social battery) → Recovery Island → Recovery Timer.
+---
 
-<img width="393" height="852" alt="H3 — Week Updated" src="https://github.com/user-attachments/assets/5a91f740-ec1d-43e1-8be0-2061e6a9e4b2" />
+**Storyboard 4 — Check-in and recovery**
 
-[image — H3 Week Updated]
+Daily Check-in (five sliders: energy, mood, mental, physical, social
+battery) → Recover → Recovery Island → pick a type → Timer → Complete.
 
-<img width="393" height="852" alt="F1 — Life Forecast" src="https://github.com/user-attachments/assets/f43cedda-0125-4b90-9d8a-a67e168279f9" />
+Recover shows accumulated recovery debt: 2h 35m across four weeks, stated
+as rest the student owes themselves, with the explicit line that it is a
+planning signal and not a medical score.
 
-[image — F1 Life Forecast]
+Recovery Island reports which parts of capacity are actually low and
+recommends one option. Choosing a type opens a single screen with Physical,
+Time and Mental as tabs, so switching takes one tap instead of returning to
+the menu. Physical and Mental options run a timer; Time options remove work
+instead of adding rest and end in a "tasks batched" confirmation. The timer
+can be paused or ended early, and ending early logs nothing rather than
+crediting rest that was not taken.
 
-Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching takes one tap
-instead of returning to the menu. Physical and Mental options run a timer; Time options remove work instead of adding rest and end in a "tasks batched" confirmation.
+| Recover | Recovery Island | Recovery Timer | Recovery Complete |
+|---|---|---|---|
+| <img src="images/r1-recover.png" width="180"> | <img src="images/r-island-physical.png" width="180"> | <img src="images/r3-timer.png" width="180"> | <img src="images/r4-complete.png" width="180"> |
 
-**Storyboard 4 — Insight, honesty and trust**
+---
 
-Recovery Complete → Insights (capacity trend, three pattern cards colour- matched to the same Time / Physical / Mental scheme used in Recovery) → Recovery Debt (2h 35m across four weeks, stated as rest owed, with the explicit line that it is a planning signal and not a medical score) → Settings → How SODA Calculates.
+**Storyboard 5 — Insight, honesty and trust**
 
-How SODA Calculates is written for a sceptical reader. It gives the formula (`day load = Σ hours × effort × part`, `capacity % = day load ÷ limit × 100`), the effort weights (Low ×0.5 to Extra high ×2.0), the part weights (Mental ×1.3 down to Errands ×0.7), the student's limit (14.5 load-hours a day, moving at most ±0.5 a week), and a worked example for Wednesday: 15.13 ÷ 14.5 = 104%.
+Insights → Body Signals → Settings → How SODA Calculates.
 
-<img width="393" height="852" alt="I5 — How SODA Calculates" src="https://github.com/user-attachments/assets/235618f2-e5e9-48b1-aa28-ffcfa71662aa" />
+Insights shows the capacity trend, three pattern cards, and a weekly
+review. The pattern cards use the same Time / Physical / Mental colours as
+Recovery Island, so a student who sees a pink "Your mind fills up first"
+card and then opens the pink Mental tab is following one colour through the
+app. Body Signals has a version for students with no wearable, and Insights
+has a version for students without enough data yet — neither is an empty
+screen with nothing in it.
 
-[image — I5 How SODA Calculates]
+How SODA Calculates is written for a sceptical reader. It gives the formula
+(`day load = Σ hours × effort × part`, `capacity % = day load ÷ limit × 100`),
+the effort weights (Low ×0.5 to Extra high ×2.0), the part weights
+(Mental ×1.3 down to Errands ×0.7), the student's limit (14.5 load-hours a
+day, moving at most ±0.5 a week so one bad day cannot change it), and a
+worked example for Wednesday: 15.13 ÷ 14.5 = 104%.
 
-**Storyboard 5 — Degraded states and dark mode**
+| Insights | Body Signals | How SODA Calculates | The maths |
+|---|---|---|---|
+| <img src="images/i1-insights.png" width="180"> | <img src="images/i2-body-signals.png" width="180"> | <img src="images/i5-how-soda-calculates.png" width="180"> | <img src="images/i6-the-maths.png" width="180"> |
 
-Calendar sync failure, offline and save failure are designed as banners on the working screen, not as separate error pages. The student keeps the last known data, keeps adding tasks, and SODA syncs when it can. Every screen has a dark-mode twin.
+---
+
+**Degraded states**
+
+Not a storyboard. Calendar sync failure, offline and save failure are
+designed as banners on the working screen, not as separate error pages. The
+student keeps the last known data, keeps adding tasks, and SODA syncs when
+it can. Nothing is lost and nothing is blocked.
+
+**Dark mode**
+
+Every one of the 77 screens has a dark twin, not a filter. Accent colours
+are re-picked for dark backgrounds — the mint green used on buttons is
+lighter, and text on those buttons is dark rather than white — so contrast
+holds in both modes.
+
+| Home (dark) | Impact Preview (dark) | Recovery Island (dark) | Insights (dark) |
+|---|---|---|---|
+| <img src="images/dark-h1-home.png" width="180"> | <img src="images/dark-a4-impact-preview.png" width="180"> | <img src="images/dark-r-island.png" width="180"> | <img src="images/dark-i1-insights.png" width="180"> |
+
+---
 
 ### Design principles
 
-SODA is built around one uncomfortable moment: the second before a student says "yes" to something they do not have room for. Seven rules shape every screen.
+SODA is built around one uncomfortable moment: the second before a student
+says "yes" to something they do not have room for. Seven rules shape every
+screen.
 
-**1. Show the cost before the commitment.** Most planners tell you what you agreed to after you agreed. SODA shows the damage first: 82% becomes 112%, and the day that breaks is named. The primary action is "Fix my week".
+**1. Show the cost before the commitment.** Most planners tell you what you
+agreed to after you agreed. SODA shows the damage first: 82% becomes 112%,
+and the day that breaks is named. The primary action is "Fix my week".
 
-**2. Plan, never diagnose.** SODA reports capacity, not health. The boundary is repeated in plain words: "This is for planning. It is not a health score." Body signals are compared to the student's own normal,
-never to a population baseline, and the app works with no wearable at all.
+**2. Plan, never diagnose.** SODA reports capacity, not health. The
+boundary is repeated in plain words: "This is for planning. It is not a
+health score." Body signals are compared to the student's own normal, never
+to a population baseline, and the app works with no wearable at all.
 
-**3. Nothing is saved until the student approves it.** SODA shows what it understood and asks before writing anything. When it overrides a number — estimating 3h 30m where the student typed 3 hours — the change is visible, explained, and reversible with one tap.
+**3. Nothing is saved until the student approves it.** SODA shows what it
+understood and asks before writing anything. When it overrides a number —
+estimating 3h 30m where the student typed 3 hours — the change is visible,
+explained from the student's own history, and reversible with one tap. If
+they keep their own estimate, the Impact Preview uses their number (108%),
+not SODA's.
 
-**4. One way in, not a menu.** Adding something is a single screen. Chat and the manual form live together; neither group has to pick a mode first.
+**4. One way in, not a menu.** Adding something is a single screen. Chat
+and the manual form live together; neither group has to pick a mode first.
 
-**5. Give the time back, don't just warn.** Every warning is paired with an action. Smart Rebalance proposes specific changes; Recovery Island turns owed rest into short options that each state the time they return.
+**5. Give the time back, don't just warn.** Every warning is paired with an
+action. Smart Rebalance proposes specific changes; Recovery Island turns
+owed rest into short options that each state the time they return.
 
-**6. SODA does not move what is not the student's to move.** Every commitment is tagged Fixed or Flexible. Coursework and club time can be moved. A paid shift cannot: SODA will draft the message to the manager,
-but the swap shows as "waiting for your manager" and is never counted in the improvement total until it is approved.
+**6. SODA does not move what is not the student's to move.** Every
+commitment is tagged Fixed or Flexible. Coursework and club time can be
+moved. A paid shift cannot: SODA will draft the message to the manager, but
+the swap shows as "waiting for your manager" and is never counted in the
+improvement total until it is approved.
 
-[image — A5w Smart Rebalance · Wednesday, node 541:1504]
+**7. Fixed rules do the maths. AI only handles the words.** Capacity,
+warnings and rebalance suggestions all come from a deterministic rules
+engine — the same numbers always give the same answer. AI is used only to
+read what the student types in their own words and to write SODA's notes
+back to them. It never decides.
 
-**7. Fixed rules do the maths. AI only handles the words.** Capacity, warnings and rebalance suggestions all come from a deterministic rules engine — the same numbers always give the same answer. AI is used only to read what the student types in their own words and to write SODA's notes back to them. It never decides.
+---
 
 ### User flow, end to end
 
 **First run**
 
-`Splash → Welcome → Capacity Baseline → Connect Your Week → Calendar Review → Home (day one)`
+`Splash → Welcome → Capacity Baseline → Connect Your Week →
+Calendar Review → Home (day one)`
 
 **Adding a commitment — the core loop**
 
-`Home → Add → SODA reads it → Confirms → Impact Preview → Smart Rebalance → Changes applied → Week Updated → Home (after the fix)`
+`Home → Add → SODA reads it → Confirms → Impact Preview →
+Smart Rebalance → Changes applied → Week Updated → Home (after the fix)`
 
-Manual entry skips the confirmation step, because the student typed the details themselves. If they keep their own estimate instead of SODA's, the Impact Preview reflects their number (108%, not 112%) rather than silently using SODA's.
+Manual entry skips the confirmation step, because the student typed the
+details themselves. Declining the fix is also a complete path: Accept
+anyway leads to its own Home and Forecast, both still showing Friday over
+the limit.
 
 **Fixing a day that is already overloaded**
 
-`Forecast / Home → Day Plan → Smart Rebalance (Wednesday) → Changes applied → Week Updated → Home (after the fix)`
-
-Wednesday runs at 104%. Two flexible moves — assignment work to Thursday, club meeting to Sunday — bring it to 80%. The part-time shift is fixed and is left alone; asking to swap it is offered as a separate request that stays pending.
+`Forecast / Home → Day Plan → Smart Rebalance (Wednesday) →
+Changes applied → Week Updated → Home (after the fix)`
 
 **Recovering owed rest**
 
-`Recover → Recovery Island → pick a type → Timer → Complete → Daily Check-in`
+`Recover → Recovery Island → pick a type → Timer → Complete →
+Daily Check-in`
 
-**Degraded states**
+Pausing and ending early are both wired. Ending early logs no rest.
 
-Not a flow. Each is a state that appears on top of a screen the student is already using — sync failure and offline on Home, save failure on Add. Nothing is lost and nothing is blocked.
+---
 
 ### Six friction points we designed around
 
 1. **Being asked to choose a mode before you start.** The old Add flow made
    students pick "chat" or "manual" before typing anything. That screen was
-   removed; both live on one screen.
+   removed; both now live on one screen.
 2. **Being told you are overloaded, with nothing to do about it.** Every
    over-limit state routes into a concrete set of changes with named tasks
    and stated percentages.
@@ -299,13 +411,33 @@ Not a flow. Each is a state that appears on top of a screen the student is alrea
    says so, gives the reason from the student's own history, and offers
    Undo.
 4. **Losing work when something fails.** Failures are banners, not dead
-   ends. The draft survives, the last known week stays on screen.
-5. **Rest feeling like one more task.** Recovery options are two to twenty
-   minutes and each states what it gives back, so resting is a decision
-   with a visible payoff rather than an open-ended obligation.
+   ends. The draft survives; the last known week stays on screen.
+5. **Rest feeling like one more task.** Recovery options run from two to
+   twenty minutes and each states what it gives back, so resting is a
+   decision with a visible payoff rather than an open-ended obligation.
 6. **Reading when you are too tired to read.** Any dense screen can be
    summarised in four sentences, either read aloud or read on screen with
    sound off.
+
+---
+
+### Accessibility: what is designed, what is still unverified
+
+**Designed.** A full dark mode for every screen, with accent colours
+re-picked rather than filtered. A read-aloud summary that also works
+silently as text, so it serves a student in a library and a student who
+cannot hear it equally. Plain language throughout, with numbers always
+paired with a word ("89%", "Heavy") so meaning never rests on colour alone.
+Category colour is consistent across Insights and Recovery Island, but
+always carries a text label beside it.
+
+**Not yet verified.** Contrast ratios have not been measured against
+WCAG AA. Screen-reader labels and reading order have not been authored, and
+the prototype has not been tested with VoiceOver or TalkBack. Tap-target
+sizes have not been audited. Dynamic type and reduced-motion settings are
+not handled. We state this rather than claim the app is accessible, because
+the read-aloud feature is a fatigue feature, not a substitute for
+assistive-technology support.
 
 ### Accessibility: what is designed, what is still unverified
 
