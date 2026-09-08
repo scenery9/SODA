@@ -180,8 +180,7 @@ Home shows this week's capacity at 82% (Heavy), the five parts of the student's 
 
 <img width="393" height="852" alt="H1 — Home" src="https://github.com/user-attachments/assets/13a005c1-062a-4cdf-b489-d163cde9056d" />
 
-[image — H1 Home<img width="393" height="852" alt="A★ — Add (merged_ chat + manual)" src="https://github.com/user-attachments/assets/8c0a3942-0a0c-4f34-8e38-32b496d015e1" />
-]
+[image — H1 Home]
 
 **Storyboard 2 — Capture to decision**
 
