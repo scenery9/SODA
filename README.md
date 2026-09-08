@@ -1,3 +1,4 @@
+<img width="393" height="852" alt="H1 — Home" src="https://github.com/user-attachments/assets/894de5f0-7477-4474-989c-6aeff9d8e657" />
 # SODA (Student Overloaded by Deadlines and Activities) by Team Soda
 
 <table>
@@ -178,7 +179,9 @@ Both optional steps can be skipped. A student who declines the calendar and the 
 Home shows this week's capacity at 82% (Heavy), the five parts of the student's load — Mental 91%, Time 87%, Physical 62%, Social 43%, Errands 58% — a week bar chart, and a banner naming the day that breaks:
 *Wednesday goes over your limit.*
 
-[image — H1 Home, node 189:1183]
+<img width="393" height="852" alt="H1 — Home" src="https://github.com/user-attachments/assets/13a005c1-062a-4cdf-b489-d163cde9056d" />
+[image — H1 Home<img width="393" height="852" alt="A★ — Add (merged_ chat + manual)" src="https://github.com/user-attachments/assets/8c0a3942-0a0c-4f34-8e38-32b496d015e1" />
+]
 
 **Storyboard 2 — Capture to decision**
 
@@ -186,7 +189,8 @@ Add → SODA reads it → Confirms understanding → Impact Preview → Smart Re
 
 Adding is a single screen. The chat field is there immediately, with a "Type it in yourself" button that expands the manual form in place. No screen asks the student to pick a mode first.
 
-[image — A★ Add screen, node 451:1504]
+<img width="393" height="852" alt="A★ — Add (merged_ chat + manual)" src="https://github.com/user-attachments/assets/3583bc14-1478-4588-a7a5-d3b9ded0f64d" />
+[image — A★ Add screen]
 
 Typed input passes two checks before anything is saved. SODA shows its working (heard the task, found the date, estimated the effort from past
 tasks), then states what it understood — *Friday 15 Nov, 19:00, 3h 30m (suggested), Extra High* — and asks "Did I get that right?"
@@ -194,20 +198,25 @@ tasks), then states what it understood — *Friday 15 Nov, 19:00, 3h 30m (sugges
 Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`, Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
 primary action is not "Save", it is "Fix my week"; the alternative is "Accept anyway", which passes through its own confirmation.
 
-[image — A4 Impact Preview, node 189:1780]
+<img width="393" height="852" alt="A4 — Impact Preview" src="https://github.com/user-attachments/assets/4c4a4516-b04f-4031-976f-077addb48aae" />
+[image — A4 Impact Preview]
 
 Smart Rebalance proposes three named moves and lets the student choose which to take. Two selected moves total −23%, taking Friday from 112% to 89%, with a protected-recovery line stating that 1h 50m of rest is
 kept. Applying leads to Changes applied, then Week Updated.
 
-[image — A5 Smart Rebalance, node 189:1871]
+<img width="393" height="852" alt="A5 — Smart Rebalance" src="https://github.com/user-attachments/assets/773c69fe-3b31-4581-bcb1-d0ba9d508672" />
+[image — A5 Smart Rebalance]
 
 **Storyboard 3 — Week, day, check-in and recovery**
 
 Week Updated (Friday 89%, Heavy but under the limit; Wednesday is still shown at 104%, because fixing Friday did not fix Wednesday) → Life Forecast (seven days, Wednesday flagged at 104% OVERLOAD, Thursday 78%
 Heavy with a storm warning) → Day Detail (timeline with each item's load share and the energy remaining) → Daily Check-in (five sliders: energy, mood, mental, physical, social battery) → Recovery Island → Recovery Timer.
 
-[image — H3 Week Updated, node 189:1581]
-[image — F1 Life Forecast, node 189:2461]
+<img width="393" height="852" alt="H3 — Week Updated" src="https://github.com/user-attachments/assets/5a91f740-ec1d-43e1-8be0-2061e6a9e4b2" />
+[image — H3 Week Updated]
+
+<img width="393" height="852" alt="F1 — Life Forecast" src="https://github.com/user-attachments/assets/f43cedda-0125-4b90-9d8a-a67e168279f9" />
+[image — F1 Life Forecast]
 
 Recovery Island reports which parts of the student's capacity are actually low and recommends one option. Choosing a type opens a single screen with Physical, Time and Mental as tabs, so switching takes one tap
 instead of returning to the menu. Physical and Mental options run a timer; Time options remove work instead of adding rest and end in a "tasks batched" confirmation.
@@ -218,7 +227,8 @@ Recovery Complete → Insights (capacity trend, three pattern cards colour- matc
 
 How SODA Calculates is written for a sceptical reader. It gives the formula (`day load = Σ hours × effort × part`, `capacity % = day load ÷ limit × 100`), the effort weights (Low ×0.5 to Extra high ×2.0), the part weights (Mental ×1.3 down to Errands ×0.7), the student's limit (14.5 load-hours a day, moving at most ±0.5 a week), and a worked example for Wednesday: 15.13 ÷ 14.5 = 104%.
 
-[image — I5 How SODA Calculates, node 202:1622]
+<img width="393" height="852" alt="I5 — How SODA Calculates" src="https://github.com/user-attachments/assets/235618f2-e5e9-48b1-aa28-ffcfa71662aa" />
+[image — I5 How SODA Calculates]
 
 **Storyboard 5 — Degraded states and dark mode**
 
