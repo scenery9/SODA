@@ -1,4 +1,3 @@
-<img width="393" height="852" alt="H1 — Home" src="https://github.com/user-attachments/assets/894de5f0-7477-4474-989c-6aeff9d8e657" />
 # SODA (Student Overloaded by Deadlines and Activities) by Team Soda
 
 <table>
