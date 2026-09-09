@@ -148,7 +148,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 
 The supplied consultation record names **Khor Jia Quan, 7 September 2026**. The table distinguishes documentation changes from design responses that the prototype team must verify in the final screens.
 
-| Feedback received | Response | Evidence / status |
+| Feedback received | What was Changed | Evidence / status |
 |---|---|---|
 | Split the dense ideation mindmap and explain each part. | Separate users/needs, concepts, and principles-to-features. | Figures 1.2a–c above, with visible captions. |
 | Include recognisable backend technology logos. | Retain a labelled architecture diagram with the selected technologies. | Figure 5.2 and its accompanying stack table. |
