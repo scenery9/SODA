@@ -238,10 +238,14 @@ screens.
 
 **Storyboard 3: Fixing a day that is already overloaded**
 
-Wednesday runs at 104% before anything is added. Forecast, the Home
-banner, What Breaks and Task Detail all route into the same Wednesday
-rebalance screen, so the day the student was told about is the day they
-land on.
+Wednesday runs at 104% before anything is added. The student does not have
+to open the app to find out: a lock-screen notification names the day,
+names the two commitments that collide, and offers to act. "Later" is a
+real option, not a nag.
+
+Forecast, the Home banner, What Breaks and Task Detail all route into the
+same Wednesday rebalance screen, so the day the student was told about is
+the day they land on.
 
 Two flexible moves, assignment work to Thursday, club meeting to Sunday,
 bring Wednesday to 80%. The part-time shift is tagged Fixed and is left
