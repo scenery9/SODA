@@ -650,7 +650,28 @@ The current Figma prototype does not require these deployments. Provider terms a
 | **AI, network or hosting failure** | Complete the main loop without AI; label cached views; test on another network and prepare a backup recording. |
 | **Entry or accessibility friction** | Test core actions with target students, keyboard and TalkBack; expose chart values and severity in text. |
 
-Collect only task, account, check-in and recovery data needed for the workflow. Calendar import omits descriptions, attendees and locations; provide disconnect, correction, export and deletion controls. Do not automatically contact lecturers, employers or family about a student's load. Students needing support beyond planning should be directed to appropriate services without a diagnostic claim.
+### Data handling
+
+Sign-in and cross-device sync require a database, so the data question has to be answered before the
+build, not after.
+
+| | |
+|---|---|
+| **Stored** | Account identifier and email; tasks and deadlines; category and estimated duration; the five load values; check-in answers; recovery history; completion feedback. |
+| **Never collected** | Contact lists, message content, precise location, raw wearable records, medical diagnoses, or anything belonging to another person. Calendar import takes title, date and times only, never descriptions, attendees or locations. |
+| **Protected by** | Supabase Auth with Row Level Security on every user-owned table, so a policy at the database refuses cross-account reads and writes. Service-role keys stay server-side and are never used for a normal user request. Isolation is tested with a second account before release. |
+| **Student controls** | Disconnect the calendar, correct any value, export the record, delete the account and its data. |
+| **Never leaves the backend** | Student-written text. The optional language demo resolves a fixed synthetic example on the server, so free-form entry never reaches an external model, and no schedule, check-in or load figure is ever sent to one. |
+
+These practices are guided by Malaysia's seven Personal Data Protection Principles: general, notice and
+choice, disclosure, security, retention, data integrity, and access. We state that the design is guided
+by them rather than claiming legal compliance, which would need a proper legal and security review.
+
+**Safeguarding.** SODA never contacts another person on a student's behalf. Doing so automatically would
+create consent and duty-of-care obligations we are not equipped to carry, so lecturers, employers and
+family are never notified about a student's load. Students needing support beyond planning are pointed to
+appropriate services without any diagnostic claim. Any future emergency-contact feature would require
+explicit opt-in, defined escalation rules and review by qualified student-support staff.
 
 ### Supporting detail
 
