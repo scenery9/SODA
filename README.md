@@ -163,7 +163,7 @@ The intent of the capture feedback is fewer unnecessary decisions. Keeping manua
 
 ## 3. Design & Prototype
 
-**UI Prototype:** [SODA Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/Untitled?node-id=189-1183)
+**UI Prototype:** [Open the main SODA prototype](https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/Untitled?page-id=358%3A2225&node-id=189-1183&starting-point-node-id=189%3A1183&scaling=scale-down) · [View the Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/Untitled?node-id=189-1183)
 
 SODA is used by people who are already depleted. That single fact drives
 every decision in this section: the interface has to be readable in ten
@@ -172,17 +172,18 @@ tired student feel worse for opening it.
 
 ### Key screens
 
-77 screens in light mode, each mirrored in dark mode, 154 in total. Every
+84 screens in light mode, each mirrored in dark mode, 168 in total. Every
 screen described below exists in the Figma file, and the demo route through
-them is wired end to end. Some supporting screens are reachable only from the
-file itself rather than from the main demo entry point.
+them is wired end to end. Named prototype starting points expose onboarding,
+dark mode and degraded states without lengthening the main judging route.
 
 ---
 
 **Storyboard 1: Onboarding to the first capacity reading**
 
-Splash → Welcome → Capacity Baseline (three calibration questions: what a
-normal week feels like, focused hours per day, protected recovery per day)
+Splash → Welcome → Capacity Baseline (four calibration questions: what a
+normal week feels like, focused hours per day, protected recovery per day,
+and how the student prefers to recharge)
 → Connect Your Week (Google Calendar read-only, notifications, optional
 health) → Calendar Review (imported commitments grouped by category,
 confirmed before anything is calculated) → Home.
@@ -247,9 +248,9 @@ Forecast, the Home banner, What Breaks and Task Detail all route into the
 same Wednesday rebalance screen, so the day the student was told about is
 the day they land on.
 
-Two flexible moves, assignment work to Thursday, club meeting to Sunday,
-bring Wednesday to 80%. The part-time shift is tagged Fixed and is left
-alone. Asking to swap it is offered as a separate request that shows as
+Two flexible moves, assignment work to Saturday at 11:00 and the club
+meeting to Sunday, bring Wednesday to 80%. The part-time shift is tagged
+Fixed and is left alone. Asking to swap it is offered as a separate request that shows as
 "waiting for your manager" and is never counted in the improvement total.
 
 Applying the changes updates Week Updated, Home, the day detail and the
@@ -297,12 +298,13 @@ app. Body Signals has a version for students with no wearable, and Insights
 has a version for students without enough data yet, and neither is an empty
 screen with nothing in it.
 
-How SODA Calculates is written for a sceptical reader. It gives the formula
-(`day load = Σ hours × effort × part`, `capacity % = day load ÷ limit × 100`),
-the effort weights (Low ×0.5 to Extra high ×2.0), the part weights
-(Mental ×1.3 down to Errands ×0.7), the student's limit (14.5 load-hours a
-day, moving at most ±0.5 a week so one bad day cannot change it), and a
-worked example for Wednesday: 15.13 ÷ 14.5 = 104%.
+How SODA Calculates is written for a sceptical reader. Each confirmed task
+first produces a five-axis demand vector from its duration, effort and
+category. SODA divides the accumulated demand by the student's corresponding
+axis ceilings, then combines the result as `0.6 × the busiest axis + 0.4 ×
+the weighted average of all five axes`. The visible explanation introduces
+the task weights and assumptions; the versioned formula and reproducible
+fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-day-load-is-a-blended-axis-score).
 
 | Insights | Body Signals | How SODA Calculates | The maths |
 |---|---|---|---|
@@ -319,7 +321,7 @@ it can. Nothing is lost and nothing is blocked.
 
 **Dark mode**
 
-Every one of the 77 screens has a dark twin, not a filter. Accent colours
+Every one of the 84 screens has a dark twin, not a filter. Accent colours
 are re-picked for dark backgrounds (the mint green used on buttons is
 lighter, and text on those buttons is dark rather than white), so contrast
 holds in both modes.
@@ -420,19 +422,19 @@ Pausing and ending early are both wired. Ending early logs no rest.
 5. **Rest feeling like one more task.** Recovery options run from two to
    twenty minutes and each states what it gives back, so resting is a
    decision with a visible payoff rather than an open-ended obligation.
-6. **Reading when you are too tired to read.** Any dense screen can be
-   summarised in four sentences, either read aloud or read on screen with
-   sound off.
+6. **Reading when you are too tired to read.** Insights provides a
+   four-sentence text summary that can be read at the student's own pace.
 
 ---
 
 ### Accessibility: what is designed, what is still unverified
 
 **Designed.** A full dark mode for every screen, with accent colours
-re-picked rather than filtered. A read-aloud summary that also works
-silently as text, so it serves a student in a library and a student who
-cannot hear it equally. Plain language throughout, with numbers always
-paired with a word ("89%", "Heavy") so meaning never rests on colour alone.
+re-picked rather than filtered. Insights includes a four-sentence text
+summary for students who find the full charts tiring to read. The current
+prototype does not play audio. Plain language is used throughout, with
+numbers always paired with a word ("89%", "Heavy") so meaning never rests
+on colour alone.
 Category colour is consistent across Insights and Recovery Island, but
 always carries a text label beside it.
 
@@ -440,9 +442,8 @@ always carries a text label beside it.
 WCAG AA. Screen-reader labels and reading order have not been authored, and
 the prototype has not been tested with VoiceOver or TalkBack. Tap-target
 sizes have not been audited. Dynamic type and reduced-motion settings are
-not handled. We state this rather than claim the app is accessible, because
-the read-aloud feature is a fatigue feature, not a substitute for
-assistive-technology support.
+not handled. The text summary is a fatigue-reduction feature, not a substitute
+for assistive-technology support.
 
 
 ## 4. What Makes It Different
