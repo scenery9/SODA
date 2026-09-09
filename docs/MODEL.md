@@ -135,6 +135,16 @@ calendar intervals separately. Each task contributes once, split across dates in
 IANA timezone when it crosses midnight. Dropped tasks are excluded. Check-ins inform reflection and
 preferences in v1; they do not silently change `C`.
 
+### Weekly recovery target
+
+SODA uses **315 minutes, or 5 hours 15 minutes per week**, as the editable starting target for a student who selects the Moderate baseline. This is calculated as 45 minutes of protected recovery on each of seven days. The other onboarding choices correspond to 105, 525 and 630 minutes per week for the 15-, 75- and 90-minute daily targets respectively.
+
+The target should normally be distributed across the week rather than postponed to one long session. Recovery can include psychologically detached leisure, relaxation, manageable physical activity, social connection or another student-selected activity that is not an academic obligation. Sleep, meals and basic personal care are not counted toward this target because SODA is not intended to measure whether those needs have been met.
+
+Recent longitudinal research with 56 university students preparing for examinations found that weekly physical activity declined from 3.54 to 3.02 hours as examination preparation progressed, while reported recovery and wellbeing also declined and stress increased. Recovery experiences showed increasingly strong relationships with lower stress and higher wellbeing, although the mediation results were mixed and the sample was small ([Reschke et al., 2024](https://doi.org/10.1371/journal.pone.0306809)). Study Demands–Resources theory likewise explains that sustained academic demands consume cognitive, emotional and physical resources and that recovery and other resources are needed to interrupt this depletion process ([Bakker & Mostert, 2024](https://doi.org/10.1007/s10648-024-09940-8)).
+
+The evidence supports protecting regular recovery, but it does **not** establish one clinically correct number of recovery hours for every student. Therefore, 315 minutes is an operational planning default derived from SODA's existing onboarding midpoint, not a medical recommendation. Students can edit it, and SODA should evaluate whether the target is realistic through user feedback rather than presenting it as a universal threshold.
+
 ### Step 3, utilisation, and the day figure
 
 ```

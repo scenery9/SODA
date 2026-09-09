@@ -9,12 +9,11 @@ Team preparation material supporting [the submission](../README.md). The schedul
 | Commitment | Original plan | Constraint |
 |---|---|---|
 | Class | Thursday 09:00–11:00 | Fixed |
-| Laundry | Thursday 12:00–13:00 | Flexible; Saturday 10:00–11:00 is available |
-| Assignment drafting | Thursday 13:00–15:00 | Two hours required; due Friday 12:00; splitting is allowed in this example |
 | Laundry | Thursday 12:00–13:00 | Flexible, Low priority; Saturday 10:00–11:00 is available |
 | Assignment drafting | Thursday 13:00–15:00 | Flexible, High priority; two hours required; due Friday 12:00; splitting is allowed in this example |
 | Paid shift | Thursday 16:00–20:00 | Fixed |
 | Protected recovery | Thursday 20:30–21:00 | Preserve the full 30-minute interval |
+| New club request | Thursday 13:00–14:00 | Candidate only, Medium priority; not saved yet |
 
 **Decision:** the request overlaps the assignment. Aina can accept only after reviewing a feasible revised plan. The proposed change moves laundry to Saturday and splits drafting into Thursday 12:00–13:00 and 14:00–15:00. The class, shift, deadline and recovery block stay unchanged. The destination interval is available by construction; a real schedule must check it again.
 

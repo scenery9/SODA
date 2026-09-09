@@ -193,7 +193,6 @@ The demo account needs enough history for Recovery Debt and Reality Check to be 
 - **Model identity:** persist capacity inputs, timezone and model version with fixture outputs. Use precise scores for classification; format only for display.
 - **Recovery records:** add interval start/end, target history and timezone before implementing the ledger. The starter `minutes` field alone cannot deduplicate overlaps or reconstruct historical targets.
 - **Feedback:** add one response per owned commitment, validate completion status, and reject empty or duplicate responses. Use five distinct confirmed tasks for the directional suggestion.
-- **Server validation:** require valid effort/category values, bounded check-in answers (1–5), positive durations, and a deadline compatible with all resulting segments. Do not rely on form validation alone.
 - **Server validation:** require valid effort, priority and category values, bounded check-in answers (1–5), positive durations, and a deadline compatible with all resulting segments. Do not rely on form validation alone.
 - **Offline:** queue structured drafts with unique operation IDs. On reconnect, validate and recalculate against current server state; require renewed approval if the plan changed.
 
