@@ -163,6 +163,19 @@ The supplied consultation record names **Khor Jia Quan, 7 September 2026**. The 
 
 The intent of the capture feedback is fewer unnecessary decisions. Keeping manual entry available also preserves the workflow when optional language assistance is unavailable. Documentation responses are complete here; final screen behaviour and assistive-technology testing are not claimed as verified.
 
+#### Follow-up consultation: Mr. Daniel Koh Yu Hang
+
+The follow-up consultation was held on **9 September 2026 at 9:15 p.m.** It focused on making the user flow, rescheduling logic, recovery target, data handling and market distinction easier to explain.
+
+| Feedback received | What was changed | Evidence / status |
+|---|---|---|
+| Explain the user flow one step and one screen at a time. | Reorganised the prototype documentation into sequential screen tables that state what each screen communicates and what the student does next. | The documented route now follows onboarding, commitment entry, impact, adjustment and recovery. Final Figma transitions still require verification against this route. |
+| Keep effort level, but use Low, Medium and High priority for task rescheduling. | Kept effort as an input to the five-dimensional demand estimate and added priority as a separate field for Smart Rebalance. | Manual Add and Tell SODA show both fields; the proposed database schema and model specification also include priority. |
+| Explain how SODA determines which tasks are rescheduled. | Specified that fixed and completed commitments are excluded; feasible Low-priority tasks are considered before Medium and High; deadlines, overlaps, destination load and protected recovery are checked before suggestions are shown. | The rules are documented in [MODEL.md](docs/MODEL.md#step-6-smart-rebalance-using-priority). The final Smart Rebalance screen should also show each task's priority and a short explanation of the order. |
+| Set and explain how much recovery time is needed each week. | Added an editable starting target of **5 hours 15 minutes per week**, calculated from 45 minutes per day under the Moderate onboarding baseline. | The target and research limitation are documented in [MODEL.md](docs/MODEL.md#weekly-recovery-target). The updated Home state shows the target, logged time and remaining time; it remains a planning default rather than medical advice. |
+| Explain how sign-in and cross-device database data are handled, including sanitisation and sensitive information. | Added the stored and excluded data, input-validation boundary, authentication, Row Level Security, logging restrictions, encryption expectations and student controls. | The [data-handling section](#data-handling) explains that sanitised does not mean anonymous and does not falsely claim that no personal data reaches the database. Implementation and two-account isolation testing remain build gates. |
+| List weaknesses in existing approaches and explain how SODA addresses them. | Expanded the comparison across task/calendar tools, adaptive scheduling, self-care applications and fragmented manual planning. | The [existing-approaches comparison](#existing-approaches-and-the-remaining-opportunity) now identifies the remaining decision gap and SODA's response without claiming that competitors are ineffective. |
+
 ---
 
 
