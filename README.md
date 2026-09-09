@@ -326,10 +326,9 @@ are re-picked for dark backgrounds (the mint green used on buttons is
 lighter, and text on those buttons is dark rather than white), so contrast
 holds in both modes.
 
-| Home (dark) | Impact Preview (dark) | Recovery Island (dark) | Insights (dark) |
-|---|---|---|---|
-| <img src="images/dark-h1-home.png" width="180"> | <img src="images/dark-a4-impact-preview.png" width="180"> | <img src="images/dark-r-island.png" width="180"> | <img src="images/dark-i1-insights.png" width="180"> |
-
+| Home (dark) | Impact Preview (dark) | Recovery Island (dark) | Insights (dark) | Notification (dark) |
+|---|---|---|---|---|
+| <img src="images/dark-h1-home.png" width="150"> | <img src="images/dark-a4-impact-preview.png" width="150"> | <img src="images/dark-r-island.png" width="150"> | <img src="images/dark-i1-insights.png" width="150"> | <img src="images/dark-x1-lock-screen.png" width="150"> |
 ---
 
 ### Design principles
