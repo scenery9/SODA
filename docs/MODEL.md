@@ -184,28 +184,38 @@ Today stays provisional until the day ends; do not charge future recovery as mis
 a risk level. **`D` influences which recovery actions get suggested and how prominently; it never
 reduces `C`.** Debt is a signal to review planned versus logged recovery, not a penalty. Missing logs are not proof of missing rest; display history coverage. Extra rest cannot erase previous daily shortfalls, and entries age out after 28 days, so a falling ledger is not itself proof of recovery.
 
-### Step 6: Smart Rebalance (greedy, constrained, reversible)
+### Step 6: Smart Rebalance using priority
 
-```
-candidate moves for an overloaded day:
-    move task to another day  |  shorten task  |  drop task  |  split task
+Effort and priority answer different questions. **Effort** describes how demanding a commitment is and remains an input to the five-dimensional load calculation. **Priority** describes how important it is to preserve when SODA searches for a less overloaded schedule. A high-effort task is therefore not automatically high priority, and a low-effort task is not automatically safe to move.
 
-hard constraints (never violated):
-    ✗ fixed commitments (classes, shifts, exams) cannot be moved, shortened, split or dropped
-    ✗ every resulting task segment must finish by its deadline
-    ✗ protected recovery cannot be consumed
-      → shown as a HELD line item with the reason, never silently skipped
+Students assign each flexible commitment one of three priority levels:
 
-score(move) = Δ(day load %) / disruption_cost(move)
-    disruption_cost: shorten = 1, move within week = 2, split = 3, drop = 5
+| Priority | Meaning | Rescheduling treatment |
+|---|---|---|
+| **High** | Important or time-sensitive work that should remain in place where possible | Consider only after all feasible Low- and Medium-priority moves have been exhausted |
+| **Medium** | Important but adjustable work | Consider after Low-priority work |
+| **Low** | Work that can reasonably move within its permitted window | Consider first |
 
-→ recompute the whole week after every accepted candidate, including the destination day
-→ reject new overlaps, new overload on the destination, and any hard-constraint violation
-→ require explicit permission for shortening/dropping; do not assume less work is feasible
-→ return top N moves, individually approvable; deterministic tie-break by task ID
-→ if no feasible move exists, explain the constraint and offer defer/decline/accept-as-is
-→ apply atomically against a schedule version; undo only if affected versions still match
-```
+Priority does not replace task constraints. Fixed classes, examinations, paid shifts and approved appointments remain immovable regardless of priority. Deadlines, protected recovery, existing time overlaps and the feasibility of the destination are also treated as hard constraints.
+
+For an overloaded day, Smart Rebalance determines which tasks to reschedule through the following sequence:
+
+1. Exclude fixed commitments, completed tasks and any task whose permitted scheduling window cannot change.
+2. Generate alternative times only for flexible tasks, including moving or splitting a task where splitting has been allowed.
+3. Reject any alternative that crosses a deadline, overlaps another commitment, consumes protected recovery or creates overload on the destination day.
+4. Rank the remaining alternatives by:
+   - lower priority first;
+   - greater deadline slack first within the same priority;
+   - lower disruption first, preferring a simple move over a split;
+   - greater reduction in the overloaded day's load;
+   - task ID as the deterministic final tie-break.
+5. Recalculate the complete week after every proposed move.
+6. Show the highest-ranked feasible alternatives with the task name, current time, proposed time, reason and resulting workload change.
+7. Apply only the alternatives explicitly approved by the student.
+
+The candidate commitment may also be deferred or declined instead of moving a higher-priority existing task. Shortening or dropping an existing task is never assumed to be academically feasible and is offered only as a separately labelled option requiring explicit permission.
+
+Prioritisation, planning and task organisation are supported as useful time-management strategies in higher education research, while a recent meta-analysis found a moderate positive association between time management and college learning outcomes ([Liu et al., 2026](https://doi.org/10.3389/fpsyg.2026.1700298); [Patzak et al., 2025](https://doi.org/10.3389/feduc.2025.1623228)). These findings support giving students explicit priority control; they do not validate SODA's particular ranking order, which remains a transparent and testable design rule.
 
 ### Step 7: Reality Check correction
 

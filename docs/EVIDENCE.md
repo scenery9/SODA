@@ -79,6 +79,10 @@ Abraham, A. Chaabna, K. Sheikh, J. I. Mamtani, R. Jithesh, A. Khawaja, S. & Chee
 Burnout increased among university students during the COVID-19 pandemic: A systematic review and
 meta-analysis. *Scientific Reports, 14*, 2569. https://doi.org/10.1038/s41598-024-52923-6
 
+Alhammad, N., Alajlani, M., Abd-Alrazaq, A., Epiphaniou, G., & Arvanitis, T. (2024). Patients'
+perspectives on the data confidentiality, privacy, and security of mHealth apps: Systematic review.
+*Journal of Medical Internet Research, 26*, e50715. https://doi.org/10.2196/50715
+
 Bakker, A. B. & Mostert, K. (2024). Study Demands–Resources Theory: Understanding student well-being in
 higher education. *Educational Psychology Review, 36*, Article 92. https://doi.org/10.1007/s10648-024-09940-8
 
@@ -127,6 +131,10 @@ Meijman, T. F. & Mulder, G. (1998). Psychological aspects of workload. In P. J. 
 C. J. de Wolff (Eds.), *Handbook of work and organizational psychology* (2nd ed. Vol. 2, pp. 5–33).
 Psychology Press.
 
+Milne-Ives, M., Homer, S. R., Andrade, J., & Meinert, E. (2023). Potential associations between
+behavior change techniques and engagement with mobile health apps: A systematic review.
+*Frontiers in Psychology, 14*, 1227443. https://doi.org/10.3389/fpsyg.2023.1227443
+
 Gilmore, A. H., Glozier, N., & Ashton-James, C. E. (2025). Australian university student perspectives on the factors influencing
 student wellbeing: A content and relational analysis. *Higher Education Research & Development, 44*(4), 914–931.
 https://doi.org/10.1080/07294360.2024.2442636
@@ -137,6 +145,10 @@ Ollama. (n.d.). *Qwen3.* Retrieved September 7, 2026, from https://ollama.com/li
 Olson, N. Oberhoffer-Fritz, R. Reiner, B. & Schulz, T. (2023). Study related factors associated with
 study engagement and student burnout among German university students. *Frontiers in Public Health, 11*,
 1168264. https://doi.org/10.3389/fpubh.2023.1168264
+
+Patzak, A., Zhang, X., & Vytasek, J. (2025). Boosting productivity and wellbeing through time
+management: Evidence-based strategies for higher education and workforce development.
+*Frontiers in Education, 10*, 1623228. https://doi.org/10.3389/feduc.2025.1623228
 
 Penn State Accessibility. (n.d.). *Charts & accessibility.* Retrieved September 7, 2026, from
 https://accessibility.psu.edu/images/charts/
@@ -152,6 +164,10 @@ Behavioral Science, 34*, 100845. https://doi.org/10.1016/j.jcbs.2024.100845
 
 Reclaim.ai. (n.d.). *Reclaim: AI calendar for work and life.* Retrieved September 5, 2026, from
 https://reclaim.ai/
+
+Reschke, T., Lobinger, T., & Reschke, K. (2024). Examining recovery experiences as a mediator between
+physical activity and study-related stress and well-being during prolonged exam preparation at
+university. *PLOS ONE, 19*(7), e0306809. https://doi.org/10.1371/journal.pone.0306809
 
 Sonnentag, S. & Fritz, C. (2007). The Recovery Experience Questionnaire: Development and validation of a
 measure for assessing recuperation and unwinding from work. *Journal of Occupational Health Psychology,

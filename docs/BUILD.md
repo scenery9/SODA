@@ -80,6 +80,7 @@ create table commitments (
   starts_at     timestamptz not null,
   duration_min  integer not null check (duration_min > 0),
   effort        text    check (effort in ('low','medium','high')) default 'medium',
+  priority      text    not null check (priority in ('low','medium','high')) default 'medium',
   category      text    check (category in ('academic','work','social','errands','other')),
   is_fixed      boolean not null default false, -- classes, shifts: never movable
   deadline_at   timestamptz,                    -- rebalance may not cross this
@@ -193,6 +194,7 @@ The demo account needs enough history for Recovery Debt and Reality Check to be 
 - **Recovery records:** add interval start/end, target history and timezone before implementing the ledger. The starter `minutes` field alone cannot deduplicate overlaps or reconstruct historical targets.
 - **Feedback:** add one response per owned commitment, validate completion status, and reject empty or duplicate responses. Use five distinct confirmed tasks for the directional suggestion.
 - **Server validation:** require valid effort/category values, bounded check-in answers (1–5), positive durations, and a deadline compatible with all resulting segments. Do not rely on form validation alone.
+- **Server validation:** require valid effort, priority and category values, bounded check-in answers (1–5), positive durations, and a deadline compatible with all resulting segments. Do not rely on form validation alone.
 - **Offline:** queue structured drafts with unique operation IDs. On reconnect, validate and recalculate against current server state; require renewed approval if the plan changed.
 
 The `decision-loop` numbers are design targets until a complete fixture reproduces them. Store the input tasks, fixed intervals, capacity, approved moves and expected outputs together; do not hard-code scores to imitate a screenshot. Validate the arithmetic example, threshold edges, cross-midnight tasks, recovery overlap, no-feasible-plan handling, stale apply/undo and two-user isolation before demonstration. Record executed results separately from these planned checks.

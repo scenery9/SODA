@@ -44,13 +44,18 @@ Teammates, lecturers and employers may benefit from earlier conversations about 
 
 ### Existing approaches and the remaining opportunity
 
-| Existing approach | Useful strength | What SODA adds to the decision |
-|---|---|---|
-| [Todoist](https://www.todoist.com/help/todoist/integrations/use-the-calendar-integration-rCqwLCt3G) | Organises tasks alongside calendar events. | An editable estimate of five kinds of demand, not just a list of commitments. |
-| [Reclaim](https://reclaim.ai/) | Adaptive scheduling, workload visibility and preview/approval. | A student-focused five-axis estimate connected to planned versus logged recovery. |
-| [Finch](https://finchcare.com/) | Self-care activities, check-ins and a companion. | A planning loop that previews an additional commitment and offers schedule adjustments. |
+The comparison focuses on the decision SODA is designed to support, not on claiming that established products are ineffective. Current product capabilities are based on public documentation and should be rechecked before submission.
 
-These are selected product comparisons, not an exhaustive benchmark. SODA's distinction is the **connection between demand, the next decision and recovery**, rather than the invention of scheduling or self-care.
+| Approach | Existing strength | Remaining gap for SODA's target student | How SODA addresses the gap |
+|---|---|---|---|
+| **Task and calendar management**, represented by [Todoist](https://www.todoist.com/help/todoist/integrations/use-the-calendar-integration-rCqwLCt3G) | Records tasks, priorities, dates and durations and displays them alongside calendar events. | Organisation shows what and when, but its public calendar documentation does not describe an editable five-dimensional student-demand model, a before-acceptance capacity preview or a planned-versus-completed recovery ledger. | My Backpack combines recorded commitments across mental, time, physical, social and errands demand. Impact Preview then shows the consequence of a candidate commitment before it is saved. |
+| **Adaptive scheduling**, represented by [Reclaim](https://reclaim.ai/features/tasks) | Automatically schedules flexible tasks, protects focus time and breaks, and supports task priority and calendar optimisation. | Calendar optimisation can find available time, but its public feature description does not document SODA's student-specific five-axis estimate or a recovery record that distinguishes protected intentions from completed recovery. | Smart Rebalance uses priority while preserving deadlines, fixed responsibilities and protected recovery. Every destination is recalculated against the student's workload model, and nothing moves without approval. |
+| **Self-care and habit support**, represented by [Finch](https://play.google.com/store/apps/details?id=com.finch.finch) | Provides goals, check-ins, journaling, breathing activities, timers and encouraging rewards. | Self-care support can remain separate from the academic decision that caused recovery to be postponed. Continued engagement is also a recognised challenge across digital health interventions. | Recovery Island connects the recovery action to the same workload plan, while Recovery Debt distinguishes planned recovery from what the student chose to record as completed. SODA avoids streak penalties that could make missed recovery feel like failure. |
+| **Manual planning using separate calendars, lists and wellbeing tools** | Flexible, familiar and inexpensive. | The student must mentally combine fragmented information and decide which commitment can move without a shared constraint check. | SODA joins workload visibility, an unsaved commitment preview, priority-based rescheduling and recovery in one approval-controlled journey. |
+
+Recent reviews support the value of planning, prioritisation and task organisation, but they do not show that a conventional task list alone resolves combined workload or recovery decisions ([Liu et al., 2026](https://doi.org/10.3389/fpsyg.2026.1700298); [Patzak et al., 2025](https://doi.org/10.3389/feduc.2025.1623228)). A systematic review of 28 mobile-health studies also found that goal setting, self-monitoring, feedback and prompts were repeatedly associated with engagement, while the evidence was insufficient to determine how individual techniques cause particular forms of engagement ([Milne-Ives et al., 2023](https://doi.org/10.3389/fpsyg.2023.1227443)).
+
+SODA's proposed contribution is therefore the connected loop—see combined demand, preview a commitment, protect higher-priority work, approve a feasible adjustment and record recovery—not a claim that it invented scheduling or self-care. Its five-axis weights, priority order and recovery default remain proposed rules that require usability and longitudinal evaluation.
 
 ### Our Solution
 
@@ -217,6 +222,8 @@ Typed input passes two checks before anything is saved. SODA shows its
 working (heard the task, found the date, estimated the effort from past
 tasks), then states what it understood (*Friday 15 Nov, 19:00, 3h 30m
 suggested, Extra High*) and asks "Did I get that right?"
+
+The confirmed commitment keeps **effort** and **priority** as separate fields. Effort describes how demanding the task is and contributes to the five-axis estimate; priority tells Smart Rebalance which flexible tasks should be preserved or considered for rescheduling first.
 
 Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`,
 Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
@@ -657,7 +664,7 @@ build, not after.
 
 | | |
 |---|---|
-| **Stored** | Account identifier and email; tasks and deadlines; category and estimated duration; the five load values; check-in answers; recovery history; completion feedback. |
+| **Stored** | Account identifier and email; tasks and deadlines; category, estimated duration, effort and priority; the five load values; check-in answers; recovery history; completion feedback. |
 | **Never collected** | Contact lists, message content, precise location, raw wearable records, medical diagnoses, or anything belonging to another person. Calendar import takes title, date and times only, never descriptions, attendees or locations. |
 | **Protected by** | Supabase Auth with Row Level Security on every user-owned table, so a policy at the database refuses cross-account reads and writes. Service-role keys stay server-side and are never used for a normal user request. Isolation is tested with a second account before release. |
 | **Student controls** | Disconnect the calendar, correct any value, export the record, delete the account and its data. |
@@ -666,6 +673,20 @@ build, not after.
 These practices are guided by Malaysia's seven Personal Data Protection Principles: general, notice and
 choice, disclosure, security, retention, data integrity, and access. We state that the design is guided
 by them rather than claiming legal compliance, which would need a proper legal and security review.
+
+#### What sign-in and cross-device sync mean for student data
+
+Sign-in is required only when a student wants account recovery or cross-device synchronisation. Supabase Auth handles authentication, so SODA's application tables do not store passwords. Each backend request must carry a signed user token whose issuer, audience, signature and expiry are validated before any student-owned record is read or changed.
+
+Cross-device sync necessarily uploads some personal data to SODA's database: the account identifier, task title, dates, times, duration, effort, priority, category, check-in answers, recovery records and approved estimate feedback. It would therefore be inaccurate to claim that no personal or potentially sensitive data reaches the database. Instead, SODA follows data minimisation: it does not request medical diagnoses, message content, contacts, precise location, raw wearable records, calendar descriptions, attendees or locations.
+
+“Sanitised” does not mean that a record becomes anonymous. Before storage, the backend validates data against an allowlist of accepted categories, effort and priority values; checks text-length, date, time and duration limits; rejects unexpected fields; and uses parameterised database operations rather than constructing SQL from student input. Text is safely encoded when displayed, and task bodies are excluded from infrastructure logs. These controls reduce malformed-input, injection and accidental-logging risks but do not remove the personal nature of a student's schedule.
+
+Every user-owned table uses Row Level Security so the database rejects cross-account reads and writes. Service-role credentials remain server-side and are not used for normal student requests. Transport must use HTTPS, stored data and backups must use the hosting provider's encryption controls, and release is blocked until two-account isolation, deletion, export, retention and recovery-from-backup behaviour have been tested.
+
+Student-written text is not sent to an external language model. Real entries use structured fields or the backend rule parser; the optional Gemini demonstration accepts only an allowlisted synthetic example without account or schedule context. Students can disconnect calendar access, correct records, export them and delete their account and associated data.
+
+A 2024 systematic review covering 33 studies found that privacy, confidentiality and security concerns affected users' perceptions and adoption of mobile health applications. It particularly emphasised explaining what data are collected and why, alongside implementing technical safeguards ([Alhammad et al., 2024](https://doi.org/10.2196/50715)). SODA therefore communicates both its safeguards and their limits rather than claiming that sanitisation alone guarantees privacy or legal compliance.
 
 **Safeguarding.** SODA never contacts another person on a student's behalf. Doing so automatically would
 create consent and duty-of-care obligations we are not equipped to carry, so lecturers, employers and
