@@ -318,7 +318,7 @@ the two commitments that collide, and offers to act. A second, quieter
 notification asks for the daily check-in and says why it matters, so the
 student knows what the two taps are for.
 
-"Later" is a real option. SODA states the problem once and stops; it does
+SODA states the problem once and stops; it does
 not repeat, escalate or count how many times it was ignored. The screen is
 designed and exists in both modes, but it is not wired into the demo
 route, so it will not appear when clicking through the prototype.
