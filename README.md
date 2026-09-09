@@ -3,7 +3,7 @@
 <table>
 <tr><td><b>Team</b></td><td>Samantha Chan Pei Yin, Lee Jia Yin, Yeap Boon Shen, Muhammad Ikhlas bin Mohd Faizal</td></tr>
 <tr><td><b>Problem Statement</b></td><td>Stress &amp; Workload Manager</td></tr>
-<tr><td><b>Video Presentation</b></td><td><i>pending</i></td></tr>
+<tr><td><b>Video Presentation</b></td><td><i>https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/SODA?node-id=358-2225&p=f&t=YvVwUVsdIAMluLJO-0</i></td></tr>
 <tr><td><b>Presentation Slides</b></td><td><i>pending</i></td></tr>
 </table>
 
