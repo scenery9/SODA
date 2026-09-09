@@ -308,6 +308,27 @@ fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-day-load-is-a-blended
 
 ---
 
+---
+
+**Before the app opens**
+
+Not every useful moment happens inside the app. When Wednesday is heading
+past the limit, SODA says so on the lock screen: it names the day, names
+the two commitments that collide, and offers to act. A second, quieter
+notification asks for the daily check-in and says why it matters, so the
+student knows what the two taps are for.
+
+"Later" is a real option. SODA states the problem once and stops; it does
+not repeat, escalate or count how many times it was ignored. The screen is
+designed and exists in both modes, but it is not wired into the demo
+route, so it will not appear when clicking through the prototype.
+
+| Lock screen | Lock screen (dark) |
+|---|---|
+| <img src="images/x1-lock-screen.png" width="200"> | <img src="images/dark-x1-lock-screen.png" width="200"> |
+
+---
+
 **Degraded states**
 
 Not a storyboard. Calendar sync failure, offline and save failure are
