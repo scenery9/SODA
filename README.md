@@ -239,28 +239,24 @@ screens.
 
 **Storyboard 3: Fixing a day that is already overloaded**
 
-Wednesday runs at 104% before anything is added. The student does not have
-to open the app to find out: a lock-screen notification names the day,
-names the two commitments that collide, and offers to act. "Later" is a
-real option, not a nag.
-
-Forecast, the Home banner, What Breaks and Task Detail all route into the
-same Wednesday rebalance screen, so the day the student was told about is
-the day they land on.
+Wednesday runs at 104% before anything is added. Forecast, the Home
+banner, What Breaks and Task Detail all route into the same Wednesday
+rebalance screen, so the day the student was told about is the day they
+land on.
 
 Two flexible moves, assignment work to Saturday at 11:00 and the club
 meeting to Sunday, bring Wednesday to 80%. The part-time shift is tagged
-Fixed and is left alone. Asking to swap it is offered as a separate request that shows as
-"waiting for your manager" and is never counted in the improvement total.
+Fixed and is left alone. Asking to swap it is offered as a separate
+request that shows as "waiting for your manager" and is never counted in
+the improvement total.
 
 Applying the changes updates Week Updated, Home, the day detail and the
 forecast together, so tapping back into any of them shows the fixed week
 rather than the old numbers.
 
-| Notification | Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
-|---|---|---|---|---|
-| <img src="images/x1-lock-screen.png" width="150"> | <img src="images/f1-forecast.png" width="150"> | <img src="images/f2-day-plan.png" width="150"> | <img src="images/a5w-rebalance-wednesday.png" width="150"> | <img src="images/h3w-week-updated-wednesday.png" width="150"> |
-
+| Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
+|---|---|---|---|
+| <img src="images/f1-forecast.png" width="180"> | <img src="images/f2-day-plan.png" width="180"> | <img src="images/a5w-rebalance-wednesday.png" width="180"> | <img src="images/h3w-week-updated-wednesday.png" width="180"> |
 ---
 
 **Storyboard 4: Check-in and recovery**
