@@ -257,9 +257,9 @@ Applying the changes updates Week Updated, Home, the day detail and the
 forecast together, so tapping back into any of them shows the fixed week
 rather than the old numbers.
 
-| Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
-|---|---|---|---|
-| <img src="images/f1-forecast.png" width="180"> | <img src="images/f2-day-plan.png" width="180"> | <img src="images/a5w-rebalance-wednesday.png" width="180"> | <img src="images/h3w-week-updated-wednesday.png" width="180"> |
+| Notification | Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
+|---|---|---|---|---|
+| <img src="images/x1-lock-screen.png" width="150"> | <img src="images/f1-forecast.png" width="150"> | <img src="images/f2-day-plan.png" width="150"> | <img src="images/a5w-rebalance-wednesday.png" width="150"> | <img src="images/h3w-week-updated-wednesday.png" width="150"> |
 
 ---
 
