@@ -393,32 +393,72 @@ back to them. It never decides.
 
 ### User flow, end to end
 
-**First run**
+Four flows. Every screen below is in the Figma file and wired.
 
-`Splash → Welcome → Capacity Baseline → Connect Your Week →
-Calendar Review → Home (day one)`
+---
 
-**Adding a commitment: the core loop**
+**1. First run — from install to a number you can trust**
 
-`Home → Add → SODA reads it → Confirms → Impact Preview →
-Smart Rebalance → Changes applied → Week Updated → Home (after the fix)`
+| Screen | What it does | What the student does |
+|---|---|---|
+| **[O1 — Splash]** | Opens the app. | Nothing. It passes. |
+| **[O2 — Welcome]** | Three lines explain the whole product: see the cost before you say yes, move things when the week is full, keep time to rest. | Taps **Get started**, or signs in. |
+| **[O3 — Capacity Baseline]** | Four questions set the student's own limit: how a normal week feels, focus hours a day, rest kept a day, and whether they recover alone or with people. | Taps one answer per question, then **Continue**. |
+| **[O4 — Connect Your Week]** | Offers calendar, notifications and a wearable. All three are optional and marked read-only. | Connects what they want, or taps **I'll do this later**. |
+| **[O5 — Calendar Review]** | Shows the 14 imported tasks grouped by category before anything is calculated. | Checks the list, taps **Import & continue**. |
+| **[H0 — Home · day one]** | Capacity shows "—", not a number. SODA says the limit appears after two check-ins and shows only the calendar until then. | Starts a check-in, or just looks around. |
+
+Nothing is calculated from data the student has not seen. Skipping the
+calendar still lands on a working Home.
+
+---
+
+**2. Adding a commitment — the core loop**
+
+| Screen | What it does | What the student does |
+|---|---|---|
+| **[H1 — Home]** | Friday's estimated load at 82% (Heavy), the five parts of the load, the week chart, and a banner naming Wednesday as the day that breaks. | Taps the backpack in the tab bar. |
+| **[A★ — Add]** | One screen. Chat field ready to type, a worked example to tap, and **Type it in yourself** to open the manual form in place. | Types a sentence, taps the example, or opens the form. |
+| **[A★b — Add · manual]** | Title, date, time, duration, effort and priority. SODA's duration estimate is applied with a visible **Undo**. | Fills in what they know, sets priority, taps **See impact**. |
+| **[A1c — SODA is reading that]** | Shows its working, one line at a time: heard the task, found the date, worked out the effort and how important it is. | Waits. Nothing is saved yet. |
+| **[A2 — Tell SODA]** | States what it understood: Friday 15 Nov, 19:00, 3h 30m suggested, Extra High, priority High. | Taps **Yes, that's right**, or **Not quite** to correct it. |
+| **[A4 — Impact Preview]** | The decision point. 82% → 112%, Mental 91% → 118%, Time 87% → 109%, rest time left 2h 10m → 25m, and the day that breaks is named. | Taps **Fix my week**, or **Accept anyway**. |
+| **[A5 — Smart Rebalance]** | Three named moves, each with its priority and its effect. Low moves first; High only changes time and never gets cut. | Ticks the moves they accept, taps **Apply 2 changes**. |
+| **[OV2 — Changes applied]** | Confirms what changed: Presentation prep → Saturday (−15%), Revision delayed to Sunday (−8%), Friday 112% → 89%. | Taps **Back to my week**, or **Undo everything**. |
+| **[H3 — Week Updated]** | The week after the fix, with Friday at 89% and Wednesday still at 104% — because fixing Friday did not fix Wednesday. | Taps **Back to my week**. |
+| **[H1u — Home · after the fix]** | Home with the new numbers: 86%, 15 tasks, Friday under the limit. | Carries on. |
 
 Manual entry skips the confirmation step, because the student typed the
-details themselves. Declining the fix is also a complete path: Accept
-anyway leads to its own Home and Forecast, both still showing Friday over
-the limit.
+details themselves. **Accept anyway** is a complete path too: it leads to
+its own Home and Forecast, both still showing Friday over the limit.
 
-**Fixing a day that is already overloaded**
+---
 
-`Forecast / Home → Day Plan → Smart Rebalance (Wednesday) →
-Changes applied → Week Updated → Home (after the fix)`
+**3. Fixing a day that is already overloaded**
 
-**Recovering owed rest**
+| Screen | What it does | What the student does |
+|---|---|---|
+| **[F1 — Life Forecast]** | Seven days ahead. Wednesday is flagged at 104% OVERLOAD; Thursday is Heavy with a storm warning. | Taps Wednesday, or **Fix my Wednesday**. |
+| **[F2 — Forecast Day Plan]** | What makes Wednesday heavy, task by task, with each one's share: Assignment Work +18%, Data Structures +12%, Part-time Shift +26%. | Taps **Fix Wednesday**. |
+| **[A5w — Smart Rebalance · Wednesday]** | Two flexible moves bring 104% to 80%. The part-time shift is tagged fixed and is not touched; asking to swap it is a separate request. | Taps **Apply 2 changes**, or sends the swap request. |
+| **[OV2w — Changes applied]** | Assignment Work → Saturday (−18%), Club Meeting → Sunday (−6%), Wednesday 104% → 80%. | Taps **Back to my week**. |
+| **[H3w — Week Updated · Wednesday]** | Wednesday now at 80%, the shift still 6h and marked unchanged. | Taps **Back to my week**. |
+| **[H1w — Home · after the fix]** | Home, day detail and forecast all show the fixed week, not the old numbers. | Carries on. |
 
-`Recover → Recovery Island → pick a type → Timer → Complete →
-Daily Check-in`
+---
 
-Pausing and ending early are both wired. Ending early logs no rest.
+**4. Recovering owed rest**
+
+| Screen | What it does | What the student does |
+|---|---|---|
+| **[R1 — Recover]** | Recovery debt of 2h 35m against a target of about 5h 15m a week, taken from the 30–60 minutes a day set at onboarding. States plainly that it is a planning signal, not a health score. | Taps **Enter Recovery Island**. |
+| **[R2 — Recovery Island]** | Names what is actually low — Mental lowest, Time low, Social clear — and recommends one option. | Picks Physical, Time or Mental. |
+| **[R★ — Recovery Island · type]** | One screen with all three types as tabs. Each option states the time it gives back. | Switches tabs, picks an option. |
+| **[R3 — Recovery Timer]** | A 20-minute reset with nothing else on screen. Pause and end early both work. | Rests. Or pauses, or ends early. |
+| **[R4 — Recovery Complete]** | Logs 20 minutes against the weekly target. Tasks stay unchanged. Ending early logs nothing. | Taps **Back to my week**, or logs how it felt. |
+| **[R5 — Daily Check-In]** | Five bars: energy, mood, mental, physical, social battery. Wearable sleep data is offered, not assumed. | Taps a level per bar, chooses whether to use the sleep figure, saves. |
+
+---
 
 ---
 
