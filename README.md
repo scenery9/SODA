@@ -53,7 +53,7 @@ The comparison focuses on the decision SODA is designed to support, not on claim
 | **Self-care and habit support**, represented by [Finch](https://play.google.com/store/apps/details?id=com.finch.finch) | Provides goals, check-ins, journaling, breathing activities, timers and encouraging rewards. | Self-care support can remain separate from the academic decision that caused recovery to be postponed. Continued engagement is also a recognised challenge across digital health interventions. | Recovery Island connects the recovery action to the same workload plan, while Recovery Debt distinguishes planned recovery from what the student chose to record as completed. SODA avoids streak penalties that could make missed recovery feel like failure. |
 | **Manual planning using separate calendars, lists and wellbeing tools** | Flexible, familiar and inexpensive. | The student must mentally combine fragmented information and decide which commitment can move without a shared constraint check. | SODA joins workload visibility, an unsaved commitment preview, priority-based rescheduling and recovery in one approval-controlled journey. |
 
-Recent reviews support the value of planning, prioritisation and task organisation, but they do not show that a conventional task list alone resolves combined workload or recovery decisions ([Liu et al., 2026](https://doi.org/10.3389/fpsyg.2026.1700298); [Patzak et al., 2025](https://doi.org/10.3389/feduc.2025.1623228)). A systematic review of 28 mobile-health studies also found that goal setting, self-monitoring, feedback and prompts were repeatedly associated with engagement, while the evidence was insufficient to determine how individual techniques cause particular forms of engagement ([Milne-Ives et al., 2023](https://doi.org/10.3389/fpsyg.2023.1227443)).
+Recent reviews support the value of planning, prioritisation and task organisation, but they do not show that a conventional task list alone resolves combined workload or recovery decisions ([Liu et al., 2026](https://doi.org/10.3389/fpsyg.2026.1700298); [Patzak et al., 2025](https://doi.org/10.3389/feduc.2025.1623228)). Sustained engagement is itself a known difficulty across digital health tools, and the evidence does not isolate which technique causes it ([Milne-Ives et al., 2023](https://doi.org/10.3389/fpsyg.2023.1227443)).
 
 SODA's proposed contribution is therefore the connected loop: see combined demand, preview a commitment, protect higher-priority work, approve a feasible adjustment and record recovery, not a claim that it invented scheduling or self-care. Its five-axis weights, priority order and recovery default remain proposed rules that require usability and longitudinal evaluation.
 
@@ -106,7 +106,7 @@ The Stress & Workload Manager brief asks for specific things. This table maps ea
 | "Some kind of recovery nudge, suggesting sleep, downtime or a hangout" | Recovery Island turns the nudge into a chosen action with protected time and a completion record; Recovery Debt keeps shortfalls visible across weeks. |
 | "Usable, accessible, and something students would actually keep open on their phone" | Low-effort capture, a full dark mode and text alternatives to charts. Section 3 states plainly which accessibility work is designed and which is still unverified. |
 
-The brief also sets platform expectations we build to: the planned application is deployable rather than local-only, and AI is confined to reading and writing language while a deterministic rules engine does every calculation, so the team can account for how its own results are produced.
+The brief also sets platform expectations we build to. The planned application is deployable rather than local-only. AI is confined to reading and writing language, while a deterministic rules engine does every calculation, so we can account for how our own results are produced.
 
 ---
 
@@ -579,7 +579,7 @@ for assistive-technology support.
 
 **Every other planner models the work. SODA models what the student has left.**
 
-That is the whole difference. A task list answers *what do I have to do*. A calendar answers *when does it happen*. Neither answers the question a student actually asks at the moment a request arrives: *can I take this on, and what would have to change?* SODA answers that one, with an editable five-axis estimate, a preview before the commitment is saved, adjustments that respect what cannot move, and a recovery record that does not reset on Monday.
+That is the whole difference. A task list answers *what do I have to do*. A calendar answers *when does it happen*. Neither answers the question a student actually asks at the moment a request arrives: *can I take this on, and what would have to change?* SODA is built to answer that one.
 
 ### Three experiences, one decision journey
 
@@ -620,9 +620,7 @@ own sake.
 
 ### Comparison with existing solutions
 
-The comparison below uses one synthetic decision rather than comparing feature counts. These are capability-level examples, not a hands-on benchmark or a claim that any named competitor lacks all of SODA's functions.
-
-The capability-level comparison is in [Section 1](#existing-approaches-and-the-remaining-opportunity). This one is narrower on purpose: it takes the single moment the club request arrives on Aina's Thursday and asks what each kind of tool would tell her.
+The capability comparison is in [Section 1](#existing-approaches-and-the-remaining-opportunity). This one is narrower on purpose: it takes the single moment the club request arrives on Aina's Thursday and asks what each kind of tool would tell her. These are capability-level examples from public documentation, not a hands-on benchmark.
 
 | Approach | What it would tell Aina when the request arrives | What SODA adds at that moment |
 |---|---|---|
@@ -648,9 +646,8 @@ This example establishes an intended decision path, not an observed benefit. It 
 
 ### The same week, with and without
 
-The scheduling case above deliberately carries no percentage, because six listed commitments are not
-a complete set of recorded inputs. The demo fixture is complete, so it can carry them. This is the
-designed path through it, not a measured outcome.
+The case above carries no percentage. The demo fixture is complete, so it can. This is the designed
+path through it, not a measured outcome.
 
 | | Without SODA | With SODA |
 |---|---|---|
