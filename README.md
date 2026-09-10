@@ -226,12 +226,16 @@ so on the lock screen: it names the day, names the two commitments that collide,
 A second, quieter notification asks for the daily check-in and says what the two taps are for.
 
 Swipe up and the week is already there: Friday at **82%**, the five kinds of demand underneath it,
-and Wednesday flagged at **104%** before it arrives. The whole product exists in both themes, not as
-a filter over one.
+and Wednesday flagged at **104%** before it arrives.
 
-| Before you open it | Swipe up and the week is there | The same moment, dark |
-|---|---|---|
-| <img src="images/x1-lock-screen.png" width="180"> | <img src="images/h1-home.png" width="180"> | <img src="images/dark-x1-lock-screen.png" width="180"> |
+Both themes are below, the same two moments in each. Every one of the 84 screens has a dark twin,
+and it is a redraw rather than a filter: accent colours are re-picked for dark backgrounds, so the
+mint green on buttons is lighter and the text on those buttons is dark rather than white. Every
+screen shown later in this section exists in both, and is not repeated twice to prove it.
+
+| Light: before you open it | Light: swipe up | Dark: before you open it | Dark: swipe up |
+|---|---|---|---|
+| <img src="images/x1-lock-screen.png" width="175"> | <img src="images/h1-home.png" width="175"> | <img src="images/dark-x1-lock-screen.png" width="175"> | <img src="images/dark-h1-home.png" width="175"> |
 
 SODA states the problem once and stops. It does not repeat, escalate, or count how many times it was
 ignored. A notification that nags an exhausted student is the behaviour this product exists to avoid.
@@ -283,19 +287,6 @@ Not a storyboard. Calendar sync failure, offline and save failure are
 designed as banners on the working screen, not as separate error pages. The
 student keeps the last known data, keeps adding tasks, and SODA syncs when
 it can. Nothing is lost and nothing is blocked.
-
-**Dark mode**
-
-Every one of the 84 screens has a dark twin, not a filter. Accent colours
-are re-picked for dark backgrounds (the mint green used on buttons is
-lighter, and text on those buttons is dark rather than white), so contrast
-holds in both modes. Each column below is one screen: light on the top row, dark directly
-beneath it.
-
-| Impact Preview | Recovery Island | Insights |
-|---|---|---|
-| <img src="images/a4-impact-preview.png" width="180"> | <img src="images/r-island-physical.png" width="180"> | <img src="images/i1-insights.png" width="180"> |
-| <img src="images/dark-a4-impact-preview.png" width="180"> | <img src="images/dark-r-island.png" width="180"> | <img src="images/dark-i1-insights.png" width="180"> |
 
 ---
 
