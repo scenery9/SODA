@@ -65,14 +65,12 @@ SODA is a proposed student workload planner that combines recorded commitments a
 
 <table>
 <tr>
-<td width="33%"><img src="images/h1-home.png" alt="My Backpack. Friday's estimated load reads 82% and Heavy, with mental 91, time 87, physical 62, social 43 and errands 58 beneath it. The week chart flags Wednesday at 104% and the banner reads that Wednesday goes over the limit."></td>
-<td width="33%"><img src="images/a4-impact-preview.png" alt="Impact Preview. Adding the presentation moves Friday from 82% to 112% before anything is saved, showing the affected axes and rest time left falling from 2h 10m to 25m."></td>
-<td width="33%"><img src="images/a5-rebalance.png" alt="Smart Rebalance. Named moves with the percentage each one saves, the paid shift held fixed, and the protected recovery kept."></td>
+<td width="50%"><img src="images/a4-impact-preview.png" alt="Impact Preview. Adding the presentation moves Friday from 82% to 112% before anything is saved. Mental goes 91% to 118%, time 87% to 109%, and rest time left falls from 2h 10m to 25m. A banner reads that Friday goes over the limit."></td>
+<td width="50%"><img src="images/a5-rebalance.png" alt="Smart Rebalance. Friday comes back from 112% to 89% through two named moves worth 15% and 8%, with a third optional. The paid shift is never offered as a move, and a line confirms 1h 50m of rest is kept."></td>
 </tr>
 <tr>
-<td align="center"><b>See the load</b><br><sub>82%, and which axis is carrying it</sub></td>
-<td align="center"><b>Preview the cost</b><br><sub>82% → 112%, before it is saved</sub></td>
-<td align="center"><b>Choose a change</b><br><sub>fixed work stays fixed</sub></td>
+<td align="center"><b>See the cost before you say yes</b><br><sub><b>82% &rarr; 112%</b>, and 2h 10m of rest down to 25m.<br>Nothing is saved yet.</sub></td>
+<td align="center"><b>Then choose what changes</b><br><sub><b>112% &rarr; 89%</b>, rest kept, the paid shift untouched.<br>Nothing moves without approval.</sub></td>
 </tr>
 </table>
 
@@ -200,11 +198,11 @@ A second consultation focused on making the user flow, rescheduling logic, recov
 
 | Date | Mentor | Feedback received | What was changed |
 |---|---|---|---|
-| 9 Sep 2026 | Daniel Koh Yu Hang | Explain the user flow one step and one screen at a time. | Section 3 became sequential screen tables: each row names one screen, what it communicates and what the student does next, following onboarding, commitment entry, impact, adjustment and recovery. |
-| 9 Sep 2026 | Daniel Koh Yu Hang | Keep effort level, but use Low, Medium and High priority for task rescheduling. | Effort still feeds the five-dimensional demand estimate. Priority is now a separate field that only Smart Rebalance reads, so importance never quietly inflates a load figure. Both appear in Manual Add and Tell SODA, in the proposed schema and in the model specification. |
-| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how SODA determines which tasks are rescheduled. | The order is now stated: fixed and completed commitments are excluded, feasible Low-priority work is considered before Medium and High, and deadlines, overlaps, destination load and protected recovery are all checked before a suggestion is shown. Full rules in [MODEL.md](docs/MODEL.md#step-6-smart-rebalance-using-priority). |
-| 9 Sep 2026 | Daniel Koh Yu Hang | Set and explain how much recovery time is needed each week. | Added an editable starting target of **5 hours 15 minutes a week**, derived from 45 minutes a day under the Moderate onboarding baseline. It appears beside Recovery Debt on the Recover screen, and [MODEL.md](docs/MODEL.md#weekly-recovery-target) records both the derivation and its limits. It is a planning default, not advice about how much rest a person needs. |
-| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how sign-in and cross-device database data are handled, including sanitisation and sensitive information. | Added the stored and excluded data, the input-validation boundary, authentication, Row Level Security, logging restrictions, encryption expectations and student controls. The [data-handling section](#data-handling) states plainly that sanitised does not mean anonymous, rather than claiming no personal data reaches the database. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain the user flow one step and one screen at a time. | Section 3 became [sequential screen tables](#user-flow-end-to-end): each row names one screen, what it communicates and what the student does next, following onboarding, commitment entry, impact, adjustment and recovery. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Keep effort level, but use Low, Medium and High priority for task rescheduling. | Effort still feeds the [five-dimensional demand estimate](#how-the-estimate-works). Priority is now a separate field that only Smart Rebalance reads, so importance never quietly inflates a load figure. Both appear in Manual Add and Tell SODA, in the proposed schema and in the model specification. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how SODA determines which tasks are rescheduled. | The [order is now stated](#how-the-estimate-works): fixed and completed commitments are excluded, feasible Low-priority work is considered before Medium and High, and deadlines, overlaps, destination load and protected recovery are all checked before a suggestion is shown. Full rules in [MODEL.md](docs/MODEL.md#step-6-smart-rebalance-using-priority). |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Set and explain how much recovery time is needed each week. | Added an editable [starting target](#how-the-estimate-works) of **5 hours 15 minutes a week**, derived from 45 minutes a day under the Moderate onboarding baseline. It appears beside Recovery Debt on the Recover screen, and [MODEL.md](docs/MODEL.md#weekly-recovery-target) records both the derivation and its limits. It is a planning default, not advice about how much rest a person needs. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how sign-in and cross-device database data are handled, including sanitisation and sensitive information. | Added the [stored and excluded data](#data-handling), the input-validation boundary, authentication, Row Level Security, logging restrictions, encryption expectations and student controls. The [data-handling section](#data-handling) states plainly that sanitised does not mean anonymous, rather than claiming no personal data reaches the database. |
 | 9 Sep 2026 | Daniel Koh Yu Hang | List weaknesses in existing approaches and explain how SODA addresses them. | The [existing-approaches comparison](#existing-approaches-and-the-remaining-opportunity) now covers task and calendar tools, adaptive scheduling, self-care applications and fragmented manual planning, naming the remaining decision gap in each without claiming that any competitor is ineffective. |
 
 ---
@@ -219,108 +217,16 @@ every decision in this section: the interface has to be readable in ten
 seconds, honest about what it does not know, and incapable of making a
 tired student feel worse for opening it.
 
-### Key screens
+### Screens beyond the main route
 
-84 screens in light mode, each mirrored in dark mode, 168 in total. Every
-screen described below exists in the Figma file, and the demo route through
-them is wired end to end. Named prototype starting points expose onboarding,
-dark mode and degraded states without lengthening the main judging route.
+84 screens in light mode, each mirrored in dark mode, 168 in total. The
+[screen-by-screen walkthrough](#user-flow-end-to-end) further down covers the demo route in
+order. These are the screens that sit outside it: how SODA explains itself, what it looks like
+before the app is even opened, how it behaves when something fails, and the dark theme. Named
+prototype starting points reach all of them without lengthening the main judging route.
 
-The four storyboards below summarise the journey. The [screen-by-screen walkthrough](#user-flow-end-to-end) that follows shows every screen on the route, what it does and what the student does with it.
 
----
-
-**Storyboard 1: Onboarding to the first capacity reading**
-
-Splash → Welcome → Capacity Baseline (four calibration questions: what a
-normal week feels like, focused hours per day, protected recovery per day,
-and how the student prefers to recharge)
-→ Connect Your Week (Google Calendar read-only, notifications, optional
-health) → Calendar Review (imported commitments grouped by category,
-confirmed before anything is calculated) → Home.
-
-Both optional steps can be skipped. A student who declines the calendar and
-the review still lands on a working first-run Home, where SODA states that
-it has no limit for them yet and shows only their calendar until two
-check-ins are done.
-
-Home then shows Friday's estimated load at 82% (Heavy), the five parts of
-the student's load (Mental 91%, Time 87%, Physical 62%, Social 43%,
-Errands 58%), a week bar chart, and a banner naming the day that breaks:
-*Wednesday goes over your limit.*
-
----
-
-**Storyboard 2: Capture to decision**
-
-Add → SODA reads it → Confirms understanding → Impact Preview →
-Smart Rebalance → Changes applied → Week Updated → Home.
-
-Adding is a single screen. The chat field is there immediately, with a
-"Type it in yourself" button that expands the manual form in place. No
-screen asks the student to pick a mode first.
-
-Typed input passes two checks before anything is saved. SODA shows its
-working (heard the task, found the date, estimated the effort from past
-tasks), then states what it understood (*Friday 15 Nov, 19:00, 3h 30m
-suggested, Extra High*) and asks "Did I get that right?"
-
-The confirmed commitment keeps **effort** and **priority** as separate fields. Effort describes how demanding the task is and contributes to the five-axis estimate; priority tells Smart Rebalance which flexible tasks should be preserved or considered for rescheduling first.
-
-Impact Preview is the decision point: `82% → 112%`, Mental `91% → 118%`,
-Time `87% → 109%`, and rest time left falling from 2h 10m to 25m. The
-primary action is not "Save", it is "Fix my week". The alternative,
-"Accept anyway", passes through its own confirmation and leads to a Home
-that still shows Friday at 112%. The app does not pretend the problem
-went away.
-
-Smart Rebalance proposes three named moves and lets the student choose.
-Two selected moves total −23%, taking Friday from 112% to 89%, with a line
-confirming that 1h 50m of rest is kept. A third move can be added for
-−26% and 86%; both outcomes have their own confirmation and Week Updated
-screens.
-
----
-
-**Storyboard 3: Fixing a day that is already overloaded**
-
-Wednesday runs at 104% before anything is added. Forecast, the Home
-banner, What Breaks and Task Detail all route into the same Wednesday
-rebalance screen, so the day the student was told about is the day they
-land on.
-
-Two flexible moves, assignment work to Saturday at 11:00 and the club
-meeting to Sunday, bring Wednesday to 80%. The part-time shift is tagged
-Fixed and is left alone. Asking to swap it is offered as a separate
-request that shows as "waiting for your manager" and is never counted in
-the improvement total.
-
-Applying the changes updates Week Updated, Home, the day detail and the
-forecast together, so tapping back into any of them shows the fixed week
-rather than the old numbers.
-
----
-
-**Storyboard 4: Check-in and recovery**
-
-Daily Check-in (five sliders: energy, mood, mental, physical, social
-battery) → Recover → Recovery Island → pick a type → Timer → Complete.
-
-Recover shows accumulated recovery debt: 2h 35m across four weeks, stated
-as rest the student owes themselves, with the explicit line that it is a
-planning signal and not a medical score.
-
-Recovery Island reports which parts of capacity are actually low and
-recommends one option. Choosing a type opens a single screen with Physical,
-Time and Mental as tabs, so switching takes one tap instead of returning to
-the menu. Physical and Mental options run a timer; Time options remove work
-instead of adding rest and end in a "tasks batched" confirmation. The timer
-can be paused or ended early, and ending early logs nothing rather than
-crediting rest that was not taken.
-
----
-
-**Storyboard 5: Insight, honesty and trust**
+**Explaining itself: insight, honesty and trust**
 
 Insights → Body Signals → Settings → How SODA Calculates.
 
@@ -443,32 +349,32 @@ Four flows. Every screen below is in the Figma file and wired.
 <th width="26%">What the student does</th>
 </tr>
 <tr>
-<td align="center"><img src="images/o1-splash.png" width="170"><br><b>O1 — Splash</b></td>
+<td align="center"><img src="images/o1-splash.png" width="170"><br><b>Splash</b></td>
 <td>Opens the app.</td>
 <td>Nothing. It passes.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/o2-welcome.png" width="170"><br><b>O2 — Welcome</b></td>
+<td align="center"><img src="images/o2-welcome.png" width="170"><br><b>Welcome</b></td>
 <td>Three lines explain the whole product: see the cost before you say yes, move things when the week is full, keep time to rest.</td>
 <td>Taps <b>Get started</b>, or signs in.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/o3-capacity-baseline.png" width="170"><br><b>O3 — Capacity Baseline</b></td>
+<td align="center"><img src="images/o3-capacity-baseline.png" width="170"><br><b>Capacity Baseline</b></td>
 <td>Four questions set the student's own limit: how a normal week feels, focus hours a day, rest kept a day, and whether they recover alone or with people.</td>
 <td>Taps one answer per question, then <b>Continue</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/o4-connect-week.png" width="170"><br><b>O4 — Connect Your Week</b></td>
+<td align="center"><img src="images/o4-connect-week.png" width="170"><br><b>Connect Your Week</b></td>
 <td>Offers calendar, notifications and a wearable. All three are optional and marked read-only.</td>
 <td>Connects what they want, or taps <b>I'll do this later</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/o5-calendar-review.png" width="170"><br><b>O5 — Calendar Review</b></td>
+<td align="center"><img src="images/o5-calendar-review.png" width="170"><br><b>Calendar Review</b></td>
 <td>Shows the 14 imported tasks grouped by category before anything is calculated.</td>
 <td>Checks the list, taps <b>Import &amp; continue</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/h0-home-day-one.png" width="170"><br><b>H0 — Home · day one</b></td>
+<td align="center"><img src="images/h0-home-day-one.png" width="170"><br><b>Home · day one</b></td>
 <td>Capacity shows "—", not a number. SODA says the limit appears after two check-ins and shows only the calendar until then.</td>
 <td>Starts a check-in, or just looks around.</td>
 </tr>
@@ -488,52 +394,52 @@ calendar still lands on a working Home.
 <th width="26%">What the student does</th>
 </tr>
 <tr>
-<td align="center"><img src="images/h1-home.png" width="170"><br><b>H1 — Home</b></td>
+<td align="center"><img src="images/h1-home.png" width="170"><br><b>Home</b></td>
 <td>Friday's estimated load at 82% (Heavy), the five parts of the load, the week chart, and a banner naming Wednesday as the day that breaks.</td>
 <td>Taps the backpack in the tab bar.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a-add.png" width="170"><br><b>A★ — Add</b></td>
+<td align="center"><img src="images/a-add.png" width="170"><br><b>Add</b></td>
 <td>One screen. Chat field ready to type, a worked example to tap, and <b>Type it in yourself</b> to open the manual form in place.</td>
 <td>Types a sentence, taps the example, or opens the form.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a-add-manual.png" width="170"><br><b>A★b — Add · manual</b></td>
+<td align="center"><img src="images/a-add-manual.png" width="170"><br><b>Add · manual</b></td>
 <td>Title, date, time, duration, effort and priority. SODA's duration estimate is applied with a visible <b>Undo</b>.</td>
 <td>Fills in what they know, sets priority, taps <b>See impact</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a1c-soda-reading.png" width="170"><br><b>A1c — SODA is reading that</b></td>
+<td align="center"><img src="images/a1c-soda-reading.png" width="170"><br><b>SODA is reading that</b></td>
 <td>Shows its working, one line at a time: heard the task, found the date, worked out the effort and how important it is.</td>
 <td>Waits. Nothing is saved yet.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a2-confirm.png" width="170"><br><b>A2 — Tell SODA</b></td>
+<td align="center"><img src="images/a2-confirm.png" width="170"><br><b>Tell SODA</b></td>
 <td>States what it understood: Friday 15 Nov, 19:00, 3h 30m suggested, Extra High, priority High.</td>
 <td>Taps <b>Yes, that's right</b>, or <b>Not quite</b> to correct it.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a4-impact-preview.png" width="170"><br><b>A4 — Impact Preview</b></td>
+<td align="center"><img src="images/a4-impact-preview.png" width="170"><br><b>Impact Preview</b></td>
 <td>The decision point. 82% → 112%, Mental 91% → 118%, Time 87% → 109%, rest time left 2h 10m → 25m, and the day that breaks is named.</td>
 <td>Taps <b>Fix my week</b>, or <b>Accept anyway</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a5-rebalance.png" width="170"><br><b>A5 — Smart Rebalance</b></td>
+<td align="center"><img src="images/a5-rebalance.png" width="170"><br><b>Smart Rebalance</b></td>
 <td>Three named moves, each with its priority and its effect. Low moves first; High only changes time and never gets cut.</td>
 <td>Ticks the moves they accept, taps <b>Apply 2 changes</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/ov2-changes-applied.png" width="170"><br><b>OV2 — Changes applied</b></td>
+<td align="center"><img src="images/ov2-changes-applied.png" width="170"><br><b>Changes applied</b></td>
 <td>Confirms what changed: Presentation prep → Saturday (−15%), Revision delayed to Sunday (−8%), Friday 112% → 89%.</td>
 <td>Taps <b>Back to my week</b>, or <b>Undo everything</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/h3-week-updated.png" width="170"><br><b>H3 — Week Updated</b></td>
+<td align="center"><img src="images/h3-week-updated.png" width="170"><br><b>Week Updated</b></td>
 <td>The week after the fix, with Friday at 89% and Wednesday still at 104%, because fixing Friday did not fix Wednesday.</td>
 <td>Taps <b>Back to my week</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/h1u-home-after-fix.png" width="170"><br><b>H1u — Home · after the fix</b></td>
+<td align="center"><img src="images/h1u-home-after-fix.png" width="170"><br><b>Home · after the fix</b></td>
 <td>Home after the three-move route: 86%, 15 tasks, Friday under the limit. The two-move route ends at 89%; each has its own confirmation and Week Updated screen.</td>
 <td>Carries on.</td>
 </tr>
@@ -554,32 +460,32 @@ its own Home and Forecast, both still showing Friday over the limit.
 <th width="26%">What the student does</th>
 </tr>
 <tr>
-<td align="center"><img src="images/f1-forecast.png" width="170"><br><b>F1 — Life Forecast</b></td>
+<td align="center"><img src="images/f1-forecast.png" width="170"><br><b>Life Forecast</b></td>
 <td>Seven days ahead. Wednesday is flagged at 104% OVERLOAD; Thursday is Heavy with a storm warning.</td>
 <td>Taps Wednesday, or <b>Fix my Wednesday</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/f2-day-plan.png" width="170"><br><b>F2 — Forecast Day Plan</b></td>
+<td align="center"><img src="images/f2-day-plan.png" width="170"><br><b>Forecast Day Plan</b></td>
 <td>What makes Wednesday heavy, task by task, with each one's share: Assignment Work +18%, Data Structures +12%, Part-time Shift +26%.</td>
 <td>Taps <b>Fix Wednesday</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a5w-rebalance-wednesday.png" width="170"><br><b>A5w — Smart Rebalance · Wednesday</b></td>
+<td align="center"><img src="images/a5w-rebalance-wednesday.png" width="170"><br><b>Smart Rebalance · Wednesday</b></td>
 <td>Two flexible moves bring 104% to 80%. The part-time shift is tagged fixed and is not touched; asking to swap it is a separate request.</td>
 <td>Taps <b>Apply 2 changes</b>, or sends the swap request.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/ov2w-changes-applied-wednesday.png" width="170"><br><b>OV2w — Changes applied</b></td>
+<td align="center"><img src="images/ov2w-changes-applied-wednesday.png" width="170"><br><b>Changes applied</b></td>
 <td>Assignment Work → Saturday (−18%), Club Meeting → Sunday (−6%), Wednesday 104% → 80%.</td>
 <td>Taps <b>Back to my week</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/h3w-week-updated-wednesday.png" width="170"><br><b>H3w — Week Updated · Wednesday</b></td>
+<td align="center"><img src="images/h3w-week-updated-wednesday.png" width="170"><br><b>Week Updated · Wednesday</b></td>
 <td>Wednesday now at 80%, the shift still 6h and marked unchanged.</td>
 <td>Taps <b>Back to my week</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/h1w-home-after-wednesday-fix.png" width="170"><br><b>H1w — Home · after the fix</b></td>
+<td align="center"><img src="images/h1w-home-after-wednesday-fix.png" width="170"><br><b>Home · after the fix</b></td>
 <td>Home, day detail and forecast all show the fixed week, not the old numbers.</td>
 <td>Carries on.</td>
 </tr>
@@ -596,32 +502,32 @@ its own Home and Forecast, both still showing Friday over the limit.
 <th width="26%">What the student does</th>
 </tr>
 <tr>
-<td align="center"><img src="images/r1-recover.png" width="170"><br><b>R1 — Recover</b></td>
+<td align="center"><img src="images/r1-recover.png" width="170"><br><b>Recover</b></td>
 <td>Recovery debt of 2h 35m against a target of about 5h 15m a week, taken from the 30–60 minutes a day set at onboarding. States plainly that it is a planning signal, not a health score.</td>
 <td>Taps <b>Enter Recovery Island</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/r2-recovery-island.png" width="170"><br><b>R2 — Recovery Island</b></td>
+<td align="center"><img src="images/r2-recovery-island.png" width="170"><br><b>Recovery Island</b></td>
 <td>Names what is actually low, Mental lowest and Social clear, and recommends one option.</td>
 <td>Picks Physical, Time or Mental.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/r-island-physical.png" width="170"><br><b>R★ — Recovery Island · type</b></td>
+<td align="center"><img src="images/r-island-physical.png" width="170"><br><b>Recovery Island · type</b></td>
 <td>One screen with all three types as tabs. Each option states the time it gives back.</td>
 <td>Switches tabs, picks an option.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/r3-timer.png" width="170"><br><b>R3 — Recovery Timer</b></td>
+<td align="center"><img src="images/r3-timer.png" width="170"><br><b>Recovery Timer</b></td>
 <td>A 20-minute reset with nothing else on screen. Pause and end early both work.</td>
 <td>Rests. Or pauses, or ends early.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/r4-complete.png" width="170"><br><b>R4 — Recovery Complete</b></td>
+<td align="center"><img src="images/r4-complete.png" width="170"><br><b>Recovery Complete</b></td>
 <td>Logs 20 minutes against the weekly target. Tasks stay unchanged. Ending early logs nothing.</td>
 <td>Taps <b>Back to my week</b>, or logs how it felt.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/r5-daily-checkin.png" width="170"><br><b>R5 — Daily Check-In</b></td>
+<td align="center"><img src="images/r5-daily-checkin.png" width="170"><br><b>Daily Check-In</b></td>
 <td>Five bars: energy, mood, mental, physical, social battery. Wearable sleep data is offered, not assumed.</td>
 <td>Taps a level per bar, chooses whether to use the sleep figure, saves.</td>
 </tr>
