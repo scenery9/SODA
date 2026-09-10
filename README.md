@@ -435,36 +435,110 @@ Four flows. Every screen below is in the Figma file and wired.
 
 ---
 
-**1. First run: from install to a number you can trust**
+**1. First run — from install to a number you can trust**
 
-| Screen | What it does | What the student does |
-|---|---|---|
-| <img src="images/o1-splash.png" width="110"><br>**O1 — Splash** | Opens the app. | Nothing. It passes. |
-| <img src="images/o2-welcome.png" width="110"><br>**O2 — Welcome** | Three lines explain the whole product: see the cost before you say yes, move things when the week is full, keep time to rest. | Taps **Get started**, or signs in. |
-| <img src="images/o3-capacity-baseline.png" width="110"><br>**O3 — Capacity Baseline** | Four questions set the student's own limit: how a normal week feels, focus hours a day, rest kept a day, and whether they recover alone or with people. | Taps one answer per question, then **Continue**. |
-| <img src="images/o4-connect-week.png" width="110"><br>**O4 — Connect Your Week** | Offers calendar, notifications and a wearable. All three are optional and marked read-only. | Connects what they want, or taps **I'll do this later**. |
-| <img src="images/o5-calendar-review.png" width="110"><br>**O5 — Calendar Review** | Shows the 14 imported tasks grouped by category before anything is calculated. | Checks the list, taps **Import & continue**. |
-| <img src="images/h0-home-day-one.png" width="110"><br>**H0 — Home · day one** | Capacity shows "—", not a number. SODA says the limit appears after two check-ins and shows only the calendar until then. | Starts a check-in, or just looks around. |
+<table>
+<tr>
+<th width="210">Screen</th>
+<th width="42%">What it does</th>
+<th width="26%">What the student does</th>
+</tr>
+<tr>
+<td align="center"><img src="images/o1-splash.png" width="170"><br><b>O1 — Splash</b></td>
+<td>Opens the app.</td>
+<td>Nothing. It passes.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/o2-welcome.png" width="170"><br><b>O2 — Welcome</b></td>
+<td>Three lines explain the whole product: see the cost before you say yes, move things when the week is full, keep time to rest.</td>
+<td>Taps <b>Get started</b>, or signs in.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/o3-capacity-baseline.png" width="170"><br><b>O3 — Capacity Baseline</b></td>
+<td>Four questions set the student's own limit: how a normal week feels, focus hours a day, rest kept a day, and whether they recover alone or with people.</td>
+<td>Taps one answer per question, then <b>Continue</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/o4-connect-week.png" width="170"><br><b>O4 — Connect Your Week</b></td>
+<td>Offers calendar, notifications and a wearable. All three are optional and marked read-only.</td>
+<td>Connects what they want, or taps <b>I'll do this later</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/o5-calendar-review.png" width="170"><br><b>O5 — Calendar Review</b></td>
+<td>Shows the 14 imported tasks grouped by category before anything is calculated.</td>
+<td>Checks the list, taps <b>Import &amp; continue</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/h0-home-day-one.png" width="170"><br><b>H0 — Home · day one</b></td>
+<td>Capacity shows "—", not a number. SODA says the limit appears after two check-ins and shows only the calendar until then.</td>
+<td>Starts a check-in, or just looks around.</td>
+</tr>
+</table>
 
 Nothing is calculated from data the student has not seen. Skipping the
 calendar still lands on a working Home.
 
 ---
 
-**2. Adding a commitment: the core loop**
+**2. Adding a commitment — the core loop**
 
-| Screen | What it does | What the student does |
-|---|---|---|
-| <img src="images/h1-home.png" width="110"><br>**H1 — Home** | Friday's estimated load at 82% (Heavy), the five parts of the load, the week chart, and a banner naming Wednesday as the day that breaks. | Taps the backpack in the tab bar. |
-| <img src="images/a-add.png" width="110"><br>**A★ — Add** | One screen. Chat field ready to type, a worked example to tap, and **Type it in yourself** to open the manual form in place. | Types a sentence, taps the example, or opens the form. |
-| <img src="images/a-add-manual.png" width="110"><br>**A★b — Add · manual** | Title, date, time, duration, effort and priority. SODA's duration estimate is applied with a visible **Undo**. | Fills in what they know, sets priority, taps **See impact**. |
-| <img src="images/a1c-soda-reading.png" width="110"><br>**A1c — SODA is reading that** | Shows its working, one line at a time: heard the task, found the date, worked out the effort and how important it is. | Waits. Nothing is saved yet. |
-| <img src="images/a2-confirm.png" width="110"><br>**A2 — Tell SODA** | States what it understood: Friday 15 Nov, 19:00, 3h 30m suggested, Extra High, priority High. | Taps **Yes, that's right**, or **Not quite** to correct it. |
-| <img src="images/a4-impact-preview.png" width="110"><br>**A4 — Impact Preview** | The decision point. 82% → 112%, Mental 91% → 118%, Time 87% → 109%, rest time left 2h 10m → 25m, and the day that breaks is named. | Taps **Fix my week**, or **Accept anyway**. |
-| <img src="images/a5-rebalance.png" width="110"><br>**A5 — Smart Rebalance** | Three named moves, each with its priority and its effect. Low moves first; High only changes time and never gets cut. | Ticks the moves they accept, taps **Apply 2 changes**. |
-| <img src="images/ov2-changes-applied.png" width="110"><br>**OV2 — Changes applied** | Confirms what changed: Presentation prep → Saturday (−15%), Revision delayed to Sunday (−8%), Friday 112% → 89%. | Taps **Back to my week**, or **Undo everything**. |
-| <img src="images/h3-week-updated.png" width="110"><br>**H3 — Week Updated** | The week after the fix, with Friday at 89% and Wednesday still at 104%, because fixing Friday did not fix Wednesday. | Taps **Back to my week**. |
-| <img src="images/h1u-home-after-fix.png" width="110"><br>**H1u — Home · after the fix** | Home with the new numbers: 86%, 15 tasks, Friday under the limit. | Carries on. |
+<table>
+<tr>
+<th width="210">Screen</th>
+<th width="42%">What it does</th>
+<th width="26%">What the student does</th>
+</tr>
+<tr>
+<td align="center"><img src="images/h1-home.png" width="170"><br><b>H1 — Home</b></td>
+<td>Friday's estimated load at 82% (Heavy), the five parts of the load, the week chart, and a banner naming Wednesday as the day that breaks.</td>
+<td>Taps the backpack in the tab bar.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a-add.png" width="170"><br><b>A★ — Add</b></td>
+<td>One screen. Chat field ready to type, a worked example to tap, and <b>Type it in yourself</b> to open the manual form in place.</td>
+<td>Types a sentence, taps the example, or opens the form.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a-add-manual.png" width="170"><br><b>A★b — Add · manual</b></td>
+<td>Title, date, time, duration, effort and priority. SODA's duration estimate is applied with a visible <b>Undo</b>.</td>
+<td>Fills in what they know, sets priority, taps <b>See impact</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a1c-soda-reading.png" width="170"><br><b>A1c — SODA is reading that</b></td>
+<td>Shows its working, one line at a time: heard the task, found the date, worked out the effort and how important it is.</td>
+<td>Waits. Nothing is saved yet.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a2-confirm.png" width="170"><br><b>A2 — Tell SODA</b></td>
+<td>States what it understood: Friday 15 Nov, 19:00, 3h 30m suggested, Extra High, priority High.</td>
+<td>Taps <b>Yes, that's right</b>, or <b>Not quite</b> to correct it.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a4-impact-preview.png" width="170"><br><b>A4 — Impact Preview</b></td>
+<td>The decision point. 82% → 112%, Mental 91% → 118%, Time 87% → 109%, rest time left 2h 10m → 25m, and the day that breaks is named.</td>
+<td>Taps <b>Fix my week</b>, or <b>Accept anyway</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a5-rebalance.png" width="170"><br><b>A5 — Smart Rebalance</b></td>
+<td>Three named moves, each with its priority and its effect. Low moves first; High only changes time and never gets cut.</td>
+<td>Ticks the moves they accept, taps <b>Apply 2 changes</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/ov2-changes-applied.png" width="170"><br><b>OV2 — Changes applied</b></td>
+<td>Confirms what changed: Presentation prep → Saturday (−15%), Revision delayed to Sunday (−8%), Friday 112% → 89%.</td>
+<td>Taps <b>Back to my week</b>, or <b>Undo everything</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/h3-week-updated.png" width="170"><br><b>H3 — Week Updated</b></td>
+<td>The week after the fix, with Friday at 89% and Wednesday still at 104%, because fixing Friday did not fix Wednesday.</td>
+<td>Taps <b>Back to my week</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/h1u-home-after-fix.png" width="170"><br><b>H1u — Home · after the fix</b></td>
+<td>Home with the new numbers: 86%, 15 tasks, Friday under the limit.</td>
+<td>Carries on.</td>
+</tr>
+</table>
 
 Manual entry skips the confirmation step, because the student typed the
 details themselves. **Accept anyway** is a complete path too: it leads to
@@ -474,27 +548,85 @@ its own Home and Forecast, both still showing Friday over the limit.
 
 **3. Fixing a day that is already overloaded**
 
-| Screen | What it does | What the student does |
-|---|---|---|
-| <img src="images/f1-forecast.png" width="110"><br>**F1 — Life Forecast** | Seven days ahead. Wednesday is flagged at 104% OVERLOAD; Thursday is Heavy with a storm warning. | Taps Wednesday, or **Fix my Wednesday**. |
-| <img src="images/f2-day-plan.png" width="110"><br>**F2 — Forecast Day Plan** | What makes Wednesday heavy, task by task, with each one's share: Assignment Work +18%, Data Structures +12%, Part-time Shift +26%. | Taps **Fix Wednesday**. |
-| <img src="images/a5w-rebalance-wednesday.png" width="110"><br>**A5w — Smart Rebalance · Wednesday** | Two flexible moves bring 104% to 80%. The part-time shift is tagged fixed and is not touched; asking to swap it is a separate request. | Taps **Apply 2 changes**, or sends the swap request. |
-| <img src="images/ov2w-changes-applied-wednesday.png" width="110"><br>**OV2w — Changes applied** | Assignment Work → Saturday (−18%), Club Meeting → Sunday (−6%), Wednesday 104% → 80%. | Taps **Back to my week**. |
-| <img src="images/h3w-week-updated-wednesday.png" width="110"><br>**H3w — Week Updated · Wednesday** | Wednesday now at 80%, the shift still 6h and marked unchanged. | Taps **Back to my week**. |
-| <img src="images/h1w-home-after-wednesday-fix.png" width="110"><br>**H1w — Home · after the fix** | Home, day detail and forecast all show the fixed week, not the old numbers. | Carries on. |
+<table>
+<tr>
+<th width="210">Screen</th>
+<th width="42%">What it does</th>
+<th width="26%">What the student does</th>
+</tr>
+<tr>
+<td align="center"><img src="images/f1-forecast.png" width="170"><br><b>F1 — Life Forecast</b></td>
+<td>Seven days ahead. Wednesday is flagged at 104% OVERLOAD; Thursday is Heavy with a storm warning.</td>
+<td>Taps Wednesday, or <b>Fix my Wednesday</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/f2-day-plan.png" width="170"><br><b>F2 — Forecast Day Plan</b></td>
+<td>What makes Wednesday heavy, task by task, with each one's share: Assignment Work +18%, Data Structures +12%, Part-time Shift +26%.</td>
+<td>Taps <b>Fix Wednesday</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/a5w-rebalance-wednesday.png" width="170"><br><b>A5w — Smart Rebalance · Wednesday</b></td>
+<td>Two flexible moves bring 104% to 80%. The part-time shift is tagged fixed and is not touched; asking to swap it is a separate request.</td>
+<td>Taps <b>Apply 2 changes</b>, or sends the swap request.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/ov2w-changes-applied-wednesday.png" width="170"><br><b>OV2w — Changes applied</b></td>
+<td>Assignment Work → Saturday (−18%), Club Meeting → Sunday (−6%), Wednesday 104% → 80%.</td>
+<td>Taps <b>Back to my week</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/h3w-week-updated-wednesday.png" width="170"><br><b>H3w — Week Updated · Wednesday</b></td>
+<td>Wednesday now at 80%, the shift still 6h and marked unchanged.</td>
+<td>Taps <b>Back to my week</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/h1w-home-after-wednesday-fix.png" width="170"><br><b>H1w — Home · after the fix</b></td>
+<td>Home, day detail and forecast all show the fixed week, not the old numbers.</td>
+<td>Carries on.</td>
+</tr>
+</table>
 
 ---
 
 **4. Recovering owed rest**
 
-| Screen | What it does | What the student does |
-|---|---|---|
-| <img src="images/r1-recover.png" width="110"><br>**R1 — Recover** | Recovery debt of 2h 35m against a target of about 5h 15m a week, taken from the 30–60 minutes a day set at onboarding. States plainly that it is a planning signal, not a health score. | Taps **Enter Recovery Island**. |
-| <img src="images/r2-recovery-island.png" width="110"><br>**R2 — Recovery Island** | Names what is actually low, Mental lowest and Social clear, and recommends one option. | Picks Physical, Time or Mental. |
-| <img src="images/r-island-physical.png" width="110"><br>**R★ — Recovery Island · type** | One screen with all three types as tabs. Each option states the time it gives back. | Switches tabs, picks an option. |
-| <img src="images/r3-timer.png" width="110"><br>**R3 — Recovery Timer** | A 20-minute reset with nothing else on screen. Pause and end early both work. | Rests. Or pauses, or ends early. |
-| <img src="images/r4-complete.png" width="110"><br>**R4 — Recovery Complete** | Logs 20 minutes against the weekly target. Tasks stay unchanged. Ending early logs nothing. | Taps **Back to my week**, or logs how it felt. |
-| <img src="images/r5-daily-checkin.png" width="110"><br>**R5 — Daily Check-In** | Five bars: energy, mood, mental, physical, social battery. Wearable sleep data is offered, not assumed. | Taps a level per bar, chooses whether to use the sleep figure, saves. |
+<table>
+<tr>
+<th width="210">Screen</th>
+<th width="42%">What it does</th>
+<th width="26%">What the student does</th>
+</tr>
+<tr>
+<td align="center"><img src="images/r1-recover.png" width="170"><br><b>R1 — Recover</b></td>
+<td>Recovery debt of 2h 35m against a target of about 5h 15m a week, taken from the 30–60 minutes a day set at onboarding. States plainly that it is a planning signal, not a health score.</td>
+<td>Taps <b>Enter Recovery Island</b>.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/r2-recovery-island.png" width="170"><br><b>R2 — Recovery Island</b></td>
+<td>Names what is actually low, Mental lowest and Social clear, and recommends one option.</td>
+<td>Picks Physical, Time or Mental.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/r-island-physical.png" width="170"><br><b>R★ — Recovery Island · type</b></td>
+<td>One screen with all three types as tabs. Each option states the time it gives back.</td>
+<td>Switches tabs, picks an option.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/r3-timer.png" width="170"><br><b>R3 — Recovery Timer</b></td>
+<td>A 20-minute reset with nothing else on screen. Pause and end early both work.</td>
+<td>Rests. Or pauses, or ends early.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/r4-complete.png" width="170"><br><b>R4 — Recovery Complete</b></td>
+<td>Logs 20 minutes against the weekly target. Tasks stay unchanged. Ending early logs nothing.</td>
+<td>Taps <b>Back to my week</b>, or logs how it felt.</td>
+</tr>
+<tr>
+<td align="center"><img src="images/r5-daily-checkin.png" width="170"><br><b>R5 — Daily Check-In</b></td>
+<td>Five bars: energy, mood, mental, physical, social battery. Wearable sleep data is offered, not assumed.</td>
+<td>Taps a level per bar, chooses whether to use the sleep figure, saves.</td>
+</tr>
+</table>
 
 ---
 
