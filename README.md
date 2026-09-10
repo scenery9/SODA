@@ -577,15 +577,13 @@ for assistive-technology support.
 
 ## 4. What Makes It Different
 
-**SODA makes the next “yes” a capacity decision.** Its distinctive combination is an editable five-axis estimate, a preview before commitment, feasible adjustments and a recovery record that spans weeks.
+**Every other planner models the work. SODA models what the student has left.**
+
+That is the whole difference. A task list answers *what do I have to do*. A calendar answers *when does it happen*. Neither answers the question a student actually asks at the moment a request arrives: *can I take this on, and what would have to change?* SODA answers that one, with an editable five-axis estimate, a preview before the commitment is saved, adjustments that respect what cannot move, and a recovery record that does not reset on Monday.
 
 ### Three experiences, one decision journey
 
 #### My Backpack: “Now I understand what is making the week heavy.”
-
-<p align="center">
-  <img src="images/h1-home.png" alt="My Backpack: Friday at 82% Heavy, the five axes beneath it, and the week chart flagging Wednesday at 104%." width="240">
-</p>
 
 
 The student starts with an overview of combined demand, then sees which of the five dimensions needs attention. A three-hour assignment and a three-hour social event occupy the same time but receive different proposed demand vectors. The value is understanding the pressure behind the task list, not simply counting more tasks.
@@ -594,10 +592,6 @@ Task entry makes the overview possible, and Life Forecast extends it across the 
 
 #### Impact Preview: “I can decide before I commit.”
 
-<p align="center">
-  <img src="images/a4-impact-preview.png" alt="Impact Preview: Friday moves from 82% to 112% before the task is saved, with the affected axes and the fall in rest time left." width="240">
-</p>
-
 
 **This is SODA's central demonstration moment.** The student previews an unsaved task against the current plan, sees the trade-off, and chooses whether to accept, adjust, defer or decline.
 
@@ -605,16 +599,24 @@ Protection Mode and Smart Rebalance support that same decision. They preserve fi
 
 #### Recovery Island: “I have a manageable next step for recovery.”
 
-<p align="center">
-  <img src="images/r2-recovery-island.png" alt="Recovery Island: recovery options matched to the axis that is most depleted, with the time each one returns." width="240">
-</p>
-
 
 The student chooses a recovery action suited to their preferences and current context, protects time for it, and records what they completed. The experience turns a general reminder into a concrete action.
 
 Recovery Debt supports this experience by showing planned-versus-logged recovery across 28 completed days. It keeps postponed recovery visible across calendar boundaries without becoming a separate score to chase. Missing logs do not prove missing rest, extra rest does not erase an earlier daily shortfall, and the ledger does not lower the student's capacity baseline.
 
 **What helps the next visit:** optional Reality Check feedback can prompt an approved estimate adjustment when tasks repeatedly take longer than expected. This follows the planning-fallacy rationale ([Buehler et al., 1994](https://doi.org/10.1037/0022-3514.67.3.366)); it does not establish accurate automated learning. Check-ins, explanations and Insights support understanding and continuity across all three main experiences.
+
+### Four things nobody else does
+
+Each of these exists because the three experiences above needed it, not as a feature added for its
+own sake.
+
+| | The twist | Why it is unusual |
+|---|---|---|
+| **1** | **The simulation runs before the task is saved.** Impact Preview shows `82% → 112%`, the axes that move and the rest it costs, while the student can still walk away. Nothing is written. | Planners report overload after you have already agreed. Moving that information to the only moment it can change the answer is the product. |
+| **2** | **Recovery debt survives the week.** Planned-versus-logged rest is carried across 28 completed days, so a shortfall from three weeks ago is still visible. | Every planner resets on Monday. Students do not. The ledger refuses to pretend the week is a clean slate. |
+| **3** | **A paid shift is never quietly moved.** Commitments are tagged Fixed or Flexible. SODA will draft the message to a manager, but the swap shows as *waiting for your manager* and is excluded from the improvement total until approved. | Auto-schedulers treat every block as movable. A student who loses a shift loses income, so an unapproved swap is not an improvement. |
+| **4** | **It learns how wrong the student's own estimates are.** Two taps after a task record whether it ran long and felt heavier; repeated answers within a category prompt an approved adjustment to future estimates. | Task managers record that something was completed, never whether the estimate was right, so they cannot correct the planning fallacy they inherit. |
 
 ### Comparison with existing solutions
 
@@ -643,6 +645,23 @@ The trade-off is explicit: **laundry moves to Saturday; it does not disappear fr
 This example establishes an intended decision path, not an observed benefit. It is deliberately a scheduling case rather than a scored one: it shows which commitment moves and what is preserved, and carries no load percentage, because a percentage needs a complete set of recorded inputs rather than the six commitments listed here. The [demonstration pack](docs/DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences) holds the same case with its constraints and its no-feasible-adjustment variant.
 
 **Why the mechanism is plausible:** Study Demands–Resources theory links demands, resources and proactive adjustment ([Bakker & Mostert, 2024](https://doi.org/10.1007/s10648-024-09940-8)). SODA brings those decisions together rather than leaving recovery separate from planning. The theory tells us the mechanism is worth building; only testing will tell us we built it well.
+
+### The same week, with and without
+
+The scheduling case above deliberately carries no percentage, because six listed commitments are not
+a complete set of recorded inputs. The demo fixture is complete, so it can carry them. This is the
+designed path through it, not a measured outcome.
+
+| | Without SODA | With SODA |
+|---|---|---|
+| **The decision** | Says yes. Finds out on Friday. | Sees `82% → 112%` and the rest it costs, before the task is saved. |
+| **The overloaded day** | Friday runs over. Rest is the first thing dropped, because it is the only thing with no deadline. | Two approved moves bring Friday to `89%`, and the line confirms 1h 50m of rest is kept. |
+| **The paid shift** | Shortened or skipped to make room, at a real cost to income. | Never proposed as a move. A swap needs the manager and is not counted until approved. |
+| **The following Monday** | Starts clean. Three weeks of missed rest are invisible. | `2h 35m` is still on the Recover screen, against a 5h 15m weekly target. |
+
+The claim is bounded. SODA does not prevent overload, and this shows a designed route rather than an
+observed benefit. What it changes is when the student finds out, and whether anything can still be
+done about it. Whether that holds outside a fixture is what the study below is for.
 
 ### How we would evaluate it
 
