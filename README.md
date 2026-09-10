@@ -63,6 +63,19 @@ SODA is a proposed student workload planner that combines recorded commitments a
 
 > **See total load → preview a commitment → choose a feasible change → protect recovery → improve the next estimate.**
 
+<table>
+<tr>
+<td width="33%"><img src="images/h1-home.png" alt="My Backpack. Friday's estimated load reads 82% and Heavy, with mental 91, time 87, physical 62, social 43 and errands 58 beneath it. The week chart flags Wednesday at 104% and the banner reads that Wednesday goes over the limit."></td>
+<td width="33%"><img src="images/a4-impact-preview.png" alt="Impact Preview. Adding the presentation moves Friday from 82% to 112% before anything is saved, showing the affected axes and rest time left falling from 2h 10m to 25m."></td>
+<td width="33%"><img src="images/a5-rebalance.png" alt="Smart Rebalance. Named moves with the percentage each one saves, the paid shift held fixed, and the protected recovery kept."></td>
+</tr>
+<tr>
+<td align="center"><b>See the load</b><br><sub>82%, and which axis is carrying it</sub></td>
+<td align="center"><b>Preview the cost</b><br><sub>82% → 112%, before it is saved</sub></td>
+<td align="center"><b>Choose a change</b><br><sub>fixed work stays fixed</sub></td>
+</tr>
+</table>
+
 **Current status and scope.** SODA is at prototype stage: a Figma prototype and the specifications behind it, with exported screens in Section 3. The application and hosted services are proposed for the three-week building phase.
 
 Two boundaries hold for everything that follows, so we state them once here instead of repeating them at every feature. **SODA produces planning estimates, never diagnoses or burnout-risk measurements.** And **no usability or wellbeing outcome has been evaluated yet**: the research cited throughout supports our design reasoning, not our weights, our thresholds or any claimed effect. Where a specific limit applies to one feature, we say so at that feature.
@@ -678,17 +691,32 @@ for assistive-technology support.
 
 #### My Backpack: “Now I understand what is making the week heavy.”
 
+<p align="center">
+  <img src="images/h1-home.png" alt="My Backpack: Friday at 82% Heavy, the five axes beneath it, and the week chart flagging Wednesday at 104%." width="240">
+</p>
+
+
 The student starts with an overview of combined demand, then sees which of the five dimensions needs attention. A three-hour assignment and a three-hour social event occupy the same time but receive different proposed demand vectors. The value is understanding the pressure behind the task list, not simply counting more tasks.
 
 Task entry makes the overview possible, and Life Forecast extends it across the week. The assumptions and recorded-data coverage remain visible so the student can correct an incomplete picture.
 
 #### Impact Preview: “I can decide before I commit.”
 
+<p align="center">
+  <img src="images/a4-impact-preview.png" alt="Impact Preview: Friday moves from 82% to 112% before the task is saved, with the affected axes and the fall in rest time left." width="240">
+</p>
+
+
 **This is SODA's central demonstration moment.** The student previews an unsaved task against the current plan, sees the trade-off, and chooses whether to accept, adjust, defer or decline.
 
 Protection Mode and Smart Rebalance support that same decision. They preserve fixed shifts, deadlines and protected recovery while offering feasible changes to flexible work, taking the student's own Low-priority work before touching anything marked Medium or High. Each selected change is checked against the whole week, including its destination. If nothing fits, the app explains why. Nothing moves without approval, and approved changes can be undone when later edits do not conflict.
 
 #### Recovery Island: “I have a manageable next step for recovery.”
+
+<p align="center">
+  <img src="images/r2-recovery-island.png" alt="Recovery Island: recovery options matched to the axis that is most depleted, with the time each one returns." width="240">
+</p>
+
 
 The student chooses a recovery action suited to their preferences and current context, protects time for it, and records what they completed. The experience turns a general reminder into a concrete action.
 
@@ -781,7 +809,41 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
 3. **Compare demand with capacity:** combine the axis utilisation values into a daily planning estimate while preserving separate axis warnings.
 4. **Simulate a change:** recalculate the candidate and any proposed moves across the week; check actual time overlaps independently of weighted demand. This is the only step that reads priority: fixed and completed commitments are excluded, and feasible Low-priority work is considered before Medium and High.
 
-**Reproducible example.** With a moderate baseline and five-hour focus budget, a three-hour high-effort academic task produces a daily estimate of **93.576% (displayed as 94%)**. Adding one hour of medium-effort errands produces **101.616% (102%)**. The [model specification](docs/MODEL.md) provides every vector and formula needed to reproduce both results.
+**The arithmetic, in full.** Every figure in the app comes from this. Nothing is learned or inferred.
+
+```
+effort multiplier          Low 0.6      Medium 1.0     High 1.4
+
+category weight w[c]       (mental, time, physical, social, errands)
+  Academic                 (0.55, 0.30, 0.05, 0.05, 0.05)
+  Work                     (0.25, 0.35, 0.25, 0.10, 0.05)
+  Social                   (0.10, 0.25, 0.10, 0.50, 0.05)
+  Errands                  (0.10, 0.30, 0.25, 0.05, 0.30)
+
+task demand                L = duration x effort x w[c]        (load-hours per axis)
+day demand                 L_day = sum of L over that day's tasks
+
+capacity ceiling           C = B x H x k
+  B  baseline              Light 1.15 | Moderate 1.00 | Heavy 0.85
+  H  focus budget          3 / 5 / 7 / 8 hours, editable
+  k  relative axis ceiling (0.40, 0.40, 0.25, 0.25, 0.20)
+
+axis utilisation           U = L_day / C
+day estimate               100 x ( 0.6 x max(U) + 0.4 x sum(lambda x U) )
+  lambda                   (0.30, 0.30, 0.15, 0.15, 0.10)
+```
+
+The `max` term lets one saturated axis dominate a day, because a student whose mental load is at 118%
+is not fine merely because their physical load is low. It does **not** guarantee the blended figure
+passes 90%, so any axis reaching 100% raises its own warning rather than hiding behind the total.
+
+**Worked example you can check on paper.** Baseline Moderate, focus budget 5 hours, so
+`C = (2, 2, 1.25, 1.25, 1)`. A three-hour high-effort Academic task contributes
+`3 x 1.4 x (0.55, 0.30, 0.05, 0.05, 0.05) = (2.31, 1.26, 0.21, 0.21, 0.21)`, giving
+`U = (1.155, 0.63, 0.168, 0.168, 0.21)` and a day estimate of **93.576%, displayed as 94%**. Add one
+hour of medium-effort errands and it becomes **101.616%, displayed as 102%**, with a mental-axis
+warning at 120.5%. The same confirmed inputs, capacity, timezone and model version always reproduce
+the same number.
 
 | Display rule | Meaning |
 |---|---|
