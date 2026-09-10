@@ -346,8 +346,6 @@ fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-day-load-is-a-blended
 
 ---
 
----
-
 **Before the app opens**
 
 Not every useful moment happens inside the app. When Wednesday is heading
