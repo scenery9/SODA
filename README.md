@@ -660,6 +660,28 @@ The claim is bounded. SODA does not prevent overload, and this shows a designed 
 observed benefit. What it changes is when the student finds out, and whether anything can still be
 done about it. Whether that holds outside a fixture is what the study below is for.
 
+### What early feedback already changed
+
+Before any structured testing we put the prototype in front of three people: a practising lawyer, an
+HR professional, and a teammate who had not worked on the design. None of them is a target user and
+we kept no task script or notes, so this is early reaction rather than evaluation. It was still the
+first time anyone outside the team had to make sense of the screens without us talking over them.
+
+One reaction recurred: **the first screen did not explain itself.**
+
+| What they hit | What we changed | Where it shows |
+|---|---|---|
+| The capacity meter was read but not understood. They could see the percentage and the five areas, and some read the number as **task completion** rather than load carried. | Named the number and the band on the screen itself: *Friday's estimated load, 82%, Heavy*, with the five areas labelled beneath. | [Key screens](#user-flow-end-to-end), and the [display rules](#how-the-estimate-works) that define the band |
+| Impact Preview caused hesitation. They could not tell whether it was showing information or asking them to decide. | Made the decision explicit rather than implied. The primary action is **Fix my week**, with **Accept anyway** beside it as a real alternative. | The Impact Preview and Smart Rebalance rows in the walkthrough |
+| Smart Rebalance felt unfinished. They expected to see which task had actually moved and did not. | Added a confirmation that lists every change and its effect: *Presentation prep to Saturday, −15%. Revision to Sunday, −8%. Friday 112% to 89%.* | The Changes applied screen |
+
+One reaction we have **not** acted on: two of them could not say why My Backpack and Life Forecast are
+separate screens. That is a real question about whether the week view earns its place, and it is open.
+
+This is not a usability study. Three people, two of them outside the target group, no task script and
+no recorded notes. It tells us where first-time understanding broke, not whether the loop works. That
+is what the study below is for.
+
 ### How we would evaluate it
 
 First, recruit **8 consenting students** who combine coursework with work, leadership or caring. Compare a calendar-only task with a SODA task using two matched synthetic weeks. Counterbalance the interface order and week assignment to reduce practice effects. Ask students to identify pressure, explain the estimate and choose a feasible response.
