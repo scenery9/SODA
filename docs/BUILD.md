@@ -179,9 +179,10 @@ The demo account needs enough history for Recovery Debt and Reality Check to be 
   bunching near deadlines, shifts on fixed weekdays)
 - Recovery entries producing a **total debt of ~2h 35m**, distributed 0h20 / 0h45 / 0h55 / 0h35 across
   the four weeks, to match the Recovery Debt screen
-- **12 calendar events, 9 imported**, within the selected calendars and date range, so the coverage line reads *"9 of 12 events imported in this calendar window"*
-  and the honesty principle is visible rather than merely claimed
-- Use separate named fixtures: `decision-loop` targets 82% → 107% → 89% (Heavy, below the overload threshold); `worked-model` reproduces the [load model](MODEL.md#step-3-utilisation-and-the-day-figure) example (93.576% → 101.616%). Do not splice them into one continuous demo.
+- **14 imported tasks** in the review window, grouped as 5 Academic, 3 Work, 3 Social, 2 Errands
+  and 1 Self-care, matching the Calendar Review screen. Where an import covers only part of the
+  range, say so on screen rather than presenting the estimate as complete
+- Use separate named fixtures: `decision-loop` targets 82% → 112% → 89% (Heavy, below the overload threshold); `worked-model` reproduces the [load model](MODEL.md#step-3-utilisation-and-the-day-figure) example (93.576% → 101.616%). Do not splice them into one continuous demo.
 - At least 5 completed tasks in the Academic category with "took longer" feedback, so Reality Check has a
   live directional suggestion to show
 

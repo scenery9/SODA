@@ -183,16 +183,16 @@ Assistive-technology testing is the one response we do not claim as finished. Co
 
 #### Follow-up consultation: Mr. Daniel Koh Yu Hang
 
-The follow-up consultation was held on **9 September 2026 at 9:15 p.m.** It focused on making the user flow, rescheduling logic, recovery target, data handling and market distinction easier to explain.
+A second consultation focused on making the user flow, rescheduling logic, recovery target, data handling and market distinction easier to explain.
 
-| Feedback received | What was changed | Evidence / status |
-|---|---|---|
-| Explain the user flow one step and one screen at a time. | Reorganised the prototype documentation into sequential screen tables that state what each screen communicates and what the student does next. | The documented route now follows onboarding, commitment entry, impact, adjustment and recovery. Final Figma transitions still require verification against this route. |
-| Keep effort level, but use Low, Medium and High priority for task rescheduling. | Kept effort as an input to the five-dimensional demand estimate and added priority as a separate field for Smart Rebalance. | Manual Add and Tell SODA show both fields; the proposed database schema and model specification also include priority. |
-| Explain how SODA determines which tasks are rescheduled. | Specified that fixed and completed commitments are excluded; feasible Low-priority tasks are considered before Medium and High; deadlines, overlaps, destination load and protected recovery are checked before suggestions are shown. | The rules are documented in [MODEL.md](docs/MODEL.md#step-6-smart-rebalance-using-priority). The final Smart Rebalance screen should also show each task's priority and a short explanation of the order. |
-| Set and explain how much recovery time is needed each week. | Added an editable starting target of **5 hours 15 minutes per week**, calculated from 45 minutes per day under the Moderate onboarding baseline. | The target and research limitation are documented in [MODEL.md](docs/MODEL.md#weekly-recovery-target). The updated Home state shows the target, logged time and remaining time; it remains a planning default rather than medical advice. |
-| Explain how sign-in and cross-device database data are handled, including sanitisation and sensitive information. | Added the stored and excluded data, input-validation boundary, authentication, Row Level Security, logging restrictions, encryption expectations and student controls. | The [data-handling section](#data-handling) explains that sanitised does not mean anonymous and does not falsely claim that no personal data reaches the database. Implementation and two-account isolation testing remain build gates. |
-| List weaknesses in existing approaches and explain how SODA addresses them. | Expanded the comparison across task/calendar tools, adaptive scheduling, self-care applications and fragmented manual planning. | The [existing-approaches comparison](#existing-approaches-and-the-remaining-opportunity) now identifies the remaining decision gap and SODA's response without claiming that competitors are ineffective. |
+| Date | Mentor | Feedback received | What was changed |
+|---|---|---|---|
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain the user flow one step and one screen at a time. | Section 3 became sequential screen tables: each row names one screen, what it communicates and what the student does next, following onboarding, commitment entry, impact, adjustment and recovery. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Keep effort level, but use Low, Medium and High priority for task rescheduling. | Effort still feeds the five-dimensional demand estimate. Priority is now a separate field that only Smart Rebalance reads, so importance never quietly inflates a load figure. Both appear in Manual Add and Tell SODA, in the proposed schema and in the model specification. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how SODA determines which tasks are rescheduled. | The order is now stated: fixed and completed commitments are excluded, feasible Low-priority work is considered before Medium and High, and deadlines, overlaps, destination load and protected recovery are all checked before a suggestion is shown. Full rules in [MODEL.md](docs/MODEL.md#step-6-smart-rebalance-using-priority). |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Set and explain how much recovery time is needed each week. | Added an editable starting target of **5 hours 15 minutes a week**, derived from 45 minutes a day under the Moderate onboarding baseline. It appears beside Recovery Debt on the Recover screen, and [MODEL.md](docs/MODEL.md#weekly-recovery-target) records both the derivation and its limits. It is a planning default, not advice about how much rest a person needs. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how sign-in and cross-device database data are handled, including sanitisation and sensitive information. | Added the stored and excluded data, the input-validation boundary, authentication, Row Level Security, logging restrictions, encryption expectations and student controls. The [data-handling section](#data-handling) states plainly that sanitised does not mean anonymous, rather than claiming no personal data reaches the database. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | List weaknesses in existing approaches and explain how SODA addresses them. | The [existing-approaches comparison](#existing-approaches-and-the-remaining-opportunity) now covers task and calendar tools, adaptive scheduling, self-care applications and fragmented manual planning, naming the remaining decision gap in each without claiming that any competitor is ineffective. |
 
 ---
 
@@ -295,6 +295,7 @@ rather than the old numbers.
 | Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
 |---|---|---|---|
 | <img src="images/f1-forecast.png" width="180"> | <img src="images/f2-day-plan.png" width="180"> | <img src="images/a5w-rebalance-wednesday.png" width="180"> | <img src="images/h3w-week-updated-wednesday.png" width="180"> |
+
 ---
 
 **Storyboard 4: Check-in and recovery**
@@ -338,7 +339,7 @@ category. SODA divides the accumulated demand by the student's corresponding
 axis ceilings, then combines the result as `0.6 × the busiest axis + 0.4 ×
 the weighted average of all five axes`. The visible explanation introduces
 the task weights and assumptions; the versioned formula and reproducible
-fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-day-load-is-a-blended-axis-score).
+fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-utilisation-and-the-day-figure).
 
 | Insights | Body Signals | How SODA Calculates | The maths |
 |---|---|---|---|
@@ -382,6 +383,7 @@ holds in both modes.
 | Home (dark) | Impact Preview (dark) | Recovery Island (dark) | Insights (dark) |
 |---|---|---|---|
 | <img src="images/dark-h1-home.png" width="180"> | <img src="images/dark-a4-impact-preview.png" width="180"> | <img src="images/dark-r-island.png" width="180"> | <img src="images/dark-i1-insights.png" width="180"> |
+
 ---
 
 ### Design principles
@@ -533,7 +535,7 @@ calendar still lands on a working Home.
 </tr>
 <tr>
 <td align="center"><img src="images/h1u-home-after-fix.png" width="170"><br><b>H1u — Home · after the fix</b></td>
-<td>Home with the new numbers: 86%, 15 tasks, Friday under the limit.</td>
+<td>Home after the three-move route: 86%, 15 tasks, Friday under the limit. The two-move route ends at 89%; each has its own confirmation and Week Updated screen.</td>
 <td>Carries on.</td>
 </tr>
 </table>
@@ -684,7 +686,7 @@ Task entry makes the overview possible, and Life Forecast extends it across the 
 
 **This is SODA's central demonstration moment.** The student previews an unsaved task against the current plan, sees the trade-off, and chooses whether to accept, adjust, defer or decline.
 
-Protection Mode and Smart Rebalance support that same decision. They preserve fixed shifts, deadlines and protected recovery while offering feasible changes to flexible work. Each selected change is checked against the whole week, including its destination. If nothing fits, the app explains why. Nothing moves without approval, and approved changes can be undone when later edits do not conflict.
+Protection Mode and Smart Rebalance support that same decision. They preserve fixed shifts, deadlines and protected recovery while offering feasible changes to flexible work, taking the student's own Low-priority work before touching anything marked Medium or High. Each selected change is checked against the whole week, including its destination. If nothing fits, the app explains why. Nothing moves without approval, and approved changes can be undone when later edits do not conflict.
 
 #### Recovery Island: “I have a manageable next step for recovery.”
 
@@ -698,11 +700,13 @@ Recovery Debt supports this experience by showing planned-versus-logged recovery
 
 The comparison below uses one synthetic decision rather than comparing feature counts. These are capability-level examples, not a hands-on benchmark or a claim that any named competitor lacks all of SODA's functions.
 
-| Approach | What it helps Aina understand | SODA's proposed addition |
+The capability-level comparison is in [Section 1](#existing-approaches-and-the-remaining-opportunity). This one is narrower on purpose: it takes the single moment the club request arrives on Aina's Thursday and asks what each kind of tool would tell her.
+
+| Approach | What it would tell Aina when the request arrives | What SODA adds at that moment |
 |---|---|---|
-| Task-list view | What must be completed and by when. | Explain recorded demand across five dimensions against an editable personal baseline. |
-| Calendar / adaptive scheduling | Where events overlap and which flexible work could move. | Connect that scheduling decision to the demand estimate and explicitly protected recovery. |
-| Self-care view | Which recovery or reflection activity she might choose. | Keep the chosen action in the same journey as the commitment decision and recovery history. |
+| Task-list view | The request and the assignment both exist, and the assignment is due Friday at noon. | That the request lands on the same two hours as the drafting, and what each of them costs across five kinds of demand rather than in hours alone. |
+| Calendar / adaptive scheduling | Thursday 13:00 is double-booked, and laundry is the nearest flexible block. | Whether moving laundry still leaves the deadline reachable and the 20:30 recovery block intact, shown before anything is saved. |
+| Self-care view | That she has not rested much this week. | The same recovery block sitting inside the plan she just approved, with the shortfall carried into next week instead of resetting. |
 
 ### What changes for the student
 
@@ -731,7 +735,7 @@ First, recruit **8 consenting students** who combine coursework with work, leade
 | Are the changes actually feasible? | Zero approved changes violate a fixed event, deadline or protected block. | Any constraint breach blocks release. |
 | Does the preview support a decision? | Record accept/modify/defer/decline choices and participants' reasons. | Students cannot explain the trade-off or find the information irrelevant. |
 
-A later longitudinal evaluation would track estimate overruns, completed recovery, missed commitments and continued use during busy periods. Lower model scores alone are insufficient: they can result from missing tasks or a changed baseline. **No usability or health outcomes have yet been established.** The [research and evaluation appendix](docs/EVIDENCE.md) retains the fuller rationale and falsifiable predictions.
+A later longitudinal evaluation would track estimate overruns, completed recovery, missed commitments and continued use during busy periods. Lower model scores alone are insufficient: they can result from missing tasks or a changed baseline. **Neither study has been run.** The [research and evaluation appendix](docs/EVIDENCE.md) retains the fuller rationale and falsifiable predictions.
 
 ### Reach and scalability
 
@@ -772,10 +776,10 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
 
 ### How the estimate works
 
-1. **Describe the task:** duration, effort and category produce a five-axis demand vector.
+1. **Describe the task:** duration, effort and category produce a five-axis demand vector. A priority of Low, Medium or High is recorded at the same time but is deliberately kept out of this step, so calling something important can never inflate its load figure.
 2. **Set the baseline:** onboarding supplies an editable focus budget and relative capacity assumptions. Check-ins do not silently reduce capacity.
 3. **Compare demand with capacity:** combine the axis utilisation values into a daily planning estimate while preserving separate axis warnings.
-4. **Simulate a change:** recalculate the candidate and any proposed moves across the week; check actual time overlaps independently of weighted demand.
+4. **Simulate a change:** recalculate the candidate and any proposed moves across the week; check actual time overlaps independently of weighted demand. This is the only step that reads priority: fixed and completed commitments are excluded, and feasible Low-priority work is considered before Medium and High.
 
 **Reproducible example.** With a moderate baseline and five-hour focus budget, a three-hour high-effort academic task produces a daily estimate of **93.576% (displayed as 94%)**. Adding one hour of medium-effort errands produces **101.616% (102%)**. The [model specification](docs/MODEL.md) provides every vector and formula needed to reproduce both results.
 
@@ -785,6 +789,8 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
 | **Any axis reaches 100%** | Show its own warning even if the combined score is below the overload threshold. |
 | **Peak day this week** | Maximum daily estimate in the displayed week, not a weekly average. |
 | **Recovery Debt** | Duration of planned-versus-logged shortfalls over 28 completed local days; overlaps count once and history coverage is visible. |
+| **Weekly recovery target** | An editable starting value of 5h 15m, from 45 minutes a day under the Moderate baseline. Shown beside Recovery Debt as a planning default, never as advice about how much rest a person needs. |
+| **Task priority** | Low, Medium or High. It orders what Smart Rebalance may move and never enters the load calculation, so the two cannot be confused. |
 
 These are proposed planning rules. Recovery Debt does not lower the capacity baseline, and low social demand does not imply loneliness. Recovery choices follow explicit preferences and context.
 

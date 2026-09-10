@@ -31,7 +31,7 @@ Team preparation material supporting [the submission](../README.md). The schedul
 | Impact Preview | Unsaved club task and current schedule revision | Before/after simulation without saving; approved candidate and selected changes persist together | No feasible move is explained; stale approval recalculates; undo cannot overwrite later edits |
 | Recovery Island | A preference and an available protected interval | Select an action, retain the interval, record completion once and update the appropriate history | Cancelling records no completion; overlapping or retried logs cannot inflate recovery |
 
-For the prototype round, demonstrate the designed states and label them as illustrative. For the build, use versioned inputs and executed checks. The existing 82% → 107% → 89% storyboard target is a separate, unverified numerical fixture; do not attach those scores to this schedule. The model appendix's worked arithmetic is independent too.
+For the prototype round, demonstrate the designed states and label them as illustrative. For the build, use versioned inputs and executed checks. The existing 82% → 112% → 89% storyboard target is a separate, unverified numerical fixture; do not attach those scores to this schedule. The model appendix's worked arithmetic is independent too.
 
 ## Implementation responsibilities
 
