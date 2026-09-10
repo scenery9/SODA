@@ -3,8 +3,8 @@
 <table>
 <tr><td><b>Team</b></td><td>Samantha Chan Pei Yin, Lee Jia Yin, Yeap Boon Shen, Muhammad Ikhlas bin Mohd Faizal</td></tr>
 <tr><td><b>Problem Statement</b></td><td>Stress &amp; Workload Manager</td></tr>
-<tr><td><b>Video Presentation</b></td><td><i>https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/SODA?node-id=358-2225&p=f&t=YvVwUVsdIAMluLJO-0</i></td></tr>
-<tr><td><b>Presentation Slides</b></td><td><i>pending</i></td></tr>
+<tr><td><b>Video Presentation</b></td><td><i>Unlisted YouTube link, to be added</i></td></tr>
+<tr><td><b>Presentation Slides</b></td><td><i>Public link, to be added</i></td></tr>
 </table>
 
 ---
@@ -861,7 +861,7 @@ The current Figma prototype does not require these deployments. Provider terms a
 Sign-in and cross-device sync require a database, so the data question has to be answered before the
 build, not after.
 
-| | |
+| Area | What SODA does |
 |---|---|
 | **Stored** | Account identifier and email; tasks and deadlines; category, estimated duration, effort and priority; the five load values; check-in answers; recovery history; completion feedback. |
 | **Never collected** | Contact lists, message content, precise location, raw wearable records, medical diagnoses, or anything belonging to another person. Calendar import takes title, date and times only, never descriptions, attendees or locations. |
