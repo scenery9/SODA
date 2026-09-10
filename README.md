@@ -9,9 +9,9 @@
 
 ---
 
-**Explore:** [Overview](#1-project-overview) · [Ideation](#2-ideation--process) · [Prototype](#3-design--prototype) · [Difference & impact](#4-what-makes-it-different) · [Feasibility](#5-technical-architecture--feasibility)
+**Explore:** [🎯 Overview](#1--project-overview) · [🧭 Ideation](#2--ideation--process) · [📱 Prototype](#3--design--prototype) · [✨ Difference & impact](#4--what-makes-it-different) · [🔧 Feasibility](#5--technical-architecture--feasibility)
 
-## 1. Project Overview
+## 1. 🎯 Project Overview
 
 ### The Problem
 
@@ -110,7 +110,7 @@ The brief also sets platform expectations we build to. The planned application i
 
 ---
 
-## 2. Ideation & Process
+## 2. 🧭 Ideation & Process
 
 ### 2.1 Ideas We Considered
 
@@ -210,7 +210,7 @@ A second consultation focused on making the user flow, rescheduling logic, recov
 ---
 
 
-## 3. Design & Prototype
+## 3. 📱 Design & Prototype
 
 **UI Prototype:** [Open the main SODA prototype](https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/Untitled?page-id=358%3A2225&node-id=189-1183&starting-point-node-id=189%3A1183&scaling=scale-down) · [View the Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/Untitled?node-id=189-1183)
 
@@ -558,7 +558,7 @@ recalculated from data that did not arrive.
 
 ### Accessibility: what is designed, what is still unverified
 
-**Designed.** A full dark mode for every screen, with accent colours
+**✅ Designed.** A full dark mode for every screen, with accent colours
 re-picked rather than filtered. Insights includes a four-sentence text
 summary for students who find the full charts tiring to read. The current
 prototype does not play audio. Plain language is used throughout, with
@@ -567,7 +567,7 @@ on colour alone.
 Category colour is consistent across Insights and Recovery Island, but
 always carries a text label beside it.
 
-**Not yet verified.** Contrast ratios have not been measured against
+**⚠️ Not yet verified.** Contrast ratios have not been measured against
 WCAG AA. Screen-reader labels and reading order have not been authored, and
 the prototype has not been tested with VoiceOver or TalkBack. Tap-target
 sizes have not been audited. Dynamic type and reduced-motion settings are
@@ -575,7 +575,7 @@ not handled. The text summary is a fatigue-reduction feature, not a substitute
 for assistive-technology support.
 
 
-## 4. What Makes It Different
+## 4. ✨ What Makes It Different
 
 **Every other planner models the work. SODA models what the student has left.**
 
@@ -701,7 +701,7 @@ Start with students at one campus through societies and student-support channels
 
 ---
 
-## 5. Technical Architecture & Feasibility
+## 5. 🔧 Technical Architecture & Feasibility
 
 ### Tech stack
 

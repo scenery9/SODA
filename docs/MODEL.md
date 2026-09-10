@@ -1,6 +1,6 @@
 # SODA calculation and architecture specification
 
-Supporting detail for [Section 5 of the submission](../README.md#5-technical-architecture--feasibility). All rules are proposed; fixture calculations are arithmetic checks, not validated human-capacity measurements.
+Supporting detail for [Section 5 of the submission](../README.md#5--technical-architecture--feasibility). All rules are proposed; fixture calculations are arithmetic checks, not validated human-capacity measurements.
 
 <p align="center">
   <img src="../assets/figure-5-2-system-architecture-data-flow-v3.png" alt="Figure 5.2: SODA system architecture and data flow" width="880">
