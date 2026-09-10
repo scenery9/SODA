@@ -221,27 +221,21 @@ tired student feel worse for opening it.
 
 ### It starts before the app is open
 
-Not every useful moment happens inside the app. When Wednesday is heading past the limit, SODA says
-so on the lock screen: it names the day, names the two commitments that collide, and offers to act.
-A second, quieter notification asks for the daily check-in and says what the two taps are for.
+SODA does not wait to be opened. When Wednesday is heading past the limit, the lock screen names the
+day, names the two commitments that collide, and offers to move one.
 
-Swipe up and the week is already there: Friday at **82%**, the five kinds of demand underneath it,
-and Wednesday flagged at **104%** before it arrives.
+Tap **Show me** and the week is already there: Friday at **82%**, Wednesday flagged at **104%** before
+it arrives. Every screen has a dark twin, redrawn rather than filtered, so accents stay legible in both.
 
-Both themes are below, the same two moments in each. Every one of the 84 screens has a dark twin,
-and it is a redraw rather than a filter: accent colours are re-picked for dark backgrounds, so the
-mint green on buttons is lighter and the text on those buttons is dark rather than white. Every
-screen shown later in this section exists in both, and is not repeated twice to prove it.
-
-| Light: before you open it | Light: swipe up | Dark: before you open it | Dark: swipe up |
+| Light: before you open it | Dark: before you open it | Light: Show me | Dark: Show me |
 |---|---|---|---|
-| <img src="images/x1-lock-screen.png" width="175"> | <img src="images/h1-home.png" width="175"> | <img src="images/dark-x1-lock-screen.png" width="175"> | <img src="images/dark-h1-home.png" width="175"> |
+| <img src="images/x1-lock-screen.png" width="175"> | <img src="images/dark-x1-lock-screen.png" width="175"> | <img src="images/h1-home.png" width="175"> | <img src="images/dark-h1-home.png" width="175"> |
 
 SODA states the problem once and stops. It does not repeat, escalate, or count how many times it was
-ignored. A notification that nags an exhausted student is the behaviour this product exists to avoid.
+ignored.
 
-*The lock screen is designed in both themes but sits outside the demo route, so it will not appear
-while clicking through the prototype.*
+*The lock screen sits outside the demo route, so it will not appear while clicking through the
+prototype.*
 
 ---
 
