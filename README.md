@@ -239,51 +239,6 @@ prototype.*
 
 ---
 
-### Screens beyond the main route
-
-84 screens in light mode, each mirrored in dark mode, 168 in total. The
-[screen-by-screen walkthrough](#user-flow-end-to-end) further down covers the demo route in
-order. These are the other screens that sit outside it: how SODA explains itself, how it behaves
-when something fails, and the dark theme. Named
-prototype starting points reach all of them without lengthening the main judging route.
-
-
-**Explaining itself: insight, honesty and trust**
-
-Insights → Body Signals → Settings → How SODA Calculates.
-
-Insights shows the capacity trend, three pattern cards, and a weekly
-review. The pattern cards use the same Time / Physical / Mental colours as
-Recovery Island, so a student who sees a pink "Your mind fills up first"
-card and then opens the pink Mental tab is following one colour through the
-app. Body Signals has a version for students with no wearable, and Insights
-has a version for students without enough data yet, and neither is an empty
-screen with nothing in it.
-
-How SODA Calculates is written for a sceptical reader. Each confirmed task
-first produces a five-axis demand vector from its duration, effort and
-category. SODA divides the accumulated demand by the student's corresponding
-axis ceilings, then combines the result as `0.6 × the busiest axis + 0.4 ×
-the weighted average of all five axes`. The visible explanation introduces
-the task weights and assumptions; the versioned formula and reproducible
-fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-utilisation-and-the-day-figure).
-
-| Insights | Body Signals | How SODA Calculates | The maths |
-|---|---|---|---|
-| <img src="images/i1-insights.png" width="180"> | <img src="images/i2-body-signals.png" width="180"> | <img src="images/i5-how-soda-calculates.png" width="180"> | <img src="images/i6-the-maths.png" width="180"> |
-
----
----
-
-**Degraded states**
-
-Not a storyboard. Calendar sync failure, offline and save failure are
-designed as banners on the working screen, not as separate error pages. The
-student keeps the last known data, keeps adding tasks, and SODA syncs when
-it can. Nothing is lost and nothing is blocked.
-
----
-
 ### Design principles
 
 SODA is built around one uncomfortable moment: the second before a student
@@ -525,6 +480,58 @@ its own Home and Forecast, both still showing Friday over the limit.
 <td>Taps a level per bar, chooses whether to use the sleep figure, saves.</td>
 </tr>
 </table>
+
+---
+
+### Screens beyond the main route
+
+84 screens in light mode, each mirrored in dark mode, 168 in total. The
+[screen-by-screen walkthrough](#user-flow-end-to-end) further down covers the demo route in
+order. These are the other screens that sit outside it: how SODA explains itself, and how it holds
+together when something fails. Named
+prototype starting points reach all of them without lengthening the main judging route.
+
+
+**Explaining itself: insight, honesty and trust**
+
+Insights → Body Signals → Settings → How SODA Calculates.
+
+Insights shows the capacity trend, three pattern cards, and a weekly
+review. The pattern cards use the same Time / Physical / Mental colours as
+Recovery Island, so a student who sees a pink "Your mind fills up first"
+card and then opens the pink Mental tab is following one colour through the
+app. Body Signals has a version for students with no wearable, and Insights
+has a version for students without enough data yet, and neither is an empty
+screen with nothing in it.
+
+How SODA Calculates is written for a sceptical reader. Each confirmed task
+first produces a five-axis demand vector from its duration, effort and
+category. SODA divides the accumulated demand by the student's corresponding
+axis ceilings, then combines the result as `0.6 × the busiest axis + 0.4 ×
+the weighted average of all five axes`. The visible explanation introduces
+the task weights and assumptions; the versioned formula and reproducible
+fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-utilisation-and-the-day-figure).
+
+| Insights | Body Signals | How SODA Calculates | The maths |
+|---|---|---|---|
+| <img src="images/i1-insights.png" width="180"> | <img src="images/i2-body-signals.png" width="180"> | <img src="images/i5-how-soda-calculates.png" width="180"> | <img src="images/i6-the-maths.png" width="180"> |
+
+---
+
+**When something fails**
+
+A failure is a banner on the working screen, never a separate error page. The week the student last
+saw stays where it is, the draft they were typing survives, and the app keeps accepting tasks. SODA
+says what broke, what still works, and what it will do about it on its own.
+
+| Calendar sync failed | Offline | Could not save |
+|---|---|---|
+| <img src="images/x2-calendar-sync-failed.png" width="180"> | <img src="images/x3-offline.png" width="180"> | <img src="images/x4-could-not-save.png" width="180"> |
+
+Offline is the clearest case: the banner reads *"This is your last saved week. You can still add tasks,
+SODA will sync them when you are back online"*, and the whole week is still on screen behind it, 82%,
+five axes and Wednesday at 104%. Nothing is hidden while the connection is missing, and nothing is
+recalculated from data that did not arrive.
 
 ---
 
