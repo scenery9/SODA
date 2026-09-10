@@ -65,12 +65,14 @@ SODA is a proposed student workload planner that combines recorded commitments a
 
 <table>
 <tr>
-<td width="50%"><img src="images/a4-impact-preview.png" alt="Impact Preview. Adding the presentation moves Friday from 82% to 112% before anything is saved. Mental goes 91% to 118%, time 87% to 109%, and rest time left falls from 2h 10m to 25m. A banner reads that Friday goes over the limit."></td>
-<td width="50%"><img src="images/a5-rebalance.png" alt="Smart Rebalance. Friday comes back from 112% to 89% through two named moves worth 15% and 8%, with a third optional. The paid shift is never offered as a move, and a line confirms 1h 50m of rest is kept."></td>
+<td width="33%"><img src="images/h1-home.png" alt="My Backpack. Friday's estimated load reads 82% and Heavy, with mental 91, time 87, physical 62, social 43 and errands 58 beneath it. The week chart flags Wednesday at 104% and the banner reads that Wednesday goes over the limit."></td>
+<td width="33%"><img src="images/a4-impact-preview.png" alt="Impact Preview. Adding the presentation moves Friday from 82% to 112% before anything is saved. Mental goes 91% to 118%, time 87% to 109%, and rest time left falls from 2h 10m to 25m."></td>
+<td width="33%"><img src="images/a5-rebalance.png" alt="Smart Rebalance. Friday comes back from 112% to 89% through two named moves worth 15% and 8%. The paid shift is never offered as a move, and a line confirms 1h 50m of rest is kept."></td>
 </tr>
 <tr>
-<td align="center"><b>See the cost before you say yes</b><br><sub><b>82% &rarr; 112%</b>, and 2h 10m of rest down to 25m.<br>Nothing is saved yet.</sub></td>
-<td align="center"><b>Then choose what changes</b><br><sub><b>112% &rarr; 89%</b>, rest kept, the paid shift untouched.<br>Nothing moves without approval.</sub></td>
+<td align="center"><b>See the load</b><br><sub><b>82%</b>, and which axis is carrying it</sub></td>
+<td align="center"><b>See the cost before you say yes</b><br><sub><b>82% &rarr; 112%</b>, rest down to 25m.<br>Nothing is saved yet.</sub></td>
+<td align="center"><b>Choose what changes</b><br><sub><b>112% &rarr; 89%</b>, the paid shift untouched.<br>Nothing moves without approval.</sub></td>
 </tr>
 </table>
 
