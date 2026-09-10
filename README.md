@@ -55,7 +55,7 @@ The comparison focuses on the decision SODA is designed to support, not on claim
 
 Recent reviews support the value of planning, prioritisation and task organisation, but they do not show that a conventional task list alone resolves combined workload or recovery decisions ([Liu et al., 2026](https://doi.org/10.3389/fpsyg.2026.1700298); [Patzak et al., 2025](https://doi.org/10.3389/feduc.2025.1623228)). A systematic review of 28 mobile-health studies also found that goal setting, self-monitoring, feedback and prompts were repeatedly associated with engagement, while the evidence was insufficient to determine how individual techniques cause particular forms of engagement ([Milne-Ives et al., 2023](https://doi.org/10.3389/fpsyg.2023.1227443)).
 
-SODA's proposed contribution is therefore the connected loop—see combined demand, preview a commitment, protect higher-priority work, approve a feasible adjustment and record recovery—not a claim that it invented scheduling or self-care. Its five-axis weights, priority order and recovery default remain proposed rules that require usability and longitudinal evaluation.
+SODA's proposed contribution is therefore the connected loop: see combined demand, preview a commitment, protect higher-priority work, approve a feasible adjustment and record recovery, not a claim that it invented scheduling or self-care. Its five-axis weights, priority order and recovery default remain proposed rules that require usability and longitudinal evaluation.
 
 ### Our Solution
 
@@ -63,7 +63,9 @@ SODA is a proposed student workload planner that combines recorded commitments a
 
 > **See total load → preview a commitment → choose a feasible change → protect recovery → improve the next estimate.**
 
-**Current status:** a Figma prototype and supporting specifications, with exported screens in Section 3. The application and hosted services are proposed for the building phase; effectiveness has not yet been evaluated. SODA provides planning estimates, not diagnoses or burnout-risk measurements.
+**Current status and scope.** SODA is at prototype stage: a Figma prototype and the specifications behind it, with exported screens in Section 3. The application and hosted services are proposed for the three-week building phase.
+
+Two boundaries hold for everything that follows, so we state them once here instead of repeating them at every feature. **SODA produces planning estimates, never diagnoses or burnout-risk measurements.** And **no usability or wellbeing outcome has been evaluated yet**: the research cited throughout supports our design reasoning, not our weights, our thresholds or any claimed effect. Where a specific limit applies to one feature, we say so at that feature.
 
 ### Three core experiences
 
@@ -77,6 +79,21 @@ SODA centres on three experiences: **understand what I am carrying, decide what 
 
 **Support across the journey:** Daily Check-in provides optional reflection and preference context. Reality Check helps students reconsider future estimates; Insights and How SODA Calculates explain patterns and assumptions. These improve the three experiences rather than adding more main features.
 
+### How this answers the challenge brief
+
+The Stress & Workload Manager brief asks for specific things. This table maps each one to where SODA answers it, so the fit can be checked rather than assumed.
+
+| What the brief asks for | Where SODA answers it |
+|---|---|
+| "A clear picture of their load across different areas (mental, time, physical, social, errands)" | My Backpack breaks demand down across those same five areas. They are SODA's five axes, not a renamed subset. |
+| "You're at 90% capacity this week" as a quick sanity-check | A daily estimate with a named band beside every number. 90% is exactly where the **Overload** band begins ([display rules](#how-the-estimate-works)). |
+| "It shouldn't just track and report": helping before burnout hits | Impact Preview runs **before** a task is saved, and every over-limit state routes into a concrete set of changes rather than a warning on its own. |
+| "A load balancer that groups tasks together and pushes back lower-priority ones" | Smart Rebalance proposes named moves, protects fixed shifts, deadlines and recovery, and applies nothing without approval. |
+| "A stress tracker to log how you're feeling over time" | Daily Check-in and Insights record and explain patterns. Check-ins inform reflection and preferences; they never silently reduce the student's capacity. |
+| "Some kind of recovery nudge, suggesting sleep, downtime or a hangout" | Recovery Island turns the nudge into a chosen action with protected time and a completion record; Recovery Debt keeps shortfalls visible across weeks. |
+| "Usable, accessible, and something students would actually keep open on their phone" | Low-effort capture, a full dark mode and text alternatives to charts. Section 3 states plainly which accessibility work is designed and which is still unverified. |
+
+The brief also sets platform expectations we build to: the planned application is deployable rather than local-only, and AI is confined to reading and writing language while a deterministic rules engine does every calculation, so the team can account for how its own results are produced.
 
 ---
 
@@ -146,22 +163,23 @@ The problem tree above explains **why** overload can accumulate. The three board
 
 | Iteration | Earlier proposal → revised design | Why the change matters | Evidence and limit |
 |---|---|---|---|
-| **Task capture** | Rate five dimensions for every task → enter duration, effort and category, then inspect derived defaults. | Removes repeated abstract ratings while preserving correction. The trade-off is coarser defaults, not proven measurement accuracy. | [Figure 1.2c](#figure-12c-principles-that-shaped-the-features) and the [specified inputs](docs/MODEL.md#step-1-a-task-becomes-a-five-dimensional-vector). The earlier state is documented concept history, not a recovered old screenshot; informal timing claims are not a user benchmark. |
+| **Task capture** | Rate five dimensions for every task → enter duration, effort and category, then inspect derived defaults. | Removes repeated abstract ratings while preserving correction. The trade-off is coarser defaults, not proven measurement accuracy. | [Figure 1.2c](#figure-12c-principles-that-shaped-the-features) and the [specified inputs](docs/MODEL.md#step-1-a-task-becomes-a-five-dimensional-vector). The earlier design is recorded concept history rather than a saved screenshot, and we make no speed claim we have not measured. |
 | **Recovery** | General reminder to rest → choose an action, protect time and record completion in Recovery Island. | Gives the student a next step and a visible record. It requires preferences and logging rather than assuming a reminder caused recovery. | [Core flow](#figure-13-from-the-chosen-idea-to-a-usable-flow) and [completion criteria](#minimum-completion-standard). The flow specifies intended behaviour; actual follow-through remains untested. |
 
 ### 2.3 Mentor Consultation
 
-The supplied consultation record names **Khor Jia Quan, 7 September 2026**. The table distinguishes documentation changes from design responses that the prototype team must verify in the final screens.
+| Date | Mentor | Feedback received | What was changed |
+|---|---|---|---|
+| 7 Sep 2026 | Khor Jia Quan | Split the dense ideation mindmap and explain each part. | One board became three connected boards, each with its own caption: users and needs, concepts and selection, principles to features. See Figures 1.2a–c above. |
+| 7 Sep 2026 | Khor Jia Quan | Show the selected backend technologies on the architecture figure. | Figure 5.2 now labels each selected technology, and the stack table beside it states why each was chosen and the constraint it brings. |
+| 7 Sep 2026 | Khor Jia Quan | Explain chart alternatives, and research how screen-reader and colour-blind support helps these users. | Every figure carries a text description; numbers are always paired with a word ("89%", "Heavy") so meaning never rests on colour. Section 3 states which of this is designed and which is still unverified. |
+| 7 Sep 2026 | Khor Jia Quan | Remove the Chat / Manual chooser that came before Impact Preview; let students reach the chat entry directly with manual input available on the same screen. | Adding is now a single screen. The chat field is present immediately and "Type it in yourself" expands the manual form in place; the separate chooser screen is gone. |
+| 7 Sep 2026 | Khor Jia Quan | Give the backpack companion a functional role through dialogue rather than decoration. | The companion now speaks to load and recovery states at the points where a student is deciding, always alongside text that carries the same meaning on its own. |
+| 7 Sep 2026 | Khor Jia Quan | Change the Add icon in the bottom navigation to the SODA backpack icon. | Adopted. The backpack is the main entry point in the navigation bar. |
 
-| Feedback received | What was Changed | Evidence / status |
-|---|---|---|
-| Split the dense ideation mindmap and explain each part. | Separate users/needs, concepts, and principles-to-features. | Figures 1.2a–c above, with visible captions. |
-| Include recognisable backend technology logos. | Retain a labelled architecture diagram with the selected technologies. | Figure 5.2 and its accompanying stack table. |
-| Explain chart alternatives and the relevance of screen-reader / colour-blind support. | Include text descriptions of diagrams; specify non-colour cues and accessible chart values. | Diagram descriptions here; design documentation in Section 3. Device verification remains a build gate. |
-| Remove the separate Chat/Manual chooser before Impact Preview. | Document one entry screen with manual input available in place. | Design response for the prototype team to reconcile with the final capture screens; real text uses forms or rules. |
-| Give the backpack companion a more functional role; consider the navigation icon and dialogue. | Use the companion to reinforce load and recovery states, accompanied by text. | Final dialogue, icon treatment and interactions remain with the Section 3 design owner. |
+**Where we went further than the advice.** The mentor asked us to remove the chooser; we also kept manual entry reachable in place rather than replacing it with chat. That protects the workflow for students who prefer typing fields, and it keeps the core loop working when optional language assistance is unavailable.
 
-The intent of the capture feedback is fewer unnecessary decisions. Keeping manual entry available also preserves the workflow when optional language assistance is unavailable. Documentation responses are complete here; final screen behaviour and assistive-technology testing are not claimed as verified.
+Assistive-technology testing is the one response we do not claim as finished. Contrast ratios, screen-reader labels and tap targets are verified during the build, not asserted here.
 
 #### Follow-up consultation: Mr. Daniel Koh Yu Hang
 
@@ -417,7 +435,7 @@ Four flows. Every screen below is in the Figma file and wired.
 
 ---
 
-**1. First run — from install to a number you can trust**
+**1. First run: from install to a number you can trust**
 
 | Screen | What it does | What the student does |
 |---|---|---|
@@ -433,7 +451,7 @@ calendar still lands on a working Home.
 
 ---
 
-**2. Adding a commitment — the core loop**
+**2. Adding a commitment: the core loop**
 
 | Screen | What it does | What the student does |
 |---|---|---|
@@ -568,9 +586,9 @@ The comparison below uses one synthetic decision rather than comparing feature c
 
 The trade-off is explicit: **laundry moves to Saturday; it does not disappear from the week.** If laundry cannot move or the assignment cannot be split, that option is rejected. Aina can defer, decline or knowingly accept the conflict rather than receive an impossible “fixed” schedule.
 
-This example establishes an intended decision path, not observed benefits or a complete numerical fixture. The [demonstration pack](docs/DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences) records its constraints and failure variant. Do not attach the storyboard's unverified **82% → 107% → 89%** values to this schedule. Any future displayed scores must come from the same complete, versioned inputs; 89% is **Heavy** under the specified bands.
+This example establishes an intended decision path, not an observed benefit. It is deliberately a scheduling case rather than a scored one: it shows which commitment moves and what is preserved, and carries no load percentage, because a percentage needs a complete set of recorded inputs rather than the six commitments listed here. The [demonstration pack](docs/DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences) holds the same case with its constraints and its no-feasible-adjustment variant.
 
-**Why the mechanism is plausible:** Study Demands–Resources theory links demands, resources and proactive adjustment ([Bakker & Mostert, 2024](https://doi.org/10.1007/s10648-024-09940-8)). SODA brings those decisions together rather than leaving recovery separate from planning. The theory informs the design; it does not validate our weights, thresholds or effects on wellbeing.
+**Why the mechanism is plausible:** Study Demands–Resources theory links demands, resources and proactive adjustment ([Bakker & Mostert, 2024](https://doi.org/10.1007/s10648-024-09940-8)). SODA brings those decisions together rather than leaving recovery separate from planning. The theory tells us the mechanism is worth building; only testing will tell us we built it well.
 
 ### How we would evaluate it
 
@@ -701,7 +719,7 @@ The current Figma prototype does not require these deployments. Provider terms a
 
 | Risk | Required response before the build demo |
 |---|---|
-| **Misleading or inconsistent estimates** | Reproduce versioned fixtures, check threshold labels and expose missing input coverage; reconcile illustrative screen values before using them as live results. |
+| **Misleading or inconsistent estimates** | Reproduce versioned fixtures, check threshold labels and expose missing input coverage. Illustrative screen values are replaced by computed results before any figure is presented as live. |
 | **Impossible or stale adjustments** | Preserve fixed tasks, deadlines and protected intervals; check destination days, atomic apply and safe undo. A constraint breach blocks release. |
 | **Exposed personal records** | Validate user tokens; enforce RLS for reads and writes; test isolation with a second account. Keep service-role keys outside normal user requests. |
 | **Missing logs or duplicate imports** | Show recovery history coverage, count overlapping recovery once and deduplicate calendar events. |
