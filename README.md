@@ -226,6 +226,8 @@ screen described below exists in the Figma file, and the demo route through
 them is wired end to end. Named prototype starting points expose onboarding,
 dark mode and degraded states without lengthening the main judging route.
 
+The four storyboards below summarise the journey. The [screen-by-screen walkthrough](#user-flow-end-to-end) that follows shows every screen on the route, what it does and what the student does with it.
+
 ---
 
 **Storyboard 1: Onboarding to the first capacity reading**
@@ -246,10 +248,6 @@ Home then shows Friday's estimated load at 82% (Heavy), the five parts of
 the student's load (Mental 91%, Time 87%, Physical 62%, Social 43%,
 Errands 58%), a week bar chart, and a banner naming the day that breaks:
 *Wednesday goes over your limit.*
-
-| Capacity Baseline | Calendar Review | Home · day one | Home |
-|---|---|---|---|
-| <img src="images/o3-capacity-baseline.png" width="180"> | <img src="images/o5-calendar-review.png" width="180"> | <img src="images/h0-home-day-one.png" width="180"> | <img src="images/h1-home.png" width="180"> |
 
 ---
 
@@ -282,10 +280,6 @@ confirming that 1h 50m of rest is kept. A third move can be added for
 −26% and 86%; both outcomes have their own confirmation and Week Updated
 screens.
 
-| Add | Impact Preview | Smart Rebalance | Week Updated |
-|---|---|---|---|
-| <img src="images/a-add.png" width="180"> | <img src="images/a4-impact-preview.png" width="180"> | <img src="images/a5-rebalance.png" width="180"> | <img src="images/h3-week-updated.png" width="180"> |
-
 ---
 
 **Storyboard 3: Fixing a day that is already overloaded**
@@ -305,10 +299,6 @@ Applying the changes updates Week Updated, Home, the day detail and the
 forecast together, so tapping back into any of them shows the fixed week
 rather than the old numbers.
 
-| Life Forecast | Day Plan | Smart Rebalance · Wednesday | Week Updated · Wednesday |
-|---|---|---|---|
-| <img src="images/f1-forecast.png" width="180"> | <img src="images/f2-day-plan.png" width="180"> | <img src="images/a5w-rebalance-wednesday.png" width="180"> | <img src="images/h3w-week-updated-wednesday.png" width="180"> |
-
 ---
 
 **Storyboard 4: Check-in and recovery**
@@ -327,10 +317,6 @@ the menu. Physical and Mental options run a timer; Time options remove work
 instead of adding rest and end in a "tasks batched" confirmation. The timer
 can be paused or ended early, and ending early logs nothing rather than
 crediting rest that was not taken.
-
-| Recover | Recovery Island | Recovery Timer | Recovery Complete |
-|---|---|---|---|
-| <img src="images/r1-recover.png" width="180"> | <img src="images/r-island-physical.png" width="180"> | <img src="images/r3-timer.png" width="180"> | <img src="images/r4-complete.png" width="180"> |
 
 ---
 
@@ -448,7 +434,7 @@ Four flows. Every screen below is in the Figma file and wired.
 
 ---
 
-**1. First run — from install to a number you can trust**
+**1. First run: from install to a number you can trust**
 
 <table>
 <tr>
@@ -493,7 +479,7 @@ calendar still lands on a working Home.
 
 ---
 
-**2. Adding a commitment — the core loop**
+**2. Adding a commitment: the core loop**
 
 <table>
 <tr>
