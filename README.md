@@ -219,12 +219,33 @@ every decision in this section: the interface has to be readable in ten
 seconds, honest about what it does not know, and incapable of making a
 tired student feel worse for opening it.
 
+### Before the app opens
+
+Not every useful moment happens inside the app. When Wednesday is heading
+past the limit, SODA says so on the lock screen: it names the day, names
+the two commitments that collide, and offers to act. A second, quieter
+notification asks for the daily check-in and says why it matters, so the
+student knows what the two taps are for.
+
+SODA states the problem once and stops. It does not repeat, escalate, or count how many times it
+was ignored. A notification that nags an exhausted student is the behaviour this product exists
+to avoid.
+
+| Lock screen | Lock screen (dark) |
+|---|---|
+| <img src="images/x1-lock-screen.png" width="200"> | <img src="images/dark-x1-lock-screen.png" width="200"> |
+
+*Designed in both themes. This screen sits outside the demo route, so it will not appear while
+clicking through the prototype.*
+
+---
+
 ### Screens beyond the main route
 
 84 screens in light mode, each mirrored in dark mode, 168 in total. The
 [screen-by-screen walkthrough](#user-flow-end-to-end) further down covers the demo route in
-order. These are the screens that sit outside it: how SODA explains itself, what it looks like
-before the app is even opened, how it behaves when something fails, and the dark theme. Named
+order. These are the other screens that sit outside it: how SODA explains itself, how it behaves
+when something fails, and the dark theme. Named
 prototype starting points reach all of them without lengthening the main judging route.
 
 
@@ -253,24 +274,6 @@ fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-utilisation-and-the-d
 | <img src="images/i1-insights.png" width="180"> | <img src="images/i2-body-signals.png" width="180"> | <img src="images/i5-how-soda-calculates.png" width="180"> | <img src="images/i6-the-maths.png" width="180"> |
 
 ---
-
-**Before the app opens**
-
-Not every useful moment happens inside the app. When Wednesday is heading
-past the limit, SODA says so on the lock screen: it names the day, names
-the two commitments that collide, and offers to act. A second, quieter
-notification asks for the daily check-in and says why it matters, so the
-student knows what the two taps are for.
-
-SODA states the problem once and stops; it does
-not repeat, escalate or count how many times it was ignored. The screen is
-designed and exists in both modes, but it is not wired into the demo
-route, so it will not appear when clicking through the prototype.
-
-| Lock screen | Lock screen (dark) |
-|---|---|
-| <img src="images/x1-lock-screen.png" width="200"> | <img src="images/dark-x1-lock-screen.png" width="200"> |
-
 ---
 
 **Degraded states**
