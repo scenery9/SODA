@@ -219,24 +219,25 @@ every decision in this section: the interface has to be readable in ten
 seconds, honest about what it does not know, and incapable of making a
 tired student feel worse for opening it.
 
-### Before the app opens
+### It starts before the app is open
 
-Not every useful moment happens inside the app. When Wednesday is heading
-past the limit, SODA says so on the lock screen: it names the day, names
-the two commitments that collide, and offers to act. A second, quieter
-notification asks for the daily check-in and says why it matters, so the
-student knows what the two taps are for.
+Not every useful moment happens inside the app. When Wednesday is heading past the limit, SODA says
+so on the lock screen: it names the day, names the two commitments that collide, and offers to act.
+A second, quieter notification asks for the daily check-in and says what the two taps are for.
 
-SODA states the problem once and stops. It does not repeat, escalate, or count how many times it
-was ignored. A notification that nags an exhausted student is the behaviour this product exists
-to avoid.
+Swipe up and the week is already there: Friday at **82%**, the five kinds of demand underneath it,
+and Wednesday flagged at **104%** before it arrives. The whole product exists in both themes, not as
+a filter over one.
 
-| Light mode | Dark mode |
-|---|---|
-| <img src="images/x1-lock-screen.png" width="200"> | <img src="images/dark-x1-lock-screen.png" width="200"> |
+| Before you open it | Swipe up and the week is there | The same moment, dark |
+|---|---|---|
+| <img src="images/x1-lock-screen.png" width="180"> | <img src="images/h1-home.png" width="180"> | <img src="images/dark-x1-lock-screen.png" width="180"> |
 
-*Designed in both themes. This screen sits outside the demo route, so it will not appear while
-clicking through the prototype.*
+SODA states the problem once and stops. It does not repeat, escalate, or count how many times it was
+ignored. A notification that nags an exhausted student is the behaviour this product exists to avoid.
+
+*The lock screen is designed in both themes but sits outside the demo route, so it will not appear
+while clicking through the prototype.*
 
 ---
 
@@ -288,13 +289,13 @@ it can. Nothing is lost and nothing is blocked.
 Every one of the 84 screens has a dark twin, not a filter. Accent colours
 are re-picked for dark backgrounds (the mint green used on buttons is
 lighter, and text on those buttons is dark rather than white), so contrast
-holds in both modes. Each column below is the same screen: light on the top
-row, dark directly beneath it.
+holds in both modes. Each column below is one screen: light on the top row, dark directly
+beneath it.
 
-| Home | Impact Preview | Recovery Island | Insights |
-|---|---|---|---|
-| <img src="images/h1-home.png" width="180"> | <img src="images/a4-impact-preview.png" width="180"> | <img src="images/r-island-physical.png" width="180"> | <img src="images/i1-insights.png" width="180"> |
-| <img src="images/dark-h1-home.png" width="180"> | <img src="images/dark-a4-impact-preview.png" width="180"> | <img src="images/dark-r-island.png" width="180"> | <img src="images/dark-i1-insights.png" width="180"> |
+| Impact Preview | Recovery Island | Insights |
+|---|---|---|
+| <img src="images/a4-impact-preview.png" width="180"> | <img src="images/r-island-physical.png" width="180"> | <img src="images/i1-insights.png" width="180"> |
+| <img src="images/dark-a4-impact-preview.png" width="180"> | <img src="images/dark-r-island.png" width="180"> | <img src="images/dark-i1-insights.png" width="180"> |
 
 ---
 
