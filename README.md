@@ -743,7 +743,7 @@ The `max` term lets one saturated axis dominate a day, because a student whose m
 is not fine merely because their physical load is low. It does **not** guarantee the blended figure
 passes 90%, so any axis reaching 100% raises its own warning rather than hiding behind the total.
 
-**What the app shows a student.** The in-app explainer, *How SODA Calculates* and *The maths*, presents a deliberately reduced view of this: one weight per axis instead of a weight vector per category, because a student asking why Wednesday is heavy does not need the full matrix on a phone screen. The effort multipliers, the bands and the ceiling are identical in both. The specification above is what the engine implements, and the screen says so by calling itself an illustrative model with editable assumptions.
+**What the app shows a student.** The in-app explainer, *How SODA Calculates* and *The maths*, presents a deliberately reduced view of this: one weight per axis instead of a weight vector per category, because a student asking why Wednesday is heavy does not need the full matrix on a phone screen. The effort multipliers and the severity bands are identical in both. The ceiling is not: the explainer collapses the five axis ceilings into one daily figure, which is why its worked example divides by a single limit. The specification above is what the engine implements, and the screen says so by calling itself an illustrative model with editable assumptions.
 
 **Worked example you can check on paper.** Baseline Moderate, focus budget 5 hours, so
 `C = (2, 2, 1.25, 1.25, 1)`. A three-hour high-effort Academic task contributes
