@@ -895,7 +895,7 @@ explicit opt-in, defined escalation rules and review by qualified student-suppor
 
 The essential case is above. These documents retain the material needed to examine the proposal more closely:
 
-- [Demonstration and validation pack](docs/DEMO-AND-VALIDATION.md): the shared case, team responsibilities, 4:30 speaking script and unfilled participant observation sheet.
+- [Demonstration and validation pack](docs/DEMO-AND-VALIDATION.md): the shared case, team responsibilities, the evidence to capture for each experience, and an unfilled participant observation sheet.
 - [Research, evaluation and references](docs/EVIDENCE.md): research-to-design mapping, proposed measures, stakeholder context and source list.
 - [Calculation and architecture specification](docs/MODEL.md): formulas, worked example, recovery rules, constrained adjustments and language modes.
 - [Build specification](docs/BUILD.md): proposed repository layout, starter SQL/RLS, API contracts, fixtures and integration checks.

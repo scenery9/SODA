@@ -61,66 +61,6 @@ The following building-phase allocation defines each member's ownership. Deliver
 
 The **120-hour workstream estimate** remains backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. It does not imply equal hours per person or that Ikhlas owns every developer check. Review availability and technical support needs at kickoff; reduce optional integrations before weakening the three core experiences.
 
-## Draft video script: target 4 minutes 30 seconds
-
-Rehearse and adjust pacing to the actual recording. Use the final Section 3 screens supplied by the design owner. Do not describe designed interactions as a live implementation. If screens cannot show this case consistently, reconcile the case and screens before recording.
-
-### 0:00–0:30 | The decision
-
-**Show:** Aina's commitments and the club request.
-
-“Aina has a class, an assignment due Friday and a fixed paid shift. Then a club asks for another hour on Thursday. Each commitment sounds manageable. Together, they compete for the same time, and recovery is easy to push aside. SODA helps her answer one question before she agrees: can I take this on, and what would need to change?”
-
-### 0:30–1:10 | My Backpack
-
-**Show:** Overview, five-axis breakdown and coverage explanation.
-
-“Our first core experience is My Backpack. It brings recorded commitments into one overview across mental, time, physical, social and errands demand. Two tasks can take the same time and make different demands. Aina can see where the pressure comes from and review the assumptions behind the estimate. This is a personal planning tool, not a health score. Missing commitments mean an incomplete picture, so coverage stays visible.”
-
-### 1:10–2:15 | Impact Preview
-
-**Show:** Unsaved club request, conflict, proposed changes and confirmation.
-
-“Impact Preview is the moment where that understanding becomes a decision. The club request has not been saved. It overlaps assignment work. Aina reviews an option: move laundry to Saturday and split the two hours of drafting around the request. Her class and paid shift stay fixed, the assignment still finishes before its deadline, and recovery remains protected.
-
-“Smart Rebalance supports this experience. It checks the destination as well as the busy day. Aina approves the changes herself. If nothing fits, SODA explains why and leaves the choice with her. The useful outcome is a feasible plan she understands, not simply a lower-looking number.”
-
-### 2:15–2:50 | Recovery Island
-
-**Show:** Action choice, protected interval and simulated completion.
-
-“The third experience is Recovery Island. Aina chooses a manageable action for her protected recovery time, rather than receiving a general reminder to rest. Completing an action creates a recovery record. Recovery Debt supports this by keeping the difference between planned and logged recovery visible across weeks. A missing log does not prove someone failed to rest. Optional feedback later helps Aina reconsider future estimates.”
-
-### 2:50–3:20 | Tech stack
-
-**Show:** Figure 5.2, the architecture and data flow.
-
-“This submission is a prototype and a specification. The planned build is Flutter on Android and web, FastAPI for every request, and Supabase for authentication and user data. One deterministic Python engine produces capacity, Impact Preview, Life Forecast and Recovery Debt. It makes no network calls, so the same inputs always return the same number. A language model only puts results into words. It never decides your schedule.”
-
-### 3:20–3:50 | Build plan
-
-**Show:** Figure 5.3, the three-week build plan. Reveal the full figure, then bring up the three gate
-bars together, then each week column with its gate in turn, then the cut-order strip.
-
-“Three weeks, a hundred and twenty team hours, four people with one job each. Every week ends on a gate we can demonstrate. Week one proves the data is isolated. Week two closes the decision loop: preview, approve, undo. Week three rehearses it with the AI switched off. The cut order is decided in advance. The three core experiences are the last things to go.”
-
-Sixty-seven words, about 135 words per minute. The pacing is deliberately unhurried so each highlight
-lands. If the segment has to reach 25 seconds, drop “Week one proves the data is isolated”; account
-isolation is covered in the README's data handling section. If it can run to 35 seconds, add
-“Hosting for a small demo costs five to ten US dollars a month, subject to actual usage.”
-
-### 3:50–4:35 | Impact and close
-
-**Show:** Life Forecast with Wednesday at 104%, then the same week after the fix at 80%. Hold on the
-after screen and bring up "Moved to Sat", then "Unchanged, fixed shift", then "Rest is safe". Close on
-the three main experiences, then the end card.
-
-“The number went from a hundred and four to eighty. But that is not the point. What matters is that she can explain it: what moved, what stayed, and why recovery survived. That is the behaviour we want to test with students, and we have not proved it yet. No usability results, no health outcomes, and no claim to detect or prevent burnout. The estimate is arithmetic a student can check on paper, and the decision stays with her. Understand what you are carrying. Decide before adding more. Give recovery a place in the plan. SODA: carry life, not overload.”
-
-One hundred words, about 42 seconds. Let the red Wednesday hold for two seconds before the first line.
-The admission that nothing is proven is deliberate and should be delivered evenly, not apologetically.
-Slow down across the final three short sentences and again on the last line.
-
 ## Short formative usability session
 
 **Purpose:** find confusing interactions, not prove effectiveness. Start with a small convenience sample of consenting target students; report the actual count. This preliminary walkthrough is separate from the planned eight-person counterbalanced comparison in the README. Do not apply the 6-of-8 gate to a smaller sample.
