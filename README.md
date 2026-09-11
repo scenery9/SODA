@@ -5,7 +5,7 @@
 <tr><td><b>Problem Statement</b></td><td>Stress &amp; Workload Manager</td></tr>
 <tr><td><b>Video Presentation</b></td><td><i>Unlisted YouTube link, to be added</i></td></tr>
 <tr><td><b>Presentation Slides</b></td><td><i>Public link, to be added</i></td></tr>
-<tr><td><b>UI Prototype</b></td><td><a href="https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/Untitled?page-id=358%3A2225&amp;node-id=189-1183&amp;starting-point-node-id=189%3A1183&amp;scaling=scale-down">Open the SODA prototype in Figma</a> · 28 screens, light and dark, clickable end to end</td></tr>
+<tr><td><b>Figma Prototype</b></td><td><a href="https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/SODA-Stress-Workload-Manager?page-id=358%3A2225&amp;node-id=189-1183&amp;starting-point-node-id=189%3A1183&amp;scaling=scale-down">Open the interactive prototype</a> · 28 screens, light and dark, clickable end to end</td></tr>
 </table>
 
 ---
@@ -213,7 +213,7 @@ A second consultation focused on making the user flow, rescheduling logic, recov
 
 ## 3. 📱 Design & Prototype
 
-**UI Prototype:** [Open the main SODA prototype](https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/Untitled?page-id=358%3A2225&node-id=189-1183&starting-point-node-id=189%3A1183&scaling=scale-down) · [View the Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/Untitled?node-id=189-1183)
+**Figma Prototype:** [Open the interactive prototype](https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/SODA-Stress-Workload-Manager?page-id=358%3A2225&node-id=189-1183&starting-point-node-id=189%3A1183&scaling=scale-down) · [View the Figma design file](https://www.figma.com/design/izVJIUjNyiSDu0ivUEOtw5/SODA-Stress-Workload-Manager?node-id=189-1183)
 
 SODA is used by people who are already depleted. That single fact drives
 every decision in this section: the interface has to be readable in ten
