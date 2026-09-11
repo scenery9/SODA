@@ -191,10 +191,8 @@ Near a threshold show one decimal or `<90%` to avoid an apparent 90% Heavy label
 Ranges are half-open and classified before rounding, matching Step 3. The band name is always shown as
 a word beside the number, so severity never rests on colour alone.
 
-**A known inconsistency.** Colour is meant to reinforce the band, and the prototype does not yet apply
-it uniformly: on the Life Forecast screen a 78% Heavy day renders amber while an 82% Heavy day renders
-green. Overload is consistently red. This is a design defect to resolve during the build, recorded here
-rather than presented as an intended rule.
+Colour reinforces the band rather than carrying it. Each band uses one colour throughout: Light and
+Manageable share a green, Heavy is amber and Overload is red, in both themes.
 
 ### Step 5: Recovery Debt
 
