@@ -1,6 +1,6 @@
 # SODA demonstration and validation pack
 
-Team preparation material supporting [the submission](../README.md). The schedule is synthetic, the speaking script is a draft, and all study results are uncollected. This document does not change the Section 3 prototype or establish deployment readiness.
+Team preparation material supporting [the submission](../README.md). The schedule is synthetic and all study results are uncollected: every observation table here is deliberately empty. This document does not change the Section 3 prototype or establish deployment readiness.
 
 ## One case across all three experiences
 
@@ -35,14 +35,7 @@ For the prototype round, demonstrate the designed states and label them as illus
 
 ## Implementation responsibilities
 
-The following building-phase allocation defines each member's ownership. Deliverables are planned work, not claims that implementation or testing has already been completed.
-
-| Team Member | Primary Responsibility | Key Deliverables |
-|---|---|---|
-| **Samantha Chan Pei Yin** | **Recovery Island Development & Submission Integration** | Develop the recovery activity selection, protected-time and completion-recording interfaces; integrate Recovery Debt data with the backend; coordinate the final README, slides and demonstration using contributions from all members. |
-| **Lee Jia Yin** | **Frontend Development & UI/UX** | Build shared Flutter components and navigation, task-entry screens, My Backpack and Impact Preview interfaces; maintain consistency with the Figma design and implement accessible interaction states. |
-| **Yeap Boon Shen** | **Backend Development & Calculation Engine** | Implement the five-dimensional load model, database and APIs, Impact Preview calculations, Smart Rebalance constraints, recovery data services, and safe save/undo behaviour. |
-| **Muhammad Ikhlas bin Mohd Faizal** | **Testing & Quality Assurance** | Prepare test plans and synthetic data; perform functional, integration and regression testing; verify calculation outputs, scheduling constraints and account isolation; track defects, retest fixes and validate the complete demonstration flow. |
+Each member's primary responsibility and key deliverables are listed in [Section 5 of the submission](../README.md#team-time-and-cost). This section adds what that table does not carry: how the work is handed between people, and what independent verification happens in each of the three weeks. Deliverables are planned work, not claims that implementation or testing has already been completed.
 
 ### Collaboration and hand-offs
 

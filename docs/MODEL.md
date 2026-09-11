@@ -91,7 +91,7 @@ different: the Python engine is on the server, so offline screens show dated cac
 Weights, ceilings and the 90% warning boundary are adjustable design assumptions. The saved screen
 numbers are illustrative; the worked example below is computed from the actual specification.
 
-### Step 1, a task becomes a five-dimensional vector
+### Step 1: a task becomes a five-dimensional vector
 
 Each task carries duration `d` (hours), effort `e`, and category `c`.
 
@@ -113,7 +113,7 @@ This is the mechanism behind the five-dimensional capacity claim: a 3-hour
 assignment (`3 × 1.4 × Academic`) and a 3-hour social event (`3 × 1.0 × Social`) consume the same three
 hours and produce completely different vectors.
 
-### Step 2, capacity comes from onboarding, per student
+### Step 2: capacity comes from onboarding, per student
 
 The three calibration questions on Screen 03 set the ceiling:
 
@@ -135,7 +135,7 @@ calendar intervals separately. Each task contributes once, split across dates in
 IANA timezone when it crosses midnight. Dropped tasks are excluded. Check-ins inform reflection and
 preferences in v1; they do not silently change `C`.
 
-### Weekly recovery target
+#### Weekly recovery target
 
 SODA uses **315 minutes, or 5 hours 15 minutes per week**, as the editable starting target for a student who selects the Moderate baseline. This is calculated as 45 minutes of protected recovery on each of seven days. The other onboarding choices correspond to 105, 525 and 630 minutes per week for the 15-, 75- and 90-minute daily targets respectively.
 
@@ -145,7 +145,7 @@ Recent longitudinal research with 56 university students preparing for examinati
 
 The evidence supports protecting regular recovery, but it does **not** establish one clinically correct number of recovery hours for every student. Therefore, 315 minutes is an operational planning default derived from SODA's existing onboarding midpoint, not a medical recommendation. Students can edit it, and SODA should evaluate whether the target is realistic through user feedback rather than presenting it as a universal threshold.
 
-### Step 3, utilisation, and the day figure
+### Step 3: utilisation and the day figure
 
 ```
 per-dimension utilisation: U_dim = L_dim / C_dim          (display 100 × U_dim as a percentage; do not clamp above 100)
@@ -171,14 +171,22 @@ week”**. Never label this a weekly average. A separate weekly average, if show
 Classify on the unrounded score: Light `[0,50)`, Manageable `[50,70)`, Heavy `[70,90)`, Overload `[90,∞)`.
 Near a threshold show one decimal or `<90%` to avoid an apparent 90% Heavy label.
 
-### Step 4, severity bands
+### Step 4: severity bands
 
 | Band | Range | UI treatment |
 |---|---|---|
-| Light | 0–49% | Green, short bar, no icon |
-| Manageable | 50–69% | Amber, medium bar |
-| Heavy | 70–89% | Orange, tall bar, cloud icon |
-| **Overload** | **90%+** | Red, full bar, storm icon, warning glyph, strained mascot |
+| Light | `[0, 50)` | Short bar, no icon |
+| Manageable | `[50, 70)` | Medium bar |
+| Heavy | `[70, 90)` | Tall bar, cloud icon |
+| **Overload** | `[90, ∞)` | Full bar, storm icon, warning glyph, strained mascot |
+
+Ranges are half-open and classified before rounding, matching Step 3. The band name is always shown as
+a word beside the number, so severity never rests on colour alone.
+
+**A known inconsistency.** Colour is meant to reinforce the band, and the prototype does not yet apply
+it uniformly: on the Life Forecast screen a 78% Heavy day renders amber while an 82% Heavy day renders
+green. Overload is consistently red. This is a design defect to resolve during the build, recorded here
+rather than presented as an intended rule.
 
 ### Step 5: Recovery Debt
 

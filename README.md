@@ -185,7 +185,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 |---|---|---|---|
 | 7 Sep 2026 | Khor Jia Quan | Split the dense ideation mindmap and explain each part. | One board became three connected boards, each with its own caption: users and needs, concepts and selection, principles to features. See Figures 1.2a–c above. |
 | 7 Sep 2026 | Khor Jia Quan | Show the selected backend technologies on the architecture figure. | Figure 5.2 now labels each selected technology, and the stack table beside it states why each was chosen and the constraint it brings. |
-| 7 Sep 2026 | Khor Jia Quan | Explain chart alternatives, and research how screen-reader and colour-blind support helps these users. | Every figure carries a text description; numbers are always paired with a word ("89%", "Heavy") so meaning never rests on colour. Section 3 states which of this is designed and which is still unverified. |
+| 7 Sep 2026 | Khor Jia Quan | Explain chart alternatives, and research how screen-reader and colour-blind support helps these users. | Every figure carries a text description, and the [accessibility notes](#accessibility-what-is-designed-what-is-still-unverified) set out which support is designed and which is still unverified. |
 | 7 Sep 2026 | Khor Jia Quan | Remove the Chat / Manual chooser that came before Impact Preview; let students reach the chat entry directly with manual input available on the same screen. | Adding is now a single screen. The chat field is present immediately and "Type it in yourself" expands the manual form in place; the separate chooser screen is gone. |
 | 7 Sep 2026 | Khor Jia Quan | Give the backpack companion a functional role through dialogue rather than decoration. | The companion now speaks to load and recovery states at the points where a student is deciding, always alongside text that carries the same meaning on its own. |
 | 7 Sep 2026 | Khor Jia Quan | Change the Add icon in the bottom navigation to the SODA backpack icon. | Adopted. The backpack is the main entry point in the navigation bar. |
@@ -581,42 +581,17 @@ for assistive-technology support.
 
 That is the whole difference. A task list answers *what do I have to do*. A calendar answers *when does it happen*. Neither answers the question a student actually asks at the moment a request arrives: *can I take this on, and what would have to change?* SODA is built to answer that one.
 
-### Three experiences, one decision journey
-
-#### My Backpack: “Now I understand what is making the week heavy.”
-
-
-The student starts with an overview of combined demand, then sees which of the five dimensions needs attention. A three-hour assignment and a three-hour social event occupy the same time but receive different proposed demand vectors. The value is understanding the pressure behind the task list, not simply counting more tasks.
-
-Task entry makes the overview possible, and Life Forecast extends it across the week. The assumptions and recorded-data coverage remain visible so the student can correct an incomplete picture.
-
-#### Impact Preview: “I can decide before I commit.”
-
-
-**This is SODA's central demonstration moment.** The student previews an unsaved task against the current plan, sees the trade-off, and chooses whether to accept, adjust, defer or decline.
-
-Protection Mode and Smart Rebalance support that same decision. They preserve fixed shifts, deadlines and protected recovery while offering feasible changes to flexible work, taking the student's own Low-priority work before touching anything marked Medium or High. Each selected change is checked against the whole week, including its destination. If nothing fits, the app explains why. Nothing moves without approval, and approved changes can be undone when later edits do not conflict.
-
-#### Recovery Island: “I have a manageable next step for recovery.”
-
-
-The student chooses a recovery action suited to their preferences and current context, protects time for it, and records what they completed. The experience turns a general reminder into a concrete action.
-
-Recovery Debt supports this experience by showing planned-versus-logged recovery across 28 completed days. It keeps postponed recovery visible across calendar boundaries without becoming a separate score to chase. Missing logs do not prove missing rest, extra rest does not erase an earlier daily shortfall, and the ledger does not lower the student's capacity baseline.
-
-**What helps the next visit:** optional Reality Check feedback can prompt an approved estimate adjustment when tasks repeatedly take longer than expected. This follows the planning-fallacy rationale ([Buehler et al., 1994](https://doi.org/10.1037/0022-3514.67.3.366)); it does not establish accurate automated learning. Check-ins, explanations and Insights support understanding and continuity across all three main experiences.
-
 ### Four things nobody else does
 
-Each of these exists because the three experiences above needed it, not as a feature added for its
-own sake.
+Each of these exists because one of the [three experiences](#three-core-experiences) needed it, not
+as a feature added for its own sake.
 
 | | The twist | Why it is unusual |
 |---|---|---|
 | **1** | **The simulation runs before the task is saved.** Impact Preview shows `82% → 112%`, the axes that move and the rest it costs, while the student can still walk away. Nothing is written. | Planners report overload after you have already agreed. Moving that information to the only moment it can change the answer is the product. |
-| **2** | **Recovery debt survives the week.** Planned-versus-logged rest is carried across 28 completed days, so a shortfall from three weeks ago is still visible. | Every planner resets on Monday. Students do not. The ledger refuses to pretend the week is a clean slate. |
+| **2** | **Recovery debt survives the week.** Planned-versus-logged rest is carried across 28 completed days, so a shortfall from three weeks ago is still visible. Missing logs do not prove missing rest, extra rest does not erase an earlier daily shortfall, and the ledger never lowers the capacity baseline. | Every planner resets on Monday. Students do not. The ledger refuses to pretend the week is a clean slate, without turning rest into another score to chase. |
 | **3** | **A paid shift is never quietly moved.** Commitments are tagged Fixed or Flexible. SODA will draft the message to a manager, but the swap shows as *waiting for your manager* and is excluded from the improvement total until approved. | Auto-schedulers treat every block as movable. A student who loses a shift loses income, so an unapproved swap is not an improvement. |
-| **4** | **It learns how wrong the student's own estimates are.** Two taps after a task record whether it ran long and felt heavier; repeated answers within a category prompt an approved adjustment to future estimates. | Task managers record that something was completed, never whether the estimate was right, so they cannot correct the planning fallacy they inherit. |
+| **4** | **It learns how wrong the student's own estimates are.** Two taps after a task record whether it ran long and felt heavier; repeated answers within a category prompt an approved adjustment to future estimates. | Task managers record that something was completed, never whether the estimate was right, so they cannot correct the planning fallacy they inherit ([Buehler et al., 1994](https://doi.org/10.1037/0022-3514.67.3.366)). Repeated answers prompt an adjustment the student approves; this is not automated learning. |
 
 ### Comparison with existing solutions
 
@@ -875,13 +850,11 @@ by them rather than claiming legal compliance, which would need a proper legal a
 
 Sign-in is required only when a student wants account recovery or cross-device synchronisation. Supabase Auth handles authentication, so SODA's application tables do not store passwords. Each backend request must carry a signed user token whose issuer, audience, signature and expiry are validated before any student-owned record is read or changed.
 
-Cross-device sync necessarily uploads some personal data to SODA's database: the account identifier, task title, dates, times, duration, effort, priority, category, check-in answers, recovery records and approved estimate feedback. It would therefore be inaccurate to claim that no personal or potentially sensitive data reaches the database. Instead, SODA follows data minimisation: it does not request medical diagnoses, message content, contacts, precise location, raw wearable records, calendar descriptions, attendees or locations.
+Cross-device sync necessarily uploads the data listed in the table above, so it would be inaccurate to claim that no personal or potentially sensitive information reaches the database. What SODA does instead is minimise it: that table is the complete set of fields it asks for, and nothing outside it is collected in order to make the estimate work.
 
 “Sanitised” does not mean that a record becomes anonymous. Before storage, the backend validates data against an allowlist of accepted categories, effort and priority values; checks text-length, date, time and duration limits; rejects unexpected fields; and uses parameterised database operations rather than constructing SQL from student input. Text is safely encoded when displayed, and task bodies are excluded from infrastructure logs. These controls reduce malformed-input, injection and accidental-logging risks but do not remove the personal nature of a student's schedule.
 
-Every user-owned table uses Row Level Security so the database rejects cross-account reads and writes. Service-role credentials remain server-side and are not used for normal student requests. Transport must use HTTPS, stored data and backups must use the hosting provider's encryption controls, and release is blocked until two-account isolation, deletion, export, retention and recovery-from-backup behaviour have been tested.
-
-Student-written text is not sent to an external language model. Real entries use structured fields or the backend rule parser; the optional Gemini demonstration accepts only an allowlisted synthetic example without account or schedule context. Students can disconnect calendar access, correct records, export them and delete their account and associated data.
+Beyond the Row Level Security described above, transport must use HTTPS and stored data and backups must use the hosting provider's encryption controls. Release is blocked until two-account isolation, deletion, export, retention and recovery-from-backup behaviour have all been tested.
 
 A 2024 systematic review covering 33 studies found that privacy, confidentiality and security concerns affected users' perceptions and adoption of mobile health applications. It particularly emphasised explaining what data are collected and why, alongside implementing technical safeguards ([Alhammad et al., 2024](https://doi.org/10.2196/50715)). SODA therefore communicates both its safeguards and their limits rather than claiming that sanitisation alone guarantees privacy or legal compliance.
 
