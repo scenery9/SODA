@@ -93,10 +93,10 @@ numbers are illustrative; the worked example below is computed from the actual s
 
 ### Step 1: a task becomes a five-dimensional vector
 
-Each task carries duration `d` (hours), effort `e`, and category `c`. Effort offers four levels, matching the task-entry screen. It is the only load input the student sets by judgement rather than by fact, so the multiplier range is fixed and published, and [Step 7](#step-7-reality-check-correction) corrects a student whose estimates are persistently wrong in one direction.
+Each task carries duration `d` (hours), effort `e`, and category `c`. Effort offers five levels, matching the chips on the task-entry screen. It is the only load input the student sets by judgement rather than by fact, so the multiplier range is fixed and published, and [Step 7](#step-7-reality-check-correction) corrects a student whose estimates are persistently wrong in one direction.
 
 ```
-effort multiplier: Low = 0.6   Medium = 1.0   High = 1.4   Extra High = 2.0
+effort multiplier: Low = 0.6   Medium = 1.0   High = 1.4   Very High = 1.7   Extra High = 2.0
 
 category weight vectors w[c] = (mental, time, physical, social, errands)
   Academic   (0.55, 0.30, 0.05, 0.05, 0.05)
