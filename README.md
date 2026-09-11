@@ -683,7 +683,7 @@ Start with students at one campus through societies and student-support channels
 
 ### Tech stack
 
-The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python calculation engine. The main workflow must work with language assistance disabled.
+The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python calculation engine. The engine and the rule parser are written and tested; everything that writes to a database is specified and returns `501` until it exists. The main workflow must work with language assistance disabled.
 
 | Component | Selection and reason | Constraint we plan for |
 |---|---|---|
@@ -754,6 +754,15 @@ passes 90%, so any axis reaching 100% raises its own warning rather than hiding 
 hour of medium-effort errands and it becomes **101.616%, displayed as 102%**, with a mental-axis
 warning at 120.5%. The same confirmed inputs, capacity, timezone and model version always reproduce
 the same number.
+
+**You do not have to take our word for it.** The engine above is written, in
+[`api/engine/`](api/engine), as plain Python with no dependencies and no network calls. `api/tests/` asserts the two figures in this example, and fails if a coefficient here is edited without editing the code:
+
+```bash
+python -m pytest api/tests -q      # 49 passed
+```
+
+The suite also holds the promises this section makes: a fixed commitment is never offered as a move, a proposed move never pushes its destination into overload, a preview writes nothing, a week with no feasible improvement returns nothing rather than inventing one, overlapping recovery logs count once, and priority can never change a load figure. One test reads the engine's own imports and fails if anything in it could reach a network or a model. [How to run it](SETUP.md).
 
 | Display rule | Meaning |
 |---|---|

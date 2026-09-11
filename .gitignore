@@ -12,3 +12,15 @@ SUBMISSION-BRIEF.md
 Claude outputs/
 *.mp4
 *.mov
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Flutter
+app/.dart_tool/
+app/build/
+app/.flutter-plugins*

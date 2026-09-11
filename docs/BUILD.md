@@ -1,6 +1,8 @@
 # SODA build specification
 
-> Supporting detail for section 5 of the [README](../README.md). Everything here is **proposed**; no application or deployed service exists yet.
+> Supporting detail for section 5 of the [README](../README.md). The deterministic engine and the
+> rule parser described here are written and tested in [`api/`](../api); everything that needs a
+> database or a deployed service is still **proposed**.
 
 ## Product hierarchy and minimum experience
 
