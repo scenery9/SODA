@@ -490,8 +490,9 @@ its own Home and Forecast, both still showing Friday over the limit.
 [screen-by-screen walkthrough](#user-flow-end-to-end) further down covers the demo route in
 order. These are the other screens that sit outside it: how SODA explains itself, and how it holds
 together when something fails. Named
-prototype starting points reach them without lengthening the main judging route: four to start a
-run, five for the failure states a click cannot trigger, and two for the state after a recovery is logged.
+prototype starting points reach them without lengthening the main judging route, paired light and
+dark throughout: four to start a run, six for the states a click cannot trigger, and two for the week
+after a recovery is logged.
 
 
 **Explaining itself: insight, honesty and trust**
