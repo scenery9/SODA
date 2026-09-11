@@ -98,6 +98,10 @@ Creed, P. A., Hood, M., Bialocerkowski, A., Machin, M. A., Brough, P., Kim, S., 
 Eastgate, L. (2023). Students managing work and study role boundaries: A person-centred approach.
 *Frontiers in Psychology, 14*, 1116031. https://doi.org/10.3389/fpsyg.2023.1116031
 
+Demerouti, E., Bakker, A. B., Nachreiner, F., & Schaufeli, W. B. (2001). The job demands-resources
+model of burnout. *Journal of Applied Psychology, 86*(3), 499–512.
+https://doi.org/10.1037/0021-9010.86.3.499
+
 Finch Care. (2026, September 3). *Finch: Self-care pet* [Mobile app]. Google Play.
 https://play.google.com/store/apps/details?id=com.finch.finch
 
@@ -125,6 +129,10 @@ learners. *Methods in Psychology, 11*, 100163. https://doi.org/10.1016/j.metip.2
 Liu, B., Ma, P., & Jia, F. (2026). Systematic review and meta-analysis of the impact of time management
 on college students' learning outcomes. *Frontiers in Psychology, 17*, 1700298.
 https://doi.org/10.3389/fpsyg.2026.1700298
+
+McEwen, B. S. (1998). Stress, adaptation, and disease: Allostasis and allostatic load.
+*Annals of the New York Academy of Sciences, 840*(1), 33–44.
+https://doi.org/10.1111/j.1749-6632.1998.tb09546.x
 
 Meijman, T. F., & Mulder, G. (1998). Psychological aspects of workload. In P. J. D. Drenth, H. Thierry, &
 C. J. de Wolff (Eds.), *Handbook of work and organizational psychology* (2nd ed., Vol. 2, pp. 5–33).

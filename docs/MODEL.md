@@ -87,6 +87,12 @@ different: the Python engine is on the server, so offline screens show dated cac
 
 ## Load model: reproducible planning estimates
 
+The shape of the model follows three literatures the app also names on its explainer screen: the
+effort–recovery model ([Meijman & Mulder, 1998](#references)), the job demands–resources model
+([Demerouti et al., 2001](https://doi.org/10.1037/0021-9010.86.3.499)) and allostatic load
+([McEwen, 1998](https://doi.org/10.1111/j.1749-6632.1998.tb09546.x)). Load accumulates and rest pays
+it back. Borrowing that shape is not the same as inheriting their validity.
+
 **This is a proposed deterministic planning model, not a validated measure of human capacity.**
 Weights, ceilings and the 90% warning boundary are adjustable design assumptions. The saved screen
 numbers are illustrative; the worked example below is computed from the actual specification.
@@ -115,13 +121,15 @@ hours and produce completely different vectors.
 
 ### Step 2: capacity comes from onboarding, per student
 
-The three calibration questions on Screen 03 set the ceiling:
+Screen 03 asks four questions. Three set the ceiling; the fourth records a preference that the load
+calculation never reads:
 
 | Question | Sets |
 |---|---|
 | "What does a normal week look like for you?" (Light / Moderate / Heavy) | Baseline scaling factor `β` ∈ {1.15, 1.00, 0.85} |
 | "How many focused hours can you realistically handle per day?" (2–4 / 4–6 / 6–8 / 8+) | Daily focus budget `H` |
 | "What time is protected for recovery each day?" (0–30 / 30–60 / 60–90 / 90+ min) | Daily recovery target `R` |
+| "How do you get your energy back?" (Alone / With people / A mix) | Recovery preference. Used only by [Step 5](#step-5-recovery-debt) to rank which actions Recovery Island offers. It does not enter `C`, `L` or any day figure. |
 
 ```
 daily capacity ceiling  C = β × H × κ
@@ -198,8 +206,11 @@ D = sum(S_day) over dates since onboarding within that 28-day window
 Today stays provisional until the day ends; do not charge future recovery as missed.
 ```
 
-`D` is displayed as a duration ("2h 35m across the last 4 weeks") and never as a score, a percentage or
-a risk level. **`D` influences which recovery actions get suggested and how prominently; it never
+`D` is displayed as a duration ("2h 35m across the last 4 weeks"), never as a score or a risk level.
+A single recovery action is a different quantity: the app shows what that action repays as a share of
+the outstanding debt on its axis, `minutes × quality ÷ D_axis × 100`, with quality weights of 1.2 for
+stretching, 1.0 for a walk or a quiet reset and 0.75 for a nap. That percentage describes progress
+against a shortfall the student chose to plan. It is not a measure of how rested they are. **`D` influences which recovery actions get suggested and how prominently; it never
 reduces `C`.** Debt is a signal to review planned versus logged recovery, not a penalty. Missing logs are not proof of missing rest; display history coverage. Extra rest cannot erase previous daily shortfalls, and entries age out after 28 days, so a falling ledger is not itself proof of recovery.
 
 ### Step 6: Smart Rebalance using priority

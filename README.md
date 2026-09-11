@@ -712,7 +712,7 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
 ### How the estimate works
 
 1. **Describe the task:** duration, effort and category produce a five-axis demand vector. Effort has five levels, matching the chips on the task-entry screen, and it is the student's own judgement, so it is the one input that could be used to inflate a day. Two things constrain it: the multiplier range is fixed and visible in the arithmetic below, and Reality Check compares repeated estimates against what actually happened and proposes a correction the student approves. A priority of Low, Medium or High is recorded at the same time but is deliberately kept out of this step, so calling something important can never inflate its load figure.
-2. **Set the baseline:** onboarding supplies an editable focus budget and relative capacity assumptions. Check-ins do not silently reduce capacity.
+2. **Set the baseline:** onboarding asks four questions. Three supply an editable focus budget, a daily recovery target and relative capacity assumptions. The fourth asks how the student recharges, and only Recovery Island reads it, so a preference about resting can never change a load figure. Check-ins do not silently reduce capacity.
 3. **Compare demand with capacity:** combine the axis utilisation values into a daily planning estimate while preserving separate axis warnings.
 4. **Simulate a change:** recalculate the candidate and any proposed moves across the week; check actual time overlaps independently of weighted demand. This is the only step that reads priority: fixed and completed commitments are excluded, and feasible Low-priority work is considered before Medium and High.
 
