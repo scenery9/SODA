@@ -16,7 +16,7 @@ Our case for effectiveness is **theory-informed and testable**, not demonstrated
 intended interaction; sustained behavioural effects require evaluation.
 
 **Illustrative persona: Aina, a working undergraduate (fictional, not a research participant).**
-Use the [shared schedule and decision](DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences): move flexible laundry, preserve two hours of drafting, and retain the fixed class, shift and recovery interval. No load percentage has been calculated for this partial schedule. The benefit being tested is a clearer trade-off and a usable plan; changes in burnout have not been measured.
+Use the [shared schedule and decision](../README.md#what-changes-for-the-student): move flexible laundry, preserve two hours of drafting, and retain the fixed class, shift and recovery interval. No load percentage has been calculated for this partial schedule. The benefit being tested is a clearer trade-off and a usable plan; changes in burnout have not been measured.
 
 | Problem | Research basis | SODA intervention |
 |---|---|---|

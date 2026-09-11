@@ -88,7 +88,7 @@ different: the Python engine is on the server, so offline screens show dated cac
 ## Load model: reproducible planning estimates
 
 The shape of the model follows three literatures the app also names on its explainer screen: the
-effort–recovery model ([Meijman & Mulder, 1998](#references)), the job demands–resources model
+effort–recovery model ([Meijman & Mulder, 1998](EVIDENCE.md#references)), the job demands–resources model
 ([Demerouti et al., 2001](https://doi.org/10.1037/0021-9010.86.3.499)) and allostatic load
 ([McEwen, 1998](https://doi.org/10.1111/j.1749-6632.1998.tb09546.x)). Load accumulates and rest pays
 it back. Borrowing that shape is not the same as inheriting their validity.

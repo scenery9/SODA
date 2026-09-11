@@ -171,7 +171,7 @@ change their mind without creating a commitment, and a parse failure can never c
 
 ## Demo seed data
 
-The [shared Aina case](DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences) supplies the qualitative scheduling walkthrough and its constraints. It is not the numerical `decision-loop` fixture below. Do not reuse illustrative percentages for that schedule without specifying and calculating the complete inputs.
+The [shared Aina case](../README.md#what-changes-for-the-student) supplies the qualitative scheduling walkthrough and its constraints. It is not the numerical `decision-loop` fixture below. Do not reuse illustrative percentages for that schedule without specifying and calculating the complete inputs.
 
 The demo account needs enough history for Recovery Debt and Reality Check to be non-empty:
 

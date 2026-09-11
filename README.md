@@ -607,7 +607,7 @@ The capability comparison is in [Section 1](#existing-approaches-and-the-remaini
 
 ### What changes for the student
 
-**Aina is a fictional working undergraduate.** On Thursday she has class from 09:00–11:00, laundry from 12:00–13:00, two hours of assignment drafting from 13:00–15:00, a fixed shift from 16:00–20:00 and protected recovery from 20:30–21:00. Her assignment is due Friday at noon. A club asks her to help on Thursday from 13:00–14:00.
+**Aina is a fictional working undergraduate.** All times are Asia/Kuala_Lumpur. On Thursday she has class from 09:00–11:00, laundry from 12:00–13:00 marked Low priority, two hours of assignment drafting from 13:00–15:00 marked High and splittable, a fixed shift from 16:00–20:00 and protected recovery from 20:30–21:00. Her assignment is due Friday at noon. A club asks her to help on Thursday from 13:00–14:00, a Medium-priority candidate she has not saved.
 
 | Experience | What Aina sees or does | Concrete outcome in this synthetic case |
 |---|---|---|
@@ -872,7 +872,6 @@ explicit opt-in, defined escalation rules and review by qualified student-suppor
 
 The essential case is above. These documents retain the material needed to examine the proposal more closely:
 
-- [Demonstration and validation pack](docs/DEMO-AND-VALIDATION.md): the shared case, team responsibilities, the evidence to capture for each experience, and an unfilled participant observation sheet.
 - [Research, evaluation and references](docs/EVIDENCE.md): research-to-design mapping, proposed measures, stakeholder context and source list.
 - [Calculation and architecture specification](docs/MODEL.md): formulas, worked example, recovery rules, constrained adjustments and language modes.
 - [Build specification](docs/BUILD.md): proposed repository layout, starter SQL/RLS, API contracts, fixtures and integration checks.
