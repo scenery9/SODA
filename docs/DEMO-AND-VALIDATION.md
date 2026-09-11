@@ -109,11 +109,17 @@ lands. If the segment has to reach 25 seconds, drop “Week one proves the data 
 isolation is covered in the README's data handling section. If it can run to 35 seconds, add
 “Hosting for a small demo costs five to ten US dollars a month, subject to actual usage.”
 
-### 3:50–4:30 | Impact and close
+### 3:50–4:35 | Impact and close
 
-**Show:** The original and revised week side by side, then the three main experiences, then the end card.
+**Show:** Life Forecast with Wednesday at 104%, then the same week after the fix at 80%. Hold on the
+after screen and bring up "Moved to Sat", then "Unchanged, fixed shift", then "Rest is safe". Close on
+the three main experiences, then the end card.
 
-“Aina did not get a lower number. She got a plan she can explain: what moved, what stayed, and why recovery survived. That is the behaviour we want to test with students, and we have not proved it yet. No usability results, no health outcomes, and no claim to detect or prevent burnout. What we can say is that the estimate is arithmetic a student can check on paper, and the decision stays with her. Understand what you are carrying. Decide before adding more. Give recovery a place in the plan. SODA: carry life, not overload.”
+“The number went from a hundred and four to eighty. But that is not the point. What matters is that she can explain it: what moved, what stayed, and why recovery survived. That is the behaviour we want to test with students, and we have not proved it yet. No usability results, no health outcomes, and no claim to detect or prevent burnout. The estimate is arithmetic a student can check on paper, and the decision stays with her. Understand what you are carrying. Decide before adding more. Give recovery a place in the plan. SODA: carry life, not overload.”
+
+One hundred words, about 42 seconds. Let the red Wednesday hold for two seconds before the first line.
+The admission that nothing is proven is deliberate and should be delivered evenly, not apologetically.
+Slow down across the final three short sentences and again on the last line.
 
 ## Short formative usability session
 
