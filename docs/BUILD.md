@@ -79,7 +79,7 @@ create table commitments (
   title         text not null,
   starts_at     timestamptz not null,
   duration_min  integer not null check (duration_min > 0),
-  effort        text    check (effort in ('low','medium','high','very_high','extra_high')) default 'medium',
+  effort        text    check (effort in ('low','medium','high','extra_high')) default 'medium',
   priority      text    not null check (priority in ('low','medium','high')) default 'medium',
   category      text    check (category in ('academic','work','social','errands','other')),
   is_fixed      boolean not null default false, -- classes, shifts: never movable

@@ -710,7 +710,7 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
 
 ### How the estimate works
 
-1. **Describe the task:** duration, effort and category produce a five-axis demand vector. Effort has five levels because that is what the interface offers, and it is the student's own judgement, so it is the one input that could be used to inflate a day. Two things constrain it: the multiplier range is fixed and visible in the arithmetic below, and Reality Check compares repeated estimates against what actually happened and proposes a correction the student approves. A priority of Low, Medium or High is recorded at the same time but is deliberately kept out of this step, so calling something important can never inflate its load figure.
+1. **Describe the task:** duration, effort and category produce a five-axis demand vector. Effort has four levels, matching the task-entry screen, and it is the student's own judgement, so it is the one input that could be used to inflate a day. Two things constrain it: the multiplier range is fixed and visible in the arithmetic below, and Reality Check compares repeated estimates against what actually happened and proposes a correction the student approves. A priority of Low, Medium or High is recorded at the same time but is deliberately kept out of this step, so calling something important can never inflate its load figure.
 2. **Set the baseline:** onboarding supplies an editable focus budget and relative capacity assumptions. Check-ins do not silently reduce capacity.
 3. **Compare demand with capacity:** combine the axis utilisation values into a daily planning estimate while preserving separate axis warnings.
 4. **Simulate a change:** recalculate the candidate and any proposed moves across the week; check actual time overlaps independently of weighted demand. This is the only step that reads priority: fixed and completed commitments are excluded, and feasible Low-priority work is considered before Medium and High.
@@ -718,7 +718,7 @@ The proposed build uses **Flutter → FastAPI → Supabase**, with a pure Python
 **The arithmetic, in full.** Every figure in the app comes from this. Nothing is learned or inferred.
 
 ```
-effort multiplier          Low 0.6   Medium 1.0   High 1.4   Very High 1.7   Extra High 2.0
+effort multiplier          Low 0.6      Medium 1.0     High 1.4     Extra High 2.0
 
 category weight w[c]       (mental, time, physical, social, errands)
   Academic                 (0.55, 0.30, 0.05, 0.05, 0.05)
