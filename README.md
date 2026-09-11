@@ -5,6 +5,7 @@
 <tr><td><b>Problem Statement</b></td><td>Stress &amp; Workload Manager</td></tr>
 <tr><td><b>Video Presentation</b></td><td><i>Unlisted YouTube link, to be added</i></td></tr>
 <tr><td><b>Presentation Slides</b></td><td><i>Public link, to be added</i></td></tr>
+<tr><td><b>UI Prototype</b></td><td><a href="https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/Untitled?page-id=358%3A2225&amp;node-id=189-1183&amp;starting-point-node-id=189%3A1183&amp;scaling=scale-down">Open the SODA prototype in Figma</a> · 28 screens, light and dark, clickable end to end</td></tr>
 </table>
 
 ---
