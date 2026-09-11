@@ -176,7 +176,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 
 | Iteration | Earlier proposal → revised design | Why the change matters | Evidence and limit |
 |---|---|---|---|
-| **Task capture** | Rate five dimensions for every task → enter duration, effort and category, then inspect derived defaults. | Removes repeated abstract ratings while preserving correction. The trade-off is coarser defaults, not proven measurement accuracy. | [Figure 1.2c](#figure-12c-principles-that-shaped-the-features) and the [specified inputs](docs/MODEL.md#step-1-a-task-becomes-a-five-dimensional-vector). The earlier design is recorded concept history rather than a saved screenshot, and we make no speed claim we have not measured. |
+| **Task capture** | Rate five dimensions for every task → enter duration, effort and category, then inspect derived defaults. | Removes repeated abstract ratings while preserving correction. The trade-off is coarser defaults, not proven measurement accuracy. | [Figure 1.2c](#figure-12c-principles-that-shaped-the-features) and the [specified inputs](#how-the-estimate-works). The earlier design is recorded concept history rather than a saved screenshot, and we make no speed claim we have not measured. |
 | **Recovery** | General reminder to rest → choose an action, protect time and record completion in Recovery Island. | Gives the student a next step and a visible record. It requires preferences and logging rather than assuming a reminder caused recovery. | [Core flow](#figure-13-from-the-chosen-idea-to-a-usable-flow) and [completion criteria](#minimum-completion-standard). The flow specifies intended behaviour; actual follow-through remains untested. |
 
 ### 2.3 Mentor Consultation
@@ -202,8 +202,8 @@ A second consultation focused on making the user flow, rescheduling logic, recov
 |---|---|---|---|
 | 9 Sep 2026 | Daniel Koh Yu Hang | Explain the user flow one step and one screen at a time. | Section 3 became [sequential screen tables](#user-flow-end-to-end): each row names one screen, what it communicates and what the student does next, following onboarding, commitment entry, impact, adjustment and recovery. |
 | 9 Sep 2026 | Daniel Koh Yu Hang | Keep effort level, but use Low, Medium and High priority for task rescheduling. | Effort still feeds the [five-dimensional demand estimate](#how-the-estimate-works). Priority is now a separate field that only Smart Rebalance reads, so importance never quietly inflates a load figure. Both appear in Manual Add and Tell SODA, in the proposed schema and in the model specification. |
-| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how SODA determines which tasks are rescheduled. | The [order is now stated](#how-the-estimate-works): fixed and completed commitments are excluded, feasible Low-priority work is considered before Medium and High, and deadlines, overlaps, destination load and protected recovery are all checked before a suggestion is shown. Full rules in [MODEL.md](docs/MODEL.md#step-6-smart-rebalance-using-priority). |
-| 9 Sep 2026 | Daniel Koh Yu Hang | Set and explain how much recovery time is needed each week. | Added an editable [starting target](#how-the-estimate-works) of **5 hours 15 minutes a week**, derived from 45 minutes a day under the Moderate onboarding baseline. It appears beside Recovery Debt on the Recover screen, and [MODEL.md](docs/MODEL.md#weekly-recovery-target) records both the derivation and its limits. It is a planning default, not advice about how much rest a person needs. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Explain how SODA determines which tasks are rescheduled. | The [order is now stated](#how-the-estimate-works): fixed and completed commitments are excluded, feasible Low-priority work is considered before Medium and High, and deadlines, overlaps, destination load and protected recovery are all checked before a suggestion is shown. |
+| 9 Sep 2026 | Daniel Koh Yu Hang | Set and explain how much recovery time is needed each week. | Added an editable [starting target](#how-the-estimate-works) of **5 hours 15 minutes a week**, derived from 45 minutes a day under the Moderate onboarding baseline. It appears beside Recovery Debt on the Recover screen, and the [display rules](#how-the-estimate-works) record both the derivation and its limits. It is a planning default, not advice about how much rest a person needs. |
 | 9 Sep 2026 | Daniel Koh Yu Hang | Explain how sign-in and cross-device database data are handled, including sanitisation and sensitive information. | Added the [stored and excluded data](#data-handling), the input-validation boundary, authentication, Row Level Security, logging restrictions, encryption expectations and student controls. The [data-handling section](#data-handling) states plainly that sanitised does not mean anonymous, rather than claiming no personal data reaches the database. |
 | 9 Sep 2026 | Daniel Koh Yu Hang | List weaknesses in existing approaches and explain how SODA addresses them. | The [existing-approaches comparison](#existing-approaches-and-the-remaining-opportunity) now covers task and calendar tools, adaptive scheduling, self-care applications and fragmented manual planning, naming the remaining decision gap in each without claiming that any competitor is ineffective. |
 
@@ -510,7 +510,7 @@ category. SODA divides the accumulated demand by the student's corresponding
 axis ceilings, then combines the result as `0.6 × the busiest axis + 0.4 ×
 the weighted average of all five axes`. The visible explanation introduces
 the task weights and assumptions; the versioned formula and reproducible
-fixtures are documented in [MODEL.md](docs/MODEL.md#step-3-utilisation-and-the-day-figure).
+worked example are set out in full under [How the estimate works](#how-the-estimate-works).
 
 | Insights | Body Signals | How SODA Calculates | The maths |
 |---|---|---|---|
@@ -615,7 +615,7 @@ The capability comparison is in [Section 1](#existing-approaches-and-the-remaini
 
 The trade-off is explicit: **laundry moves to Saturday; it does not disappear from the week.** If laundry cannot move or the assignment cannot be split, that option is rejected. Aina can defer, decline or knowingly accept the conflict rather than receive an impossible “fixed” schedule.
 
-This example establishes an intended decision path, not an observed benefit. It is deliberately a scheduling case rather than a scored one: it shows which commitment moves and what is preserved, and carries no load percentage, because a percentage needs a complete set of recorded inputs rather than the six commitments listed here. The [demonstration pack](docs/DEMO-AND-VALIDATION.md#one-case-across-all-three-experiences) holds the same case with its constraints and its no-feasible-adjustment variant.
+This example establishes an intended decision path, not an observed benefit. It is deliberately a scheduling case rather than a scored one: it shows which commitment moves and what is preserved, and carries no load percentage, because a percentage needs a complete set of recorded inputs rather than the six commitments listed here. The same case is also run with laundry made immovable and splitting disallowed, where no feasible plan exists and SODA has to say so rather than move a fixed commitment.
 
 **Why the mechanism is plausible:** Study Demands–Resources theory links demands, resources and proactive adjustment ([Bakker & Mostert, 2024](https://doi.org/10.1007/s10648-024-09940-8)). SODA brings those decisions together rather than leaving recovery separate from planning. The theory tells us the mechanism is worth building; only testing will tell us we built it well.
 
@@ -668,7 +668,7 @@ First, recruit **8 consenting students** who combine coursework with work, leade
 | Are the changes actually feasible? | Zero approved changes violate a fixed event, deadline or protected block. | Any constraint breach blocks release. |
 | Does the preview support a decision? | Record accept/modify/defer/decline choices and participants' reasons. | Students cannot explain the trade-off or find the information irrelevant. |
 
-A later longitudinal evaluation would track estimate overruns, completed recovery, missed commitments and continued use during busy periods. Lower model scores alone are insufficient: they can result from missing tasks or a changed baseline. **Neither study has been run.** The [research and evaluation appendix](docs/EVIDENCE.md) retains the fuller rationale and falsifiable predictions.
+A later longitudinal evaluation would track estimate overruns, completed recovery, missed commitments and continued use during busy periods. Lower model scores alone are insufficient: they can result from missing tasks or a changed baseline. **Neither study has been run.**
 
 ### Reach and scalability
 
@@ -805,7 +805,7 @@ The building-phase responsibilities give each member a defined implementation or
 
 **Shared responsibility:** each developer checks and fixes their own module. Ikhlas coordinates independent QA throughout all three weeks, rather than receiving the entire testing workload at the end. Every member supplies and verifies their own technical or design content for the submission; Samantha coordinates the final assembly.
 
-The building-phase estimate remains **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. These are planning estimates, not recorded hours or equal allocations per member. Frontend work is shared between Samantha and Jia Yin; actual capacity is reviewed at kickoff, and optional scope is reduced if necessary. The [team responsibility and QA plan](docs/DEMO-AND-VALIDATION.md#implementation-responsibilities) sets out collaboration and weekly testing deliverables.
+The building-phase estimate remains **120 additional team hours**: backend 36, frontend 36, UX/accessibility 18, integration/testing 18 and contingency 12. These are planning estimates, not recorded hours or equal allocations per member. Frontend work is shared between Samantha and Jia Yin; actual capacity is reviewed at kickoff, and optional scope is reduced if necessary. Independent verification runs in all three weeks rather than arriving at the end: Ikhlas agrees acceptance cases in week one, regression-tests the decision loop in week two, and runs the accessibility and no-AI rehearsal in week three.
 
 | Resource | Demo budget and constraint |
 |---|---|
