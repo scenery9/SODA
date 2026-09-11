@@ -378,7 +378,7 @@ calendar still lands on a working Home.
 <td>Ticks the moves they accept, taps <b>Apply 2 changes</b>.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/ov2-changes-applied.png" alt="Changes applied screen" width="170"><br><b>Changes applied</b></td>
+<td align="center"><img src="images/ov2-changes-applied.png" alt="Changes applied, a confirmation card over the Smart Rebalance screen it came from." width="170"><br><b>Changes applied</b></td>
 <td>Confirms what changed: Presentation prep → Saturday (−15%), Revision delayed to Sunday (−8%), Friday 112% → 89%.</td>
 <td>Taps <b>Back to my week</b>, or <b>Undo everything</b>.</td>
 </tr>
@@ -424,7 +424,7 @@ its own Home and Forecast, both still showing Friday over the limit.
 <td>Taps <b>Apply 2 changes</b>, or sends the swap request.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/ov2w-changes-applied-wednesday.png" alt="Changes applied screen" width="170"><br><b>Changes applied</b></td>
+<td align="center"><img src="images/ov2w-changes-applied-wednesday.png" alt="Changes applied for Wednesday, a confirmation card over the Smart Rebalance screen it came from." width="170"><br><b>Changes applied</b></td>
 <td>Assignment Work → Saturday (−18%), Club Meeting → Sunday (−6%), Wednesday 104% → 80%.</td>
 <td>Taps <b>Back to my week</b>.</td>
 </tr>
