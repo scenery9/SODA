@@ -513,9 +513,9 @@ the weighted average of all five axes`. The visible explanation introduces
 the task weights and assumptions; the versioned formula and reproducible
 worked example are set out in full under [How the estimate works](#how-the-estimate-works).
 
-| Insights | Body Signals | How SODA Calculates |
-|---|---|---|
-| <img src="images/i1-insights.png" alt="Insights, Patterns tab. The capacity trend across the semester with pattern cards that reuse the Mental, Time and Physical colours from Recovery Island." width="180"> | <img src="images/i2-body-signals.png" alt="Insights, Body Signals tab. An optional Mi Band 8 connected through Health Connect supplies seven nights of sleep against the student's own normal, with the line “3 nights below your normal sleep”, and a weekly stress chart marked Elevated today. The screen states “Compared to your own normal. No diagnosis, no medical scores. SODA works with no devices at all.”" width="180"> | <img src="images/i5-how-soda-calculates.png" alt="How SODA Calculates. Cards explain the five parts of you, that the same numbers in always give the same answer out, the weekly rest target of about 5h 15m, that AI only handles the words while warnings and suggestions come from fixed rules, that a watch is optional, and that data is never sold." width="180"> |
+| Insights | Body Signals | How SODA Calculates | The maths |
+|---|---|---|---|
+| <img src="images/i1-insights.png" alt="Insights, Patterns tab. The capacity trend across the semester with pattern cards that reuse the Mental, Time and Physical colours from Recovery Island." width="180"> | <img src="images/i2-body-signals.png" alt="Insights, Body Signals tab. An optional Mi Band 8 connected through Health Connect supplies seven nights of sleep against the student's own normal, with the line “3 nights below your normal sleep”, and a weekly stress chart marked Elevated today. The screen states “Compared to your own normal. No diagnosis, no medical scores. SODA works with no devices at all.”" width="180"> | <img src="images/i5-how-soda-calculates.png" alt="How SODA Calculates. Cards explain the five parts of you, that the same numbers in always give the same answer out, the weekly rest target of about 5h 15m, that AI only handles the words while warnings and suggestions come from fixed rules, that a watch is optional, and that data is never sold." width="180"> | <img src="images/i6-the-maths.png" alt="The maths, the in-app explainer. It is labelled “Illustrative prototype model. Assumptions remain editable.” and lists the five effort multipliers, 0.6, 1.0, 1.4, 1.7 and 2.0, a simplified single weight per axis, and a worked Wednesday example." width="180"> |
 
 ---
 
@@ -742,6 +742,8 @@ day estimate               100 x ( 0.6 x max(U) + 0.4 x sum(lambda x U) )
 The `max` term lets one saturated axis dominate a day, because a student whose mental load is at 118%
 is not fine merely because their physical load is low. It does **not** guarantee the blended figure
 passes 90%, so any axis reaching 100% raises its own warning rather than hiding behind the total.
+
+**What the app shows a student.** The in-app explainer, *How SODA Calculates* and *The maths*, presents a deliberately reduced view of this: one weight per axis instead of a weight vector per category, because a student asking why Wednesday is heavy does not need the full matrix on a phone screen. The effort multipliers, the bands and the ceiling are identical in both. The specification above is what the engine implements, and the screen says so by calling itself an illustrative model with editable assumptions.
 
 **Worked example you can check on paper.** Baseline Moderate, focus budget 5 hours, so
 `C = (2, 2, 1.25, 1.25, 1)`. A three-hour high-effort Academic task contributes
