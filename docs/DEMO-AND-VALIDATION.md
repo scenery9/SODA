@@ -85,23 +85,35 @@ Rehearse and adjust pacing to the actual recording. Use the final Section 3 scre
 
 “Smart Rebalance supports this experience. It checks the destination as well as the busy day. Aina approves the changes herself. If nothing fits, SODA explains why and leaves the choice with her. The useful outcome is a feasible plan she understands, not simply a lower-looking number.”
 
-### 2:15–2:55 | Recovery Island
+### 2:15–2:50 | Recovery Island
 
 **Show:** Action choice, protected interval and simulated completion.
 
 “The third experience is Recovery Island. Aina chooses a manageable action for her protected recovery time, rather than receiving a general reminder to rest. Completing an action creates a recovery record. Recovery Debt supports this by keeping the difference between planned and logged recovery visible across weeks. A missing log does not prove someone failed to rest. Optional feedback later helps Aina reconsider future estimates.”
 
-### 2:55–3:45 | Why this is feasible
+### 2:50–3:20 | Tech stack
 
-**Show:** Architecture and three-week plan.
+**Show:** Figure 5.2, the architecture and data flow.
 
-“This submission is a prototype and specification. The planned implementation uses Flutter, FastAPI and Supabase. Python calculates the estimates from confirmed inputs; the core journey does not depend on a language model. Week one establishes task entry and the load view. Week two connects preview, approved adjustments and recovery logging. Week three focuses on integration, accessibility checks and demonstration readiness. Optional integrations are cut before these three experiences. Our small-demo hosting allowance is five to ten US dollars per month, subject to actual usage.”
+“This submission is a prototype and a specification. The planned build is Flutter on Android and web, FastAPI for every request, and Supabase for authentication and user data. One deterministic Python engine produces capacity, Impact Preview, Life Forecast and Recovery Debt. It makes no network calls, so the same inputs always return the same number. A language model only puts results into words. It never decides your schedule.”
 
-### 3:45–4:30 | Difference, impact and close
+### 3:20–3:50 | Build plan
 
-**Show:** Original/revised case and the three main experiences.
+**Show:** Figure 5.3, the three-week build plan. Reveal the full figure, then bring up the three gate
+bars together, then each week column with its gate in turn, then the cut-order strip.
 
-“Calendars and scheduling tools already help organise time, and self-care tools support reflection. SODA connects a five-axis view to the next commitment and the recovery that follows. In this example, Aina can explain what she changed and what she preserved. That is the behaviour we intend to test with target students. We have not yet established usability or health outcomes. Our focus is simple: understand what you are carrying, decide before adding more, and give recovery a place in the plan. SODA: carry life, not overload.”
+“Three weeks, a hundred and twenty team hours, four people with one job each. Every week ends on a gate we can demonstrate. Week one proves the data is isolated. Week two closes the decision loop: preview, approve, undo. Week three rehearses it with the AI switched off. The cut order is decided in advance. The three core experiences are the last things to go.”
+
+Sixty-seven words, about 135 words per minute. The pacing is deliberately unhurried so each highlight
+lands. If the segment has to reach 25 seconds, drop “Week one proves the data is isolated”; account
+isolation is covered in the README's data handling section. If it can run to 35 seconds, add
+“Hosting for a small demo costs five to ten US dollars a month, subject to actual usage.”
+
+### 3:50–4:30 | Impact and close
+
+**Show:** The original and revised week side by side, then the three main experiences, then the end card.
+
+“Aina did not get a lower number. She got a plan she can explain: what moved, what stayed, and why recovery survived. That is the behaviour we want to test with students, and we have not proved it yet. No usability results, no health outcomes, and no claim to detect or prevent burnout. What we can say is that the estimate is arithmetic a student can check on paper, and the decision stays with her. Understand what you are carrying. Decide before adding more. Give recovery a place in the plan. SODA: carry life, not overload.”
 
 ## Short formative usability session
 
