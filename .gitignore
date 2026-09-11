@@ -7,3 +7,8 @@ tmp/
 # Working notes between assistants, not part of the submission
 COWORK-STATUS.md
 SUBMISSION-BRIEF.md
+
+# Video working files. The presentation lives on YouTube, not in the repo.
+Claude outputs/
+*.mp4
+*.mov

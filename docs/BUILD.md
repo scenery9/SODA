@@ -19,9 +19,9 @@ Daily Check-in, Reality Check Lite, richer forecasts, guided timers and Insights
 ```
 soda/
 ├── README.md                    ← submission overview
-├── assets/                      ← figures referenced above
-│   └── ideation/
-├── design-previews/             ← storyboard exports
+├── assets/                      ← numbered figures (problem tree, mindmaps, architecture)
+├── images/                      ← prototype screen exports
+├── docs/                        ← this file, plus the model, evidence and demo notes
 ├── app/                         ← Flutter (Android + web)
 │   ├── lib/
 │   │   ├── main.dart

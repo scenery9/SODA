@@ -24,7 +24,7 @@ Research informs this direction. A study analysing **209 open-text responses** f
 > **Our design question:** How might we help students see their combined workload and adjust it while they still have options?
 
 <p align="center">
-  <img src="assets/ideation/figure-1-1-problem-tree.png" alt="Figure 1.1: Six contributing causes converge on difficulty judging total demand: fragmented commitments, unrecorded life demands, optimistic estimates, accepting without preview, leftover recovery time and hidden recovery shortfalls." width="880">
+  <img src="assets/figure-1-1-problem-tree.png" alt="Figure 1.1: Six contributing causes converge on difficulty judging total demand: fragmented commitments, unrecorded life demands, optimistic estimates, accepting without preview, leftover recovery time and hidden recovery shortfalls." width="880">
 </p>
 
 *Figure 1.1: The problem tree connects six contributing causes to the shared visibility problem and its possible consequences. It is a design hypothesis about accumulation, not a diagnostic model.*
@@ -132,7 +132,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 #### Figure 1.2a: Users and needs
 
 <p align="center">
-  <img src="assets/ideation/figure-1-2a-users-needs.png" alt="Figure 1.2a: Working, over-committed, final-year and quiet-grinder situations share five load dimensions and needs to see demand, preview commitments, adjust plans, log recovery and revise estimates." width="880">
+  <img src="assets/figure-1-2a-users-needs.png" alt="Figure 1.2a: Working, over-committed, final-year and quiet-grinder situations share five load dimensions and needs to see demand, preview commitments, adjust plans, log recovery and revise estimates." width="880">
 </p>
 
 *Different student situations converge on shared planning needs. This led to one personal model with editable inputs, rather than separate modes for each type of student.*
@@ -140,7 +140,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 #### Figure 1.2b: Concepts and selection
 
 <p align="center">
-  <img src="assets/ideation/figure-1-2b-concepts-explored.png" alt="Figure 1.2b: Streak contributes a companion without penalties; Sync remains a future group-visibility option; Echo contributes short check-ins; Backpack becomes the capacity and preview core." width="880">
+  <img src="assets/figure-1-2b-concepts-explored.png" alt="Figure 1.2b: Streak contributes a companion without penalties; Sync remains a future group-visibility option; Echo contributes short check-ins; Backpack becomes the capacity and preview core." width="880">
 </p>
 
 *The arrows trace what survived each concept and the trade-off behind it. Choosing Backpack preserved useful ideas while keeping the first build focused on the individual student.*
@@ -148,7 +148,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 #### Figure 1.2c: Principles that shaped the features
 
 <p align="center">
-  <img src="assets/ideation/figure-1-2c-features-principles.png" alt="Figure 1.2c: Five complete principle-to-decision-to-feature paths connect low input effort to derived load, no guilt mechanics to recovery logging, correctable assumptions to feedback, deterministic calculations to previews, and approval plus text alternatives to accessible adjustments." width="880">
+  <img src="assets/figure-1-2c-features-principles.png" alt="Figure 1.2c: Five complete principle-to-decision-to-feature paths connect low input effort to derived load, no guilt mechanics to recovery logging, correctable assumptions to feedback, deterministic calculations to previews, and approval plus text alternatives to accessible adjustments." width="880">
 </p>
 
 *Each connected row shows a principle changing a concrete design decision. The board includes both main and supporting functions; it is not a list of five main features. Privacy, accessibility and student control apply throughout.*
@@ -156,7 +156,7 @@ The problem tree above explains **why** overload can accumulate. The three board
 #### Figure 1.3: From the chosen idea to a usable flow
 
 <p align="center">
-  <img src="assets/ideation/figure-1-3-core-user-flow-final.png" alt="Figure 1.3: Capture, calculate, preview, choose, confirm, recover and reflect. Only approved changes are saved; confirmed estimate corrections feed future calculations. An infeasible adjustment leaves the student in control." width="880">
+  <img src="assets/figure-1-3-core-user-flow-final.png" alt="Figure 1.3: Capture, calculate, preview, choose, confirm, recover and reflect. Only approved changes are saved; confirmed estimate corrections feed future calculations. An infeasible adjustment leaves the student in control." width="880">
 </p>
 
 *The student can accept, adjust, defer or decline. Confirmation saves only the chosen changes; optional feedback improves the next estimate without silently rewriting the plan.*
