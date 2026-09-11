@@ -353,8 +353,8 @@ calendar still lands on a working Home.
 <td>Types a sentence, taps the example, or opens the form.</td>
 </tr>
 <tr>
-<td align="center"><img src="images/a-add-manual.png" alt="Add · manual screen" width="170"><br><b>Add · manual</b></td>
-<td>Title, date, time, duration, effort and priority. SODA's duration estimate is applied with a visible <b>Undo</b>.</td>
+<td align="center"><img src="images/a-add-manual.png" alt="Add, manual entry. Title, date, start time and duration, then three separate chip rows: effort from Low to Extra High, priority as Low, Medium or High, and category as Academic, Work, Social, Errands or Other." width="170"><br><b>Add · manual</b></td>
+<td>Title, date, time, duration, then three separate choices: effort on five levels, priority on three, and category. SODA's duration estimate is applied with a visible <b>Undo</b>.</td>
 <td>Fills in what they know, sets priority, taps <b>See impact</b>.</td>
 </tr>
 <tr>
