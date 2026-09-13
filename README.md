@@ -3,7 +3,7 @@
 <table>
 <tr><td><b>Team</b></td><td>Samantha Chan Pei Yin, Lee Jia Yin, Yeap Boon Shen, Muhammad Ikhlas bin Mohd Faizal</td></tr>
 <tr><td><b>Problem Statement</b></td><td>Beating the Burnout &nbsp;·&nbsp; Stress &amp; Workload Manager</td></tr>
-<tr><td><b>Video Presentation</b></td><td><i>Unlisted YouTube link, to be added</i></td></tr>
+<tr><td><b>Video Presentation</b></td><td><a href="https://youtu.be/nIBQJVISK00">Click to access our video on YouTube</a></td></tr>
 <tr><td><b>Presentation Slides</b></td><td><a href="./docs/slide.pdf">View the slide deck</a></td></tr>
 <tr><td><b>Figma Prototype</b></td><td><a href="https://www.figma.com/proto/izVJIUjNyiSDu0ivUEOtw5/SODA-Stress-Workload-Manager?page-id=358%3A2225&amp;node-id=189-1183&amp;starting-point-node-id=189%3A1183&amp;scaling=scale-down">Open the interactive prototype</a> · 84 screens, every one mirrored in dark mode, 168 in total, wired end to end</td></tr>
 </table>
